@@ -138,7 +138,7 @@ social_icons:
 # Sidebar Avatar
 # in theme directory(source/images): /images/avatar.jpg
 # in site  directory(source/uploads): /uploads/avatar.jpg
-avatar: https://www.gravatar.com/avatar/95d9a40e9ada94820e443e4f3e52f304?s=100
+avatar: /images/avatar.jpeg
 
 
 # Table Of Contents in the Sidebar

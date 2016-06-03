@@ -1,0 +1,606 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/blogs/richardyu/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/blogs/richardyu/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/blogs/richardyu/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Shell,CentOS,Solr,Jetty," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/blogs/richardyu/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="在生产服务器上部署Solr时，曾想过应该使用哪种容器运行Solr，使用Resin, Jetty还是Tomcat,后来看了一些评测说性能上Jetty也不是很差，就决定还是用Jetty，而且Jetty是默认就自带的方式，一条命令就能在测试环境启动起来。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CentOS设置Solr自动启动">
+<meta property="og:url" content="http://team.zinchchina.com/2014/03/03/2014-2014-03-03-setup-solr-auto-start-on-centos/index.html">
+<meta property="og:site_name" content="理查的学习笔记">
+<meta property="og:description" content="在生产服务器上部署Solr时，曾想过应该使用哪种容器运行Solr，使用Resin, Jetty还是Tomcat,后来看了一些评测说性能上Jetty也不是很差，就决定还是用Jetty，而且Jetty是默认就自带的方式，一条命令就能在测试环境启动起来。">
+<meta property="og:updated_time" content="2016-06-03T11:24:30.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CentOS设置Solr自动启动">
+<meta name="twitter:description" content="在生产服务器上部署Solr时，曾想过应该使用哪种容器运行Solr，使用Resin, Jetty还是Tomcat,后来看了一些评测说性能上Jetty也不是很差，就决定还是用Jetty，而且Jetty是默认就自带的方式，一条命令就能在测试环境启动起来。">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> CentOS设置Solr自动启动 | 理查的学习笔记 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/blogs/richardyu/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">理查的学习笔记</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/blogs/richardyu/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/blogs/richardyu/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/blogs/richardyu/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/blogs/richardyu/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                CentOS设置Solr自动启动
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2014-03-03T23:47:05+08:00" content="2014-03-03">
+              2014-03-03
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/blogs/richardyu/categories/Ops/" itemprop="url" rel="index">
+                    <span itemprop="name">Ops</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>在生产服务器上部署Solr时，曾想过应该使用哪种容器运行Solr，使用Resin, Jetty还是Tomcat,后来看了一些评测说性能上Jetty也不是很差，就决定还是用Jetty，而且Jetty是默认就自带的方式，一条命令就能在测试环境启动起来。</p>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -jar start</span><br></pre></td></tr></table></figure>
+<p>在生产服务器上，考虑到希望可以随机启动，所以决定将脚本改写成可以随机自动启动的service形式。Google了一下，发现不同的人的实现都不一样，官方也提供了一种，不过需要依赖于start-stop-daemon这个程序，安装起来比较麻烦。后来我又找到了一种不依赖任何程序的方式。如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line"># description: Starts and stops Solr production</span><br><span class="line"></span><br><span class="line">set -e</span><br><span class="line">PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin</span><br><span class="line"></span><br><span class="line">SOLR_DIR=/data/solr/ #SOLR DIR</span><br><span class="line">JAVA_OPTIONS=&quot;-Dsolr.solr.home=/data/solr/multicore -Djava.util.logging.config.file=logging.properties -server -DSTOP.PORT=8079 -DSTOP.KEY=stopkey -Xmx256M -Xms128M -jar start.jar&quot;</span><br><span class="line">JAVA=&quot;/usr/bin/java&quot;</span><br><span class="line">LOG_FILE=&quot;/data/solr/logs/solr.log&quot;</span><br><span class="line"></span><br><span class="line">case $1 in</span><br><span class="line">  start)</span><br><span class="line">    echo &quot;Starting Solr&quot;</span><br><span class="line">    cd $SOLR_DIR</span><br><span class="line">  nohup $JAVA $JAVA_OPTIONS 2&gt; $LOG_FILE &amp;</span><br><span class="line">    echo &quot;ok - remember it may take a minute or two before Solr responds on requests&quot;</span><br><span class="line">  ;;</span><br><span class="line">  stop)</span><br><span class="line">    echo &quot;Stopping Solr&quot;</span><br><span class="line">    cd $SOLR_DIR</span><br><span class="line">    $JAVA $JAVA_OPTIONS --stop</span><br><span class="line">    echo &quot;ok&quot;</span><br><span class="line">  ;;</span><br><span class="line">  restart)</span><br><span class="line">    $0 stop</span><br><span class="line">    sleep 3</span><br><span class="line">    $0 start</span><br><span class="line">  ;;</span><br><span class="line"> *)</span><br><span class="line">    echo &quot;Usage: $0 &#123;start|stop|restart&#125;&quot; &gt;&amp;2exit 1</span><br><span class="line">  ;;</span><br><span class="line">esac</span><br></pre></td></tr></table></figure>
+<p>这种方式可以运行，也可以直接用，但我又找了另外一种，也是可以使用的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/sh</span><br><span class="line"></span><br><span class="line"># Prerequisites:</span><br><span class="line"># 1. Check SOLR_DIR value is correct</span><br><span class="line"># 2. daemon needs to be installed</span><br><span class="line"># 3. Script needs to be executed by root</span><br><span class="line"></span><br><span class="line"># This script will launch Solr in a mode that will automatically respawn if it</span><br><span class="line"># crashes. Output will be sent to $LOG. A pid file will be</span><br><span class="line"># created in the standard location.</span><br><span class="line"></span><br><span class="line"># chkconfig: 2345 64 36</span><br><span class="line"></span><br><span class="line">NAME=solr</span><br><span class="line">SOLR_DIR=/data/solr</span><br><span class="line">COMMAND=&quot;java -Dsolr.solr.home=/data/solr/multicore -jar start.jar&quot;</span><br><span class="line">LOG=/var/log/solr/solr.log</span><br><span class="line"></span><br><span class="line">start () &#123;</span><br><span class="line">    echo -n &quot;Starting solr...&quot;</span><br><span class="line"></span><br><span class="line">    # start daemon</span><br><span class="line">    daemon --chdir=$SOLR_DIR --command &quot;$COMMAND&quot; --respawn --output=$LOG --name=$NAME --verbose</span><br><span class="line"></span><br><span class="line">    RETVAL=$?</span><br><span class="line">    if [ $RETVAL = 0 ]</span><br><span class="line">    then</span><br><span class="line">        echo &quot;done.&quot;</span><br><span class="line">    else</span><br><span class="line">        echo &quot;failed. See error code for more information.&quot;</span><br><span class="line">    fi</span><br><span class="line">    return $RETVAL</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">stop () &#123;</span><br><span class="line">    # stop daemon</span><br><span class="line">    echo -n &quot;Stopping $NAME...&quot;</span><br><span class="line"></span><br><span class="line">    daemon --stop --name=$NAME  --verbose</span><br><span class="line">    RETVAL=$?</span><br><span class="line"></span><br><span class="line">    if [ $RETVAL = 0 ]</span><br><span class="line">    then</span><br><span class="line">        echo &quot;done.&quot;</span><br><span class="line">    else</span><br><span class="line">        echo &quot;failed. See error code for more information.&quot;</span><br><span class="line">    fi</span><br><span class="line">    return $RETVAL</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">restart () &#123;</span><br><span class="line">    daemon --restart --name=$NAME  --verbose</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">status () &#123;</span><br><span class="line">    # report on the status of the daemon</span><br><span class="line">    daemon --running --verbose --name=$NAME</span><br><span class="line">    return $?</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">case &quot;$1&quot; in</span><br><span class="line">    start)</span><br><span class="line">        start</span><br><span class="line">    ;;</span><br><span class="line">    status)</span><br><span class="line">        status</span><br><span class="line">    ;;</span><br><span class="line">    stop)</span><br><span class="line">        stop</span><br><span class="line">    ;;</span><br><span class="line">    restart)</span><br><span class="line">        restart</span><br><span class="line">    ;;</span><br><span class="line">    *)</span><br><span class="line">        echo $&quot;Usage: $NAME &#123;start|status|stop|restart&#125;&quot;</span><br><span class="line">        exit 3</span><br><span class="line">    ;; esac</span><br><span class="line"></span><br><span class="line">exit $RETVAL</span><br></pre></td></tr></table></figure>
+<p>相比较而言，我更喜欢第二种，不过第二种需要依赖一个叫做<a href="http://libslack.org/daemon" target="_blank" rel="external">daemon</a>的处理守护进程的程序，需要按照以下方式安装。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -i http://libslack.org/daemon/download/daemon-0.6.4-1.x86_64.rpm</span><br></pre></td></tr></table></figure>
+<p>这个脚本我一次就成功了，而且比较好用，可以查看状态。</p>
+<p>其实Solr官网提供的应该也是可以运行的，不过由于其依赖的start-stop-daemon是debian的程序，弄起来不是很方便，就放弃了，最后，我决定使用的就是本文的第二种方式。</p>
+<p>最后设置自动启动的方式很简单</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chkconfig --add solr</span><br><span class="line">chkconfig solr on</span><br></pre></td></tr></table></figure>
+<p>另外，大家在使用这个脚本时需要注意换成你的Solr安装目录。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/blogs/richardyu/tags/Shell/" rel="tag">#Shell</a>
+          
+            <a href="/blogs/richardyu/tags/CentOS/" rel="tag">#CentOS</a>
+          
+            <a href="/blogs/richardyu/tags/Solr/" rel="tag">#Solr</a>
+          
+            <a href="/blogs/richardyu/tags/Jetty/" rel="tag">#Jetty</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blogs/richardyu/2014/03/03/2014-2014-03-03-install-start-stop-daemon-on-centos/" rel="next" title="给CentOS安装start-stop-daemon">
+                <i class="fa fa-chevron-left"></i> 给CentOS安装start-stop-daemon
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/blogs/richardyu/2014/03/06/2014-2014-03-06-how-get-the-end-day-of-last-month-using-date-on-shell/" rel="prev" title="date命令获得上月的最后一天">
+                date命令获得上月的最后一天 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/blogs/richardyu/images/avatar.jpeg"
+               alt="Richard Yu" />
+          <p class="site-author-name" itemprop="name">Richard Yu</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/blogs/richardyu/archives">
+              <span class="site-state-item-count">16</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/blogs/richardyu/categories">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/blogs/richardyu/tags">
+                <span class="site-state-item-count">33</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Richard Yu</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/blogs/richardyu/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/blogs/richardyu/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/blogs/richardyu/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/blogs/richardyu/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/blogs/richardyu/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/blogs/richardyu/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/blogs/richardyu/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/blogs/richardyu/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/blogs/richardyu/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/blogs/richardyu/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/blogs/richardyu/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
