@@ -4,7 +4,7 @@ title: "MacOS MAMP怎样添加扩展"
 date: 2014-02-24 00:52:12 +0800
 comments: true
 categories:
-- Dev
+- Ops
 tags:
 - MAMP
 - 编译扩展

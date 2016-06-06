@@ -4,7 +4,7 @@ title: "使用PEAR为MAMP环境安装Drush"
 date: 2014-01-03 00:17:07 +0800
 comments: true
 categories:
-- Dev
+- Ops
 tags:
 - Drupal
 - Drush

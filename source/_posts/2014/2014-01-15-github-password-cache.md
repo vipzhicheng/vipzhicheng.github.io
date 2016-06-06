@@ -4,7 +4,7 @@ title: "Github密码缓存"
 date: 2014-01-15 02:40:05 +0800
 comments: true
 categories:
-- Dev
+- Ops
 tags:
 - Git
 - Github

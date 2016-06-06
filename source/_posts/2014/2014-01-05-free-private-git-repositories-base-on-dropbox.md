@@ -4,7 +4,7 @@ title: "基于Dropbox的免费Git项目托管"
 date: 2014-01-05 21:21:44 +0800
 comments: true
 categories:
-- Dev
+- Ops
 tags:
 - Git
 - Dropbox

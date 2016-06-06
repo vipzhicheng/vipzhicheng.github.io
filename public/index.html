@@ -29,7 +29,7 @@
 
   
   
-  <link href="/blogs/richardyu/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
@@ -63,9 +63,9 @@
 
 
 
-<link href="/blogs/richardyu/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
 
-<link href="/blogs/richardyu/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="Hexo, NexT" />
@@ -77,7 +77,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/blogs/richardyu/favicon.ico?v=5.0.1" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
 
 
 
@@ -87,7 +87,7 @@
 <meta name="description">
 <meta property="og:type" content="website">
 <meta property="og:title" content="理查的学习笔记">
-<meta property="og:url" content="http://team.zinchchina.com/index.html">
+<meta property="og:url" content="http://www.vipzhicheng.com/index.html">
 <meta property="og:site_name" content="理查的学习笔记">
 <meta property="og:description">
 <meta name="twitter:card" content="summary">
@@ -141,7 +141,7 @@
   
 
   <div class="custom-logo-site-title">
-    <a href="/blogs/richardyu/"  class="brand" rel="start">
+    <a href="/"  class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
       <span class="site-title">理查的学习笔记</span>
       <span class="logo-line-after"><i></i></span>
@@ -166,7 +166,7 @@
       
         
         <li class="menu-item menu-item-home">
-          <a href="/blogs/richardyu/" rel="section">
+          <a href="/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
@@ -176,7 +176,7 @@
       
         
         <li class="menu-item menu-item-categories">
-          <a href="/blogs/richardyu/categories" rel="section">
+          <a href="/categories" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
             
@@ -186,7 +186,7 @@
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/blogs/richardyu/archives" rel="section">
+          <a href="/archives" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
@@ -196,7 +196,7 @@
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/blogs/richardyu/tags" rel="section">
+          <a href="/tags" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
@@ -243,7 +243,7 @@
             
               
                 
-                <a class="post-title-link" href="/blogs/richardyu/2016/06/02/2016-2016-06-02-Git创建分支并推送到远程分支/" itemprop="url">
+                <a class="post-title-link" href="/2016/06/02/Git创建分支并推送到远程分支/" itemprop="url">
                   Git创建分支并推送到远程分支
                 </a>
               
@@ -271,8 +271,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/blogs/richardyu/categories/Dev/" itemprop="url" rel="index">
-                    <span itemprop="name">Dev</span>
+                  <a href="/categories/Ops/" itemprop="url" rel="index">
+                    <span itemprop="name">Ops</span>
                   </a>
                 </span>
 
@@ -363,8 +363,8 @@
             
               
                 
-                <a class="post-title-link" href="/blogs/richardyu/2014/03/10/2014-2014-03-10-introduce-shell-command-go/" itemprop="url">
-                  向大家推荐一个Shell脚本：Go
+                <a class="post-title-link" href="/2014/08/22/add-ssh-key-to-github/" itemprop="url">
+                  为Github添加SSH KEY
                 </a>
               
             
@@ -377,8 +377,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2014-03-10T23:15:25+08:00" content="2014-03-10">
-              2014-03-10
+            <time itemprop="dateCreated" datetime="2014-08-22T16:19:43+08:00" content="2014-08-22">
+              2014-08-22
             </time>
           </span>
 
@@ -391,7 +391,7 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/blogs/richardyu/categories/Ops/" itemprop="url" rel="index">
+                  <a href="/categories/Ops/" itemprop="url" rel="index">
                     <span itemprop="name">Ops</span>
                   </a>
                 </span>
@@ -425,10 +425,10 @@
 
       
         
-          <p>这个脚本是做什么用的呢， 主要是用来管理大量SSH远程主机的，以前我们的做法要么就是把远程服务器的账户名，密码存成文本文档，每次连服务器都需要去查文档。要么就是编写一个个expect脚本，go-here, go-there的。</p>
-<p>这里给大家推荐的go命令，可以一个命令管理多个远程，而且配置简单</p>
+          <p>如果你使用Github，Bitbucket, 或者国产的Coding.net等，都会在个人设置那里看到设置SSH Key的地方，这个是做什么用的呢，这个是用来让你提交代码通过SSH隧道的方式提交到远程服务器，这种方式有安全，稳定以及无需每次输入认证信息等特点。</p>
+<p>本文只是以Github为例，讲解怎么操作，至于原理和概念，请自行搜索。</p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/blogs/richardyu/2014/03/10/2014-2014-03-10-introduce-shell-command-go/#more" rel="contents">
+            <a class="btn" href="/2014/08/22/add-ssh-key-to-github/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -479,8 +479,8 @@
             
               
                 
-                <a class="post-title-link" href="/blogs/richardyu/2014/03/09/2014-2014-03-09-access-control-for-jenkins/" itemprop="url">
-                  Jenkins的安全防护
+                <a class="post-title-link" href="/2014/05/28/how-to-setup-drupal8-with-clean-centos/" itemprop="url">
+                  在全新的CentOS里安装Drupal8
                 </a>
               
             
@@ -493,8 +493,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2014-03-09T17:50:57+08:00" content="2014-03-09">
-              2014-03-09
+            <time itemprop="dateCreated" datetime="2014-05-28T13:34:53+08:00" content="2014-05-28">
+              2014-05-28
             </time>
           </span>
 
@@ -507,7 +507,7 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/blogs/richardyu/categories/Ops/" itemprop="url" rel="index">
+                  <a href="/categories/Ops/" itemprop="url" rel="index">
                     <span itemprop="name">Ops</span>
                   </a>
                 </span>
@@ -541,9 +541,10 @@
 
       
         
-          <p>在<a href="http://www.vipzhicheng.com/blog/2014/02/24/yum-install-jenkins-on-centos/">这篇文章</a>中我们我们提到默认Jenkins是不提供任何权限控制的，但通过配置，可以增加用户名密码登陆机制。但更进一步的，我们不希望有人能够扫描到Jenkins的端口，通常默认是8080，所以我的思路是使用Apache的反向代理配置，并且使用HTTP BASIC AUTH机制。</p>
+          <p>本文在全新安装的CentOS6.5里安装Drupal8。</p>
+<p>因为需要PHP5.4，而源里默认只有php5.3.3，所以按照<a href="http://webtatic.com/packages/php54/">这个教程</a>安装了php5.4，然后从源里安装了httpd和mysql-server</p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/blogs/richardyu/2014/03/09/2014-2014-03-09-access-control-for-jenkins/#more" rel="contents">
+            <a class="btn" href="/2014/05/28/how-to-setup-drupal8-with-clean-centos/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -594,8 +595,8 @@
             
               
                 
-                <a class="post-title-link" href="/blogs/richardyu/2014/03/06/2014-2014-03-06-how-get-the-end-day-of-last-month-using-date-on-shell/" itemprop="url">
-                  date命令获得上月的最后一天
+                <a class="post-title-link" href="/2014/05/22/init-ubuntu/" itemprop="url">
+                  初始化Ubuntu
                 </a>
               
             
@@ -608,8 +609,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2014-03-06T12:06:10+08:00" content="2014-03-06">
-              2014-03-06
+            <time itemprop="dateCreated" datetime="2014-05-22T14:22:17+08:00" content="2014-05-22">
+              2014-05-22
             </time>
           </span>
 
@@ -622,7 +623,7 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/blogs/richardyu/categories/Ops/" itemprop="url" rel="index">
+                  <a href="/categories/Ops/" itemprop="url" rel="index">
                     <span itemprop="name">Ops</span>
                   </a>
                 </span>
@@ -656,10 +657,9 @@
 
       
         
-          <p>工作中需要编写一些自动化脚本，有的涉及到定期执行的问题，我需要在Shell中得到上个月的第一天和最后一天，去网上查了一下，有的人给出的答案需要写一大段程序，有的需要使用其他脚本语言来实现，都不是很简练，还有的使用cal命令加awk, xargs等命令复合使用来实现。</p>
-<p>后来终于让我找到了合适的方法，就是使用系统自带的date指令+参数。<br>
+          <p>Ubuntu桌面版应该说已经做的不错了，总有一些需要定制的地方，本文以Ubuntu 14.04为例介绍安装Ubuntu之后要做的设置工作。</p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/blogs/richardyu/2014/03/06/2014-2014-03-06-how-get-the-end-day-of-last-month-using-date-on-shell/#more" rel="contents">
+            <a class="btn" href="/2014/05/22/init-ubuntu/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -710,8 +710,8 @@
             
               
                 
-                <a class="post-title-link" href="/blogs/richardyu/2014/03/03/2014-2014-03-03-setup-solr-auto-start-on-centos/" itemprop="url">
-                  CentOS设置Solr自动启动
+                <a class="post-title-link" href="/2014/05/21/get-distance-by-lat-and-lng/" itemprop="url">
+                  根据经纬度计算之间距离
                 </a>
               
             
@@ -724,8 +724,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2014-03-03T23:47:05+08:00" content="2014-03-03">
-              2014-03-03
+            <time itemprop="dateCreated" datetime="2014-05-21T09:37:19+08:00" content="2014-05-21">
+              2014-05-21
             </time>
           </span>
 
@@ -738,470 +738,7 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/blogs/richardyu/categories/Ops/" itemprop="url" rel="index">
-                    <span itemprop="name">Ops</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>在生产服务器上部署Solr时，曾想过应该使用哪种容器运行Solr，使用Resin, Jetty还是Tomcat,后来看了一些评测说性能上Jetty也不是很差，就决定还是用Jetty，而且Jetty是默认就自带的方式，一条命令就能在测试环境启动起来。</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/blogs/richardyu/2014/03/03/2014-2014-03-03-setup-solr-auto-start-on-centos/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/blogs/richardyu/2014/03/03/2014-2014-03-03-install-start-stop-daemon-on-centos/" itemprop="url">
-                  给CentOS安装start-stop-daemon
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2014-03-03T11:35:29+08:00" content="2014-03-03">
-              2014-03-03
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/blogs/richardyu/categories/Ops/" itemprop="url" rel="index">
-                    <span itemprop="name">Ops</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>start-stop-daemon是一个Debian体系里的一个守护进程管理软件，可以用指定的用户启动系统软件。CentOS有自己的daemon()机制（在/etc/init.d/functions)。但是如果你手上有一个脚本，必须使用start-stop-daemon在CentOS上运行，改写太麻烦，还是选择安装start-stop-daemon来的方便。</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/blogs/richardyu/2014/03/03/2014-2014-03-03-install-start-stop-daemon-on-centos/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/blogs/richardyu/2014/03/03/2014-2014-03-03-yum-install-htop-on-centos/" itemprop="url">
-                  使用yum给CentOS安装htop
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2014-03-03T10:51:30+08:00" content="2014-03-03">
-              2014-03-03
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/blogs/richardyu/categories/Ops/" itemprop="url" rel="index">
-                    <span itemprop="name">Ops</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>我们一般认为htop比top更适合用来监控系统进程，图形化的界面，支持鼠标，可读性较好，并且有许多额外的功能，这里尽介绍怎样通过yum在CentOS上安装，不过源码编译安装也是非常简单的，这里就不再赘述。</p>
-<p>默认CentOS的源里是没有htop的，所以主要就是要找到合适的源，这个对不同的系统版本，以及对32bit,64bit的操作系统来说，需要添加的源是不同的，而且其实有多个第三方源，你只需要记住这种方式，如果这个源失效了，可以找其他的源代替。</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/blogs/richardyu/2014/03/03/2014-2014-03-03-yum-install-htop-on-centos/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/blogs/richardyu/2014/02/24/2014-2014-02-24-yum-install-jenkins-on-centos/" itemprop="url">
-                  CentOS yum安装jenkins笔记
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2014-02-24T01:26:01+08:00" content="2014-02-24">
-              2014-02-24
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/blogs/richardyu/categories/Ops/" itemprop="url" rel="index">
-                    <span itemprop="name">Ops</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>因为工作需要，所以打算在一组服务器上配置Jenkins服务，搜索了一下，找到我操作起来最方便的方案，下面就陈述一下，大部分都是原文作者的功劳。</p>
-<h2 id="添加Jenkins的源"><a href="#添加Jenkins的源" class="headerlink" title="添加Jenkins的源"></a>添加Jenkins的源</h2><p>CentOS默认源里没有Jenkins</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo wget -O /etc/yum.repos.d/jenkins.repo http://jenkins-ci.org/redhat/jenkins.repo</span><br><span class="line">$ sudo rpm --import http://pkg.jenkins-ci.org/redhat/jenkins-ci.org.key</span><br></pre></td></tr></table></figure>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/blogs/richardyu/2014/02/24/2014-2014-02-24-yum-install-jenkins-on-centos/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/blogs/richardyu/2014/02/24/2014-2014-02-24-how-to-add-new-extension-to-mamp/" itemprop="url">
-                  MacOS MAMP怎样添加扩展
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2014-02-24T00:52:12+08:00" content="2014-02-24">
-              2014-02-24
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/blogs/richardyu/categories/Dev/" itemprop="url" rel="index">
+                  <a href="/categories/Dev/" itemprop="url" rel="index">
                     <span itemprop="name">Dev</span>
                   </a>
                 </span>
@@ -1235,9 +772,10 @@
 
       
         
-          <p>在MacOS下开发，最常用的LAMP开发环境架设工具就是MAMP &amp; MAMP PRO了。其使用确实简单，但是一旦你需要一些额外的扩展时，就需要自己想办法编译了，笔者知道给MAMP添加扩展会有不同的方法，但一下介绍的仍然是笔者认为最简单的方法，思路其实来自于Google。<br>
+          <p>网上搜集的两种计算方法，</p>
+<p>PHP版</p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/blogs/richardyu/2014/02/24/2014-2014-02-24-how-to-add-new-extension-to-mamp/#more" rel="contents">
+            <a class="btn" href="/2014/05/21/get-distance-by-lat-and-lng/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1288,8 +826,8 @@
             
               
                 
-                <a class="post-title-link" href="/blogs/richardyu/2014/01/15/2014-2014-01-15-github-password-cache/" itemprop="url">
-                  Github密码缓存
+                <a class="post-title-link" href="/2014/04/21/solve-bitbucket-can-not-access/" itemprop="url">
+                  解决Bitbucket无法访问和push
                 </a>
               
             
@@ -1302,8 +840,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2014-01-15T02:40:05+08:00" content="2014-01-15">
-              2014-01-15
+            <time itemprop="dateCreated" datetime="2014-04-21T00:41:44+08:00" content="2014-04-21">
+              2014-04-21
             </time>
           </span>
 
@@ -1316,8 +854,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/blogs/richardyu/categories/Dev/" itemprop="url" rel="index">
-                    <span itemprop="name">Dev</span>
+                  <a href="/categories/Ops/" itemprop="url" rel="index">
+                    <span itemprop="name">Ops</span>
                   </a>
                 </span>
 
@@ -1350,9 +888,473 @@
 
       
         
-          <p>本文的知识点是关于Git和Github的，但我遇到这个问题是在使用Octopress写博客的过程中，每次写好一个要提交给Github时，总是问我要用户名和密码，所以我就想研究一下，是否可以记住账号密码，还别说真让我找到了，而且是Github网站帮助系统中的一小节，我打算翻译一下，毕竟是新学会了一个知识点。</p>
+          <p>近日的网络不知道又出了什么状况，各种被墙，尤其是Bitbucket不能使用，严重影响了工作的效率和心情，有时候是网页打不开，有时候是不能pull或者push，通过搜索找到了解决方法，记录如下。</p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/blogs/richardyu/2014/01/15/2014-2014-01-15-github-password-cache/#more" rel="contents">
+            <a class="btn" href="/2014/04/21/solve-bitbucket-can-not-access/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2014/04/09/install-redmine-on-centos/" itemprop="url">
+                  最新安装Redmine的方法
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2014-04-09T18:02:45+08:00" content="2014-04-09">
+              2014-04-09
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Ops/" itemprop="url" rel="index">
+                    <span itemprop="name">Ops</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>Redmine官网的安装向导基本上不怎么更新，里面的安装说明比较混乱，看着迷糊，实施起来也会遇到诸多问题，但其实现在最新版的Redmine安装已经非常简单了，当然如果英文比较好的话，按源码包里的安装说明文档也是可以的，本文结合不久前的实施经验记录最新的Redmine安装流程。</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2014/04/09/install-redmine-on-centos/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2014/04/08/how-to-install-ruby-on-rails-on-centos-6-with-rvm/" itemprop="url">
+                  [译]使用RVM安装Ruby on Rails
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2014-04-08T17:25:43+08:00" content="2014-04-08">
+              2014-04-08
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Ops/" itemprop="url" rel="index">
+                    <span itemprop="name">Ops</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>本文译自<a href="https://www.digitalocean.com/community/articles/how-to-install-ruby-on-rails-on-centos-6-with-rvm">How To Install Ruby on Rails on CentOS 6 with RVM</a>,转载请著名原文出处及译文出处。</p>
+<h2 id="关于-Ruby-on-Rails"><a href="#关于-Ruby-on-Rails" class="headerlink" title="关于 Ruby on Rails"></a>关于 Ruby on Rails</h2><p>Ruby on Rails，简称RoR，是一个应用程序集合，提供给开发者一个快速创建Web应用程序的开发框架。</p>
+<p>安装Ruby on Rails环境确实需要一定的时间，不过幸运的是有许多工具可以让安装RoR的流程尽可能的简单。本文基于CentOS6，根据实际安装时的经验对原文步骤略有调整，虽然RVM支持在任意账户下安装，但这里还是以root账户为例，会为以后减少许多不必要的麻烦。<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2014/04/08/how-to-install-ruby-on-rails-on-centos-6-with-rvm/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2014/04/08/fix-jenkins-broken-css-and-images/" itemprop="url">
+                  解决Jenkins长时间运行后样式丢失
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2014-04-08T12:03:54+08:00" content="2014-04-08">
+              2014-04-08
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Ops/" itemprop="url" rel="index">
+                    <span itemprop="name">Ops</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>这个问题具有一定的普遍性，在百度和Google都能搜到，本文以CentOS 6.3为例进行记录。Jenkins是通过yum方式安装。</p>
+<p>原因是系统自动清理/tmp目录（参考：/etc/cron.daily/tmpwatch），但Jenkins默认把图片和样式资源解压缩到/tmp下。为了解决这个问题，我们需要重新设置Jenkins的tmp目录。</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2014/04/08/fix-jenkins-broken-css-and-images/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2014/04/03/install-svn-on-centos/" itemprop="url">
+                  CentOS用yum安装SVN
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2014-04-03T22:00:03+08:00" content="2014-04-03">
+              2014-04-03
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Ops/" itemprop="url" rel="index">
+                    <span itemprop="name">Ops</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>源代码管理目前的市场上Git主键主流，SVN也仍然有大把的人用，其他也有一些新的或者小众的版本管理软件。对我来说，我选择SVN和Git，一个集中式管理，一个分布式管理，虽然Git强大到可以替代SVN，但有时也没有必要，对我来说部署一个简单的集中式版本控制系统，还是SVN要简单一些。</p>
+<p>本文以CentOS 6.3为例阐述了如何用yum的方式安装和部署SVN。</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2014/04/03/install-svn-on-centos/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1386,7 +1388,7 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/blogs/richardyu/page/2/">2</a><a class="extend next" rel="next" href="/blogs/richardyu/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1419,22 +1421,22 @@
       <section class="site-overview sidebar-panel  sidebar-panel-active ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
-               src="/blogs/richardyu/images/avatar.jpeg"
+               src="/images/avatar.jpeg"
                alt="Richard Yu" />
           <p class="site-author-name" itemprop="name">Richard Yu</p>
           <p class="site-description motion-element" itemprop="description"></p>
         </div>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
-            <a href="/blogs/richardyu/archives">
-              <span class="site-state-item-count">16</span>
+            <a href="/archives">
+              <span class="site-state-item-count">26</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           
             <div class="site-state-item site-state-categories">
-              <a href="/blogs/richardyu/categories">
+              <a href="/categories">
                 <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">分类</span>
               </a>
@@ -1443,8 +1445,8 @@
 
           
             <div class="site-state-item site-state-tags">
-              <a href="/blogs/richardyu/tags">
-                <span class="site-state-item-count">33</span>
+              <a href="/tags">
+                <span class="site-state-item-count">51</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1531,42 +1533,42 @@
 
 
   
-  <script type="text/javascript" src="/blogs/richardyu/vendors/jquery/index.js?v=2.1.3"></script>
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
 
   
-  <script type="text/javascript" src="/blogs/richardyu/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
   
-  <script type="text/javascript" src="/blogs/richardyu/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
   
-  <script type="text/javascript" src="/blogs/richardyu/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/blogs/richardyu/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/blogs/richardyu/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
-
-  
-
-
-  <script type="text/javascript" src="/blogs/richardyu/js/src/utils.js?v=5.0.1"></script>
-
-  <script type="text/javascript" src="/blogs/richardyu/js/src/motion.js?v=5.0.1"></script>
-
-
-
-  
-  
-
-  
 
   
 
 
-  <script type="text/javascript" src="/blogs/richardyu/js/src/bootstrap.js?v=5.0.1"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
 
 
 
