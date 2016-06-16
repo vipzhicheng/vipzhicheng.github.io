@@ -68,7 +68,7 @@
 <link href="/blogs/richardyu/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Shell,脚本,日期," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -84,19 +84,15 @@
 
 
 
-<meta name="description" content="工作中需要编写一些自动化脚本，有的涉及到定期执行的问题，我需要在Shell中得到上个月的第一天和最后一天，去网上查了一下，有的人给出的答案需要写一大段程序，有的需要使用其他脚本语言来实现，都不是很简练，还有的使用cal命令加awk, xargs等命令复合使用来实现。
-后来终于让我找到了合适的方法，就是使用系统自带的date指令+参数。">
-<meta property="og:type" content="article">
-<meta property="og:title" content="date命令获得上月的最后一天">
-<meta property="og:url" content="http://team.zinchchina.com/2014/03/06/2014-2014-03-06-how-get-the-end-day-of-last-month-using-date-on-shell/index.html">
+<meta name="description">
+<meta property="og:type" content="website">
+<meta property="og:title" content="理查的学习笔记">
+<meta property="og:url" content="http://www.vipzhicheng.com/tags/性能优化/index.html">
 <meta property="og:site_name" content="理查的学习笔记">
-<meta property="og:description" content="工作中需要编写一些自动化脚本，有的涉及到定期执行的问题，我需要在Shell中得到上个月的第一天和最后一天，去网上查了一下，有的人给出的答案需要写一大段程序，有的需要使用其他脚本语言来实现，都不是很简练，还有的使用cal命令加awk, xargs等命令复合使用来实现。
-后来终于让我找到了合适的方法，就是使用系统自带的date指令+参数。">
-<meta property="og:updated_time" content="2016-06-03T11:24:54.000Z">
+<meta property="og:description">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="date命令获得上月的最后一天">
-<meta name="twitter:description" content="工作中需要编写一些自动化脚本，有的涉及到定期执行的问题，我需要在Shell中得到上个月的第一天和最后一天，去网上查了一下，有的人给出的答案需要写一大段程序，有的需要使用其他脚本语言来实现，都不是很简练，还有的使用cal命令加awk, xargs等命令复合使用来实现。
-后来终于让我找到了合适的方法，就是使用系统自带的date指令+参数。">
+<meta name="twitter:title" content="理查的学习笔记">
+<meta name="twitter:description">
 
 
 
@@ -114,7 +110,7 @@
   };
 </script>
 
-  <title> date命令获得上月的最后一天 | 理查的学习笔记 </title>
+  <title> 标签: 性能优化 | 理查的学习笔记 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -135,7 +131,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left page-post-detail ">
+  <div class="container one-collumn sidebar-position-left  ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -223,150 +219,46 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                date命令获得上月的最后一天
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2014-03-06T12:06:10+08:00" content="2014-03-06">
-              2014-03-06
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/blogs/richardyu/categories/Ops/" itemprop="url" rel="index">
-                    <span itemprop="name">Ops</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <p>工作中需要编写一些自动化脚本，有的涉及到定期执行的问题，我需要在Shell中得到上个月的第一天和最后一天，去网上查了一下，有的人给出的答案需要写一大段程序，有的需要使用其他脚本语言来实现，都不是很简练，还有的使用cal命令加awk, xargs等命令复合使用来实现。</p>
-<p>后来终于让我找到了合适的方法，就是使用系统自带的date指令+参数。<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">start_date=`date +&quot;%Y-%m-01&quot; --date=&quot;last month&quot;`</span><br><span class="line">end_date=`date -d &quot;$(date +&apos;%Y-%m-01&apos;) - 1 day&quot; +&quot;%Y-%m-%d&quot;`</span><br></pre></td></tr></table></figure></p>
-<p>其他实现方式就不在这里记录了，网上很容易找到。</p>
-
-      
+  <div id="posts" class="posts-collapse">
+    <div class="collection-title">
+      <h2 >
+        性能优化
+        <small>标签</small>
+      </h2>
     </div>
 
-    <div>
+    
       
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h1 class="post-title">
         
-      
-    </div>
-
-    <div>
-      
+            <a class="post-title-link" href="/blogs/richardyu/2016/06/15/让New-Relic排除不需要统计的PHP请求/" itemprop="url">
+              
+                <span itemprop="name">让New Relic排除不需要统计的PHP请求</span>
+              
+            </a>
         
+      </h1>
 
-      
-    </div>
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2016-06-15T17:36:59+08:00"
+              content="2016-06-15" >
+          06-15
+        </time>
+      </div>
 
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/blogs/richardyu/tags/Shell/" rel="tag">#Shell</a>
-          
-            <a href="/blogs/richardyu/tags/脚本/" rel="tag">#脚本</a>
-          
-            <a href="/blogs/richardyu/tags/日期/" rel="tag">#日期</a>
-          
-        </div>
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/blogs/richardyu/2014/03/03/2014-2014-03-03-setup-solr-auto-start-on-centos/" rel="next" title="CentOS设置Solr自动启动">
-                <i class="fa fa-chevron-left"></i> CentOS设置Solr自动启动
-              </a>
-            
-          </div>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/blogs/richardyu/2014/03/09/2014-2014-03-09-access-control-for-jenkins/" rel="prev" title="Jenkins的安全防护">
-                Jenkins的安全防护 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
+    </header>
   </article>
 
 
-
-    <div class="post-spread">
-      
-    </div>
+    
   </div>
+
+  
 
 
           </div>
@@ -374,10 +266,6 @@
 
 
           
-  <div class="comments" id="comments">
-    
-  </div>
-
 
         </div>
         
@@ -397,17 +285,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel ">
+      <section class="site-overview sidebar-panel  sidebar-panel-active ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/blogs/richardyu/images/avatar.jpeg"
@@ -418,7 +297,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/blogs/richardyu/archives">
-              <span class="site-state-item-count">26</span>
+              <span class="site-state-item-count">27</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -426,7 +305,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/blogs/richardyu/categories">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -435,7 +314,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/blogs/richardyu/tags">
-                <span class="site-state-item-count">51</span>
+                <span class="site-state-item-count">54</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -457,17 +336,6 @@
 
       </section>
 
-      
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-            
-              
-            
-            
-              <p class="post-toc-empty">此文章未包含目录</p>
-            
-          </div>
-        </section>
       
 
     </div>
@@ -564,10 +432,6 @@
   
 
   
-  <script type="text/javascript" src="/blogs/richardyu/js/src/scrollspy.js?v=5.0.1"></script>
-<script type="text/javascript" src="/blogs/richardyu/js/src/post-details.js?v=5.0.1"></script>
-
-
 
   
 

@@ -68,7 +68,7 @@
 <link href="/blogs/richardyu/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="CentOS,htop," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -84,19 +84,18 @@
 
 
 
-<meta name="description" content="我们一般认为htop比top更适合用来监控系统进程，图形化的界面，支持鼠标，可读性较好，并且有许多额外的功能，这里尽介绍怎样通过yum在CentOS上安装，不过源码编译安装也是非常简单的，这里就不再赘述。
-默认CentOS的源里是没有htop的，所以主要就是要找到合适的源，这个对不同的系统版本，以及对32bit,64bit的操作系统来说，需要添加的源是不同的，而且其实有多个第三方源，你只需要记住这">
+<meta name="description">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用yum给CentOS安装htop">
-<meta property="og:url" content="http://team.zinchchina.com/2014/03/03/2014-2014-03-03-yum-install-htop-on-centos/index.html">
+<meta property="og:title" content="xxx">
+<meta property="og:url" content="http://www.vipzhicheng.com/2016/06/16/xxx/index.html">
 <meta property="og:site_name" content="理查的学习笔记">
-<meta property="og:description" content="我们一般认为htop比top更适合用来监控系统进程，图形化的界面，支持鼠标，可读性较好，并且有许多额外的功能，这里尽介绍怎样通过yum在CentOS上安装，不过源码编译安装也是非常简单的，这里就不再赘述。
-默认CentOS的源里是没有htop的，所以主要就是要找到合适的源，这个对不同的系统版本，以及对32bit,64bit的操作系统来说，需要添加的源是不同的，而且其实有多个第三方源，你只需要记住这">
-<meta property="og:updated_time" content="2016-06-03T11:24:43.000Z">
+<meta property="og:description">
+<meta property="og:image" content="http://www.vipzhicheng.com/blogs/richardyu/2016/06/16/xxx/QQ20160615-1.png">
+<meta property="og:updated_time" content="2016-06-16T10:05:10.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用yum给CentOS安装htop">
-<meta name="twitter:description" content="我们一般认为htop比top更适合用来监控系统进程，图形化的界面，支持鼠标，可读性较好，并且有许多额外的功能，这里尽介绍怎样通过yum在CentOS上安装，不过源码编译安装也是非常简单的，这里就不再赘述。
-默认CentOS的源里是没有htop的，所以主要就是要找到合适的源，这个对不同的系统版本，以及对32bit,64bit的操作系统来说，需要添加的源是不同的，而且其实有多个第三方源，你只需要记住这">
+<meta name="twitter:title" content="xxx">
+<meta name="twitter:description">
+<meta name="twitter:image" content="http://www.vipzhicheng.com/blogs/richardyu/2016/06/16/xxx/QQ20160615-1.png">
 
 
 
@@ -114,7 +113,7 @@
   };
 </script>
 
-  <title> 使用yum给CentOS安装htop | 理查的学习笔记 </title>
+  <title> xxx | 理查的学习笔记 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -244,7 +243,7 @@
             
             
               
-                使用yum给CentOS安装htop
+                xxx
               
             
           </h1>
@@ -256,30 +255,11 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2014-03-03T10:51:30+08:00" content="2014-03-03">
-              2014-03-03
+            <time itemprop="dateCreated" datetime="2016-06-16T17:58:18+08:00" content="2016-06-16">
+              2016-06-16
             </time>
           </span>
 
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/blogs/richardyu/categories/Ops/" itemprop="url" rel="index">
-                    <span itemprop="name">Ops</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
           
 
           
@@ -303,15 +283,7 @@
       
 
       
-        <p>我们一般认为htop比top更适合用来监控系统进程，图形化的界面，支持鼠标，可读性较好，并且有许多额外的功能，这里尽介绍怎样通过yum在CentOS上安装，不过源码编译安装也是非常简单的，这里就不再赘述。</p>
-<p>默认CentOS的源里是没有htop的，所以主要就是要找到合适的源，这个对不同的系统版本，以及对32bit,64bit的操作系统来说，需要添加的源是不同的，而且其实有多个第三方源，你只需要记住这种方式，如果这个源失效了，可以找其他的源代替。</p>
-<a id="more"></a>
-<h2 id="为CentOS-5-x添加RPM源"><a href="#为CentOS-5-x添加RPM源" class="headerlink" title="为CentOS 5.x添加RPM源"></a>为CentOS 5.x添加RPM源</h2><figure class="highlight bash"><figcaption><span>32bit:</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el5.rf.i686.rpm</span><br><span class="line">rpm -Uhv rpmforge-release*.rf.i386.rpm</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><figcaption><span>64bit:</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el5.rf.x86_64.rpm</span><br><span class="line">rpm -Uhv rpmforge-release*.rf.x86_64.rpm</span><br></pre></td></tr></table></figure>
-<h2 id="为CentOS-6-x添加RPM源"><a href="#为CentOS-6-x添加RPM源" class="headerlink" title="为CentOS 6.x添加RPM源"></a>为CentOS 6.x添加RPM源</h2><figure class="highlight bash"><figcaption><span>32bit:</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el6.rf.i686.rpm</span><br><span class="line">rpm -Uhv rpmforge-release*.rf.i386.rpm</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><figcaption><span>64bit:</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el6.rf.x86_64.rpm</span><br><span class="line">rpm -Uhv rpmforge-release*.rf.x86_64.rpm</span><br></pre></td></tr></table></figure>
-<p>之后我们就可以使用yum安装htop了</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y htop</span><br></pre></td></tr></table></figure>
+        <img src="/blogs/richardyu/2016/06/16/xxx/QQ20160615-1.png" alt="QQ20160615-1.png" title="">
 
       
     </div>
@@ -331,30 +303,18 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/blogs/richardyu/tags/CentOS/" rel="tag">#CentOS</a>
-          
-            <a href="/blogs/richardyu/tags/htop/" rel="tag">#htop</a>
-          
-        </div>
-      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/blogs/richardyu/2014/02/24/2014-2014-02-24-yum-install-jenkins-on-centos/" rel="next" title="CentOS yum安装jenkins笔记">
-                <i class="fa fa-chevron-left"></i> CentOS yum安装jenkins笔记
+              <a href="/blogs/richardyu/2016/06/15/让New-Relic排除不需要统计的PHP请求/" rel="next" title="让New Relic排除不需要统计的PHP请求">
+                <i class="fa fa-chevron-left"></i> 让New Relic排除不需要统计的PHP请求
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/blogs/richardyu/2014/03/03/2014-2014-03-03-install-start-stop-daemon-on-centos/" rel="prev" title="给CentOS安装start-stop-daemon">
-                给CentOS安装start-stop-daemon <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -422,7 +382,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/blogs/richardyu/archives">
-              <span class="site-state-item-count">26</span>
+              <span class="site-state-item-count">28</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -430,7 +390,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/blogs/richardyu/categories">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -439,7 +399,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/blogs/richardyu/tags">
-                <span class="site-state-item-count">51</span>
+                <span class="site-state-item-count">54</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -468,7 +428,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#为CentOS-5-x添加RPM源"><span class="nav-number">1.</span> <span class="nav-text">为CentOS 5.x添加RPM源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为CentOS-6-x添加RPM源"><span class="nav-number">2.</span> <span class="nav-text">为CentOS 6.x添加RPM源</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
         </section>

@@ -243,6 +243,132 @@
             
               
                 
+                <a class="post-title-link" href="/blogs/richardyu/2016/06/15/让New-Relic排除不需要统计的PHP请求/" itemprop="url">
+                  让New Relic排除不需要统计的PHP请求
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-06-15T17:36:59+08:00" content="2016-06-15">
+              2016-06-15
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/blogs/richardyu/categories/Dev/" itemprop="url" rel="index">
+                    <span itemprop="name">Dev</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>我们使用<code>New Relic</code>作为性能监控分析工具，关于<code>New Relic</code>就不过多介绍了，大家可以自己去搜搜。这种性能分析工具对于大型网站来说是必不可少的，而其特色不仅在于可以监控服务器硬件指标，而且可以监控应用级别的各种数据，当网站发生性能问题时，可以在上面找到一些线索，甚至是直接找到答案。目前国内也有同类产品了，比如说听云，目前还没有机会尝试。</p>
+<p>我们遇到的问题是，我们希望<code>New Relic</code>监控我们的部分核心应用的性能指标，但服务器上部署了一些非核心应用，这些应用又存在着访问量大，但是逻辑简单，所以响应迅速的问题，所以从监控上看，这个服务器的平均响应时间非常的低，而其他只部署核心应用的服务器的平均响应时间是很高的，这就给人了一个假象，从而看不出这台服务器核心应用的真实水准。</p>
+<p>那么怎么排除掉非核心应用呢？经过调查，发现<code>New Relic</code>支持一些<a href="https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api" target="_blank" rel="external">API</a>，可以对上传的数据做定制，里面恰好就有解决这个问题的API。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (extension_loaded(<span class="string">'newrelic'</span>)) &#123;</span><br><span class="line">    newrelic_ignore_transaction();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个API函数的描述是这样的：</p>
+<blockquote>
+<p>Do not generate metrics for this transaction. This is useful when you have transactions that are particularly slow for known reasons and you do not want them always being reported as the transaction trace or skewing your site averages.</p>
+</blockquote>
+<p>将这段代码加到非核心应用的入口文件里的，效果是立竿见影。</p>
+<a href="/blogs/richardyu/2016/06/15/让New-Relic排除不需要统计的PHP请求/QQ20160615-1@2x.png" title="New Relic 监控截图">New Relic 监控截图</a>
+<p><img src="QQ20160615-1@2x.png" alt=""></p>
+<p>如果进一步思考，我的核心应用里可能有一些已知性能差，但是不需要理会的程序（比如计划任务），我也是不希望在里面混淆视听的，这时，我们就需要把这段代码放到我们的核心应用里，根据路径或者其他判定条件忽略对本次请求的监控。</p>
+<p>监控的意义在于，发现突然出现的波峰波谷，如果引起动荡的原因是你肯定不关心的，就可以忽略掉，不上传数据给<code>New Relic</code>。</p>
+<p>更多<code>New Relic</code> API大家就自己去探索吧，当我有使用场景时，也会记录下来，跟大家分享。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/blogs/richardyu/2016/06/02/Git创建分支并推送到远程分支/" itemprop="url">
                   Git创建分支并推送到远程分支
                 </a>
@@ -1268,122 +1394,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/blogs/richardyu/2014/04/03/install-svn-on-centos/" itemprop="url">
-                  CentOS用yum安装SVN
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2014-04-03T22:00:03+08:00" content="2014-04-03">
-              2014-04-03
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/blogs/richardyu/categories/Ops/" itemprop="url" rel="index">
-                    <span itemprop="name">Ops</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>源代码管理目前的市场上Git主键主流，SVN也仍然有大把的人用，其他也有一些新的或者小众的版本管理软件。对我来说，我选择SVN和Git，一个集中式管理，一个分布式管理，虽然Git强大到可以替代SVN，但有时也没有必要，对我来说部署一个简单的集中式版本控制系统，还是SVN要简单一些。</p>
-<p>本文以CentOS 6.3为例阐述了如何用yum的方式安装和部署SVN。</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/blogs/richardyu/2014/04/03/install-svn-on-centos/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1429,7 +1439,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/blogs/richardyu/archives">
-              <span class="site-state-item-count">26</span>
+              <span class="site-state-item-count">27</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1446,7 +1456,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/blogs/richardyu/tags">
-                <span class="site-state-item-count">51</span>
+                <span class="site-state-item-count">54</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

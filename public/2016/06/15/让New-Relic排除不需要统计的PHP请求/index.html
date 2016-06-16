@@ -68,7 +68,7 @@
 <link href="/blogs/richardyu/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Linux,切换目录,Shell," />
+  <meta name="keywords" content="New Relic,性能优化,监控," />
 
 
 
@@ -84,28 +84,21 @@
 
 
 
-<meta name="description" content="每天在命令行下，一大部分的工作都是一遍又一遍的输入 cd ~/some/very/deep/often-used/directory这样来切换目录，现在利用一个简单的配置可以实现如下效果:
-首先进入我的日常工作目录，标记一个书签mark sanguo
-12cd /Users/kimi/work/123guo/sanguomark sanguo
-以后我再进入这个目录只需要g sanguo即可
-1g">
+<meta name="description" content="我们使用New Relic作为性能监控分析工具，关于New Relic就不过多介绍了，大家可以自己去搜搜。这种性能分析工具对于大型网站来说是必不可少的，而其特色不仅在于可以监控服务器硬件指标，而且可以监控应用级别的各种数据，当网站发生性能问题时，可以在上面找到一些线索，甚至是直接找到答案。目前国内也有同类产品了，比如说听云，目前还没有机会尝试。
+我们遇到的问题是，我们希望New Relic监控我们">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux系统快速切换目录的神奇脚本">
-<meta property="og:url" content="http://team.zinchchina.com/2014/01/13/2014-2014-01-13-a-short-way-to-switch-directory/index.html">
+<meta property="og:title" content="让New Relic排除不需要统计的PHP请求">
+<meta property="og:url" content="http://www.vipzhicheng.com/2016/06/15/让New-Relic排除不需要统计的PHP请求/index.html">
 <meta property="og:site_name" content="理查的学习笔记">
-<meta property="og:description" content="每天在命令行下，一大部分的工作都是一遍又一遍的输入 cd ~/some/very/deep/often-used/directory这样来切换目录，现在利用一个简单的配置可以实现如下效果:
-首先进入我的日常工作目录，标记一个书签mark sanguo
-12cd /Users/kimi/work/123guo/sanguomark sanguo
-以后我再进入这个目录只需要g sanguo即可
-1g">
-<meta property="og:updated_time" content="2016-06-03T11:23:36.000Z">
+<meta property="og:description" content="我们使用New Relic作为性能监控分析工具，关于New Relic就不过多介绍了，大家可以自己去搜搜。这种性能分析工具对于大型网站来说是必不可少的，而其特色不仅在于可以监控服务器硬件指标，而且可以监控应用级别的各种数据，当网站发生性能问题时，可以在上面找到一些线索，甚至是直接找到答案。目前国内也有同类产品了，比如说听云，目前还没有机会尝试。
+我们遇到的问题是，我们希望New Relic监控我们">
+<meta property="og:image" content="http://www.vipzhicheng.com/QQ20160615-1@2x.png">
+<meta property="og:updated_time" content="2016-06-16T09:22:51.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux系统快速切换目录的神奇脚本">
-<meta name="twitter:description" content="每天在命令行下，一大部分的工作都是一遍又一遍的输入 cd ~/some/very/deep/often-used/directory这样来切换目录，现在利用一个简单的配置可以实现如下效果:
-首先进入我的日常工作目录，标记一个书签mark sanguo
-12cd /Users/kimi/work/123guo/sanguomark sanguo
-以后我再进入这个目录只需要g sanguo即可
-1g">
+<meta name="twitter:title" content="让New Relic排除不需要统计的PHP请求">
+<meta name="twitter:description" content="我们使用New Relic作为性能监控分析工具，关于New Relic就不过多介绍了，大家可以自己去搜搜。这种性能分析工具对于大型网站来说是必不可少的，而其特色不仅在于可以监控服务器硬件指标，而且可以监控应用级别的各种数据，当网站发生性能问题时，可以在上面找到一些线索，甚至是直接找到答案。目前国内也有同类产品了，比如说听云，目前还没有机会尝试。
+我们遇到的问题是，我们希望New Relic监控我们">
+<meta name="twitter:image" content="http://www.vipzhicheng.com/QQ20160615-1@2x.png">
 
 
 
@@ -123,7 +116,7 @@
   };
 </script>
 
-  <title> Linux系统快速切换目录的神奇脚本 | 理查的学习笔记 </title>
+  <title> 让New Relic排除不需要统计的PHP请求 | 理查的学习笔记 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -253,7 +246,7 @@
             
             
               
-                Linux系统快速切换目录的神奇脚本
+                让New Relic排除不需要统计的PHP请求
               
             
           </h1>
@@ -265,8 +258,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2014-01-13T10:10:14+08:00" content="2014-01-13">
-              2014-01-13
+            <time itemprop="dateCreated" datetime="2016-06-15T17:36:59+08:00" content="2016-06-15">
+              2016-06-15
             </time>
           </span>
 
@@ -279,8 +272,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/blogs/richardyu/categories/Ops/" itemprop="url" rel="index">
-                    <span itemprop="name">Ops</span>
+                  <a href="/blogs/richardyu/categories/Dev/" itemprop="url" rel="index">
+                    <span itemprop="name">Dev</span>
                   </a>
                 </span>
 
@@ -312,19 +305,20 @@
       
 
       
-        <p>每天在命令行下，一大部分的工作都是一遍又一遍的输入 cd ~/some/very/deep/often-used/directory这样来切换目录，现在利用一个简单的配置可以实现如下效果:</p>
-<p>首先进入我的日常工作目录，标记一个书签mark sanguo</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /Users/kimi/work/123guo/sanguo</span><br><span class="line">mark sanguo</span><br></pre></td></tr></table></figure>
-<p>以后我再进入这个目录只需要g sanguo即可</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">g sanguo</span><br></pre></td></tr></table></figure>
-<p>通过输入gs指令来浏览所有的标签</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">gs</span><br><span class="line">#app -&gt; /Applications</span><br><span class="line">#sanguo -&gt; /Users/kimi/work/123guo/sanguo</span><br><span class="line">#web -&gt; /Library/WebServer/Documents</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<p>实现原理如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/profile</span><br></pre></td></tr></table></figure>
-<p>编辑/etc/profile文件并在尾部添加以下内容后强制保存 wq!</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"># mark</span><br><span class="line">export MARKPATH=$HOME/.marks</span><br><span class="line">export MARKDEFAULT=sanguo#设置你的默认书签，可以直接输入g跳转</span><br><span class="line"></span><br><span class="line">function g &#123;</span><br><span class="line">    local m=$1</span><br><span class="line">    if [ &quot;$m&quot; = &quot;&quot; ]; then m=$MARKDEFAULT; fi</span><br><span class="line">    cd -P &quot;$MARKPATH/$m&quot; 2&gt;/dev/null || echo &quot;No such mark: $m&quot;</span><br><span class="line">&#125;</span><br><span class="line">function mark &#123;</span><br><span class="line">    mkdir -p &quot;$MARKPATH&quot;</span><br><span class="line">    local m=$1</span><br><span class="line">    if [ &quot;$m&quot; = &quot;&quot; ]; then m=$MARKDEFAULT; fi</span><br><span class="line">    rm -f &quot;$MARKPATH/$m&quot;</span><br><span class="line">    ln -s &quot;$(pwd)&quot; &quot;$MARKPATH/$m&quot;</span><br><span class="line">&#125;</span><br><span class="line">function unmark &#123;</span><br><span class="line">    local m=$1</span><br><span class="line">    if [ &quot;$m&quot; = &quot;&quot; ]; then m=$MARKDEFAULT; fi</span><br><span class="line">    rm -i &quot;$MARKPATH/$m&quot;</span><br><span class="line">&#125;</span><br><span class="line">function gs &#123;</span><br><span class="line">    ls -l &quot;$MARKPATH&quot; | grep ^l | cut -d &apos; &apos; -f 13-</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">_completemarks() &#123;</span><br><span class="line">    local curw=$&#123;COMP_WORDS[COMP_CWORD]&#125;</span><br><span class="line">    local wordlist=$(ls -l &quot;$MARKPATH&quot; | grep ^l | cut -d &apos; &apos; -f 13)</span><br><span class="line">    COMPREPLY=($(compgen -W &apos;$&#123;wordlist[@]&#125;&apos; -- &quot;$curw&quot;))</span><br><span class="line">    return 0</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">complete -F _completemarks g unmark</span><br></pre></td></tr></table></figure>
-<p>转：<a href="http://www.ccvita.com/520.html" target="_blank" rel="external">在命令行快速切换目录</a></p>
+        <p>我们使用<code>New Relic</code>作为性能监控分析工具，关于<code>New Relic</code>就不过多介绍了，大家可以自己去搜搜。这种性能分析工具对于大型网站来说是必不可少的，而其特色不仅在于可以监控服务器硬件指标，而且可以监控应用级别的各种数据，当网站发生性能问题时，可以在上面找到一些线索，甚至是直接找到答案。目前国内也有同类产品了，比如说听云，目前还没有机会尝试。</p>
+<p>我们遇到的问题是，我们希望<code>New Relic</code>监控我们的部分核心应用的性能指标，但服务器上部署了一些非核心应用，这些应用又存在着访问量大，但是逻辑简单，所以响应迅速的问题，所以从监控上看，这个服务器的平均响应时间非常的低，而其他只部署核心应用的服务器的平均响应时间是很高的，这就给人了一个假象，从而看不出这台服务器核心应用的真实水准。</p>
+<p>那么怎么排除掉非核心应用呢？经过调查，发现<code>New Relic</code>支持一些<a href="https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api" target="_blank" rel="external">API</a>，可以对上传的数据做定制，里面恰好就有解决这个问题的API。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (extension_loaded(<span class="string">'newrelic'</span>)) &#123;</span><br><span class="line">    newrelic_ignore_transaction();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个API函数的描述是这样的：</p>
+<blockquote>
+<p>Do not generate metrics for this transaction. This is useful when you have transactions that are particularly slow for known reasons and you do not want them always being reported as the transaction trace or skewing your site averages.</p>
+</blockquote>
+<p>将这段代码加到非核心应用的入口文件里的，效果是立竿见影。</p>
+<a href="/blogs/richardyu/2016/06/15/让New-Relic排除不需要统计的PHP请求/QQ20160615-1@2x.png" title="New Relic 监控截图">New Relic 监控截图</a>
+<p><img src="QQ20160615-1@2x.png" alt=""></p>
+<p>如果进一步思考，我的核心应用里可能有一些已知性能差，但是不需要理会的程序（比如计划任务），我也是不希望在里面混淆视听的，这时，我们就需要把这段代码放到我们的核心应用里，根据路径或者其他判定条件忽略对本次请求的监控。</p>
+<p>监控的意义在于，发现突然出现的波峰波谷，如果引起动荡的原因是你肯定不关心的，就可以忽略掉，不上传数据给<code>New Relic</code>。</p>
+<p>更多<code>New Relic</code> API大家就自己去探索吧，当我有使用场景时，也会记录下来，跟大家分享。</p>
 
       
     </div>
@@ -346,11 +340,11 @@
       
         <div class="post-tags">
           
-            <a href="/blogs/richardyu/tags/Linux/" rel="tag">#Linux</a>
+            <a href="/blogs/richardyu/tags/New-Relic/" rel="tag">#New Relic</a>
           
-            <a href="/blogs/richardyu/tags/切换目录/" rel="tag">#切换目录</a>
+            <a href="/blogs/richardyu/tags/性能优化/" rel="tag">#性能优化</a>
           
-            <a href="/blogs/richardyu/tags/Shell/" rel="tag">#Shell</a>
+            <a href="/blogs/richardyu/tags/监控/" rel="tag">#监控</a>
           
         </div>
       
@@ -359,17 +353,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/blogs/richardyu/2014/01/06/2014-2014-01-06-solution-for-mysql-random-results/" rel="next" title="MYSQL随机结果集方案比较">
-                <i class="fa fa-chevron-left"></i> MYSQL随机结果集方案比较
+              <a href="/blogs/richardyu/2016/06/02/Git创建分支并推送到远程分支/" rel="next" title="Git创建分支并推送到远程分支">
+                <i class="fa fa-chevron-left"></i> Git创建分支并推送到远程分支
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/blogs/richardyu/2014/01/15/github-password-cache/" rel="prev" title="Github密码缓存">
-                Github密码缓存 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -437,7 +427,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/blogs/richardyu/archives">
-              <span class="site-state-item-count">26</span>
+              <span class="site-state-item-count">27</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -445,7 +435,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/blogs/richardyu/categories">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -454,7 +444,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/blogs/richardyu/tags">
-                <span class="site-state-item-count">51</span>
+                <span class="site-state-item-count">54</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
