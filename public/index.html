@@ -315,7 +315,7 @@
 <p>Do not generate metrics for this transaction. This is useful when you have transactions that are particularly slow for known reasons and you do not want them always being reported as the transaction trace or skewing your site averages.</p>
 </blockquote>
 <p>将这段代码加到非核心应用的入口文件里的，效果是立竿见影。</p>
-<img src="/blogs/richardyu/2016/06/15/让New-Relic排除不需要统计的PHP请求/QQ20160615-1@2x.png" alt="New Relic 监控截图" title="New Relic 监控截图">
+<img src="/2016/06/15/让New-Relic排除不需要统计的PHP请求/QQ20160615-1@2x.png" alt="New Relic 监控截图" title="New Relic 监控截图">
 <p>如果进一步思考，我的核心应用里可能有一些已知性能差，但是不需要理会的程序（比如计划任务），我也是不希望在里面混淆视听的，这时，我们就需要把这段代码放到我们的核心应用里，根据路径或者其他判定条件忽略对本次请求的监控。</p>
 <p>监控的意义在于，发现突然出现的波峰波谷，如果引起动荡的原因是你肯定不关心的，就可以忽略掉，不上传数据给<code>New Relic</code>。</p>
 <p>更多<code>New Relic</code> API大家就自己去探索吧，当我有使用场景时，也会记录下来，跟大家分享。</p>
