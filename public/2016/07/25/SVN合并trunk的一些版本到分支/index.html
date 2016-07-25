@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Git,Github,Bitbucket,代理," />
+  <meta name="keywords" content="SVN,Merge," />
 
 
 
@@ -84,16 +84,19 @@
 
 
 
-<meta name="description" content="近日的网络不知道又出了什么状况，各种被墙，尤其是Bitbucket不能使用，严重影响了工作的效率和心情，有时候是网页打不开，有时候是不能pull或者push，通过搜索找到了解决方法，记录如下。">
+<meta name="description" content="这里主要是先描述问题产生的场景，然后给出答案，并少量设计了代码工作流方面的话题，但并没有做重点阐述。
+使用版本控制软件对代码变更进行追踪只是第一步，更进一步，我们还需要基于版本控制软件为团队开发定义工作流，并一直坚持相同的习惯。对于Git有Git flow, Github flow, Gitlab flow等等。对于之前比较流行的SVN也是如此。SVN的团队开发流程不止一种，常见的也是有单个长期分">
 <meta property="og:type" content="article">
-<meta property="og:title" content="解决Bitbucket无法访问和push">
-<meta property="og:url" content="http://www.vipzhicheng.com/2014/04/21/solve-bitbucket-can-not-access/index.html">
+<meta property="og:title" content="SVN merge命令合并trunk的一些版本到分支">
+<meta property="og:url" content="http://www.vipzhicheng.com/2016/07/25/SVN合并trunk的一些版本到分支/index.html">
 <meta property="og:site_name" content="理查的学习笔记">
-<meta property="og:description" content="近日的网络不知道又出了什么状况，各种被墙，尤其是Bitbucket不能使用，严重影响了工作的效率和心情，有时候是网页打不开，有时候是不能pull或者push，通过搜索找到了解决方法，记录如下。">
-<meta property="og:updated_time" content="2016-07-12T03:25:10.000Z">
+<meta property="og:description" content="这里主要是先描述问题产生的场景，然后给出答案，并少量设计了代码工作流方面的话题，但并没有做重点阐述。
+使用版本控制软件对代码变更进行追踪只是第一步，更进一步，我们还需要基于版本控制软件为团队开发定义工作流，并一直坚持相同的习惯。对于Git有Git flow, Github flow, Gitlab flow等等。对于之前比较流行的SVN也是如此。SVN的团队开发流程不止一种，常见的也是有单个长期分">
+<meta property="og:updated_time" content="2016-07-25T09:40:16.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="解决Bitbucket无法访问和push">
-<meta name="twitter:description" content="近日的网络不知道又出了什么状况，各种被墙，尤其是Bitbucket不能使用，严重影响了工作的效率和心情，有时候是网页打不开，有时候是不能pull或者push，通过搜索找到了解决方法，记录如下。">
+<meta name="twitter:title" content="SVN merge命令合并trunk的一些版本到分支">
+<meta name="twitter:description" content="这里主要是先描述问题产生的场景，然后给出答案，并少量设计了代码工作流方面的话题，但并没有做重点阐述。
+使用版本控制软件对代码变更进行追踪只是第一步，更进一步，我们还需要基于版本控制软件为团队开发定义工作流，并一直坚持相同的习惯。对于Git有Git flow, Github flow, Gitlab flow等等。对于之前比较流行的SVN也是如此。SVN的团队开发流程不止一种，常见的也是有单个长期分">
 
 
 
@@ -111,7 +114,7 @@
   };
 </script>
 
-  <title> 解决Bitbucket无法访问和push | 理查的学习笔记 </title>
+  <title> SVN merge命令合并trunk的一些版本到分支 | 理查的学习笔记 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -241,7 +244,7 @@
             
             
               
-                解决Bitbucket无法访问和push
+                SVN merge命令合并trunk的一些版本到分支
               
             
           </h1>
@@ -253,8 +256,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2014-04-21T00:41:44+08:00" content="2014-04-21">
-              2014-04-21
+            <time itemprop="dateCreated" datetime="2016-07-25T17:16:32+08:00" content="2016-07-25">
+              2016-07-25
             </time>
           </span>
 
@@ -267,8 +270,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Ops/" itemprop="url" rel="index">
-                    <span itemprop="name">Ops</span>
+                  <a href="/categories/Dev/" itemprop="url" rel="index">
+                    <span itemprop="name">Dev</span>
                   </a>
                 </span>
 
@@ -300,12 +303,19 @@
       
 
       
-        <p>近日的网络不知道又出了什么状况，各种被墙，尤其是Bitbucket不能使用，严重影响了工作的效率和心情，有时候是网页打不开，有时候是不能pull或者push，通过搜索找到了解决方法，记录如下。</p>
-<a id="more"></a>
-<p>这里，我们需要有一种翻墙措施，你可以是自己的VPN， ssh翻墙， goagent，或者其他，笔者是Mac系统，翻墙暂时使用的是鱼摆摆（不知道是啥东西的可以去搜搜），这个VPN开启的端口是9743, 如果用goagent，端口可能是8087，这个端口号接下来会用到。</p>
-<p>切换到git项目目录，这里我们使用的是bitbucket的https项目路径，假设之前是可以正常工作的，为了可以让push也翻墙，我们需要做如下设置：（再一次说明，以下不是完整设置，仅仅是为了解决本文标题所说的状况）。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git config --add http.proxy 127.0.0.1:8087</span><br><span class="line">git config --add https.proxy 127.0.0.1:8087</span><br><span class="line">git config --add https.sslVerify false</span><br><span class="line">git config --global http.postBuffer 524288000   #非常重要，否则可能提交不成功。</span><br></pre></td></tr></table></figure>
-<p>之后我们就可以push了，当然以上设置也可以直接在.git/config里修改设置。</p>
+        <p>这里主要是先描述问题产生的场景，然后给出答案，并少量设计了代码工作流方面的话题，但并没有做重点阐述。</p>
+<p>使用版本控制软件对代码变更进行追踪只是第一步，更进一步，我们还需要基于版本控制软件为团队开发定义工作流，并一直坚持相同的习惯。对于Git有<code>Git flow</code>, <code>Github flow</code>, <code>Gitlab flow</code>等等。对于之前比较流行的SVN也是如此。SVN的团队开发流程不止一种，常见的也是有单个长期分支的工作流和开发分支，线上分支双分支工作流。</p>
+<p>我们使用SVN进行代码管理的项目使用的是后者，也就是开发分支，线上分支分开，然后通过合并（Merge）来决定哪些版本上线，更进一步，我们使用Redmine进行任务管理，和SVN整合后，任务相关的版本是整合到一起的显示的。</p>
+<p>为了得到一个任务(我们叫Ticket)的全部版本号(Revision)，我们写了一小段JS代码在浏览器Redmine任务页面的Console里执行，如果小伙伴们有更好的获取一个Ticket下的版本号的方法，可以和我交流一下。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">var scriptNode = document.createElement(&apos;script&apos;); scriptNode.src = &apos;http://code.jquery.com/jquery-1.10.1.min.js&apos;; document.head.appendChild(scriptNode);</span><br><span class="line"></span><br><span class="line">var version = &apos;&apos;;</span><br><span class="line">$(&apos;.changeset &gt; p &gt; a&apos;).each(function(i)&#123;</span><br><span class="line">  version += $(this).text().replace(&apos;修订 &apos;, &apos;&apos;) + &apos;,&apos;;</span><br><span class="line">&#125;);</span><br><span class="line">console.log(version );</span><br></pre></td></tr></table></figure>
+<p>PS：里面的修订两个字也可能是Revision，取决于Redmine当前语言是中文还是英文。</p>
+<p>然后就会得到类似于下面这样的输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">40643,40645,40646,40647,40648,40649,40650,40652,40655,40660,40668,40669,40702,40704,40708,40709,40710,40712,40718,40719,40720,40721,40722,40723,40724,40726,40727,40728,40729,40730,40731,40732,40733,40734,40735,40736,40737,40738,40739,40740,40741,40742,40746,40747,40748,40749,40751,40753,40754,40755,40756,40757,40766,40770,40772,40774,40786</span><br></pre></td></tr></table></figure>
+<p>接下来为了将这些代码上线，我们就需要知道怎么将Trunk上面的这些代码变更合并到线上分支。当然Tortorise SVN软件内置了这样的功能，但是对于有的钟爱命令行的人士来说，还是要学会如何使用命令行来做这件事。</p>
+<p>说了这么多，其实答案很简单，这里我直接给出答案：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd WWW_WORKING_COPY_DIR</span><br><span class="line">svn merge -c 40643,40645,40646,40647,40648,40649,40650,40652,40655,40660,40668,40669,40702,40704,40708,40709,40710,40712,40718,40719,40720,40721,40722,40723,40724,40726,40727,40728,40729,40730,40731,40732,40733,40734,40735,40736,40737,40738,40739,40740,40741,40742,40746,40747,40748,40749,40751,40753,40754,40755,40756,40757,40766,40770,40772,40774,40786 TRUNK_REPO_URL .</span><br></pre></td></tr></table></figure>
+<p>这里TRUNK_REPO_URL支持绝对路径和将对路径，如果是将对路径，是基于跟进行寻址的，比如^/trunk。</p>
+<p>当然，有可能会产生冲突，个人比较推荐的方式是一律保留冲突继续，然后一起处理。</p>
 
       
     </div>
@@ -327,13 +337,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Git/" rel="tag">#Git</a>
+            <a href="/tags/SVN/" rel="tag">#SVN</a>
           
-            <a href="/tags/Github/" rel="tag">#Github</a>
-          
-            <a href="/tags/Bitbucket/" rel="tag">#Bitbucket</a>
-          
-            <a href="/tags/代理/" rel="tag">#代理</a>
+            <a href="/tags/Merge/" rel="tag">#Merge</a>
           
         </div>
       
@@ -342,17 +348,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2014/04/09/install-redmine-on-centos/" rel="next" title="最新安装Redmine的方法">
-                <i class="fa fa-chevron-left"></i> 最新安装Redmine的方法
+              <a href="/2016/06/15/让New-Relic排除不需要统计的PHP请求/" rel="next" title="让New Relic排除不需要统计的PHP请求">
+                <i class="fa fa-chevron-left"></i> 让New Relic排除不需要统计的PHP请求
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2014/05/21/get-distance-by-lat-and-lng/" rel="prev" title="根据经纬度计算之间距离">
-                根据经纬度计算之间距离 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
