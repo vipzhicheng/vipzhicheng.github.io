@@ -90,7 +90,7 @@
 <meta property="og:url" content="http://www.vipzhicheng.com/2014/01/15/github-password-cache/index.html">
 <meta property="og:site_name" content="理查的学习笔记">
 <meta property="og:description" content="本文的知识点是关于Git和Github的，但我遇到这个问题是在使用Octopress写博客的过程中，每次写好一个要提交给Github时，总是问我要用户名和密码，所以我就想研究一下，是否可以记住账号密码，还别说真让我找到了，而且是Github网站帮助系统中的一小节，我打算翻译一下，毕竟是新学会了一个知识点。">
-<meta property="og:updated_time" content="2016-07-12T03:25:10.000Z">
+<meta property="og:updated_time" content="2016-08-02T10:38:13.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Github密码缓存">
 <meta name="twitter:description" content="本文的知识点是关于Git和Github的，但我遇到这个问题是在使用Octopress写博客的过程中，每次写好一个要提交给Github时，总是问我要用户名和密码，所以我就想研究一下，是否可以记住账号密码，还别说真让我找到了，而且是Github网站帮助系统中的一小节，我打算翻译一下，毕竟是新学会了一个知识点。">
@@ -118,6 +118,15 @@
 
   
 
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-6515979-1', 'auto');
+  ga('send', 'pageview');
+</script>
 
 
 
@@ -305,14 +314,14 @@
 <p>PS：本文的知识点要求你的Git版本超过1.7.10，系统是Mac。</p>
 <p>为了实现这个目的，你需要一个叫做osxkeychain credential helper的东东，不过有可能你已经安装了，如果你是使用的homebrew方式安装的git，或者你的git是最新版本。</p>
 <p>可以通过以下方式检查：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git credential-osxkeychain</span><br><span class="line"># Test for the cred helper</span><br><span class="line"># Usage: git credential-osxkeychain &lt;get|store|erase&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git credential-osxkeychain</div><div class="line"># Test for the cred helper</div><div class="line"># Usage: git credential-osxkeychain &lt;get|store|erase&gt;</div></pre></td></tr></table></figure>
 <p>如果你没有安装这个helper，你需要手动安装一下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">git credential-osxkeychain</span><br><span class="line"># Test for the cred helper</span><br><span class="line"># git: &apos;credential-osxkeychain&apos; is not a git command. See &apos;git --help&apos;.</span><br><span class="line"></span><br><span class="line">curl -s -O \</span><br><span class="line">  https://github-media-downloads.s3.amazonaws.com/osx/git-credential-osxkeychain</span><br><span class="line"># Download the helper</span><br><span class="line"></span><br><span class="line">$ chmod u+x git-credential-osxkeychain</span><br><span class="line"># Fix the permissions on the file so it can be run</span><br></pre></td></tr></table></figure>
-<p>然后需要把这个脚本放到Git目录下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo mv git-credential-osxkeychain \</span><br><span class="line">  &quot;$(dirname $(which git))/git-credential-osxkeychain&quot;</span><br><span class="line"># Move the helper to the path where git is installed</span><br><span class="line"># Password: [enter your password]</span><br></pre></td></tr></table></figure></p>
-<p>接着，需要告诉Git我们要用这个helper, 简单的配置一下全局Git配置就行了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global credential.helper osxkeychain</span><br><span class="line"># Set git to use the osxkeychain credential helper</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">git credential-osxkeychain</div><div class="line"># Test for the cred helper</div><div class="line"># git: &apos;credential-osxkeychain&apos; is not a git command. See &apos;git --help&apos;.</div><div class="line"></div><div class="line">curl -s -O \</div><div class="line">  https://github-media-downloads.s3.amazonaws.com/osx/git-credential-osxkeychain</div><div class="line"># Download the helper</div><div class="line"></div><div class="line">$ chmod u+x git-credential-osxkeychain</div><div class="line"># Fix the permissions on the file so it can be run</div></pre></td></tr></table></figure>
+<p>然后需要把这个脚本放到Git目录下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">sudo mv git-credential-osxkeychain \</div><div class="line">  &quot;$(dirname $(which git))/git-credential-osxkeychain&quot;</div><div class="line"># Move the helper to the path where git is installed</div><div class="line"># Password: [enter your password]</div></pre></td></tr></table></figure></p>
+<p>接着，需要告诉Git我们要用这个helper, 简单的配置一下全局Git配置就行了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git config --global credential.helper osxkeychain</div><div class="line"># Set git to use the osxkeychain credential helper</div></pre></td></tr></table></figure></p>
 <p>这样下次你提交代码时，会提示输入你账户和密码，并且Mac会弹窗问你是否授权使用钥匙链，授权后，以后提交代码就直接使用钥匙链里记录的密码，不会再提示输入了。</p>
 <p>这样我写完一篇博客直接提交就可以了，So easy!</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rake generate &amp;&amp; rake deploy</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rake generate &amp;&amp; rake deploy</div></pre></td></tr></table></figure>
 
       
     </div>

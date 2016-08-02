@@ -90,7 +90,7 @@
 <meta property="og:url" content="http://www.vipzhicheng.com/2014/01/05/free-private-git-repositories-base-on-dropbox/index.html">
 <meta property="og:site_name" content="理查的学习笔记">
 <meta property="og:description" content="你是否有私有Git项目需要托管却又不想把你买午饭的钱用来购买Github的付费账户？Git与Dropbox整合使用可以免费的实现这一目的，从而你的代码库可以同步到Dropbox并且在多台电脑上同步，通过这种方式你可以托管任意数量的版本库，并且是云备份哦！～。Dropbox的免费账户就有2G的空间，如果只用来托管代码是完全足够的。">
-<meta property="og:updated_time" content="2016-07-12T03:25:10.000Z">
+<meta property="og:updated_time" content="2016-08-02T10:38:13.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于Dropbox的免费Git项目托管">
 <meta name="twitter:description" content="你是否有私有Git项目需要托管却又不想把你买午饭的钱用来购买Github的付费账户？Git与Dropbox整合使用可以免费的实现这一目的，从而你的代码库可以同步到Dropbox并且在多台电脑上同步，通过这种方式你可以托管任意数量的版本库，并且是云备份哦！～。Dropbox的免费账户就有2G的空间，如果只用来托管代码是完全足够的。">
@@ -118,6 +118,15 @@
 
   
 
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-6515979-1', 'auto');
+  ga('send', 'pageview');
+</script>
 
 
 
@@ -303,13 +312,13 @@
         <p>你是否有私有Git项目需要托管却又不想把你买午饭的钱用来购买Github的付费账户？Git与Dropbox整合使用可以免费的实现这一目的，从而你的代码库可以同步到Dropbox并且在多台电脑上同步，通过这种方式你可以托管任意数量的版本库，并且是云备份哦！～。Dropbox的免费账户就有2G的空间，如果只用来托管代码是完全足够的。</p>
 <a id="more"></a>
 <p>下面就来一步一步的实现这个功能。</p>
-<h2 id="创建一个普通的本地Git版本库"><a href="#创建一个普通的本地Git版本库" class="headerlink" title="创建一个普通的本地Git版本库"></a>创建一个普通的本地Git版本库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ cd yourproject</span><br><span class="line">$ git init</span><br><span class="line">$ git add *</span><br><span class="line">$ git commit</span><br></pre></td></tr></table></figure>
+<h2 id="创建一个普通的本地Git版本库"><a href="#创建一个普通的本地Git版本库" class="headerlink" title="创建一个普通的本地Git版本库"></a>创建一个普通的本地Git版本库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ cd yourproject</div><div class="line">$ git init</div><div class="line">$ git add *</div><div class="line">$ git commit</div></pre></td></tr></table></figure>
 <h2 id="创建一个git目录来存放你的版本库"><a href="#创建一个git目录来存放你的版本库" class="headerlink" title="创建一个git目录来存放你的版本库"></a>创建一个git目录来存放你的版本库</h2><p>在你的Dropbox目录创建一个目录用于存放Git版本库，你当然可以将整个Dropbox目录都用于托管，不过大多数人应该是用Dropbox备份很多私人数据的吧。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cd ~/Dropbox</span><br><span class="line">$ mkdir git</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ cd ~/Dropbox</div><div class="line">$ mkdir git</div></pre></td></tr></table></figure>
 <h2 id="创建一个bare版本库"><a href="#创建一个bare版本库" class="headerlink" title="创建一个bare版本库"></a>创建一个bare版本库</h2><p>现在为你的本地工作拷贝创建一个空的版本库作为Git远程版本库，除了这是在本地操作以外，这本质上和用Github或者其他版本库托管网站的工作方式类似。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ cd git</span><br><span class="line">$ mkdir yourproject.git</span><br><span class="line">$ cd yourproject.git</span><br><span class="line">$ git --bare init</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ cd git</div><div class="line">$ mkdir yourproject.git</div><div class="line">$ cd yourproject.git</div><div class="line">$ git --bare init</div></pre></td></tr></table></figure>
 <h2 id="添加remote-origin并且push到“远程”Dropbox版本库"><a href="#添加remote-origin并且push到“远程”Dropbox版本库" class="headerlink" title="添加remote origin并且push到“远程”Dropbox版本库"></a>添加remote origin并且push到“远程”Dropbox版本库</h2><p>每次同步都会被Dropbox进程自动检测到改变并自动同步到Dropbox服务器</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ cd yourproject</span><br><span class="line">$ git remote add origin ~/Dropbox/git/yourproject.git</span><br><span class="line">$ git push origin master</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ cd yourproject</div><div class="line">$ git remote add origin ~/Dropbox/git/yourproject.git</div><div class="line">$ git push origin master</div></pre></td></tr></table></figure>
 <h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ol>
 <li>这个方案只适用于单用户的私人项目，多个人一起使用这个方案会有冲突。</li>
 <li>其实更好的方案是使用BitBucket这样的私有项目托管方案，但我更倾向于双保险，尤其是当BitBucket不定时的出现问题的时候。</li>

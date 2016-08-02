@@ -92,7 +92,7 @@
 <meta property="og:site_name" content="理查的学习笔记">
 <meta property="og:description" content="本文在全新安装的CentOS6.5里安装Drupal8。
 因为需要PHP5.4，而源里默认只有php5.3.3，所以按照这个教程安装了php5.4，然后从源里安装了httpd和mysql-server">
-<meta property="og:updated_time" content="2016-07-12T03:25:10.000Z">
+<meta property="og:updated_time" content="2016-08-02T10:38:13.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在全新的CentOS里安装Drupal8">
 <meta name="twitter:description" content="本文在全新安装的CentOS6.5里安装Drupal8。
@@ -121,6 +121,15 @@
 
   
 
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-6515979-1', 'auto');
+  ga('send', 'pageview');
+</script>
 
 
 
@@ -307,14 +316,14 @@
 <p>因为需要PHP5.4，而源里默认只有php5.3.3，所以按照<a href="http://webtatic.com/packages/php54/" target="_blank" rel="external">这个教程</a>安装了php5.4，然后从源里安装了httpd和mysql-server</p>
 <a id="more"></a>
 <p>以下都假设在root账户下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install httpd mysql-server</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install httpd mysql-server</div></pre></td></tr></table></figure>
 <p>然后配置了一个虚拟主机，Drupal8用的是alpha11版，注意要开启httpd的重写机制，因为默认就开启了clean url。</p>
 <p>本来Drupal8是可以自动下载语言包的，安装时提示语言包下载不下来，于是我选择了安装英文版。</p>
 <p>为了体验Drupal8，Profile选择的是Standard。</p>
 <p>之后检测依赖扩展，结果需要继续安装缺失的扩展：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install php54w-gd php54w-pdo php54w-dom php54w-mbstring php54w-mysql</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install php54w-gd php54w-pdo php54w-dom php54w-mbstring php54w-mysql</div></pre></td></tr></table></figure>
 <p>之后别忘了reload httpd</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/httpd reload</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/etc/init.d/httpd reload</div></pre></td></tr></table></figure>
 
       
     </div>

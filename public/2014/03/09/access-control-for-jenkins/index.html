@@ -90,7 +90,7 @@
 <meta property="og:url" content="http://www.vipzhicheng.com/2014/03/09/access-control-for-jenkins/index.html">
 <meta property="og:site_name" content="理查的学习笔记">
 <meta property="og:description" content="在这篇文章中我们我们提到默认Jenkins是不提供任何权限控制的，但通过配置，可以增加用户名密码登陆机制。但更进一步的，我们不希望有人能够扫描到Jenkins的端口，通常默认是8080，所以我的思路是使用Apache的反向代理配置，并且使用HTTP BASIC AUTH机制。">
-<meta property="og:updated_time" content="2016-07-12T03:25:10.000Z">
+<meta property="og:updated_time" content="2016-08-02T10:38:13.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Jenkins的安全防护">
 <meta name="twitter:description" content="在这篇文章中我们我们提到默认Jenkins是不提供任何权限控制的，但通过配置，可以增加用户名密码登陆机制。但更进一步的，我们不希望有人能够扫描到Jenkins的端口，通常默认是8080，所以我的思路是使用Apache的反向代理配置，并且使用HTTP BASIC AUTH机制。">
@@ -118,6 +118,15 @@
 
   
 
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-6515979-1', 'auto');
+  ga('send', 'pageview');
+</script>
 
 
 
@@ -303,10 +312,10 @@
         <p>在<a href="http://www.vipzhicheng.com/blog/2014/02/24/yum-install-jenkins-on-centos/">这篇文章</a>中我们我们提到默认Jenkins是不提供任何权限控制的，但通过配置，可以增加用户名密码登陆机制。但更进一步的，我们不希望有人能够扫描到Jenkins的端口，通常默认是8080，所以我的思路是使用Apache的反向代理配置，并且使用HTTP BASIC AUTH机制。</p>
 <a id="more"></a>
 <p>反向代理的配置如下:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;VirtualHost *:80&gt;</span><br><span class="line">    ServerName your.domain.com</span><br><span class="line">    ProxyPass / http://127.0.0.1:8080/</span><br><span class="line">    ProxyPassReverse / http://127.0.0.1:8080/</span><br><span class="line">    ProxyRequests Off</span><br><span class="line">    ErrorLog logs/jenkins-error_log</span><br><span class="line">    CustomLog logs/jenkins-access_log common</span><br><span class="line"></span><br><span class="line">   &lt;Location /&gt;</span><br><span class="line">      AuthUserFile /var/www/html/etc/htpasswd</span><br><span class="line">      AuthType Basic</span><br><span class="line">      AuthName &quot;Jenkins&quot;</span><br><span class="line">      Require valid-user</span><br><span class="line">   &lt;/Location&gt;</span><br><span class="line"></span><br><span class="line">&lt;/VirtualHost&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&lt;VirtualHost *:80&gt;</div><div class="line">    ServerName your.domain.com</div><div class="line">    ProxyPass / http://127.0.0.1:8080/</div><div class="line">    ProxyPassReverse / http://127.0.0.1:8080/</div><div class="line">    ProxyRequests Off</div><div class="line">    ErrorLog logs/jenkins-error_log</div><div class="line">    CustomLog logs/jenkins-access_log common</div><div class="line"></div><div class="line">   &lt;Location /&gt;</div><div class="line">      AuthUserFile /var/www/html/etc/htpasswd</div><div class="line">      AuthType Basic</div><div class="line">      AuthName &quot;Jenkins&quot;</div><div class="line">      Require valid-user</div><div class="line">   &lt;/Location&gt;</div><div class="line"></div><div class="line">&lt;/VirtualHost&gt;</div></pre></td></tr></table></figure>
 <p>htpasswd文件是通过Apache的htpasswd命令设置的。</p>
 <p>但是启动之后发现输入了BASIC AUTH的用户名和密码之后，又弹出了Jenkins自己的BASIC AUTH，通过Google，找到如下解决方案，在httpd.conf里添加如下配置，这个依赖于mod_headers模块。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># remove auth from headers</span><br><span class="line">RequestHeader unset Authorization</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># remove auth from headers</div><div class="line">RequestHeader unset Authorization</div></pre></td></tr></table></figure>
 
       
     </div>

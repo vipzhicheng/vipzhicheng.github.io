@@ -94,7 +94,7 @@ Git上手很简单，但其实很复杂，很多命令都并没有真正理解�
 <meta property="og:description" content="在为公司技术部选型博客系统的过程中，最终选择了Hexo+Git内网构建的方式，一方面是希望大家学会这一优秀的静态博客系统的使用方法，另一方面，也是希望大家逐渐熟悉Git，为下一步真正的项目代码迁移到Git做准备。
 Git上手很简单，但其实很复杂，很多命令都并没有真正理解，就算学会了也很容易忘，这就需要不断实践，也需要时间来体会。
 本文的重点主要还是学到的一点Git知识，做一个记录，感觉不记下来不久">
-<meta property="og:updated_time" content="2016-07-12T03:25:11.000Z">
+<meta property="og:updated_time" content="2016-08-02T10:38:13.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git创建分支并推送到远程分支">
 <meta name="twitter:description" content="在为公司技术部选型博客系统的过程中，最终选择了Hexo+Git内网构建的方式，一方面是希望大家学会这一优秀的静态博客系统的使用方法，另一方面，也是希望大家逐渐熟悉Git，为下一步真正的项目代码迁移到Git做准备。
@@ -124,6 +124,15 @@ Git上手很简单，但其实很复杂，很多命令都并没有真正理解�
 
   
 
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-6515979-1', 'auto');
+  ga('send', 'pageview');
+</script>
 
 
 
@@ -309,12 +318,12 @@ Git上手很简单，但其实很复杂，很多命令都并没有真正理解�
         <p>在为公司技术部选型博客系统的过程中，最终选择了Hexo+Git内网构建的方式，一方面是希望大家学会这一优秀的静态博客系统的使用方法，另一方面，也是希望大家逐渐熟悉Git，为下一步真正的项目代码迁移到Git做准备。</p>
 <p>Git上手很简单，但其实很复杂，很多命令都并没有真正理解，就算学会了也很容易忘，这就需要不断实践，也需要时间来体会。</p>
 <p>本文的重点主要还是学到的一点Git知识，做一个记录，感觉不记下来不久以后还会忘。</p>
-<h1 id="创建分支"><a href="#创建分支" class="headerlink" title="创建分支"></a>创建分支</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b richardyu</span><br></pre></td></tr></table></figure>
-<h1 id="添加远程版本库"><a href="#添加远程版本库" class="headerlink" title="添加远程版本库"></a>添加远程版本库</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin GIT_REPO_URL</span><br></pre></td></tr></table></figure>
-<h1 id="推送到远程分支"><a href="#推送到远程分支" class="headerlink" title="推送到远程分支"></a>推送到远程分支</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin richardyu:richardyu</span><br></pre></td></tr></table></figure>
-<h1 id="删除远程分支"><a href="#删除远程分支" class="headerlink" title="删除远程分支"></a>删除远程分支</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin :richardyu</span><br></pre></td></tr></table></figure>
-<h1 id="获取远程分支"><a href="#获取远程分支" class="headerlink" title="获取远程分支"></a>获取远程分支</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> -b master GIT_REPO repo</span><br></pre></td></tr></table></figure>
-<h1 id="在clone之后，获取远程的其他分支"><a href="#在clone之后，获取远程的其他分支" class="headerlink" title="在clone之后，获取远程的其他分支"></a>在clone之后，获取远程的其他分支</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git fetch origin BRANCH:BRANCH</span><br></pre></td></tr></table></figure>
+<h1 id="创建分支"><a href="#创建分支" class="headerlink" title="创建分支"></a>创建分支</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git checkout -b richardyu</div></pre></td></tr></table></figure>
+<h1 id="添加远程版本库"><a href="#添加远程版本库" class="headerlink" title="添加远程版本库"></a>添加远程版本库</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote add origin GIT_REPO_URL</div></pre></td></tr></table></figure>
+<h1 id="推送到远程分支"><a href="#推送到远程分支" class="headerlink" title="推送到远程分支"></a>推送到远程分支</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push origin richardyu:richardyu</div></pre></td></tr></table></figure>
+<h1 id="删除远程分支"><a href="#删除远程分支" class="headerlink" title="删除远程分支"></a>删除远程分支</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push origin :richardyu</div></pre></td></tr></table></figure>
+<h1 id="获取远程分支"><a href="#获取远程分支" class="headerlink" title="获取远程分支"></a>获取远程分支</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> -b master GIT_REPO repo</div></pre></td></tr></table></figure>
+<h1 id="在clone之后，获取远程的其他分支"><a href="#在clone之后，获取远程的其他分支" class="headerlink" title="在clone之后，获取远程的其他分支"></a>在clone之后，获取远程的其他分支</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git fetch origin BRANCH:BRANCH</div></pre></td></tr></table></figure>
 <p>注意，删除远程分支不会删除本地分支，还可以再推回去。</p>
 
       

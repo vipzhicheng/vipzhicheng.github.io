@@ -94,7 +94,7 @@
 <meta property="og:description" content="本文译自How To Install Ruby on Rails on CentOS 6 with RVM,转载请著名原文出处及译文出处。
 关于 Ruby on RailsRuby on Rails，简称RoR，是一个应用程序集合，提供给开发者一个快速创建Web应用程序的开发框架。
 安装Ruby on Rails环境确实需要一定的时间，不过幸运的是有许多工具可以让安装RoR的流程尽可能的简单。本文">
-<meta property="og:updated_time" content="2016-07-12T03:25:10.000Z">
+<meta property="og:updated_time" content="2016-08-02T10:38:13.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[译]使用RVM安装Ruby on Rails">
 <meta name="twitter:description" content="本文译自How To Install Ruby on Rails on CentOS 6 with RVM,转载请著名原文出处及译文出处。
@@ -124,6 +124,15 @@
 
   
 
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-6515979-1', 'auto');
+  ga('send', 'pageview');
+</script>
 
 
 
@@ -310,29 +319,29 @@
 <h2 id="关于-Ruby-on-Rails"><a href="#关于-Ruby-on-Rails" class="headerlink" title="关于 Ruby on Rails"></a>关于 Ruby on Rails</h2><p>Ruby on Rails，简称RoR，是一个应用程序集合，提供给开发者一个快速创建Web应用程序的开发框架。</p>
 <p>安装Ruby on Rails环境确实需要一定的时间，不过幸运的是有许多工具可以让安装RoR的流程尽可能的简单。本文基于CentOS6，根据实际安装时的经验对原文步骤略有调整，虽然RVM支持在任意账户下安装，但这里还是以root账户为例，会为以后减少许多不必要的麻烦。<br><a id="more"></a></p>
 <h2 id="第一步，安装RVM"><a href="#第一步，安装RVM" class="headerlink" title="第一步，安装RVM"></a>第一步，安装RVM</h2><p>在我们做任何其他步骤之前，首先要从源做一次更新以确保我们下载的所有包(Package)都是最新的。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum update</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum update</div></pre></td></tr></table></figure>
 <p>一旦上面的更新结束，我们就可以开始安装RVM（Ruby Version Manager）了，这个程序可以让你在一台服务器上使用多个版本的Ruby。</p>
 <p>如果你的系统里还没有安装curl，请从安装curl开始。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install curl</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install curl</div></pre></td></tr></table></figure>
 <p>安装RVM只需要在终端执行以下指令。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -sSL https://get.rvm.io | bash -s stable</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -sSL https://get.rvm.io | bash -s stable</div></pre></td></tr></table></figure>
 <p>安装后，我们需要加载RVM</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">source .bashrc</span><br><span class="line">source .bash_profile</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">source .bashrc</div><div class="line">source .bash_profile</div></pre></td></tr></table></figure>
 <p>为了保证RVM正常工作，RVM自己有一些软件依赖需要安装，可以通过以下指令查看这些依赖。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rvm requirements</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rvm requirements</div></pre></td></tr></table></figure>
 <p>以上指令将自动安装依赖，一般需要根据实际情况安装额外的依赖包，比如笔者在一台服务器非常顺利的执行了这个指令，而在另外一个服务器上则需要安装一个依赖包：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y libyaml-devel</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install -y libyaml-devel</div></pre></td></tr></table></figure>
 <p>以下是参考的反馈信息：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Checking requirements for centos.</span><br><span class="line">Installing requirements for centos.</span><br><span class="line">Updating system-</span><br><span class="line"></span><br><span class="line">.</span><br><span class="line">Installing required packages: patch, libyaml-devel, libffi-devel, autoconf, gcc-c++, patch, readline-devel, zlib-devel, openssl-devel, automake, libtool, bison............. ...............</span><br><span class="line">Requirements installation successful.</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Checking requirements for centos.</div><div class="line">Installing requirements for centos.</div><div class="line">Updating system-</div><div class="line"></div><div class="line">.</div><div class="line">Installing required packages: patch, libyaml-devel, libffi-devel, autoconf, gcc-c++, patch, readline-devel, zlib-devel, openssl-devel, automake, libtool, bison............. ...............</div><div class="line">Requirements installation successful.</div></pre></td></tr></table></figure>
 <h2 id="第二步，通过RVM安装Ruby"><a href="#第二步，通过RVM安装Ruby" class="headerlink" title="第二步，通过RVM安装Ruby"></a>第二步，通过RVM安装Ruby</h2><p>一旦我们安装好了RVM，安装Ruby是非常容易的。这里要等待比较长的时间。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rvm install 1.9.3</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rvm install 1.9.3</div></pre></td></tr></table></figure>
 <p>因为RVM支持多个Ruby版本，所以我们需要告诉系统我们默认使用哪个版本的Ruby。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rvm use 1.9.3 --default</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rvm use 1.9.3 --default</div></pre></td></tr></table></figure>
 <h2 id="第三步，安装RubyGems"><a href="#第三步，安装RubyGems" class="headerlink" title="第三步，安装RubyGems"></a>第三步，安装RubyGems</h2><p>为了让RoR程序正常工作，我们还需要安装许多Ruby组件，这些都需要靠RubyGems，和前面一样，RubyGems我们也通过RVM来安装。</p>
 <p>PS: 实际测试中，安装了Ruby 1.9.3后，就已经安装了gem，不需要执行下面的指令。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rvm rubygems current</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rvm rubygems current</div></pre></td></tr></table></figure>
 <h2 id="第四步，安装Rails"><a href="#第四步，安装Rails" class="headerlink" title="第四步，安装Rails"></a>第四步，安装Rails</h2><p>最后就是安装Rails了，只需要执行一行指令，但是可能要等上一段时间。如果你安装Rails的目的是安装Redmine，就不用执行下面的指令了，因为Redmine的安装流程会自动安装合适版本的Rails。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem install rails</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gem install rails</div></pre></td></tr></table></figure>
 
       
     </div>

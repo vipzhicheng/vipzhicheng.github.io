@@ -90,7 +90,7 @@
 <meta property="og:url" content="http://www.vipzhicheng.com/2014/02/24/how-to-add-new-extension-to-mamp/index.html">
 <meta property="og:site_name" content="理查的学习笔记">
 <meta property="og:description" content="在MacOS下开发，最常用的LAMP开发环境架设工具就是MAMP &amp;amp; MAMP PRO了。其使用确实简单，但是一旦你需要一些额外的扩展时，就需要自己想办法编译了，笔者知道给MAMP添加扩展会有不同的方法，但一下介绍的仍然是笔者认为最简单的方法，思路其实来自于Google。">
-<meta property="og:updated_time" content="2016-07-12T03:25:10.000Z">
+<meta property="og:updated_time" content="2016-08-02T10:38:13.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MacOS MAMP怎样添加扩展">
 <meta name="twitter:description" content="在MacOS下开发，最常用的LAMP开发环境架设工具就是MAMP &amp;amp; MAMP PRO了。其使用确实简单，但是一旦你需要一些额外的扩展时，就需要自己想办法编译了，笔者知道给MAMP添加扩展会有不同的方法，但一下介绍的仍然是笔者认为最简单的方法，思路其实来自于Google。">
@@ -118,6 +118,15 @@
 
   
 
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-6515979-1', 'auto');
+  ga('send', 'pageview');
+</script>
 
 
 
@@ -302,11 +311,11 @@
       
         <p>在MacOS下开发，最常用的LAMP开发环境架设工具就是MAMP &amp; MAMP PRO了。其使用确实简单，但是一旦你需要一些额外的扩展时，就需要自己想办法编译了，笔者知道给MAMP添加扩展会有不同的方法，但一下介绍的仍然是笔者认为最简单的方法，思路其实来自于Google。<br><a id="more"></a><br>首先你需要确定你的MAMP所使用的PHP版本，因为MAMP可以在PHP5.2, PHP5.3, PHP5.4之间切换的。</p>
 <p>然后你需要下载相应版本的PHP源码，之后解压缩到MAMP对应PHP版本的include/php目录，这里我是为PHP5.3.20添加扩展，所以源码解压缩到以下目录，注意php目录里面就是源码本身了，不会再有php5.3.20这样的版本目录。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/Applications/MAMP/bin/php/php5.3.20/include/php</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/Applications/MAMP/bin/php/php5.3.20/include/php</div></pre></td></tr></table></figure>
 <p>然后还有一点就是你需要把MAMP的对应版本的bin添加到环境变量。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PATH=/Applications/MAMP/bin/php/php5.3.20/bin:$PATH</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">export PATH=/Applications/MAMP/bin/php/php5.3.20/bin:$PATH</div></pre></td></tr></table></figure>
 <p>这样，你就可以在命令行直接使用MAMP当前对应的php版本指令了，这里我们用到的是pecl命令</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pecl install memcache</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pecl install memcache</div></pre></td></tr></table></figure>
 <p>然后，就会自动开始编译，而你需要做的仅仅是将编译好的扩展添加到php.ini，如果用的是MAMP PRO，需要注意php.ini的位置。</p>
 <p>需要思考两个问题</p>
 <ol>

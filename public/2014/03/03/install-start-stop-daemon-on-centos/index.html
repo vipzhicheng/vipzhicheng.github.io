@@ -90,7 +90,7 @@
 <meta property="og:url" content="http://www.vipzhicheng.com/2014/03/03/install-start-stop-daemon-on-centos/index.html">
 <meta property="og:site_name" content="理查的学习笔记">
 <meta property="og:description" content="start-stop-daemon是一个Debian体系里的一个守护进程管理软件，可以用指定的用户启动系统软件。CentOS有自己的daemon()机制（在/etc/init.d/functions)。但是如果你手上有一个脚本，必须使用start-stop-daemon在CentOS上运行，改写太麻烦，还是选择安装start-stop-daemon来的方便。">
-<meta property="og:updated_time" content="2016-07-12T03:25:10.000Z">
+<meta property="og:updated_time" content="2016-08-02T10:38:13.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="给CentOS安装start-stop-daemon">
 <meta name="twitter:description" content="start-stop-daemon是一个Debian体系里的一个守护进程管理软件，可以用指定的用户启动系统软件。CentOS有自己的daemon()机制（在/etc/init.d/functions)。但是如果你手上有一个脚本，必须使用start-stop-daemon在CentOS上运行，改写太麻烦，还是选择安装start-stop-daemon来的方便。">
@@ -118,6 +118,15 @@
 
   
 
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-6515979-1', 'auto');
+  ga('send', 'pageview');
+</script>
 
 
 
@@ -304,7 +313,7 @@
 <a id="more"></a>
 <p>安装start-stop-daemon需要去debian下载源码包, 我是在这里下的：<a href="http://ftp.de.debian.org/debian/pool/main/d/dpkg/，找到最新的dpkg包" target="_blank" rel="external">http://ftp.de.debian.org/debian/pool/main/d/dpkg/，找到最新的dpkg包</a>, 注：以下以dpkg_1.17.6为例。</p>
 <p>然后按照以下步骤即可编译成功</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">wget http://ftp.de.debian.org/debian/pool/main/d/dpkg/dpkg_1.17.6.tar.xz</span><br><span class="line">tar -xf dpkg_1.17.6.tar.xz</span><br><span class="line">cd dpkg_1.17.6</span><br><span class="line">./configure # 这一步如果提示缺少curses，需要yun install ncurses-devel</span><br><span class="line">make # 这一步会报错，忽略即可</span><br><span class="line">cd utils</span><br><span class="line">make # 可能不需要执行这个</span><br><span class="line">sudo cp start-stop-daemon /usr/local/bin/start-stop-daemon</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">wget http://ftp.de.debian.org/debian/pool/main/d/dpkg/dpkg_1.17.6.tar.xz</div><div class="line">tar -xf dpkg_1.17.6.tar.xz</div><div class="line">cd dpkg_1.17.6</div><div class="line">./configure # 这一步如果提示缺少curses，需要yun install ncurses-devel</div><div class="line">make # 这一步会报错，忽略即可</div><div class="line">cd utils</div><div class="line">make # 可能不需要执行这个</div><div class="line">sudo cp start-stop-daemon /usr/local/bin/start-stop-daemon</div></pre></td></tr></table></figure>
 
       
     </div>

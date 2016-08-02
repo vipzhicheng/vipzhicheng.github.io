@@ -92,7 +92,7 @@
 <meta property="og:site_name" content="理查的学习笔记">
 <meta property="og:description" content="如果你使用Github，Bitbucket, 或者国产的Coding.net等，都会在个人设置那里看到设置SSH Key的地方，这个是做什么用的呢，这个是用来让你提交代码通过SSH隧道的方式提交到远程服务器，这种方式有安全，稳定以及无需每次输入认证信息等特点。
 本文只是以Github为例，讲解怎么操作，至于原理和概念，请自行搜索。">
-<meta property="og:updated_time" content="2016-07-12T03:25:11.000Z">
+<meta property="og:updated_time" content="2016-08-02T10:38:13.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="为Github添加SSH KEY">
 <meta name="twitter:description" content="如果你使用Github，Bitbucket, 或者国产的Coding.net等，都会在个人设置那里看到设置SSH Key的地方，这个是做什么用的呢，这个是用来让你提交代码通过SSH隧道的方式提交到远程服务器，这种方式有安全，稳定以及无需每次输入认证信息等特点。
@@ -121,6 +121,15 @@
 
   
 
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-6515979-1', 'auto');
+  ga('send', 'pageview');
+</script>
 
 
 
@@ -306,22 +315,22 @@
         <p>如果你使用Github，Bitbucket, 或者国产的Coding.net等，都会在个人设置那里看到设置SSH Key的地方，这个是做什么用的呢，这个是用来让你提交代码通过SSH隧道的方式提交到远程服务器，这种方式有安全，稳定以及无需每次输入认证信息等特点。</p>
 <p>本文只是以Github为例，讲解怎么操作，至于原理和概念，请自行搜索。</p>
 <a id="more"></a>
-<h2 id="第一步，检查一下当前已经生成的SSH-keys"><a href="#第一步，检查一下当前已经生成的SSH-keys" class="headerlink" title="第一步，检查一下当前已经生成的SSH keys"></a>第一步，检查一下当前已经生成的SSH keys</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -al ~/.ssh</span><br></pre></td></tr></table></figure>
+<h2 id="第一步，检查一下当前已经生成的SSH-keys"><a href="#第一步，检查一下当前已经生成的SSH-keys" class="headerlink" title="第一步，检查一下当前已经生成的SSH keys"></a>第一步，检查一下当前已经生成的SSH keys</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ls -al ~/.ssh</div></pre></td></tr></table></figure>
 <p>当然理论上当前存在的SSH keys不会影响你新创建的，注意为每个不同的key取不同的文件名。</p>
-<h2 id="第二步，创建一个新的SSH-key"><a href="#第二步，创建一个新的SSH-key" class="headerlink" title="第二步，创建一个新的SSH key"></a>第二步，创建一个新的SSH key</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C &quot;your_email@example.com&quot;</span><br><span class="line"># Creates a new ssh key, using the provided email as a label</span><br><span class="line"># Generating public/private rsa key pair.</span><br><span class="line"># Enter file in which to save the key (/Users/you/.ssh/id_rsa): [这里建议起个特殊的名字]</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Enter passphrase (empty for no passphrase): [Type a passphrase]</span><br><span class="line"># Enter same passphrase again: [Type passphrase again]</span><br></pre></td></tr></table></figure>
+<h2 id="第二步，创建一个新的SSH-key"><a href="#第二步，创建一个新的SSH-key" class="headerlink" title="第二步，创建一个新的SSH key"></a>第二步，创建一个新的SSH key</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ ssh-keygen -t rsa -C &quot;your_email@example.com&quot;</div><div class="line"># Creates a new ssh key, using the provided email as a label</div><div class="line"># Generating public/private rsa key pair.</div><div class="line"># Enter file in which to save the key (/Users/you/.ssh/id_rsa): [这里建议起个特殊的名字]</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Enter passphrase (empty for no passphrase): [Type a passphrase]</div><div class="line"># Enter same passphrase again: [Type passphrase again]</div></pre></td></tr></table></figure>
 <p>passphrase类似于密码，但只是本机使用，可以不设置，但这样不够安全。</p>
 <p>你会得到类似于下面的输出：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Your identification has been saved in /Users/you/.ssh/id_rsa.</span><br><span class="line"># Your public key has been saved in /Users/you/.ssh/id_rsa.pub.</span><br><span class="line"># The key fingerprint is:</span><br><span class="line"># 01:0f:f4:3b:ca:85:d6:17:a1:7d:f0:68:9d:f0:a2:db your_email@example.com</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Your identification has been saved in /Users/you/.ssh/id_rsa.</div><div class="line"># Your public key has been saved in /Users/you/.ssh/id_rsa.pub.</div><div class="line"># The key fingerprint is:</div><div class="line"># 01:0f:f4:3b:ca:85:d6:17:a1:7d:f0:68:9d:f0:a2:db your_email@example.com</div></pre></td></tr></table></figure>
 <p>然后，使用如下方式加载本地私钥，如果本机已经开启了ssh-agent就不需要再启动直接添加私钥即可。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># start the ssh-agent in the background</span><br><span class="line">eval &quot;$(ssh-agent -s)&quot;</span><br><span class="line"># Agent pid 59566</span><br><span class="line">ssh-add ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"># start the ssh-agent in the background</div><div class="line">eval &quot;$(ssh-agent -s)&quot;</div><div class="line"># Agent pid 59566</div><div class="line">ssh-add ~/.ssh/id_rsa</div></pre></td></tr></table></figure>
 <h2 id="第三步，在Github上添加SSH-key"><a href="#第三步，在Github上添加SSH-key" class="headerlink" title="第三步，在Github上添加SSH key"></a>第三步，在Github上添加SSH key</h2><p>注意两点：</p>
 <ol>
 <li>Label只是用来助记的标识。</li>
 <li>里面填写的是公钥。</li>
 </ol>
 <p>最后，你只需要在你的本地代码添加对应远程SSH版本库地址即可。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd existing_git_repo //进入已有项目或更新的项目目录</span><br><span class="line">git remote add origin SSH_REPO_URL</span><br><span class="line">git push -u origin master //这两行将该目录下的文件推送到远端（origin）上的 &quot;master&quot; 分支</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">cd existing_git_repo //进入已有项目或更新的项目目录</div><div class="line">git remote add origin SSH_REPO_URL</div><div class="line">git push -u origin master //这两行将该目录下的文件推送到远端（origin）上的 &quot;master&quot; 分支</div></pre></td></tr></table></figure>
 
       
     </div>

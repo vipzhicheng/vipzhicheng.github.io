@@ -92,7 +92,7 @@
 <meta property="og:site_name" content="理查的学习笔记">
 <meta property="og:description" content="我们一般认为htop比top更适合用来监控系统进程，图形化的界面，支持鼠标，可读性较好，并且有许多额外的功能，这里尽介绍怎样通过yum在CentOS上安装，不过源码编译安装也是非常简单的，这里就不再赘述。
 默认CentOS的源里是没有htop的，所以主要就是要找到合适的源，这个对不同的系统版本，以及对32bit,64bit的操作系统来说，需要添加的源是不同的，而且其实有多个第三方源，你只需要记住这">
-<meta property="og:updated_time" content="2016-07-12T03:25:10.000Z">
+<meta property="og:updated_time" content="2016-08-02T10:38:13.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用yum给CentOS安装htop">
 <meta name="twitter:description" content="我们一般认为htop比top更适合用来监控系统进程，图形化的界面，支持鼠标，可读性较好，并且有许多额外的功能，这里尽介绍怎样通过yum在CentOS上安装，不过源码编译安装也是非常简单的，这里就不再赘述。
@@ -121,6 +121,15 @@
 
   
 
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-6515979-1', 'auto');
+  ga('send', 'pageview');
+</script>
 
 
 
@@ -306,12 +315,12 @@
         <p>我们一般认为htop比top更适合用来监控系统进程，图形化的界面，支持鼠标，可读性较好，并且有许多额外的功能，这里尽介绍怎样通过yum在CentOS上安装，不过源码编译安装也是非常简单的，这里就不再赘述。</p>
 <p>默认CentOS的源里是没有htop的，所以主要就是要找到合适的源，这个对不同的系统版本，以及对32bit,64bit的操作系统来说，需要添加的源是不同的，而且其实有多个第三方源，你只需要记住这种方式，如果这个源失效了，可以找其他的源代替。</p>
 <a id="more"></a>
-<h2 id="为CentOS-5-x添加RPM源"><a href="#为CentOS-5-x添加RPM源" class="headerlink" title="为CentOS 5.x添加RPM源"></a>为CentOS 5.x添加RPM源</h2><figure class="highlight bash"><figcaption><span>32bit:</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el5.rf.i686.rpm</span><br><span class="line">rpm -Uhv rpmforge-release*.rf.i386.rpm</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><figcaption><span>64bit:</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el5.rf.x86_64.rpm</span><br><span class="line">rpm -Uhv rpmforge-release*.rf.x86_64.rpm</span><br></pre></td></tr></table></figure>
-<h2 id="为CentOS-6-x添加RPM源"><a href="#为CentOS-6-x添加RPM源" class="headerlink" title="为CentOS 6.x添加RPM源"></a>为CentOS 6.x添加RPM源</h2><figure class="highlight bash"><figcaption><span>32bit:</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el6.rf.i686.rpm</span><br><span class="line">rpm -Uhv rpmforge-release*.rf.i386.rpm</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><figcaption><span>64bit:</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el6.rf.x86_64.rpm</span><br><span class="line">rpm -Uhv rpmforge-release*.rf.x86_64.rpm</span><br></pre></td></tr></table></figure>
+<h2 id="为CentOS-5-x添加RPM源"><a href="#为CentOS-5-x添加RPM源" class="headerlink" title="为CentOS 5.x添加RPM源"></a>为CentOS 5.x添加RPM源</h2><figure class="highlight bash"><figcaption><span>32bit:</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">wget http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el5.rf.i686.rpm</div><div class="line">rpm -Uhv rpmforge-release*.rf.i386.rpm</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><figcaption><span>64bit:</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">wget http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el5.rf.x86_64.rpm</div><div class="line">rpm -Uhv rpmforge-release*.rf.x86_64.rpm</div></pre></td></tr></table></figure>
+<h2 id="为CentOS-6-x添加RPM源"><a href="#为CentOS-6-x添加RPM源" class="headerlink" title="为CentOS 6.x添加RPM源"></a>为CentOS 6.x添加RPM源</h2><figure class="highlight bash"><figcaption><span>32bit:</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">wget http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el6.rf.i686.rpm</div><div class="line">rpm -Uhv rpmforge-release*.rf.i386.rpm</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><figcaption><span>64bit:</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">wget http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el6.rf.x86_64.rpm</div><div class="line">rpm -Uhv rpmforge-release*.rf.x86_64.rpm</div></pre></td></tr></table></figure>
 <p>之后我们就可以使用yum安装htop了</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y htop</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install -y htop</div></pre></td></tr></table></figure>
 
       
     </div>
