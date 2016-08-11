@@ -249,6 +249,123 @@
             
               
                 
+                <a class="post-title-link" href="/2014/04/08/how-to-install-ruby-on-rails-on-centos-6-with-rvm/" itemprop="url">
+                  [译]使用RVM安装Ruby on Rails
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2014-04-08T17:25:43+08:00" content="2014-04-08">
+              2014-04-08
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Ops/" itemprop="url" rel="index">
+                    <span itemprop="name">Ops</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>本文译自<a href="https://www.digitalocean.com/community/articles/how-to-install-ruby-on-rails-on-centos-6-with-rvm">How To Install Ruby on Rails on CentOS 6 with RVM</a>,转载请著名原文出处及译文出处。</p>
+<h2 id="关于-Ruby-on-Rails"><a href="#关于-Ruby-on-Rails" class="headerlink" title="关于 Ruby on Rails"></a>关于 Ruby on Rails</h2><p>Ruby on Rails，简称RoR，是一个应用程序集合，提供给开发者一个快速创建Web应用程序的开发框架。</p>
+<p>安装Ruby on Rails环境确实需要一定的时间，不过幸运的是有许多工具可以让安装RoR的流程尽可能的简单。本文基于CentOS6，根据实际安装时的经验对原文步骤略有调整，虽然RVM支持在任意账户下安装，但这里还是以root账户为例，会为以后减少许多不必要的麻烦。<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2014/04/08/how-to-install-ruby-on-rails-on-centos-6-with-rvm/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2014/04/08/fix-jenkins-broken-css-and-images/" itemprop="url">
                   解决Jenkins长时间运行后样式丢失
                 </a>
@@ -1268,123 +1385,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2014/02/24/yum-install-jenkins-on-centos/" itemprop="url">
-                  CentOS yum安装jenkins笔记
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2014-02-24T01:26:01+08:00" content="2014-02-24">
-              2014-02-24
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Ops/" itemprop="url" rel="index">
-                    <span itemprop="name">Ops</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>因为工作需要，所以打算在一组服务器上配置Jenkins服务，搜索了一下，找到我操作起来最方便的方案，下面就陈述一下，大部分都是原文作者的功劳。</p>
-<h2 id="添加Jenkins的源"><a href="#添加Jenkins的源" class="headerlink" title="添加Jenkins的源"></a>添加Jenkins的源</h2><p>CentOS默认源里没有Jenkins</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ sudo wget -O /etc/yum.repos.d/jenkins.repo http://jenkins-ci.org/redhat/jenkins.repo</div><div class="line">$ sudo rpm --import http://pkg.jenkins-ci.org/redhat/jenkins-ci.org.key</div></pre></td></tr></table></figure>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2014/02/24/yum-install-jenkins-on-centos/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1430,7 +1430,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">28</span>
+              <span class="site-state-item-count">29</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1447,7 +1447,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">55</span>
+                <span class="site-state-item-count">57</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

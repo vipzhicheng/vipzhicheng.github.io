@@ -249,6 +249,125 @@
             
               
                 
+                <a class="post-title-link" href="/2016/08/11/怎样在-CentOS-7-上安装-Nginx/" itemprop="url">
+                  怎样在 CentOS 7 上安装 Nginx
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-11T19:40:03+08:00" content="2016-08-11">
+              2016-08-11
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Ops/" itemprop="url" rel="index">
+                    <span itemprop="name">Ops</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Nginx是一个高性能的Web服务器，比Apache要灵活和轻量。</p>
+<p>注，以下安装过程需要具有<code>root</code>权限或者用<code>sudo</code>来执行，注意这个教程是针对<code>CentOS 7</code>的，貌似<code>CentOS 7</code>上的软件安装都异常的简单。</p>
+<h2 id="第一步：添加Nginx软件源"><a href="#第一步：添加Nginx软件源" class="headerlink" title="第一步：添加Nginx软件源"></a>第一步：添加Nginx软件源</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo yum install epel-release</div></pre></td></tr></table></figure>
+<h2 id="第二步：安装Nginx"><a href="#第二步：安装Nginx" class="headerlink" title="第二步：安装Nginx"></a>第二步：安装Nginx</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo yum install nginx</div></pre></td></tr></table></figure>
+<h2 id="第三步：开启Nginx服务"><a href="#第三步：开启Nginx服务" class="headerlink" title="第三步：开启Nginx服务"></a>第三步：开启Nginx服务</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo systemctl start nginx</div></pre></td></tr></table></figure>
+<h2 id="验证是否正常工作"><a href="#验证是否正常工作" class="headerlink" title="验证是否正常工作"></a>验证是否正常工作</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://server_domain_name_or_IP/</div></pre></td></tr></table></figure>
+<h2 id="把Nginx加到开机自启动"><a href="#把Nginx加到开机自启动" class="headerlink" title="把Nginx加到开机自启动"></a>把Nginx加到开机自启动</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo systemctl enable nginx</div></pre></td></tr></table></figure>
+<h2 id="默认的配置文件路径和Web根目录"><a href="#默认的配置文件路径和Web根目录" class="headerlink" title="默认的配置文件路径和Web根目录"></a>默认的配置文件路径和Web根目录</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"># 默认配置文件路径</div><div class="line">/etc/nginx/nginx.conf</div><div class="line"></div><div class="line"># 其他自定义配置文件所在目录，可定义虚拟主机，以`.conf`扩展名结尾</div><div class="line">/etc/nginx/conf.d</div><div class="line"></div><div class="line"># 默认Web根目录</div><div class="line">/usr/share/nginx/html</div></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/07/25/SVN合并trunk的一些版本到分支/" itemprop="url">
                   SVN merge命令合并trunk的一些版本到分支
                 </a>
@@ -1293,123 +1412,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2014/04/08/how-to-install-ruby-on-rails-on-centos-6-with-rvm/" itemprop="url">
-                  [译]使用RVM安装Ruby on Rails
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2014-04-08T17:25:43+08:00" content="2014-04-08">
-              2014-04-08
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Ops/" itemprop="url" rel="index">
-                    <span itemprop="name">Ops</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>本文译自<a href="https://www.digitalocean.com/community/articles/how-to-install-ruby-on-rails-on-centos-6-with-rvm">How To Install Ruby on Rails on CentOS 6 with RVM</a>,转载请著名原文出处及译文出处。</p>
-<h2 id="关于-Ruby-on-Rails"><a href="#关于-Ruby-on-Rails" class="headerlink" title="关于 Ruby on Rails"></a>关于 Ruby on Rails</h2><p>Ruby on Rails，简称RoR，是一个应用程序集合，提供给开发者一个快速创建Web应用程序的开发框架。</p>
-<p>安装Ruby on Rails环境确实需要一定的时间，不过幸运的是有许多工具可以让安装RoR的流程尽可能的简单。本文基于CentOS6，根据实际安装时的经验对原文步骤略有调整，虽然RVM支持在任意账户下安装，但这里还是以root账户为例，会为以后减少许多不必要的麻烦。<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2014/04/08/how-to-install-ruby-on-rails-on-centos-6-with-rvm/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1455,7 +1457,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">28</span>
+              <span class="site-state-item-count">29</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1472,7 +1474,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">55</span>
+                <span class="site-state-item-count">57</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
