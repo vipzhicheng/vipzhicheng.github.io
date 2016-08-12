@@ -11,10 +11,10 @@ keywords: "Hexo, NexT"
 # Set rss to false to disable feed link.
 # Leave rss as empty to use site's feed link.
 # Set rss to specific value if you have burned your feed already.
-rss:
+rss: /atom.xml
 
 # Specify the date when the site was setup
-#since: 2015
+since: 2014
 
 
 
@@ -26,7 +26,8 @@ rss:
 # When running the site in a subdirectory (e.g. domain.tld/blog), remove the leading slash (/archives -> archives)
 menu:
   home: /
-  categories: categories
+  drupal: tags/Drupal
+  #categories: categories
   #about: /about
   archives: archives
   tags: tags
@@ -44,6 +45,7 @@ menu_icons:
   home: home
   about: user
   categories: th
+  drupal: drupal
   tags: tags
   archives: archive
   commonweal: heartbeat
@@ -119,7 +121,8 @@ font:
 # Value is the target link (E.g. GitHub: https://github.com/iissnan)
 #social:
   #LinkLabel: Link
-
+social:
+  Github: https://github.com/vipzhicheng
 
 # Social Links Icons
 # Icon Mapping:
@@ -166,18 +169,19 @@ sidebar:
   #  - always  expand for all pages automatically
   #  - hide    expand only when click on the sidebar toggle icon.
   #  - remove  Totally remove sidebar including sidebar toggler.
-  display: post
+  #display: post
   #display: always
-  #display: hide
+  display: hide
   #display: remove
 
 
 # Blogrolls
-#links_title: Links
+links_title: Links
 #links_layout: block
 #links_layout: inline
-#links:
-  #Title: http://example.com/
+links:
+  Drupal项目社区: http://www.drupalproject.org/
+  Drupal中国: http://drupalchina.cn
 
 
 # ---------------------------------------------------------------
@@ -238,10 +242,10 @@ mathjax:
 #baidu_analytics:
 
 # Duoshuo ShortName
-#duoshuo_shortname:
+duoshuo_shortname: vipzhicheng
 
 # Disqus
-#disqus_shortname:
+# disqus_shortname: vipzhicheng
 
 # Baidu Share
 # Available value:
@@ -250,11 +254,11 @@ mathjax:
 ##  type: button
 
 # Share
-#jiathis:
+#jiathis: true
 #add_this_id:
 
 # Share
-#duoshuo_share: true
+duoshuo_share: true
 
 # Google Webmaster tools verification setting
 # See: https://www.google.com/webmasters/

@@ -74,6 +74,8 @@
 
 
 
+  <link rel="alternate" href="/atom.xml" title="理查的学习笔记" type="application/atom+xml" />
+
 
 
 
@@ -101,7 +103,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     scheme: 'Mist',
-    sidebar: {"position":"left","display":"post"},
+    sidebar: {"position":"left","display":"hide"},
     fancybox: true,
     motion: true,
     duoshuo: {
@@ -183,12 +185,12 @@
         </li>
       
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
+        <li class="menu-item menu-item-drupal">
+          <a href="/tags/Drupal" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-drupal"></i> <br />
             
-            分类
+            Drupal
           </a>
         </li>
       
@@ -214,9 +216,32 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
   
 </nav>
 
@@ -290,6 +315,13 @@
 
           
             
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2014/03/03/setup-solr-auto-start-on-centos/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/03/03/setup-solr-auto-start-on-centos/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -311,17 +343,17 @@
       
         <p>在生产服务器上部署Solr时，曾想过应该使用哪种容器运行Solr，使用Resin, Jetty还是Tomcat,后来看了一些评测说性能上Jetty也不是很差，就决定还是用Jetty，而且Jetty是默认就自带的方式，一条命令就能在测试环境启动起来。</p>
 <a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">java -jar start</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">java -jar start</div></pre></td></tr></table></figure>
 <p>在生产服务器上，考虑到希望可以随机启动，所以决定将脚本改写成可以随机自动启动的service形式。Google了一下，发现不同的人的实现都不一样，官方也提供了一种，不过需要依赖于start-stop-daemon这个程序，安装起来比较麻烦。后来我又找到了一种不依赖任何程序的方式。如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line"># description: Starts and stops Solr production</div><div class="line"></div><div class="line">set -e</div><div class="line">PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin</div><div class="line"></div><div class="line">SOLR_DIR=/data/solr/ #SOLR DIR</div><div class="line">JAVA_OPTIONS=&quot;-Dsolr.solr.home=/data/solr/multicore -Djava.util.logging.config.file=logging.properties -server -DSTOP.PORT=8079 -DSTOP.KEY=stopkey -Xmx256M -Xms128M -jar start.jar&quot;</div><div class="line">JAVA=&quot;/usr/bin/java&quot;</div><div class="line">LOG_FILE=&quot;/data/solr/logs/solr.log&quot;</div><div class="line"></div><div class="line">case $1 in</div><div class="line">  start)</div><div class="line">    echo &quot;Starting Solr&quot;</div><div class="line">    cd $SOLR_DIR</div><div class="line">  nohup $JAVA $JAVA_OPTIONS 2&gt; $LOG_FILE &amp;</div><div class="line">    echo &quot;ok - remember it may take a minute or two before Solr responds on requests&quot;</div><div class="line">  ;;</div><div class="line">  stop)</div><div class="line">    echo &quot;Stopping Solr&quot;</div><div class="line">    cd $SOLR_DIR</div><div class="line">    $JAVA $JAVA_OPTIONS --stop</div><div class="line">    echo &quot;ok&quot;</div><div class="line">  ;;</div><div class="line">  restart)</div><div class="line">    $0 stop</div><div class="line">    sleep 3</div><div class="line">    $0 start</div><div class="line">  ;;</div><div class="line"> *)</div><div class="line">    echo &quot;Usage: $0 &#123;start|stop|restart&#125;&quot; &gt;&amp;2exit 1</div><div class="line">  ;;</div><div class="line">esac</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line"># description: Starts and stops Solr production</div><div class="line"></div><div class="line">set -e</div><div class="line">PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin</div><div class="line"></div><div class="line">SOLR_DIR=/data/solr/ #SOLR DIR</div><div class="line">JAVA_OPTIONS=&quot;-Dsolr.solr.home=/data/solr/multicore -Djava.util.logging.config.file=logging.properties -server -DSTOP.PORT=8079 -DSTOP.KEY=stopkey -Xmx256M -Xms128M -jar start.jar&quot;</div><div class="line">JAVA=&quot;/usr/bin/java&quot;</div><div class="line">LOG_FILE=&quot;/data/solr/logs/solr.log&quot;</div><div class="line"></div><div class="line">case $1 in</div><div class="line">  start)</div><div class="line">    echo &quot;Starting Solr&quot;</div><div class="line">    cd $SOLR_DIR</div><div class="line">  nohup $JAVA $JAVA_OPTIONS 2&gt; $LOG_FILE &amp;</div><div class="line">    echo &quot;ok - remember it may take a minute or two before Solr responds on requests&quot;</div><div class="line">  ;;</div><div class="line">  stop)</div><div class="line">    echo &quot;Stopping Solr&quot;</div><div class="line">    cd $SOLR_DIR</div><div class="line">    $JAVA $JAVA_OPTIONS --stop</div><div class="line">    echo &quot;ok&quot;</div><div class="line">  ;;</div><div class="line">  restart)</div><div class="line">    $0 stop</div><div class="line">    sleep 3</div><div class="line">    $0 start</div><div class="line">  ;;</div><div class="line"> *)</div><div class="line">    echo &quot;Usage: $0 &#123;start|stop|restart&#125;&quot; &gt;&amp;2exit 1</div><div class="line">  ;;</div><div class="line">esac</div></pre></td></tr></table></figure>
 <p>这种方式可以运行，也可以直接用，但我又找了另外一种，也是可以使用的。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div></pre></td><td class="code"><pre><div class="line">#!/bin/sh</div><div class="line"></div><div class="line"># Prerequisites:</div><div class="line"># 1. Check SOLR_DIR value is correct</div><div class="line"># 2. daemon needs to be installed</div><div class="line"># 3. Script needs to be executed by root</div><div class="line"></div><div class="line"># This script will launch Solr in a mode that will automatically respawn if it</div><div class="line"># crashes. Output will be sent to $LOG. A pid file will be</div><div class="line"># created in the standard location.</div><div class="line"></div><div class="line"># chkconfig: 2345 64 36</div><div class="line"></div><div class="line">NAME=solr</div><div class="line">SOLR_DIR=/data/solr</div><div class="line">COMMAND=&quot;java -Dsolr.solr.home=/data/solr/multicore -jar start.jar&quot;</div><div class="line">LOG=/var/log/solr/solr.log</div><div class="line"></div><div class="line">start () &#123;</div><div class="line">    echo -n &quot;Starting solr...&quot;</div><div class="line"></div><div class="line">    # start daemon</div><div class="line">    daemon --chdir=$SOLR_DIR --command &quot;$COMMAND&quot; --respawn --output=$LOG --name=$NAME --verbose</div><div class="line"></div><div class="line">    RETVAL=$?</div><div class="line">    if [ $RETVAL = 0 ]</div><div class="line">    then</div><div class="line">        echo &quot;done.&quot;</div><div class="line">    else</div><div class="line">        echo &quot;failed. See error code for more information.&quot;</div><div class="line">    fi</div><div class="line">    return $RETVAL</div><div class="line">&#125;</div><div class="line"></div><div class="line">stop () &#123;</div><div class="line">    # stop daemon</div><div class="line">    echo -n &quot;Stopping $NAME...&quot;</div><div class="line"></div><div class="line">    daemon --stop --name=$NAME  --verbose</div><div class="line">    RETVAL=$?</div><div class="line"></div><div class="line">    if [ $RETVAL = 0 ]</div><div class="line">    then</div><div class="line">        echo &quot;done.&quot;</div><div class="line">    else</div><div class="line">        echo &quot;failed. See error code for more information.&quot;</div><div class="line">    fi</div><div class="line">    return $RETVAL</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">restart () &#123;</div><div class="line">    daemon --restart --name=$NAME  --verbose</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">status () &#123;</div><div class="line">    # report on the status of the daemon</div><div class="line">    daemon --running --verbose --name=$NAME</div><div class="line">    return $?</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">case &quot;$1&quot; in</div><div class="line">    start)</div><div class="line">        start</div><div class="line">    ;;</div><div class="line">    status)</div><div class="line">        status</div><div class="line">    ;;</div><div class="line">    stop)</div><div class="line">        stop</div><div class="line">    ;;</div><div class="line">    restart)</div><div class="line">        restart</div><div class="line">    ;;</div><div class="line">    *)</div><div class="line">        echo $&quot;Usage: $NAME &#123;start|status|stop|restart&#125;&quot;</div><div class="line">        exit 3</div><div class="line">    ;; esac</div><div class="line"></div><div class="line">exit $RETVAL</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">#!/bin/sh</div><div class="line"></div><div class="line"># Prerequisites:</div><div class="line"># 1. Check SOLR_DIR value is correct</div><div class="line"># 2. daemon needs to be installed</div><div class="line"># 3. Script needs to be executed by root</div><div class="line"></div><div class="line"># This script will launch Solr in a mode that will automatically respawn if it</div><div class="line"># crashes. Output will be sent to $LOG. A pid file will be</div><div class="line"># created in the standard location.</div><div class="line"></div><div class="line"># chkconfig: 2345 64 36</div><div class="line"></div><div class="line">NAME=solr</div><div class="line">SOLR_DIR=/data/solr</div><div class="line">COMMAND=&quot;java -Dsolr.solr.home=/data/solr/multicore -jar start.jar&quot;</div><div class="line">LOG=/var/log/solr/solr.log</div><div class="line"></div><div class="line">start () &#123;</div><div class="line">    echo -n &quot;Starting solr...&quot;</div><div class="line"></div><div class="line">    # start daemon</div><div class="line">    daemon --chdir=$SOLR_DIR --command &quot;$COMMAND&quot; --respawn --output=$LOG --name=$NAME --verbose</div><div class="line"></div><div class="line">    RETVAL=$?</div><div class="line">    if [ $RETVAL = 0 ]</div><div class="line">    then</div><div class="line">        echo &quot;done.&quot;</div><div class="line">    else</div><div class="line">        echo &quot;failed. See error code for more information.&quot;</div><div class="line">    fi</div><div class="line">    return $RETVAL</div><div class="line">&#125;</div><div class="line"></div><div class="line">stop () &#123;</div><div class="line">    # stop daemon</div><div class="line">    echo -n &quot;Stopping $NAME...&quot;</div><div class="line"></div><div class="line">    daemon --stop --name=$NAME  --verbose</div><div class="line">    RETVAL=$?</div><div class="line"></div><div class="line">    if [ $RETVAL = 0 ]</div><div class="line">    then</div><div class="line">        echo &quot;done.&quot;</div><div class="line">    else</div><div class="line">        echo &quot;failed. See error code for more information.&quot;</div><div class="line">    fi</div><div class="line">    return $RETVAL</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">restart () &#123;</div><div class="line">    daemon --restart --name=$NAME  --verbose</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">status () &#123;</div><div class="line">    # report on the status of the daemon</div><div class="line">    daemon --running --verbose --name=$NAME</div><div class="line">    return $?</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">case &quot;$1&quot; in</div><div class="line">    start)</div><div class="line">        start</div><div class="line">    ;;</div><div class="line">    status)</div><div class="line">        status</div><div class="line">    ;;</div><div class="line">    stop)</div><div class="line">        stop</div><div class="line">    ;;</div><div class="line">    restart)</div><div class="line">        restart</div><div class="line">    ;;</div><div class="line">    *)</div><div class="line">        echo $&quot;Usage: $NAME &#123;start|status|stop|restart&#125;&quot;</div><div class="line">        exit 3</div><div class="line">    ;; esac</div><div class="line"></div><div class="line">exit $RETVAL</div></pre></td></tr></table></figure>
 <p>相比较而言，我更喜欢第二种，不过第二种需要依赖一个叫做<a href="http://libslack.org/daemon" target="_blank" rel="external">daemon</a>的处理守护进程的程序，需要按照以下方式安装。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rpm -i http://libslack.org/daemon/download/daemon-0.6.4-1.x86_64.rpm</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">rpm -i http://libslack.org/daemon/download/daemon-0.6.4-1.x86_64.rpm</div></pre></td></tr></table></figure>
 <p>这个脚本我一次就成功了，而且比较好用，可以查看状态。</p>
 <p>其实Solr官网提供的应该也是可以运行的，不过由于其依赖的start-stop-daemon是debian的程序，弄起来不是很方便，就放弃了，最后，我决定使用的就是本文的第二种方式。</p>
 <p>最后设置自动启动的方式很简单</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">chkconfig --add solr</div><div class="line">chkconfig solr on</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">chkconfig --add solr</div><div class="line">chkconfig solr on</div></pre></td></tr></table></figure>
 <p>另外，大家在使用这个脚本时需要注意换成你的Solr安装目录。</p>
 
       
@@ -384,6 +416,25 @@
 
     <div class="post-spread">
       
+        <div class="ds-share flat" data-thread-key="2014/03/03/setup-solr-auto-start-on-centos/"
+     data-title="CentOS设置Solr自动启动"
+     data-content=""
+     data-url="http://www.vipzhicheng.com/2014/03/03/setup-solr-auto-start-on-centos/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
     </div>
   </div>
 
@@ -394,6 +445,10 @@
 
           
   <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2014/03/03/setup-solr-auto-start-on-centos/"
+           data-title="CentOS设置Solr自动启动" data-url="http://www.vipzhicheng.com/2014/03/03/setup-solr-auto-start-on-centos/">
+      </div>
     
   </div>
 
@@ -444,10 +499,10 @@
 
           
             <div class="site-state-item site-state-categories">
-              <a href="/categories">
+              
                 <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">分类</span>
-              </a>
+              
             </div>
           
 
@@ -463,8 +518,26 @@
         </nav>
 
         
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
 
         <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/vipzhicheng" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
           
         </div>
 
@@ -472,6 +545,24 @@
         
 
         
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.drupalproject.org/" title="Drupal项目社区" target="_blank">Drupal项目社区</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://drupalchina.cn" title="Drupal中国" target="_blank">Drupal中国</a>
+                </li>
+              
+            </ul>
+          </div>
         
 
       </section>
@@ -501,7 +592,7 @@
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy; 
+  &copy;  2014 - 
   <span itemprop="copyrightYear">2016</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
@@ -597,14 +688,162 @@
 
   
 
+  
+    
+  
 
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"vipzhicheng"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
 
+  
+    
   
 
 
 
+
+
   
   
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';                
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+                            
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').mousedown(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
   
 
   

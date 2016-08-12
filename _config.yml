@@ -40,7 +40,7 @@ future: true
 highlight:
   enable: true
   line_number: false
-  auto_detect: false
+  auto_detect: true
   tab_replace:
 
 # Category & Tag
@@ -62,6 +62,10 @@ pagination_dir: page
 
 # Extensions
 ## Plugins: https://hexo.io/plugins/
+
+plugins:
+  hexo-generate-feed
+
 ## Themes: https://hexo.io/themes/
 theme: next
 
@@ -71,3 +75,9 @@ deploy:
   type: git
   repo: git@github.com:vipzhicheng/vipzhicheng.github.io.git
   branch: master
+
+# More configs
+# Search
+search:
+  path: search.xml
+  field: post

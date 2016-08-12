@@ -15,7 +15,7 @@ tags:
 
 那么怎么排除掉非核心应用呢？经过调查，发现`New Relic`支持一些[API](https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api)，可以对上传的数据做定制，里面恰好就有解决这个问题的API。
 
-``` php
+```php
 if (extension_loaded('newrelic')) {
     newrelic_ignore_transaction();
 }

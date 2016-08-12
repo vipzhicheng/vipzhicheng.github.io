@@ -74,6 +74,8 @@
 
 
 
+  <link rel="alternate" href="/atom.xml" title="理查的学习笔记" type="application/atom+xml" />
+
 
 
 
@@ -101,7 +103,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     scheme: 'Mist',
-    sidebar: {"position":"left","display":"post"},
+    sidebar: {"position":"left","display":"hide"},
     fancybox: true,
     motion: true,
     duoshuo: {
@@ -183,12 +185,12 @@
         </li>
       
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
+        <li class="menu-item menu-item-drupal">
+          <a href="/tags/Drupal" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-drupal"></i> <br />
             
-            分类
+            Drupal
           </a>
         </li>
       
@@ -214,9 +216,32 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
   
 </nav>
 
@@ -290,6 +315,13 @@
 
           
             
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2014/01/06/solution-for-mysql-random-results/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/01/06/solution-for-mysql-random-results/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -313,28 +345,28 @@
 <a id="more"></a>
 <p>译文开始：</p>
 <p>作为第一个例子，我们假设数据的ID从1开始，并且在1和最大值之间是连续的。</p>
-<h2 id="把事情交给应用层（PHP-JSP-Python-Ruby-…"><a href="#把事情交给应用层（PHP-JSP-Python-Ruby-…" class="headerlink" title="把事情交给应用层（PHP, JSP, Python, Ruby …)"></a>把事情交给应用层（PHP, JSP, Python, Ruby …)</h2><p>第一个思路：我们可以简化整个工作，如果我们可以预先在应用层计算出随机ID<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">SELECT MAX(id) FROM random;</div><div class="line">## 在应用层生成随机ID &lt;random-id&gt;</div><div class="line">SELECT name FROM random WHERE id = &lt;random-id&gt;</div></pre></td></tr></table></figure></p>
+<h2 id="把事情交给应用层（PHP-JSP-Python-Ruby-…"><a href="#把事情交给应用层（PHP-JSP-Python-Ruby-…" class="headerlink" title="把事情交给应用层（PHP, JSP, Python, Ruby …)"></a>把事情交给应用层（PHP, JSP, Python, Ruby …)</h2><p>第一个思路：我们可以简化整个工作，如果我们可以预先在应用层计算出随机ID<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">SELECT MAX(id) FROM random;</div><div class="line">## 在应用层生成随机ID &lt;random-id&gt;</div><div class="line">SELECT name FROM random WHERE id = &lt;random-id&gt;</div></pre></td></tr></table></figure></p>
 <p>因为MAX(id) == COUNT(id), 我们仅仅是在1和最大值之间生成了随机数，然后传给数据库取出随机记录。</p>
 <p>第一个SELECT是已经被优化好的，不需要任何计算。第二个是eq_ref(参见MYSQL EXPLAN语句）是一个常量，所以也非常快。</p>
 <h2 id="把事情交给数据库"><a href="#把事情交给数据库" class="headerlink" title="把事情交给数据库"></a>把事情交给数据库</h2><p>在应用层做这件事真的是必要的么？我们不能在数据库中做么？</p>
-<h3 id="生成一个随机的ID"><a href="#生成一个随机的ID" class="headerlink" title="生成一个随机的ID"></a>生成一个随机的ID</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&gt; SELECT RAND() * MAX(id) FROM random;</div><div class="line">+------------------+</div><div class="line">| RAND() * MAX(id) |</div><div class="line">+------------------+</div><div class="line">|  689.37582507297 |</div><div class="line">+------------------+</div></pre></td></tr></table></figure>
-<h3 id="哇，是一个浮点型数字，我们需要的是一个整型的随机数"><a href="#哇，是一个浮点型数字，我们需要的是一个整型的随机数" class="headerlink" title="哇，是一个浮点型数字，我们需要的是一个整型的随机数"></a>哇，是一个浮点型数字，我们需要的是一个整型的随机数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&gt; SELECT CEIL(RAND() * MAX(id)) FROM random;</div><div class="line">+-------------------------+</div><div class="line">| CEIL(RAND() * MAX(id)) |</div><div class="line">+-------------------------+</div><div class="line">|                    1000000  |</div><div class="line">+-------------------------+</div></pre></td></tr></table></figure>
-<h3 id="看起来好了一些，但性能呢？"><a href="#看起来好了一些，但性能呢？" class="headerlink" title="看起来好了一些，但性能呢？"></a>看起来好了一些，但性能呢？</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&gt; EXPLAIN</div><div class="line">   SELECT CEIL(RAND() * MAX(id)) FROM random;</div><div class="line">+----+-------------+-------+-------+------+-------------+</div><div class="line">| id | select_type | table | type  | rows | Extra       |</div><div class="line">+----+-------------+-------+-------+------+-------------+</div><div class="line">|  1 | SIMPLE      | random  | index | 1000000  | Using index |</div><div class="line">+----+-------------+-------+-------+------+-------------+</div></pre></td></tr></table></figure>
-<h3 id="需要扫描索引-我们还没有对-MAX-进行优化。"><a href="#需要扫描索引-我们还没有对-MAX-进行优化。" class="headerlink" title="需要扫描索引 ? 我们还没有对 MAX()进行优化。"></a>需要扫描索引 ? 我们还没有对 MAX()进行优化。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&gt; EXPLAIN</div><div class="line">   SELECT CEIL(RAND() * (SELECT MAX(id) FROM random));</div><div class="line">+----+-------------+-------+------+------+------------------------------+</div><div class="line">| id | select_type | table | type | rows | Extra                        |</div><div class="line">+----+-------------+-------+------+------+------------------------------+</div><div class="line">|  1 | PRIMARY     | NULL  | NULL | NULL | No tables used               |</div><div class="line">|  2 | SUBQUERY    | NULL  | NULL | NULL | Select tables optimized away |</div><div class="line">+----+-------------+-------+------+------+------------------------------+</div></pre></td></tr></table></figure>
-<h2 id="一个简单的子查询让我们重新获得了我们想要的性能。"><a href="#一个简单的子查询让我们重新获得了我们想要的性能。" class="headerlink" title="一个简单的子查询让我们重新获得了我们想要的性能。"></a>一个简单的子查询让我们重新获得了我们想要的性能。</h2><p>好吧，现在我知道了怎么获得一个随机数，那么怎么获得一条随机记录呢？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">&gt; EXPLAIN</div><div class="line">SELECT name</div><div class="line">  FROM random</div><div class="line"> WHERE id = (SELECT CEIL(RAND() *</div><div class="line">                         (SELECT MAX(id)</div><div class="line">                            FROM random));</div><div class="line">+----+-------------+--------+------+---------------+------+---------+------+---------+------------------------------+</div><div class="line">| id | select_type | table  | type | possible_keys | key  | key_len | ref  | rows    | Extra                        |</div><div class="line">+----+-------------+--------+------+---------------+------+---------+------+---------+------------------------------+</div><div class="line">|  1 | PRIMARY     | random | ALL  | NULL          | NULL | NULL    | NULL | 1000000 | Using where                  |</div><div class="line">|  3 | SUBQUERY    | NULL   | NULL | NULL          | NULL | NULL    | NULL |    NULL | Select tables optimized away |</div><div class="line">+----+-------------+--------+------+---------------+------+---------+------+---------+------------------------------+</div><div class="line">&gt; show warnings;</div><div class="line">+-------+------+------------------------------------------+</div><div class="line">| Level | Code | Message                                  |</div><div class="line">+-------+------+------------------------------------------+</div><div class="line">| Note  | 1249 | Select 2 was reduced during optimization |</div><div class="line">+-------+------+------------------------------------------+</div></pre></td></tr></table></figure></p>
-<p><strong>不，不</strong>，一定不要这样做。这虽然是最显而易见的做法，但同时也是最错误的做法，原因是： 子查询里的select将在外层查询时对每一行分别执行，行数越多，性能越差。<br>我们需要找到一种方法确保随机ID只生成一次:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">SELECT name</div><div class="line">  FROM random JOIN</div><div class="line">       (SELECT CEIL(RAND() *</div><div class="line">                    (SELECT MAX(id)</div><div class="line">                       FROM random)) AS id</div><div class="line">        ) AS r2</div><div class="line">       USING (id);</div><div class="line">+----+-------------+------------+--------+------+------------------------------+</div><div class="line">| id | select_type | table      | type   | rows | Extra                        |</div><div class="line">+----+-------------+------------+--------+------+------------------------------+</div><div class="line">|  1 | PRIMARY     | &lt;derived2&gt; | system |    1 |                              |</div><div class="line">|  1 | PRIMARY     | random     | const  |    1 |                              |</div><div class="line">|  2 | DERIVED     | NULL       | NULL   | NULL | No tables used               |</div><div class="line">|  3 | SUBQUERY    | NULL       | NULL   | NULL | Select tables optimized away |</div><div class="line">+----+-------------+------------+--------+------+------------------------------+</div></pre></td></tr></table></figure></p>
+<h3 id="生成一个随机的ID"><a href="#生成一个随机的ID" class="headerlink" title="生成一个随机的ID"></a>生成一个随机的ID</h3><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">&gt; SELECT RAND() * MAX(id) FROM random;</div><div class="line">+------------------+</div><div class="line">| RAND() * MAX(id) |</div><div class="line">+------------------+</div><div class="line">|  689.37582507297 |</div><div class="line">+------------------+</div></pre></td></tr></table></figure>
+<h3 id="哇，是一个浮点型数字，我们需要的是一个整型的随机数"><a href="#哇，是一个浮点型数字，我们需要的是一个整型的随机数" class="headerlink" title="哇，是一个浮点型数字，我们需要的是一个整型的随机数"></a>哇，是一个浮点型数字，我们需要的是一个整型的随机数</h3><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">&gt; SELECT CEIL(RAND() * MAX(id)) FROM random;</div><div class="line">+-------------------------+</div><div class="line">| CEIL(RAND() * MAX(id)) |</div><div class="line">+-------------------------+</div><div class="line">|                    1000000  |</div><div class="line">+-------------------------+</div></pre></td></tr></table></figure>
+<h3 id="看起来好了一些，但性能呢？"><a href="#看起来好了一些，但性能呢？" class="headerlink" title="看起来好了一些，但性能呢？"></a>看起来好了一些，但性能呢？</h3><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">&gt; EXPLAIN</div><div class="line">   SELECT CEIL(RAND() * MAX(id)) FROM random;</div><div class="line">+----+-------------+-------+-------+------+-------------+</div><div class="line">| id | select_type | table | type  | rows | Extra       |</div><div class="line">+----+-------------+-------+-------+------+-------------+</div><div class="line">|  1 | SIMPLE      | random  | index | 1000000  | Using index |</div><div class="line">+----+-------------+-------+-------+------+-------------+</div></pre></td></tr></table></figure>
+<h3 id="需要扫描索引-我们还没有对-MAX-进行优化。"><a href="#需要扫描索引-我们还没有对-MAX-进行优化。" class="headerlink" title="需要扫描索引 ? 我们还没有对 MAX()进行优化。"></a>需要扫描索引 ? 我们还没有对 MAX()进行优化。</h3><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">&gt; EXPLAIN</div><div class="line">   SELECT CEIL(RAND() * (SELECT MAX(id) FROM random));</div><div class="line">+----+-------------+-------+------+------+------------------------------+</div><div class="line">| id | select_type | table | type | rows | Extra                        |</div><div class="line">+----+-------------+-------+------+------+------------------------------+</div><div class="line">|  1 | PRIMARY     | NULL  | NULL | NULL | No tables used               |</div><div class="line">|  2 | SUBQUERY    | NULL  | NULL | NULL | Select tables optimized away |</div><div class="line">+----+-------------+-------+------+------+------------------------------+</div></pre></td></tr></table></figure>
+<h2 id="一个简单的子查询让我们重新获得了我们想要的性能。"><a href="#一个简单的子查询让我们重新获得了我们想要的性能。" class="headerlink" title="一个简单的子查询让我们重新获得了我们想要的性能。"></a>一个简单的子查询让我们重新获得了我们想要的性能。</h2><p>好吧，现在我知道了怎么获得一个随机数，那么怎么获得一条随机记录呢？<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">&gt; EXPLAIN</div><div class="line">SELECT name</div><div class="line">  FROM random</div><div class="line"> WHERE id = (SELECT CEIL(RAND() *</div><div class="line">                         (SELECT MAX(id)</div><div class="line">                            FROM random));</div><div class="line">+----+-------------+--------+------+---------------+------+---------+------+---------+------------------------------+</div><div class="line">| id | select_type | table  | type | possible_keys | key  | key_len | ref  | rows    | Extra                        |</div><div class="line">+----+-------------+--------+------+---------------+------+---------+------+---------+------------------------------+</div><div class="line">|  1 | PRIMARY     | random | ALL  | NULL          | NULL | NULL    | NULL | 1000000 | Using where                  |</div><div class="line">|  3 | SUBQUERY    | NULL   | NULL | NULL          | NULL | NULL    | NULL |    NULL | Select tables optimized away |</div><div class="line">+----+-------------+--------+------+---------------+------+---------+------+---------+------------------------------+</div><div class="line">&gt; show warnings;</div><div class="line">+-------+------+------------------------------------------+</div><div class="line">| Level | Code | Message                                  |</div><div class="line">+-------+------+------------------------------------------+</div><div class="line">| Note  | 1249 | Select 2 was reduced during optimization |</div><div class="line">+-------+------+------------------------------------------+</div></pre></td></tr></table></figure></p>
+<p><strong>不，不</strong>，一定不要这样做。这虽然是最显而易见的做法，但同时也是最错误的做法，原因是： 子查询里的select将在外层查询时对每一行分别执行，行数越多，性能越差。<br>我们需要找到一种方法确保随机ID只生成一次:<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">SELECT name</div><div class="line">  FROM random JOIN</div><div class="line">       (SELECT CEIL(RAND() *</div><div class="line">                    (SELECT MAX(id)</div><div class="line">                       FROM random)) AS id</div><div class="line">        ) AS r2</div><div class="line">       USING (id);</div><div class="line">+----+-------------+------------+--------+------+------------------------------+</div><div class="line">| id | select_type | table      | type   | rows | Extra                        |</div><div class="line">+----+-------------+------------+--------+------+------------------------------+</div><div class="line">|  1 | PRIMARY     | &lt;derived2&gt; | system |    1 |                              |</div><div class="line">|  1 | PRIMARY     | random     | const  |    1 |                              |</div><div class="line">|  2 | DERIVED     | NULL       | NULL   | NULL | No tables used               |</div><div class="line">|  3 | SUBQUERY    | NULL       | NULL   | NULL | Select tables optimized away |</div><div class="line">+----+-------------+------------+--------+------+------------------------------+</div></pre></td></tr></table></figure></p>
 <p>内层SELECT生成了一个常量临时表，JOIN也仅仅是JOIN一行，完美,没有Sorting, 没有用应用层，大部分的查询都是优化了的。</p>
-<h2 id="如果ID不是连续的呢…"><a href="#如果ID不是连续的呢…" class="headerlink" title="如果ID不是连续的呢…?"></a>如果ID不是连续的呢…?</h2><p>根据上面得到的结论，我们可以这样做<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">SELECT name</div><div class="line">  FROM random AS r1 JOIN</div><div class="line">       (SELECT (RAND() *</div><div class="line">                     (SELECT MAX(id)</div><div class="line">                        FROM random)) AS id)</div><div class="line">        AS r2</div><div class="line"> WHERE r1.id &gt;= r2.id</div><div class="line"> ORDER BY r1.id ASC</div><div class="line"> LIMIT 1;</div><div class="line">+----+-------------+------------+--------+------+------------------------------+</div><div class="line">| id | select_type | table      | type   | rows | Extra                        |</div><div class="line">+----+-------------+------------+--------+------+------------------------------+</div><div class="line">|  1 | PRIMARY     | &lt;derived2&gt; | system |    1 |                              |</div><div class="line">|  1 | PRIMARY     | r1         | range  |  689 | Using where                  |</div><div class="line">|  2 | DERIVED     | NULL       | NULL   | NULL | No tables used               |</div><div class="line">|  3 | SUBQUERY    | NULL       | NULL   | NULL | Select tables optimized away |</div><div class="line">+----+-------------+------------+--------+------+------------------------------+</div></pre></td></tr></table></figure></p>
+<h2 id="如果ID不是连续的呢…"><a href="#如果ID不是连续的呢…" class="headerlink" title="如果ID不是连续的呢…?"></a>如果ID不是连续的呢…?</h2><p>根据上面得到的结论，我们可以这样做<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">SELECT name</div><div class="line">  FROM random AS r1 JOIN</div><div class="line">       (SELECT (RAND() *</div><div class="line">                     (SELECT MAX(id)</div><div class="line">                        FROM random)) AS id)</div><div class="line">        AS r2</div><div class="line"> WHERE r1.id &gt;= r2.id</div><div class="line"> ORDER BY r1.id ASC</div><div class="line"> LIMIT 1;</div><div class="line">+----+-------------+------------+--------+------+------------------------------+</div><div class="line">| id | select_type | table      | type   | rows | Extra                        |</div><div class="line">+----+-------------+------------+--------+------+------------------------------+</div><div class="line">|  1 | PRIMARY     | &lt;derived2&gt; | system |    1 |                              |</div><div class="line">|  1 | PRIMARY     | r1         | range  |  689 | Using where                  |</div><div class="line">|  2 | DERIVED     | NULL       | NULL   | NULL | No tables used               |</div><div class="line">|  3 | SUBQUERY    | NULL       | NULL   | NULL | Select tables optimized away |</div><div class="line">+----+-------------+------------+--------+------+------------------------------+</div></pre></td></tr></table></figure></p>
 <p>JOIN语句找出所有比随机ID大的数据，并且在没有直接匹配的情况下会选择最接近的一个，一旦找到我们就停止（LIMIT 1), 我们读取数据时对索引字段进行了排序，由于我们用的是&gt;=,所以我们也就不必再使用CEIL函数来得到整型随机ID了。我们做了更少的事情，但效果是一样的。</p>
-<h2 id="数据分布导致的问题"><a href="#数据分布导致的问题" class="headerlink" title="数据分布导致的问题"></a>数据分布导致的问题</h2><p>一旦ID的分布不平均，我们得到的就不是真正的随机数据，通过统计我们可以看出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&gt; select * from holes;</div><div class="line">+----+----------------------------------+----------+</div><div class="line">| id | name                             | accesses |</div><div class="line">+----+----------------------------------+----------+</div><div class="line">|  1 | d12b2551c6cb7d7a64e40221569a8571 |      107 |</div><div class="line">|  2 | f82ad6f29c9a680d7873d1bef822e3e9 |       50 |</div><div class="line">|  4 | 9da1ed7dbbdcc6ec90d6cb139521f14a |      132 |</div><div class="line">|  8 | 677a196206d93cdf18c3744905b94f73 |      230 |</div><div class="line">| 16 | b7556d8ed40587a33dc5c449ae0345aa |      481 |</div><div class="line">+----+----------------------------------+----------+</div></pre></td></tr></table></figure></p>
+<h2 id="数据分布导致的问题"><a href="#数据分布导致的问题" class="headerlink" title="数据分布导致的问题"></a>数据分布导致的问题</h2><p>一旦ID的分布不平均，我们得到的就不是真正的随机数据，通过统计我们可以看出：<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">&gt; select * from holes;</div><div class="line">+----+----------------------------------+----------+</div><div class="line">| id | name                             | accesses |</div><div class="line">+----+----------------------------------+----------+</div><div class="line">|  1 | d12b2551c6cb7d7a64e40221569a8571 |      107 |</div><div class="line">|  2 | f82ad6f29c9a680d7873d1bef822e3e9 |       50 |</div><div class="line">|  4 | 9da1ed7dbbdcc6ec90d6cb139521f14a |      132 |</div><div class="line">|  8 | 677a196206d93cdf18c3744905b94f73 |      230 |</div><div class="line">| 16 | b7556d8ed40587a33dc5c449ae0345aa |      481 |</div><div class="line">+----+----------------------------------+----------+</div></pre></td></tr></table></figure></p>
 <p>如果随机ID是9到15之间的数字，则我们总会取出id=16的那一条数据。</p>
-<p>针对这一问题，有一种不是真正的解决方案，但当你的数据大部分是不经常改变时，你可以添加一个map表，他分配一个连续ID给真正的ID。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&gt; create table holes_map ( row_id int not NULL primary key, random_id int not null);</div><div class="line">&gt; SET @id = 0;</div><div class="line">&gt; INSERT INTO holes_map SELECT @id := @id + 1, id FROM holes;</div><div class="line">&gt; select * from holes_map;</div><div class="line">+--------+-----------+</div><div class="line">| row_id | random_id |</div><div class="line">+--------+-----------+</div><div class="line">|      1 |         1 |</div><div class="line">|      2 |         2 |</div><div class="line">|      3 |         4 |</div><div class="line">|      4 |         8 |</div><div class="line">|      5 |        16 |</div><div class="line">+--------+-----------+</div></pre></td></tr></table></figure></p>
-<p>现在row_id就是我们的连续ID了，我们可以这样写我们的查询：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">SELECT name FROM holes</div><div class="line">  JOIN (SELECT r1.random_id</div><div class="line">         FROM holes_map AS r1</div><div class="line">         JOIN (SELECT (RAND() *</div><div class="line">                      (SELECT MAX(row_id)</div><div class="line">                         FROM holes_map)) AS row_id)</div><div class="line">               AS r2</div><div class="line">        WHERE r1.row_id &gt;= r2.row_id</div><div class="line">        ORDER BY r1.row_id ASC</div><div class="line">        LIMIT 1) as rows ON (id = random_id);</div></pre></td></tr></table></figure></p>
-<p>通过1000次查询，我们得到如下统计，可以看出这次我们的随机访问是均匀的了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&gt; select * from holes;</div><div class="line">+----+----------------------------------+----------+</div><div class="line">| id | name                             | accesses |</div><div class="line">+----+----------------------------------+----------+</div><div class="line">|  1 | d12b2551c6cb7d7a64e40221569a8571 |      222 |</div><div class="line">|  2 | f82ad6f29c9a680d7873d1bef822e3e9 |      187 |</div><div class="line">|  4 | 9da1ed7dbbdcc6ec90d6cb139521f14a |      195 |</div><div class="line">|  8 | 677a196206d93cdf18c3744905b94f73 |      207 |</div><div class="line">| 16 | b7556d8ed40587a33dc5c449ae0345aa |      189 |</div><div class="line">+----+----------------------------------+----------+</div></pre></td></tr></table></figure></p>
-<h2 id="通过触发器维护连续ID映射表"><a href="#通过触发器维护连续ID映射表" class="headerlink" title="通过触发器维护连续ID映射表"></a>通过触发器维护连续ID映射表</h2><p>首先我们先初始化表:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">DROP TABLE IF EXISTS r2;CREATE TABLE r2 (</div><div class="line">  id SERIAL,</div><div class="line">  name VARCHAR(32) NOT NULL UNIQUE</div><div class="line">);</div><div class="line"></div><div class="line">DROP TABLE IF EXISTS r2_equi_dist;</div><div class="line">CREATE TABLE r2_equi_dist (</div><div class="line">  id SERIAL,</div><div class="line">  r2_id bigint unsigned NOT NULL UNIQUE</div><div class="line">);</div></pre></td></tr></table></figure></p>
-<p>当我们在r2中改变了一些记录，我们希望r2_equi_dist也能随之更新<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line">DELIMITER $$</div><div class="line">DROP TRIGGER IF EXISTS tai_r2$$</div><div class="line">CREATE TRIGGER tai_r2</div><div class="line"> AFTER INSERT ON r2 FOR EACH ROW</div><div class="line">BEGIN</div><div class="line">  DECLARE m BIGINT UNSIGNED DEFAULT 1;</div><div class="line"></div><div class="line">  SELECT MAX(id) + 1 FROM r2_equi_dist INTO m;</div><div class="line">  SELECT IFNULL(m, 1) INTO m;</div><div class="line">  INSERT INTO r2_equi_dist (id, r2_id) VALUES (m, NEW.id);</div><div class="line">END$$</div><div class="line">DELIMITER ;</div><div class="line"></div><div class="line">DELETE FROM r2;</div><div class="line"></div><div class="line">INSERT INTO r2 VALUES ( NULL, MD5(RAND()) );</div><div class="line">INSERT INTO r2 VALUES ( NULL, MD5(RAND()) );</div><div class="line">INSERT INTO r2 VALUES ( NULL, MD5(RAND()) );</div><div class="line">INSERT INTO r2 VALUES ( NULL, MD5(RAND()) );</div><div class="line"></div><div class="line">SELECT * FROM r2;</div><div class="line">+----+----------------------------------+</div><div class="line">| id | name                             |</div><div class="line">+----+----------------------------------+</div><div class="line">|  1 | 8b4cf277a3343cdefbe19aa4dabc40e1 |</div><div class="line">|  2 | a09a3959d68187ce48f4fe7e388926a9 |</div><div class="line">|  3 | 4e1897cd6d326f8079108292376fa7d5 |</div><div class="line">|  4 | 29a5e3ed838db497aa330878920ec01b |</div><div class="line">+----+----------------------------------+</div><div class="line"></div><div class="line">SELECT * FROM r2_equi_dist;</div><div class="line">+----+-------+</div><div class="line">| id | r2_id |</div><div class="line">+----+-------+</div><div class="line">|  1 |     1 |</div><div class="line">|  2 |     2 |</div><div class="line">|  3 |     3 |</div><div class="line">|  4 |     4 |</div><div class="line">+----+-------+</div></pre></td></tr></table></figure></p>
-<p>INSERT是非常简单的，当DELETE时我们必须更新映射表来维护重建针对新不连续集合的映射<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">DELIMITER $$DROP TRIGGER IF EXISTS tad_r2$$</div><div class="line">CREATE TRIGGER tad_r2</div><div class="line"> AFTER DELETE ON r2 FOR EACH ROW</div><div class="line">BEGIN</div><div class="line">  DELETE FROM r2_equi_dist WHERE r2_id = OLD.id;</div><div class="line">  UPDATE r2_equi_dist SET id = id - 1 WHERE r2_id &gt; OLD.id;</div><div class="line">END$$</div><div class="line">DELIMITER ;</div><div class="line"></div><div class="line">DELETE FROM r2 WHERE id = 2;</div><div class="line"></div><div class="line">SELECT * FROM r2;</div><div class="line">+----+----------------------------------+</div><div class="line">| id | name                             |</div><div class="line">+----+----------------------------------+</div><div class="line">|  1 | 8b4cf277a3343cdefbe19aa4dabc40e1 |</div><div class="line">|  3 | 4e1897cd6d326f8079108292376fa7d5 |</div><div class="line">|  4 | 29a5e3ed838db497aa330878920ec01b |</div><div class="line">+----+----------------------------------+</div><div class="line"></div><div class="line">SELECT * FROM r2_equi_dist;</div><div class="line">+----+-------+</div><div class="line">| id | r2_id |</div><div class="line">+----+-------+</div><div class="line">|  1 |     1 |</div><div class="line">|  2 |     3 |</div><div class="line">|  3 |     4 |</div><div class="line">+----+-------+</div></pre></td></tr></table></figure></p>
-<p>UPDATE 也是很直接的，我们只需要维护外键的约束。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">DELIMITER $$DROP TRIGGER IF EXISTS tau_r2$$</div><div class="line">CREATE TRIGGER tau_r2</div><div class="line"> AFTER UPDATE ON r2 FOR EACH ROW</div><div class="line">BEGIN</div><div class="line">  UPDATE r2_equi_dist SET r2_id = NEW.id WHERE r2_id = OLD.id;</div><div class="line">END$$</div><div class="line">DELIMITER ;</div><div class="line"></div><div class="line">UPDATE r2 SET id = 25 WHERE id = 4;</div><div class="line"></div><div class="line">SELECT * FROM r2;</div><div class="line">+----+----------------------------------+</div><div class="line">| id | name                             |</div><div class="line">+----+----------------------------------+</div><div class="line">|  1 | 8b4cf277a3343cdefbe19aa4dabc40e1 |</div><div class="line">|  3 | 4e1897cd6d326f8079108292376fa7d5 |</div><div class="line">| 25 | 29a5e3ed838db497aa330878920ec01b |</div><div class="line">+----+----------------------------------+</div><div class="line"></div><div class="line">SELECT * FROM r2_equi_dist;</div><div class="line">+----+-------+</div><div class="line">| id | r2_id |</div><div class="line">+----+-------+</div><div class="line">|  1 |     1 |</div><div class="line">|  2 |     3 |</div><div class="line">|  3 |    25 |</div><div class="line">+----+-------+</div></pre></td></tr></table></figure></p>
+<p>针对这一问题，有一种不是真正的解决方案，但当你的数据大部分是不经常改变时，你可以添加一个map表，他分配一个连续ID给真正的ID。<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">&gt; create table holes_map ( row_id int not NULL primary key, random_id int not null);</div><div class="line">&gt; SET @id = 0;</div><div class="line">&gt; INSERT INTO holes_map SELECT @id := @id + 1, id FROM holes;</div><div class="line">&gt; select * from holes_map;</div><div class="line">+--------+-----------+</div><div class="line">| row_id | random_id |</div><div class="line">+--------+-----------+</div><div class="line">|      1 |         1 |</div><div class="line">|      2 |         2 |</div><div class="line">|      3 |         4 |</div><div class="line">|      4 |         8 |</div><div class="line">|      5 |        16 |</div><div class="line">+--------+-----------+</div></pre></td></tr></table></figure></p>
+<p>现在row_id就是我们的连续ID了，我们可以这样写我们的查询：<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">SELECT name FROM holes</div><div class="line">  JOIN (SELECT r1.random_id</div><div class="line">         FROM holes_map AS r1</div><div class="line">         JOIN (SELECT (RAND() *</div><div class="line">                      (SELECT MAX(row_id)</div><div class="line">                         FROM holes_map)) AS row_id)</div><div class="line">               AS r2</div><div class="line">        WHERE r1.row_id &gt;= r2.row_id</div><div class="line">        ORDER BY r1.row_id ASC</div><div class="line">        LIMIT 1) as rows ON (id = random_id);</div></pre></td></tr></table></figure></p>
+<p>通过1000次查询，我们得到如下统计，可以看出这次我们的随机访问是均匀的了。<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">&gt; select * from holes;</div><div class="line">+----+----------------------------------+----------+</div><div class="line">| id | name                             | accesses |</div><div class="line">+----+----------------------------------+----------+</div><div class="line">|  1 | d12b2551c6cb7d7a64e40221569a8571 |      222 |</div><div class="line">|  2 | f82ad6f29c9a680d7873d1bef822e3e9 |      187 |</div><div class="line">|  4 | 9da1ed7dbbdcc6ec90d6cb139521f14a |      195 |</div><div class="line">|  8 | 677a196206d93cdf18c3744905b94f73 |      207 |</div><div class="line">| 16 | b7556d8ed40587a33dc5c449ae0345aa |      189 |</div><div class="line">+----+----------------------------------+----------+</div></pre></td></tr></table></figure></p>
+<h2 id="通过触发器维护连续ID映射表"><a href="#通过触发器维护连续ID映射表" class="headerlink" title="通过触发器维护连续ID映射表"></a>通过触发器维护连续ID映射表</h2><p>首先我们先初始化表:<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">DROP TABLE IF EXISTS r2;CREATE TABLE r2 (</div><div class="line">  id SERIAL,</div><div class="line">  name VARCHAR(32) NOT NULL UNIQUE</div><div class="line">);</div><div class="line"></div><div class="line">DROP TABLE IF EXISTS r2_equi_dist;</div><div class="line">CREATE TABLE r2_equi_dist (</div><div class="line">  id SERIAL,</div><div class="line">  r2_id bigint unsigned NOT NULL UNIQUE</div><div class="line">);</div></pre></td></tr></table></figure></p>
+<p>当我们在r2中改变了一些记录，我们希望r2_equi_dist也能随之更新<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">DELIMITER $$</div><div class="line">DROP TRIGGER IF EXISTS tai_r2$$</div><div class="line">CREATE TRIGGER tai_r2</div><div class="line"> AFTER INSERT ON r2 FOR EACH ROW</div><div class="line">BEGIN</div><div class="line">  DECLARE m BIGINT UNSIGNED DEFAULT 1;</div><div class="line"></div><div class="line">  SELECT MAX(id) + 1 FROM r2_equi_dist INTO m;</div><div class="line">  SELECT IFNULL(m, 1) INTO m;</div><div class="line">  INSERT INTO r2_equi_dist (id, r2_id) VALUES (m, NEW.id);</div><div class="line">END$$</div><div class="line">DELIMITER ;</div><div class="line"></div><div class="line">DELETE FROM r2;</div><div class="line"></div><div class="line">INSERT INTO r2 VALUES ( NULL, MD5(RAND()) );</div><div class="line">INSERT INTO r2 VALUES ( NULL, MD5(RAND()) );</div><div class="line">INSERT INTO r2 VALUES ( NULL, MD5(RAND()) );</div><div class="line">INSERT INTO r2 VALUES ( NULL, MD5(RAND()) );</div><div class="line"></div><div class="line">SELECT * FROM r2;</div><div class="line">+----+----------------------------------+</div><div class="line">| id | name                             |</div><div class="line">+----+----------------------------------+</div><div class="line">|  1 | 8b4cf277a3343cdefbe19aa4dabc40e1 |</div><div class="line">|  2 | a09a3959d68187ce48f4fe7e388926a9 |</div><div class="line">|  3 | 4e1897cd6d326f8079108292376fa7d5 |</div><div class="line">|  4 | 29a5e3ed838db497aa330878920ec01b |</div><div class="line">+----+----------------------------------+</div><div class="line"></div><div class="line">SELECT * FROM r2_equi_dist;</div><div class="line">+----+-------+</div><div class="line">| id | r2_id |</div><div class="line">+----+-------+</div><div class="line">|  1 |     1 |</div><div class="line">|  2 |     2 |</div><div class="line">|  3 |     3 |</div><div class="line">|  4 |     4 |</div><div class="line">+----+-------+</div></pre></td></tr></table></figure></p>
+<p>INSERT是非常简单的，当DELETE时我们必须更新映射表来维护重建针对新不连续集合的映射<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">DELIMITER $$DROP TRIGGER IF EXISTS tad_r2$$</div><div class="line">CREATE TRIGGER tad_r2</div><div class="line"> AFTER DELETE ON r2 FOR EACH ROW</div><div class="line">BEGIN</div><div class="line">  DELETE FROM r2_equi_dist WHERE r2_id = OLD.id;</div><div class="line">  UPDATE r2_equi_dist SET id = id - 1 WHERE r2_id &gt; OLD.id;</div><div class="line">END$$</div><div class="line">DELIMITER ;</div><div class="line"></div><div class="line">DELETE FROM r2 WHERE id = 2;</div><div class="line"></div><div class="line">SELECT * FROM r2;</div><div class="line">+----+----------------------------------+</div><div class="line">| id | name                             |</div><div class="line">+----+----------------------------------+</div><div class="line">|  1 | 8b4cf277a3343cdefbe19aa4dabc40e1 |</div><div class="line">|  3 | 4e1897cd6d326f8079108292376fa7d5 |</div><div class="line">|  4 | 29a5e3ed838db497aa330878920ec01b |</div><div class="line">+----+----------------------------------+</div><div class="line"></div><div class="line">SELECT * FROM r2_equi_dist;</div><div class="line">+----+-------+</div><div class="line">| id | r2_id |</div><div class="line">+----+-------+</div><div class="line">|  1 |     1 |</div><div class="line">|  2 |     3 |</div><div class="line">|  3 |     4 |</div><div class="line">+----+-------+</div></pre></td></tr></table></figure></p>
+<p>UPDATE 也是很直接的，我们只需要维护外键的约束。<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">DELIMITER $$DROP TRIGGER IF EXISTS tau_r2$$</div><div class="line">CREATE TRIGGER tau_r2</div><div class="line"> AFTER UPDATE ON r2 FOR EACH ROW</div><div class="line">BEGIN</div><div class="line">  UPDATE r2_equi_dist SET r2_id = NEW.id WHERE r2_id = OLD.id;</div><div class="line">END$$</div><div class="line">DELIMITER ;</div><div class="line"></div><div class="line">UPDATE r2 SET id = 25 WHERE id = 4;</div><div class="line"></div><div class="line">SELECT * FROM r2;</div><div class="line">+----+----------------------------------+</div><div class="line">| id | name                             |</div><div class="line">+----+----------------------------------+</div><div class="line">|  1 | 8b4cf277a3343cdefbe19aa4dabc40e1 |</div><div class="line">|  3 | 4e1897cd6d326f8079108292376fa7d5 |</div><div class="line">| 25 | 29a5e3ed838db497aa330878920ec01b |</div><div class="line">+----+----------------------------------+</div><div class="line"></div><div class="line">SELECT * FROM r2_equi_dist;</div><div class="line">+----+-------+</div><div class="line">| id | r2_id |</div><div class="line">+----+-------+</div><div class="line">|  1 |     1 |</div><div class="line">|  2 |     3 |</div><div class="line">|  3 |    25 |</div><div class="line">+----+-------+</div></pre></td></tr></table></figure></p>
 <h2 id="一次取出多行随机结果"><a href="#一次取出多行随机结果" class="headerlink" title="一次取出多行随机结果"></a>一次取出多行随机结果</h2><p>如果你想取出多行结果，你可以这样做</p>
 <ul>
 <li>执行这个查询多次</li>
@@ -347,7 +379,7 @@
 <li>控制</li>
 <li>顺序执行</li>
 </ul>
-<p>针对这个目标，我们只需要一个循环<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">DELIMITER $$</div><div class="line">DROP PROCEDURE IF EXISTS get_rands$$</div><div class="line">CREATE PROCEDURE get_rands(IN cnt INT)</div><div class="line">BEGIN</div><div class="line">  DROP TEMPORARY TABLE IF EXISTS rands;</div><div class="line">  CREATE TEMPORARY TABLE rands ( rand_id INT );</div><div class="line"></div><div class="line">loop_me: LOOP</div><div class="line">    IF cnt &lt; 1 THEN</div><div class="line">      LEAVE loop_me;</div><div class="line">    END IF;</div><div class="line"></div><div class="line">    INSERT INTO rands</div><div class="line">       SELECT r1.id</div><div class="line">         FROM random AS r1 JOIN</div><div class="line">              (SELECT (RAND() *</div><div class="line">                            (SELECT MAX(id)</div><div class="line">                               FROM random)) AS id)</div><div class="line">               AS r2</div><div class="line">        WHERE r1.id &gt;= r2.id</div><div class="line">        ORDER BY r1.id ASC</div><div class="line">        LIMIT 1;</div><div class="line"></div><div class="line">    SET cnt = cnt - 1;</div><div class="line">  END LOOP loop_me;</div><div class="line">END$$</div><div class="line">DELIMITER ;</div><div class="line"></div><div class="line">CALL get_rands(4);</div><div class="line">SELECT * FROM rands;</div><div class="line">+---------+</div><div class="line">| rand_id |</div><div class="line">+---------+</div><div class="line">|  133716 |</div><div class="line">|  702643 |</div><div class="line">|  112066 |</div><div class="line">|  452400 |</div><div class="line">+---------+</div></pre></td></tr></table></figure></p>
+<p>针对这个目标，我们只需要一个循环<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">DELIMITER $$</div><div class="line">DROP PROCEDURE IF EXISTS get_rands$$</div><div class="line">CREATE PROCEDURE get_rands(IN cnt INT)</div><div class="line">BEGIN</div><div class="line">  DROP TEMPORARY TABLE IF EXISTS rands;</div><div class="line">  CREATE TEMPORARY TABLE rands ( rand_id INT );</div><div class="line"></div><div class="line">loop_me: LOOP</div><div class="line">    IF cnt &lt; 1 THEN</div><div class="line">      LEAVE loop_me;</div><div class="line">    END IF;</div><div class="line"></div><div class="line">    INSERT INTO rands</div><div class="line">       SELECT r1.id</div><div class="line">         FROM random AS r1 JOIN</div><div class="line">              (SELECT (RAND() *</div><div class="line">                            (SELECT MAX(id)</div><div class="line">                               FROM random)) AS id)</div><div class="line">               AS r2</div><div class="line">        WHERE r1.id &gt;= r2.id</div><div class="line">        ORDER BY r1.id ASC</div><div class="line">        LIMIT 1;</div><div class="line"></div><div class="line">    SET cnt = cnt - 1;</div><div class="line">  END LOOP loop_me;</div><div class="line">END$$</div><div class="line">DELIMITER ;</div><div class="line"></div><div class="line">CALL get_rands(4);</div><div class="line">SELECT * FROM rands;</div><div class="line">+---------+</div><div class="line">| rand_id |</div><div class="line">+---------+</div><div class="line">|  133716 |</div><div class="line">|  702643 |</div><div class="line">|  112066 |</div><div class="line">|  452400 |</div><div class="line">+---------+</div></pre></td></tr></table></figure></p>
 <p>这里作者留给读者去修复一些仍然存在的问题</p>
 <ul>
 <li>使用动态SQL来确定要操作的临时表，以便于让同一个存储过程适用于多种随机需求</li>
@@ -360,7 +392,7 @@
 <li>Q3. RAND() * MAX(ID) + ORDER BY ID</li>
 </ul>
 <p>Q1 预期的代价是 N * log2(N), Q2 and Q3 都接近常数。</p>
-<p>我们用真实数据来测试，从100行到100万行，并且执行1000次做如下统计<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">   100        1.000      10.000     100.000    1.000.000</div><div class="line">Q1  0:00.718s  0:02.092s  0:18.684s  2:59.081s  58:20.000s</div><div class="line">Q2  0:00.519s  0:00.607s  0:00.614s  0:00.628s   0:00.637s</div><div class="line">Q3  0:00.570s  0:00.607s  0:00.614s  0:00.628s   0:00.637s</div></pre></td></tr></table></figure></p>
+<p>我们用真实数据来测试，从100行到100万行，并且执行1000次做如下统计<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">   100        1.000      10.000     100.000    1.000.000</div><div class="line">Q1  0:00.718s  0:02.092s  0:18.684s  2:59.081s  58:20.000s</div><div class="line">Q2  0:00.519s  0:00.607s  0:00.614s  0:00.628s   0:00.637s</div><div class="line">Q3  0:00.570s  0:00.607s  0:00.614s  0:00.628s   0:00.637s</div></pre></td></tr></table></figure></p>
 <p>正如你所看到的，Q1在仅仅100行数据时就已经落后于我们优化后的SQL了。</p>
 <p>笔者会尽最大的努力翻译出原文中所有要表达的意思，但错误之处在所难免，请大家不吝指出。</p>
 <p>对原文感兴趣的读者，请参考作者博文原文<br><a href="http://jan.kneschke.de/projects/mysql/order-by-rand/" target="_blank" rel="external">http://jan.kneschke.de/projects/mysql/order-by-rand/</a></p>
@@ -423,6 +455,25 @@
 
     <div class="post-spread">
       
+        <div class="ds-share flat" data-thread-key="2014/01/06/solution-for-mysql-random-results/"
+     data-title="MYSQL随机结果集方案比较"
+     data-content=""
+     data-url="http://www.vipzhicheng.com/2014/01/06/solution-for-mysql-random-results/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
     </div>
   </div>
 
@@ -433,6 +484,10 @@
 
           
   <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2014/01/06/solution-for-mysql-random-results/"
+           data-title="MYSQL随机结果集方案比较" data-url="http://www.vipzhicheng.com/2014/01/06/solution-for-mysql-random-results/">
+      </div>
     
   </div>
 
@@ -483,10 +538,10 @@
 
           
             <div class="site-state-item site-state-categories">
-              <a href="/categories">
+              
                 <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">分类</span>
-              </a>
+              
             </div>
           
 
@@ -502,8 +557,26 @@
         </nav>
 
         
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
 
         <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/vipzhicheng" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
           
         </div>
 
@@ -511,6 +584,24 @@
         
 
         
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.drupalproject.org/" title="Drupal项目社区" target="_blank">Drupal项目社区</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://drupalchina.cn" title="Drupal中国" target="_blank">Drupal中国</a>
+                </li>
+              
+            </ul>
+          </div>
         
 
       </section>
@@ -540,7 +631,7 @@
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy; 
+  &copy;  2014 - 
   <span itemprop="copyrightYear">2016</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
@@ -636,14 +727,162 @@
 
   
 
+  
+    
+  
 
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"vipzhicheng"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
 
+  
+    
   
 
 
 
+
+
   
   
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';                
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+                            
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').mousedown(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
   
 
   

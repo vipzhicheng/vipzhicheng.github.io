@@ -74,6 +74,8 @@
 
 
 
+  <link rel="alternate" href="/atom.xml" title="理查的学习笔记" type="application/atom+xml" />
+
 
 
 
@@ -97,7 +99,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     scheme: 'Mist',
-    sidebar: {"position":"left","display":"post"},
+    sidebar: {"position":"left","display":"hide"},
     fancybox: true,
     motion: true,
     duoshuo: {
@@ -181,12 +183,12 @@
         </li>
       
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
+        <li class="menu-item menu-item-drupal">
+          <a href="/tags/Drupal" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-drupal"></i> <br />
             
-            分类
+            Drupal
           </a>
         </li>
       
@@ -212,9 +214,32 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
   
 </nav>
 
@@ -291,6 +316,13 @@
 
           
             
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/11/怎样在-CentOS-7-上安装-Nginx/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/11/怎样在-CentOS-7-上安装-Nginx/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -314,12 +346,12 @@
           
             <p>Nginx是一个高性能的Web服务器，比Apache要灵活和轻量。</p>
 <p>注，以下安装过程需要具有<code>root</code>权限或者用<code>sudo</code>来执行，注意这个教程是针对<code>CentOS 7</code>的，貌似<code>CentOS 7</code>上的软件安装都异常的简单。</p>
-<h2 id="第一步：添加Nginx软件源"><a href="#第一步：添加Nginx软件源" class="headerlink" title="第一步：添加Nginx软件源"></a>第一步：添加Nginx软件源</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo yum install epel-release</div></pre></td></tr></table></figure>
-<h2 id="第二步：安装Nginx"><a href="#第二步：安装Nginx" class="headerlink" title="第二步：安装Nginx"></a>第二步：安装Nginx</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo yum install nginx</div></pre></td></tr></table></figure>
-<h2 id="第三步：开启Nginx服务"><a href="#第三步：开启Nginx服务" class="headerlink" title="第三步：开启Nginx服务"></a>第三步：开启Nginx服务</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo systemctl start nginx</div></pre></td></tr></table></figure>
-<h2 id="验证是否正常工作"><a href="#验证是否正常工作" class="headerlink" title="验证是否正常工作"></a>验证是否正常工作</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://server_domain_name_or_IP/</div></pre></td></tr></table></figure>
-<h2 id="把Nginx加到开机自启动"><a href="#把Nginx加到开机自启动" class="headerlink" title="把Nginx加到开机自启动"></a>把Nginx加到开机自启动</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo systemctl enable nginx</div></pre></td></tr></table></figure>
-<h2 id="默认的配置文件路径和Web根目录"><a href="#默认的配置文件路径和Web根目录" class="headerlink" title="默认的配置文件路径和Web根目录"></a>默认的配置文件路径和Web根目录</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"># 默认配置文件路径</div><div class="line">/etc/nginx/nginx.conf</div><div class="line"></div><div class="line"># 其他自定义配置文件所在目录，可定义虚拟主机，以`.conf`扩展名结尾</div><div class="line">/etc/nginx/conf.d</div><div class="line"></div><div class="line"># 默认Web根目录</div><div class="line">/usr/share/nginx/html</div></pre></td></tr></table></figure>
+<h2 id="第一步：添加Nginx软件源"><a href="#第一步：添加Nginx软件源" class="headerlink" title="第一步：添加Nginx软件源"></a>第一步：添加Nginx软件源</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">sudo yum install epel-release</div></pre></td></tr></table></figure>
+<h2 id="第二步：安装Nginx"><a href="#第二步：安装Nginx" class="headerlink" title="第二步：安装Nginx"></a>第二步：安装Nginx</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">sudo yum install nginx</div></pre></td></tr></table></figure>
+<h2 id="第三步：开启Nginx服务"><a href="#第三步：开启Nginx服务" class="headerlink" title="第三步：开启Nginx服务"></a>第三步：开启Nginx服务</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">sudo systemctl start nginx</div></pre></td></tr></table></figure>
+<h2 id="验证是否正常工作"><a href="#验证是否正常工作" class="headerlink" title="验证是否正常工作"></a>验证是否正常工作</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">http://server_domain_name_or_IP/</div></pre></td></tr></table></figure>
+<h2 id="把Nginx加到开机自启动"><a href="#把Nginx加到开机自启动" class="headerlink" title="把Nginx加到开机自启动"></a>把Nginx加到开机自启动</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">sudo systemctl enable nginx</div></pre></td></tr></table></figure>
+<h2 id="默认的配置文件路径和Web根目录"><a href="#默认的配置文件路径和Web根目录" class="headerlink" title="默认的配置文件路径和Web根目录"></a>默认的配置文件路径和Web根目录</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line"># 默认配置文件路径</div><div class="line">/etc/nginx/nginx.conf</div><div class="line"></div><div class="line"># 其他自定义配置文件所在目录，可定义虚拟主机，以`.conf`扩展名结尾</div><div class="line">/etc/nginx/conf.d</div><div class="line"></div><div class="line"># 默认Web根目录</div><div class="line">/usr/share/nginx/html</div></pre></td></tr></table></figure>
           
         
       
@@ -410,6 +442,13 @@
 
           
             
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/25/SVN合并trunk的一些版本到分支/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/25/SVN合并trunk的一些版本到分支/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -435,13 +474,13 @@
 <p>使用版本控制软件对代码变更进行追踪只是第一步，更进一步，我们还需要基于版本控制软件为团队开发定义工作流，并一直坚持相同的习惯。对于Git有<code>Git flow</code>, <code>Github flow</code>, <code>Gitlab flow</code>等等。对于之前比较流行的SVN也是如此。SVN的团队开发流程不止一种，常见的也是有单个长期分支的工作流和开发分支，线上分支双分支工作流。</p>
 <p>我们使用SVN进行代码管理的项目使用的是后者，也就是开发分支，线上分支分开，然后通过合并（Merge）来决定哪些版本上线，更进一步，我们使用Redmine进行任务管理，和SVN整合后，任务相关的版本是整合到一起的显示的。</p>
 <p>为了得到一个任务(我们叫Ticket)的全部版本号(Revision)，我们写了一小段JS代码在浏览器Redmine任务页面的Console里执行，如果小伙伴们有更好的获取一个Ticket下的版本号的方法，可以和我交流一下。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">var scriptNode = document.createElement(&apos;script&apos;); scriptNode.src = &apos;http://code.jquery.com/jquery-1.10.1.min.js&apos;; document.head.appendChild(scriptNode);</div><div class="line"></div><div class="line">var version = &apos;&apos;;</div><div class="line">$(&apos;.changeset &gt; p &gt; a&apos;).each(function(i)&#123;</div><div class="line">  version += $(this).text().replace(&apos;修订 &apos;, &apos;&apos;) + &apos;,&apos;;</div><div class="line">&#125;);</div><div class="line">console.log(version );</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">var scriptNode = document.createElement(&apos;script&apos;); scriptNode.src = &apos;http://code.jquery.com/jquery-1.10.1.min.js&apos;; document.head.appendChild(scriptNode);</div><div class="line"></div><div class="line">var version = &apos;&apos;;</div><div class="line">$(&apos;.changeset &gt; p &gt; a&apos;).each(function(i)&#123;</div><div class="line">  version += $(this).text().replace(&apos;修订 &apos;, &apos;&apos;) + &apos;,&apos;;</div><div class="line">&#125;);</div><div class="line">console.log(version );</div></pre></td></tr></table></figure>
 <p>PS：里面的修订两个字也可能是Revision，取决于Redmine当前语言是中文还是英文。</p>
 <p>然后就会得到类似于下面这样的输出：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">40643,40645,40646,40647,40648,40649,40650,40652,40655,40660,40668,40669,40702,40704,40708,40709,40710,40712,40718,40719,40720,40721,40722,40723,40724,40726,40727,40728,40729,40730,40731,40732,40733,40734,40735,40736,40737,40738,40739,40740,40741,40742,40746,40747,40748,40749,40751,40753,40754,40755,40756,40757,40766,40770,40772,40774,40786</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">40643,40645,40646,40647,40648,40649,40650,40652,40655,40660,40668,40669,40702,40704,40708,40709,40710,40712,40718,40719,40720,40721,40722,40723,40724,40726,40727,40728,40729,40730,40731,40732,40733,40734,40735,40736,40737,40738,40739,40740,40741,40742,40746,40747,40748,40749,40751,40753,40754,40755,40756,40757,40766,40770,40772,40774,40786</div></pre></td></tr></table></figure>
 <p>接下来为了将这些代码上线，我们就需要知道怎么将Trunk上面的这些代码变更合并到线上分支。当然Tortorise SVN软件内置了这样的功能，但是对于有的钟爱命令行的人士来说，还是要学会如何使用命令行来做这件事。</p>
 <p>说了这么多，其实答案很简单，这里我直接给出答案：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd WWW_WORKING_COPY_DIR</div><div class="line">svn merge -c 40643,40645,40646,40647,40648,40649,40650,40652,40655,40660,40668,40669,40702,40704,40708,40709,40710,40712,40718,40719,40720,40721,40722,40723,40724,40726,40727,40728,40729,40730,40731,40732,40733,40734,40735,40736,40737,40738,40739,40740,40741,40742,40746,40747,40748,40749,40751,40753,40754,40755,40756,40757,40766,40770,40772,40774,40786 TRUNK_REPO_URL .</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">cd WWW_WORKING_COPY_DIR</div><div class="line">svn merge -c 40643,40645,40646,40647,40648,40649,40650,40652,40655,40660,40668,40669,40702,40704,40708,40709,40710,40712,40718,40719,40720,40721,40722,40723,40724,40726,40727,40728,40729,40730,40731,40732,40733,40734,40735,40736,40737,40738,40739,40740,40741,40742,40746,40747,40748,40749,40751,40753,40754,40755,40756,40757,40766,40770,40772,40774,40786 TRUNK_REPO_URL .</div></pre></td></tr></table></figure>
 <p>这里TRUNK_REPO_URL支持绝对路径和将对路径，如果是将对路径，是基于跟进行寻址的，比如^/trunk。</p>
 <p>当然，有可能会产生冲突，个人比较推荐的方式是一律保留冲突继续，然后一起处理。</p>
 
@@ -535,6 +574,13 @@
 
           
             
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/15/让New-Relic排除不需要统计的PHP请求/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/15/让New-Relic排除不需要统计的PHP请求/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -559,7 +605,7 @@
             <p>我们使用<code>New Relic</code>作为性能监控分析工具，关于<code>New Relic</code>就不过多介绍了，大家可以自己去搜搜。这种性能分析工具对于大型网站来说是必不可少的，而其特色不仅在于可以监控服务器硬件指标，而且可以监控应用级别的各种数据，当网站发生性能问题时，可以在上面找到一些线索，甚至是直接找到答案。目前国内也有同类产品了，比如说听云，目前还没有机会尝试。</p>
 <p>我们遇到的问题是，我们希望<code>New Relic</code>监控我们的部分核心应用的性能指标，但服务器上部署了一些非核心应用，这些应用又存在着访问量大，但是逻辑简单，所以响应迅速的问题，所以从监控上看，这个服务器的平均响应时间非常的低，而其他只部署核心应用的服务器的平均响应时间是很高的，这就给人了一个假象，从而看不出这台服务器核心应用的真实水准。</p>
 <p>那么怎么排除掉非核心应用呢？经过调查，发现<code>New Relic</code>支持一些<a href="https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api" target="_blank" rel="external">API</a>，可以对上传的数据做定制，里面恰好就有解决这个问题的API。</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (extension_loaded(<span class="string">'newrelic'</span>)) &#123;</div><div class="line">    newrelic_ignore_transaction();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="code"><pre><div class="line"><span class="keyword">if</span> (extension_loaded(<span class="string">'newrelic'</span>)) &#123;</div><div class="line">    newrelic_ignore_transaction();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>这个API函数的描述是这样的：</p>
 <blockquote>
 <p>Do not generate metrics for this transaction. This is useful when you have transactions that are particularly slow for known reasons and you do not want them always being reported as the transaction trace or skewing your site averages.</p>
@@ -660,6 +706,13 @@
 
           
             
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/02/Git创建分支并推送到远程分支/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/02/Git创建分支并推送到远程分支/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -684,12 +737,12 @@
             <p>在为公司技术部选型博客系统的过程中，最终选择了Hexo+Git内网构建的方式，一方面是希望大家学会这一优秀的静态博客系统的使用方法，另一方面，也是希望大家逐渐熟悉Git，为下一步真正的项目代码迁移到Git做准备。</p>
 <p>Git上手很简单，但其实很复杂，很多命令都并没有真正理解，就算学会了也很容易忘，这就需要不断实践，也需要时间来体会。</p>
 <p>本文的重点主要还是学到的一点Git知识，做一个记录，感觉不记下来不久以后还会忘。</p>
-<h1 id="创建分支"><a href="#创建分支" class="headerlink" title="创建分支"></a>创建分支</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git checkout -b richardyu</div></pre></td></tr></table></figure>
-<h1 id="添加远程版本库"><a href="#添加远程版本库" class="headerlink" title="添加远程版本库"></a>添加远程版本库</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote add origin GIT_REPO_URL</div></pre></td></tr></table></figure>
-<h1 id="推送到远程分支"><a href="#推送到远程分支" class="headerlink" title="推送到远程分支"></a>推送到远程分支</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push origin richardyu:richardyu</div></pre></td></tr></table></figure>
-<h1 id="删除远程分支"><a href="#删除远程分支" class="headerlink" title="删除远程分支"></a>删除远程分支</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push origin :richardyu</div></pre></td></tr></table></figure>
-<h1 id="获取远程分支"><a href="#获取远程分支" class="headerlink" title="获取远程分支"></a>获取远程分支</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> -b master GIT_REPO repo</div></pre></td></tr></table></figure>
-<h1 id="在clone之后，获取远程的其他分支"><a href="#在clone之后，获取远程的其他分支" class="headerlink" title="在clone之后，获取远程的其他分支"></a>在clone之后，获取远程的其他分支</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git fetch origin BRANCH:BRANCH</div></pre></td></tr></table></figure>
+<h1 id="创建分支"><a href="#创建分支" class="headerlink" title="创建分支"></a>创建分支</h1><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">git checkout -b richardyu</div></pre></td></tr></table></figure>
+<h1 id="添加远程版本库"><a href="#添加远程版本库" class="headerlink" title="添加远程版本库"></a>添加远程版本库</h1><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">git remote add origin GIT_REPO_URL</div></pre></td></tr></table></figure>
+<h1 id="推送到远程分支"><a href="#推送到远程分支" class="headerlink" title="推送到远程分支"></a>推送到远程分支</h1><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">git push origin richardyu:richardyu</div></pre></td></tr></table></figure>
+<h1 id="删除远程分支"><a href="#删除远程分支" class="headerlink" title="删除远程分支"></a>删除远程分支</h1><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">git push origin :richardyu</div></pre></td></tr></table></figure>
+<h1 id="获取远程分支"><a href="#获取远程分支" class="headerlink" title="获取远程分支"></a>获取远程分支</h1><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">git <span class="built_in">clone</span> -b master GIT_REPO repo</div></pre></td></tr></table></figure>
+<h1 id="在clone之后，获取远程的其他分支"><a href="#在clone之后，获取远程的其他分支" class="headerlink" title="在clone之后，获取远程的其他分支"></a>在clone之后，获取远程的其他分支</h1><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">git fetch origin BRANCH:BRANCH</div></pre></td></tr></table></figure>
 <p>注意，删除远程分支不会删除本地分支，还可以再推回去。</p>
 
           
@@ -781,6 +834,13 @@
           
 
           
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2014/08/22/add-ssh-key-to-github/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/08/22/add-ssh-key-to-github/" itemprop="commentsCount"></span>
+                </a>
+              </span>
             
           
 
@@ -898,6 +958,13 @@
 
           
             
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2014/05/28/how-to-setup-drupal8-with-clean-centos/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/05/28/how-to-setup-drupal8-with-clean-centos/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -1014,6 +1081,13 @@
 
           
             
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2014/05/22/init-ubuntu/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/05/22/init-ubuntu/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -1128,6 +1202,13 @@
           
 
           
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2014/05/21/get-distance-by-lat-and-lng/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/05/21/get-distance-by-lat-and-lng/" itemprop="commentsCount"></span>
+                </a>
+              </span>
             
           
 
@@ -1245,6 +1326,13 @@
 
           
             
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2014/04/21/solve-bitbucket-can-not-access/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/04/21/solve-bitbucket-can-not-access/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -1360,6 +1448,13 @@
 
           
             
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2014/04/09/install-redmine-on-centos/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/04/09/install-redmine-on-centos/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -1464,10 +1559,10 @@
 
           
             <div class="site-state-item site-state-categories">
-              <a href="/categories">
+              
                 <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">分类</span>
-              </a>
+              
             </div>
           
 
@@ -1483,8 +1578,26 @@
         </nav>
 
         
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
 
         <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/vipzhicheng" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
           
         </div>
 
@@ -1492,6 +1605,24 @@
         
 
         
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.drupalproject.org/" title="Drupal项目社区" target="_blank">Drupal项目社区</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://drupalchina.cn" title="Drupal中国" target="_blank">Drupal中国</a>
+                </li>
+              
+            </ul>
+          </div>
         
 
       </section>
@@ -1510,7 +1641,7 @@
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy; 
+  &copy;  2014 - 
   <span itemprop="copyrightYear">2016</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
@@ -1602,14 +1733,162 @@
 
   
 
+  
+    
+  
 
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"vipzhicheng"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
 
+  
+    
   
 
 
 
+
+
   
   
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';                
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+                            
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').mousedown(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
   
 
   

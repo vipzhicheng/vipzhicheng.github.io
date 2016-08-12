@@ -1,0 +1,676 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+    
+    <entry>
+      <title><![CDATA[怎样在 CentOS 7 上安装 Nginx]]></title>
+      <url>http://www.vipzhicheng.com/2016/08/11/%E6%80%8E%E6%A0%B7%E5%9C%A8-CentOS-7-%E4%B8%8A%E5%AE%89%E8%A3%85-Nginx/</url>
+      <content type="html"><![CDATA[<p>Nginx是一个高性能的Web服务器，比Apache要灵活和轻量。</p>
+<p>注，以下安装过程需要具有<code>root</code>权限或者用<code>sudo</code>来执行，注意这个教程是针对<code>CentOS 7</code>的，貌似<code>CentOS 7</code>上的软件安装都异常的简单。</p>
+<h2 id="第一步：添加Nginx软件源"><a href="#第一步：添加Nginx软件源" class="headerlink" title="第一步：添加Nginx软件源"></a>第一步：添加Nginx软件源</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">sudo yum install epel-release</div></pre></td></tr></table></figure>
+<h2 id="第二步：安装Nginx"><a href="#第二步：安装Nginx" class="headerlink" title="第二步：安装Nginx"></a>第二步：安装Nginx</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">sudo yum install nginx</div></pre></td></tr></table></figure>
+<h2 id="第三步：开启Nginx服务"><a href="#第三步：开启Nginx服务" class="headerlink" title="第三步：开启Nginx服务"></a>第三步：开启Nginx服务</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">sudo systemctl start nginx</div></pre></td></tr></table></figure>
+<h2 id="验证是否正常工作"><a href="#验证是否正常工作" class="headerlink" title="验证是否正常工作"></a>验证是否正常工作</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">http://server_domain_name_or_IP/</div></pre></td></tr></table></figure>
+<h2 id="把Nginx加到开机自启动"><a href="#把Nginx加到开机自启动" class="headerlink" title="把Nginx加到开机自启动"></a>把Nginx加到开机自启动</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">sudo systemctl enable nginx</div></pre></td></tr></table></figure>
+<h2 id="默认的配置文件路径和Web根目录"><a href="#默认的配置文件路径和Web根目录" class="headerlink" title="默认的配置文件路径和Web根目录"></a>默认的配置文件路径和Web根目录</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line"># 默认配置文件路径</div><div class="line">/etc/nginx/nginx.conf</div><div class="line"></div><div class="line"># 其他自定义配置文件所在目录，可定义虚拟主机，以`.conf`扩展名结尾</div><div class="line">/etc/nginx/conf.d</div><div class="line"></div><div class="line"># 默认Web根目录</div><div class="line">/usr/share/nginx/html</div></pre></td></tr></table></figure>]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[SVN merge命令合并trunk的一些版本到分支]]></title>
+      <url>http://www.vipzhicheng.com/2016/07/25/SVN%E5%90%88%E5%B9%B6trunk%E7%9A%84%E4%B8%80%E4%BA%9B%E7%89%88%E6%9C%AC%E5%88%B0%E5%88%86%E6%94%AF/</url>
+      <content type="html"><![CDATA[<p>这里主要是先描述问题产生的场景，然后给出答案，并少量设计了代码工作流方面的话题，但并没有做重点阐述。</p>
+<p>使用版本控制软件对代码变更进行追踪只是第一步，更进一步，我们还需要基于版本控制软件为团队开发定义工作流，并一直坚持相同的习惯。对于Git有<code>Git flow</code>, <code>Github flow</code>, <code>Gitlab flow</code>等等。对于之前比较流行的SVN也是如此。SVN的团队开发流程不止一种，常见的也是有单个长期分支的工作流和开发分支，线上分支双分支工作流。</p>
+<p>我们使用SVN进行代码管理的项目使用的是后者，也就是开发分支，线上分支分开，然后通过合并（Merge）来决定哪些版本上线，更进一步，我们使用Redmine进行任务管理，和SVN整合后，任务相关的版本是整合到一起的显示的。</p>
+<p>为了得到一个任务(我们叫Ticket)的全部版本号(Revision)，我们写了一小段JS代码在浏览器Redmine任务页面的Console里执行，如果小伙伴们有更好的获取一个Ticket下的版本号的方法，可以和我交流一下。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">var scriptNode = document.createElement(&apos;script&apos;); scriptNode.src = &apos;http://code.jquery.com/jquery-1.10.1.min.js&apos;; document.head.appendChild(scriptNode);</div><div class="line"></div><div class="line">var version = &apos;&apos;;</div><div class="line">$(&apos;.changeset &gt; p &gt; a&apos;).each(function(i)&#123;</div><div class="line">  version += $(this).text().replace(&apos;修订 &apos;, &apos;&apos;) + &apos;,&apos;;</div><div class="line">&#125;);</div><div class="line">console.log(version );</div></pre></td></tr></table></figure>
+<p>PS：里面的修订两个字也可能是Revision，取决于Redmine当前语言是中文还是英文。</p>
+<p>然后就会得到类似于下面这样的输出：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">40643,40645,40646,40647,40648,40649,40650,40652,40655,40660,40668,40669,40702,40704,40708,40709,40710,40712,40718,40719,40720,40721,40722,40723,40724,40726,40727,40728,40729,40730,40731,40732,40733,40734,40735,40736,40737,40738,40739,40740,40741,40742,40746,40747,40748,40749,40751,40753,40754,40755,40756,40757,40766,40770,40772,40774,40786</div></pre></td></tr></table></figure>
+<p>接下来为了将这些代码上线，我们就需要知道怎么将Trunk上面的这些代码变更合并到线上分支。当然Tortorise SVN软件内置了这样的功能，但是对于有的钟爱命令行的人士来说，还是要学会如何使用命令行来做这件事。</p>
+<p>说了这么多，其实答案很简单，这里我直接给出答案：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">cd WWW_WORKING_COPY_DIR</div><div class="line">svn merge -c 40643,40645,40646,40647,40648,40649,40650,40652,40655,40660,40668,40669,40702,40704,40708,40709,40710,40712,40718,40719,40720,40721,40722,40723,40724,40726,40727,40728,40729,40730,40731,40732,40733,40734,40735,40736,40737,40738,40739,40740,40741,40742,40746,40747,40748,40749,40751,40753,40754,40755,40756,40757,40766,40770,40772,40774,40786 TRUNK_REPO_URL .</div></pre></td></tr></table></figure>
+<p>这里TRUNK_REPO_URL支持绝对路径和将对路径，如果是将对路径，是基于跟进行寻址的，比如^/trunk。</p>
+<p>当然，有可能会产生冲突，个人比较推荐的方式是一律保留冲突继续，然后一起处理。</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[让New Relic排除不需要统计的PHP请求]]></title>
+      <url>http://www.vipzhicheng.com/2016/06/15/%E8%AE%A9New-Relic%E6%8E%92%E9%99%A4%E4%B8%8D%E9%9C%80%E8%A6%81%E7%BB%9F%E8%AE%A1%E7%9A%84PHP%E8%AF%B7%E6%B1%82/</url>
+      <content type="html"><![CDATA[<p>我们使用<code>New Relic</code>作为性能监控分析工具，关于<code>New Relic</code>就不过多介绍了，大家可以自己去搜搜。这种性能分析工具对于大型网站来说是必不可少的，而其特色不仅在于可以监控服务器硬件指标，而且可以监控应用级别的各种数据，当网站发生性能问题时，可以在上面找到一些线索，甚至是直接找到答案。目前国内也有同类产品了，比如说听云，目前还没有机会尝试。</p>
+<p>我们遇到的问题是，我们希望<code>New Relic</code>监控我们的部分核心应用的性能指标，但服务器上部署了一些非核心应用，这些应用又存在着访问量大，但是逻辑简单，所以响应迅速的问题，所以从监控上看，这个服务器的平均响应时间非常的低，而其他只部署核心应用的服务器的平均响应时间是很高的，这就给人了一个假象，从而看不出这台服务器核心应用的真实水准。</p>
+<p>那么怎么排除掉非核心应用呢？经过调查，发现<code>New Relic</code>支持一些<a href="https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api" target="_blank" rel="external">API</a>，可以对上传的数据做定制，里面恰好就有解决这个问题的API。</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><div class="line"><span class="keyword">if</span> (extension_loaded(<span class="string">'newrelic'</span>)) &#123;</div><div class="line">    newrelic_ignore_transaction();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这个API函数的描述是这样的：</p>
+<blockquote>
+<p>Do not generate metrics for this transaction. This is useful when you have transactions that are particularly slow for known reasons and you do not want them always being reported as the transaction trace or skewing your site averages.</p>
+</blockquote>
+<p>将这段代码加到非核心应用的入口文件里的，效果是立竿见影。</p>
+<img src="/2016/06/15/让New-Relic排除不需要统计的PHP请求/QQ20160615-1@2x.png" alt="New Relic 监控截图" title="New Relic 监控截图">
+<p>如果进一步思考，我的核心应用里可能有一些已知性能差，但是不需要理会的程序（比如计划任务），我也是不希望在里面混淆视听的，这时，我们就需要把这段代码放到我们的核心应用里，根据路径或者其他判定条件忽略对本次请求的监控。</p>
+<p>监控的意义在于，发现突然出现的波峰波谷，如果引起动荡的原因是你肯定不关心的，就可以忽略掉，不上传数据给<code>New Relic</code>。</p>
+<p>更多<code>New Relic</code> API大家就自己去探索吧，当我有使用场景时，也会记录下来，跟大家分享。</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Git创建分支并推送到远程分支]]></title>
+      <url>http://www.vipzhicheng.com/2016/06/02/Git%E5%88%9B%E5%BB%BA%E5%88%86%E6%94%AF%E5%B9%B6%E6%8E%A8%E9%80%81%E5%88%B0%E8%BF%9C%E7%A8%8B%E5%88%86%E6%94%AF/</url>
+      <content type="html"><![CDATA[<p>在为公司技术部选型博客系统的过程中，最终选择了Hexo+Git内网构建的方式，一方面是希望大家学会这一优秀的静态博客系统的使用方法，另一方面，也是希望大家逐渐熟悉Git，为下一步真正的项目代码迁移到Git做准备。</p>
+<p>Git上手很简单，但其实很复杂，很多命令都并没有真正理解，就算学会了也很容易忘，这就需要不断实践，也需要时间来体会。</p>
+<p>本文的重点主要还是学到的一点Git知识，做一个记录，感觉不记下来不久以后还会忘。</p>
+<h1 id="创建分支"><a href="#创建分支" class="headerlink" title="创建分支"></a>创建分支</h1><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">git checkout -b richardyu</div></pre></td></tr></table></figure>
+<h1 id="添加远程版本库"><a href="#添加远程版本库" class="headerlink" title="添加远程版本库"></a>添加远程版本库</h1><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">git remote add origin GIT_REPO_URL</div></pre></td></tr></table></figure>
+<h1 id="推送到远程分支"><a href="#推送到远程分支" class="headerlink" title="推送到远程分支"></a>推送到远程分支</h1><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">git push origin richardyu:richardyu</div></pre></td></tr></table></figure>
+<h1 id="删除远程分支"><a href="#删除远程分支" class="headerlink" title="删除远程分支"></a>删除远程分支</h1><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">git push origin :richardyu</div></pre></td></tr></table></figure>
+<h1 id="获取远程分支"><a href="#获取远程分支" class="headerlink" title="获取远程分支"></a>获取远程分支</h1><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">git <span class="built_in">clone</span> -b master GIT_REPO repo</div></pre></td></tr></table></figure>
+<h1 id="在clone之后，获取远程的其他分支"><a href="#在clone之后，获取远程的其他分支" class="headerlink" title="在clone之后，获取远程的其他分支"></a>在clone之后，获取远程的其他分支</h1><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">git fetch origin BRANCH:BRANCH</div></pre></td></tr></table></figure>
+<p>注意，删除远程分支不会删除本地分支，还可以再推回去。</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[为Github添加SSH KEY]]></title>
+      <url>http://www.vipzhicheng.com/2014/08/22/add-ssh-key-to-github/</url>
+      <content type="html"><![CDATA[<p>如果你使用Github，Bitbucket, 或者国产的Coding.net等，都会在个人设置那里看到设置SSH Key的地方，这个是做什么用的呢，这个是用来让你提交代码通过SSH隧道的方式提交到远程服务器，这种方式有安全，稳定以及无需每次输入认证信息等特点。</p>
+<p>本文只是以Github为例，讲解怎么操作，至于原理和概念，请自行搜索。</p>
+<a id="more"></a>
+<h2 id="第一步，检查一下当前已经生成的SSH-keys"><a href="#第一步，检查一下当前已经生成的SSH-keys" class="headerlink" title="第一步，检查一下当前已经生成的SSH keys"></a>第一步，检查一下当前已经生成的SSH keys</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">ls -al ~/.ssh</div></pre></td></tr></table></figure>
+<p>当然理论上当前存在的SSH keys不会影响你新创建的，注意为每个不同的key取不同的文件名。</p>
+<h2 id="第二步，创建一个新的SSH-key"><a href="#第二步，创建一个新的SSH-key" class="headerlink" title="第二步，创建一个新的SSH key"></a>第二步，创建一个新的SSH key</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">$ ssh-keygen -t rsa -C &quot;your_email@example.com&quot;</div><div class="line"># Creates a new ssh key, using the provided email as a label</div><div class="line"># Generating public/private rsa key pair.</div><div class="line"># Enter file in which to save the key (/Users/you/.ssh/id_rsa): [这里建议起个特殊的名字]</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">Enter passphrase (empty for no passphrase): [Type a passphrase]</div><div class="line"># Enter same passphrase again: [Type passphrase again]</div></pre></td></tr></table></figure>
+<p>passphrase类似于密码，但只是本机使用，可以不设置，但这样不够安全。</p>
+<p>你会得到类似于下面的输出：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">Your identification has been saved in /Users/you/.ssh/id_rsa.</div><div class="line"># Your public key has been saved in /Users/you/.ssh/id_rsa.pub.</div><div class="line"># The key fingerprint is:</div><div class="line"># 01:0f:f4:3b:ca:85:d6:17:a1:7d:f0:68:9d:f0:a2:db your_email@example.com</div></pre></td></tr></table></figure>
+<p>然后，使用如下方式加载本地私钥，如果本机已经开启了ssh-agent就不需要再启动直接添加私钥即可。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line"># start the ssh-agent in the background</div><div class="line">eval &quot;$(ssh-agent -s)&quot;</div><div class="line"># Agent pid 59566</div><div class="line">ssh-add ~/.ssh/id_rsa</div></pre></td></tr></table></figure>
+<h2 id="第三步，在Github上添加SSH-key"><a href="#第三步，在Github上添加SSH-key" class="headerlink" title="第三步，在Github上添加SSH key"></a>第三步，在Github上添加SSH key</h2><p>注意两点：</p>
+<ol>
+<li>Label只是用来助记的标识。</li>
+<li>里面填写的是公钥。</li>
+</ol>
+<p>最后，你只需要在你的本地代码添加对应远程SSH版本库地址即可。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">cd existing_git_repo //进入已有项目或更新的项目目录</div><div class="line">git remote add origin SSH_REPO_URL</div><div class="line">git push -u origin master //这两行将该目录下的文件推送到远端（origin）上的 &quot;master&quot; 分支</div></pre></td></tr></table></figure>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[在全新的CentOS里安装Drupal8]]></title>
+      <url>http://www.vipzhicheng.com/2014/05/28/how-to-setup-drupal8-with-clean-centos/</url>
+      <content type="html"><![CDATA[<p>本文在全新安装的CentOS6.5里安装Drupal8。</p>
+<p>因为需要PHP5.4，而源里默认只有php5.3.3，所以按照<a href="http://webtatic.com/packages/php54/" target="_blank" rel="external">这个教程</a>安装了php5.4，然后从源里安装了httpd和mysql-server</p>
+<a id="more"></a>
+<p>以下都假设在root账户下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">yum install httpd mysql-server</div></pre></td></tr></table></figure>
+<p>然后配置了一个虚拟主机，Drupal8用的是alpha11版，注意要开启httpd的重写机制，因为默认就开启了clean url。</p>
+<p>本来Drupal8是可以自动下载语言包的，安装时提示语言包下载不下来，于是我选择了安装英文版。</p>
+<p>为了体验Drupal8，Profile选择的是Standard。</p>
+<p>之后检测依赖扩展，结果需要继续安装缺失的扩展：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">yum install php54w-gd php54w-pdo php54w-dom php54w-mbstring php54w-mysql</div></pre></td></tr></table></figure>
+<p>之后别忘了reload httpd</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">/etc/init.d/httpd reload</div></pre></td></tr></table></figure>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[初始化Ubuntu]]></title>
+      <url>http://www.vipzhicheng.com/2014/05/22/init-ubuntu/</url>
+      <content type="html"><![CDATA[<p>Ubuntu桌面版应该说已经做的不错了，总有一些需要定制的地方，本文以Ubuntu 14.04为例介绍安装Ubuntu之后要做的设置工作。</p>
+<a id="more"></a>
+<h2 id="为终端设置等宽字体"><a href="#为终端设置等宽字体" class="headerlink" title="为终端设置等宽字体"></a>为终端设置等宽字体</h2><p>默认的monospace字体貌似不是很好用，我一般给改成UbuntuMono 13号字粗体。</p>
+<h2 id="关闭独立显卡"><a href="#关闭独立显卡" class="headerlink" title="关闭独立显卡"></a>关闭独立显卡</h2><p>Ubuntu安装完之后，风扇狂转，需要关闭独立显卡，可能只是N卡才有这个问题</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">sudo apt-get install bumblebee</div></pre></td></tr></table></figure>
+<p>安装完，重启即可，无需设置。</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[根据经纬度计算之间距离]]></title>
+      <url>http://www.vipzhicheng.com/2014/05/21/get-distance-by-lat-and-lng/</url>
+      <content type="html"><![CDATA[<p>网上搜集的两种计算方法，</p>
+<p>PHP版</p>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">/**</div><div class="line">*  @desc 根据两点间的经纬度计算距离</div><div class="line">*  @param float $lat 纬度值</div><div class="line">*  @param float $lng 经度值</div><div class="line">*/</div><div class="line"> function getDistance($lat1, $lng1, $lat2, $lng2)</div><div class="line"> &#123;</div><div class="line">     $earthRadius = 6367000; //approximate radius of earth in meters</div><div class="line"></div><div class="line">     /*</div><div class="line">       Convert these degrees to radians</div><div class="line">       to work with the formula</div><div class="line">     */</div><div class="line"></div><div class="line">     $lat1 = ($lat1 * pi() ) / 180;</div><div class="line">     $lng1 = ($lng1 * pi() ) / 180;</div><div class="line"></div><div class="line">     $lat2 = ($lat2 * pi() ) / 180;</div><div class="line">     $lng2 = ($lng2 * pi() ) / 180;</div><div class="line"></div><div class="line">     /*</div><div class="line">       Using the</div><div class="line">       Haversine formula</div><div class="line"></div><div class="line">       http://en.wikipedia.org/wiki/Haversine_formula</div><div class="line"></div><div class="line">       calculate the distance</div><div class="line">     */</div><div class="line"></div><div class="line">     $calcLongitude = $lng2 - $lng1;</div><div class="line">     $calcLatitude = $lat2 - $lat1;</div><div class="line">     $stepOne = pow(sin($calcLatitude / 2), 2) + cos($lat1) * cos($lat2) * pow(sin($calcLongitude / 2), 2);  $stepTwo = 2 * asin(min(1, sqrt($stepOne)));</div><div class="line">     $calculatedDistance = $earthRadius * $stepTwo;</div><div class="line"></div><div class="line">     return round($calculatedDistance);</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<p> Javascript版：</p>
+ <figure class="highlight plain"><table><tr><td class="code"><pre><div class="line"> function GetDistance(lat1, lng1, lat2, lng2)</div><div class="line">&#123;  </div><div class="line">    if( ( Math.abs( lat1 ) &gt; 90 ) ||( Math.abs( lat2 ) &gt; 90 ) )&#123;  </div><div class="line">        return false;  </div><div class="line">    &#125;  </div><div class="line">    if( ( Math.abs( lng1 ) &gt; 180 ) ||( Math.abs( lng2 ) &gt; 180 ) )&#123;  </div><div class="line">        return false;  </div><div class="line">    &#125;  </div><div class="line">    var radLat1 = rad(lat1);  </div><div class="line">    var radLat2 = rad(lat2);  </div><div class="line">    var a = radLat1 - radLat2;  </div><div class="line">    var b = rad(lng1) - rad(lng2);  </div><div class="line">    var s = 2 * Math.asin(Math.sqrt(Math.pow(Math.sin(a/2),2) +  </div><div class="line">    Math.cos(radLat1)*Math.cos(radLat2)*Math.pow(Math.sin(b/2),2)));  </div><div class="line">    s = s *6378.137 ;// EARTH_RADIUS;  </div><div class="line">    s = Math.round(s * 10000) / 10000;  </div><div class="line">    return s;  </div><div class="line">&#125;</div><div class="line">function rad(d)</div><div class="line">&#123;  </div><div class="line">    return d * Math.PI / 180.0;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[解决Bitbucket无法访问和push]]></title>
+      <url>http://www.vipzhicheng.com/2014/04/21/solve-bitbucket-can-not-access/</url>
+      <content type="html"><![CDATA[<p>近日的网络不知道又出了什么状况，各种被墙，尤其是Bitbucket不能使用，严重影响了工作的效率和心情，有时候是网页打不开，有时候是不能pull或者push，通过搜索找到了解决方法，记录如下。</p>
+<a id="more"></a>
+<p>这里，我们需要有一种翻墙措施，你可以是自己的VPN， ssh翻墙， goagent，或者其他，笔者是Mac系统，翻墙暂时使用的是鱼摆摆（不知道是啥东西的可以去搜搜），这个VPN开启的端口是9743, 如果用goagent，端口可能是8087，这个端口号接下来会用到。</p>
+<p>切换到git项目目录，这里我们使用的是bitbucket的https项目路径，假设之前是可以正常工作的，为了可以让push也翻墙，我们需要做如下设置：（再一次说明，以下不是完整设置，仅仅是为了解决本文标题所说的状况）。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">git config --add http.proxy 127.0.0.1:8087</div><div class="line">git config --add https.proxy 127.0.0.1:8087</div><div class="line">git config --add https.sslVerify false</div><div class="line">git config --global http.postBuffer 524288000   #非常重要，否则可能提交不成功。</div></pre></td></tr></table></figure>
+<p>之后我们就可以push了，当然以上设置也可以直接在.git/config里修改设置。</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[最新安装Redmine的方法]]></title>
+      <url>http://www.vipzhicheng.com/2014/04/09/install-redmine-on-centos/</url>
+      <content type="html"><![CDATA[<p>Redmine官网的安装向导基本上不怎么更新，里面的安装说明比较混乱，看着迷糊，实施起来也会遇到诸多问题，但其实现在最新版的Redmine安装已经非常简单了，当然如果英文比较好的话，按源码包里的安装说明文档也是可以的，本文结合不久前的实施经验记录最新的Redmine安装流程。</p>
+<a id="more"></a>
+<h2 id="Redmine版本"><a href="#Redmine版本" class="headerlink" title="Redmine版本"></a>Redmine版本</h2><p>本文使用的是Redmine的是2.5.1版，撰写本文时的最新版本，理论上以后的安装一定要比本文记录的还要简单才对。</p>
+<h2 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h2><p>CentOS 6.3，因此本文至少适用于CentOS 6.x</p>
+<h2 id="通过RVM安装Ruby"><a href="#通过RVM安装Ruby" class="headerlink" title="通过RVM安装Ruby"></a>通过RVM安装Ruby</h2><p>请参考之前笔者翻译的一篇教程<a href="http://vipzhicheng.dev/blog/2014/04/08/how-to-install-ruby-on-rails-on-centos-6-with-rvm/" target="_blank" rel="external">使用RVM在CentOS6安装Ruby on Rails</a>，由于Redmine会自己选择合适的版本，所以为了安装Redmine的话，你不需要执行最后的Rails安装。另外和这个教程一样，本文也推荐使用root用户来实施，少了许多麻烦，如果以后有其他安全性的需求而想要使用独立的非root账号，可以在安装成功了之后再考虑。</p>
+<p>我们需要安装Ruby 1.9.3，而不是最新的Ruby。理论上再新一些的Ruby也支持，可以查看Redmine源码里的安装文档里写的Ruby支持的版本，因为源码里的更新比较及时，官方WIKI文档里的信息很多都过时了。</p>
+<h2 id="下载Redmine"><a href="#下载Redmine" class="headerlink" title="下载Redmine"></a>下载Redmine</h2><p>去Redmine<a href="http://www.redmine.org/projects/redmine/wiki/Download" target="_blank" rel="external">官方下载页面</a>下载最新版的Redmine, 这里我们以撰写本文时最新的2.5.1为例。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">sudo su</div><div class="line">cd /var/www</div><div class="line">wget http://www.redmine.org/releases/redmine-2.5.1.tar.gz</div><div class="line">tar xvzf redmine-2.5.1.tar.gz</div><div class="line">mv redmine-2.5.1 redmine</div></pre></td></tr></table></figure>
+<h2 id="安装Redmine"><a href="#安装Redmine" class="headerlink" title="安装Redmine"></a>安装Redmine</h2><p>然后可以先修改一下数据库链接配置</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">cd redmine</div><div class="line">cp config/database.yml.example config/database.yml</div><div class="line">vim config/database.yml</div></pre></td></tr></table></figure>
+<p>修改里面的production段即可，因为一般我们安装Redmine只是为了使用。</p>
+<p>Redmine使用的是bundler处理版本依赖，这比一个一个手动安装要方便多了。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">gem install bundler</div></pre></td></tr></table></figure>
+<p>通过上面的指令安装好bundler之后，我们还需要为系统安装两个包，一个是mysql，一个是ImageMagick, 我们假设使用的是MySQL，需要注意的是，即使你的MySQL不是安装在本地，为了编译成功也是需要安装的，另外如果你想使用Redmine的甘特图导出功能，就必须安装ImageMagick。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">yum install -y ImageMagick-devel</div><div class="line">yum install -y mysql-devel</div></pre></td></tr></table></figure>
+<p>然后我们就要进行最重要的操作了。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">bundle install --without development test</div></pre></td></tr></table></figure>
+<p>上面的指令如果不出错，那么你会看到许多的Redmine依赖的Ruby扩展的安装记录。</p>
+<p>然后为了正常使用Redmine的认证系统，我们需要为其生成一个Session TOKEN。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">rake generate_secret_token</div></pre></td></tr></table></figure>
+<p>接下来需要初始化数据库</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">rake db:migrate RAILS_ENV=&quot;production&quot;</div></pre></td></tr></table></figure>
+<p>到这里，Redmine就安装完了，使用以下方式测试：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">ruby script/rails server -e production</div></pre></td></tr></table></figure>
+<p>如果启动成功，Redmine可以通过 <a href="http://yourip:3000" target="_blank" rel="external">http://yourip:3000</a> 访问，或者如果是本地就是 <a href="http://127.0.0.1:3000" target="_blank" rel="external">http://127.0.0.1:3000</a> ，如果可以访问成功，就用admin/admin账户登陆，然后就可以修改密码，创建项目了。</p>
+<p>如果觉得一切正常，可以将Redmine安装成守护进程。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">ruby script/rails server -e production -d</div></pre></td></tr></table></figure>
+<h2 id="将Redmine程序设置成开机自启动"><a href="#将Redmine程序设置成开机自启动" class="headerlink" title="将Redmine程序设置成开机自启动"></a>将Redmine程序设置成开机自启动</h2><p>开机自启动有许多方式，尤其是chkconfig的方式，不过这里我们使用最原始的方式，把启动脚本加入到rc.local里。注意路径使用的是绝对路径。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">/usr/local/rvm/rubies/ruby-1.9.3-p545/bin/ruby /var/www/redmine/script/rails server -e production -d</div></pre></td></tr></table></figure>
+<p>另外还在网上找了一个Redmine启动控制脚本，可以尝试使用。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line"></div><div class="line"># Modify it to your configuration</div><div class="line">DIR=/var/www/html/redmine/</div><div class="line"></div><div class="line"># Start Redmine in daemon mode.</div><div class="line">start()&#123;</div><div class="line">  cd $DIR</div><div class="line">  ruby script/rails server -d -e production</div><div class="line">&#125;</div><div class="line"># Stop Redmine daemon</div><div class="line">stop()&#123;</div><div class="line">  RUBYPID=`ps aux | grep &quot;ruby script/rails&quot; | grep -v grep | awk &apos;&#123;print $2&#125;&apos;`</div><div class="line">  if [ &quot;x$RUBYPID&quot; != &quot;x&quot; ]; then</div><div class="line">    kill -2 $RUBYPID</div><div class="line">  fi</div><div class="line">&#125;</div><div class="line"># Check if Redmine is running</div><div class="line">status()&#123;</div><div class="line">  RUBYPID=`ps aux | grep &quot;ruby script/rails&quot; | grep -v grep | awk &apos;&#123;print $2&#125;&apos;`</div><div class="line">  if [ &quot;x$RUBYPID&quot; = &quot;x&quot; ]; then</div><div class="line">    echo &quot;* Redmine is not running&quot;</div><div class="line">  else</div><div class="line">    echo &quot;* Redmine is running&quot;</div><div class="line">  fi</div><div class="line">&#125;</div><div class="line"></div><div class="line">case &quot;$1&quot; in</div><div class="line">  start)</div><div class="line">    start</div><div class="line">    status</div><div class="line">    ;;</div><div class="line">  stop)</div><div class="line">    stop</div><div class="line">    sleep 2</div><div class="line">    status</div><div class="line">    ;;</div><div class="line">  status)</div><div class="line">    status</div><div class="line">    ;;</div><div class="line">  restart|force-reload)</div><div class="line">    stop</div><div class="line">    start</div><div class="line">    ;;</div><div class="line">  *)</div><div class="line">    echo &quot;Usage: $0 &#123;start|stop|restart|force-reload|status&#125;&quot;</div><div class="line">    exit 1</div><div class="line">esac</div></pre></td></tr></table></figure>
+<h2 id="为Redmine选择合适的插件和主题"><a href="#为Redmine选择合适的插件和主题" class="headerlink" title="为Redmine选择合适的插件和主题"></a>为Redmine选择合适的插件和主题</h2><p>Redmine支持安装插件和更换主题，这样可以获得更丰富的功能和更漂亮的外观，可以去以下网址下载。</p>
+<ul>
+<li>插件：<a href="http://www.redmine.org/projects/redmine/wiki/Plugins" target="_blank" rel="external">http://www.redmine.org/projects/redmine/wiki/Plugins</a></li>
+<li>主题：<a href="http://www.redmine.org/projects/redmine/wiki/Themes" target="_blank" rel="external">http://www.redmine.org/projects/redmine/wiki/Themes</a></li>
+</ul>
+<h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>其实Redmine部署以后，为了更好的访问，我们一般还需要再外层加一层反向代理，这个有许多方法，这里就不再赘述了。</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[[译]使用RVM安装Ruby on Rails]]></title>
+      <url>http://www.vipzhicheng.com/2014/04/08/how-to-install-ruby-on-rails-on-centos-6-with-rvm/</url>
+      <content type="html"><![CDATA[<p>本文译自<a href="https://www.digitalocean.com/community/articles/how-to-install-ruby-on-rails-on-centos-6-with-rvm" target="_blank" rel="external">How To Install Ruby on Rails on CentOS 6 with RVM</a>,转载请著名原文出处及译文出处。</p>
+<h2 id="关于-Ruby-on-Rails"><a href="#关于-Ruby-on-Rails" class="headerlink" title="关于 Ruby on Rails"></a>关于 Ruby on Rails</h2><p>Ruby on Rails，简称RoR，是一个应用程序集合，提供给开发者一个快速创建Web应用程序的开发框架。</p>
+<p>安装Ruby on Rails环境确实需要一定的时间，不过幸运的是有许多工具可以让安装RoR的流程尽可能的简单。本文基于CentOS6，根据实际安装时的经验对原文步骤略有调整，虽然RVM支持在任意账户下安装，但这里还是以root账户为例，会为以后减少许多不必要的麻烦。<br><a id="more"></a></p>
+<h2 id="第一步，安装RVM"><a href="#第一步，安装RVM" class="headerlink" title="第一步，安装RVM"></a>第一步，安装RVM</h2><p>在我们做任何其他步骤之前，首先要从源做一次更新以确保我们下载的所有包(Package)都是最新的。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">yum update</div></pre></td></tr></table></figure>
+<p>一旦上面的更新结束，我们就可以开始安装RVM（Ruby Version Manager）了，这个程序可以让你在一台服务器上使用多个版本的Ruby。</p>
+<p>如果你的系统里还没有安装curl，请从安装curl开始。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">yum install curl</div></pre></td></tr></table></figure>
+<p>安装RVM只需要在终端执行以下指令。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">curl -sSL https://get.rvm.io | bash -s stable</div></pre></td></tr></table></figure>
+<p>安装后，我们需要加载RVM</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">source .bashrc</div><div class="line">source .bash_profile</div></pre></td></tr></table></figure>
+<p>为了保证RVM正常工作，RVM自己有一些软件依赖需要安装，可以通过以下指令查看这些依赖。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">rvm requirements</div></pre></td></tr></table></figure>
+<p>以上指令将自动安装依赖，一般需要根据实际情况安装额外的依赖包，比如笔者在一台服务器非常顺利的执行了这个指令，而在另外一个服务器上则需要安装一个依赖包：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">yum install -y libyaml-devel</div></pre></td></tr></table></figure>
+<p>以下是参考的反馈信息：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">Checking requirements for centos.</div><div class="line">Installing requirements for centos.</div><div class="line">Updating system-</div><div class="line"></div><div class="line">.</div><div class="line">Installing required packages: patch, libyaml-devel, libffi-devel, autoconf, gcc-c++, patch, readline-devel, zlib-devel, openssl-devel, automake, libtool, bison............. ...............</div><div class="line">Requirements installation successful.</div></pre></td></tr></table></figure>
+<h2 id="第二步，通过RVM安装Ruby"><a href="#第二步，通过RVM安装Ruby" class="headerlink" title="第二步，通过RVM安装Ruby"></a>第二步，通过RVM安装Ruby</h2><p>一旦我们安装好了RVM，安装Ruby是非常容易的。这里要等待比较长的时间。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">rvm install 1.9.3</div></pre></td></tr></table></figure>
+<p>因为RVM支持多个Ruby版本，所以我们需要告诉系统我们默认使用哪个版本的Ruby。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">rvm use 1.9.3 --default</div></pre></td></tr></table></figure>
+<h2 id="第三步，安装RubyGems"><a href="#第三步，安装RubyGems" class="headerlink" title="第三步，安装RubyGems"></a>第三步，安装RubyGems</h2><p>为了让RoR程序正常工作，我们还需要安装许多Ruby组件，这些都需要靠RubyGems，和前面一样，RubyGems我们也通过RVM来安装。</p>
+<p>PS: 实际测试中，安装了Ruby 1.9.3后，就已经安装了gem，不需要执行下面的指令。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">rvm rubygems current</div></pre></td></tr></table></figure>
+<h2 id="第四步，安装Rails"><a href="#第四步，安装Rails" class="headerlink" title="第四步，安装Rails"></a>第四步，安装Rails</h2><p>最后就是安装Rails了，只需要执行一行指令，但是可能要等上一段时间。如果你安装Rails的目的是安装Redmine，就不用执行下面的指令了，因为Redmine的安装流程会自动安装合适版本的Rails。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">gem install rails</div></pre></td></tr></table></figure>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[解决Jenkins长时间运行后样式丢失]]></title>
+      <url>http://www.vipzhicheng.com/2014/04/08/fix-jenkins-broken-css-and-images/</url>
+      <content type="html"><![CDATA[<p>这个问题具有一定的普遍性，在百度和Google都能搜到，本文以CentOS 6.3为例进行记录。Jenkins是通过yum方式安装。</p>
+<p>原因是系统自动清理/tmp目录（参考：/etc/cron.daily/tmpwatch），但Jenkins默认把图片和样式资源解压缩到/tmp下。为了解决这个问题，我们需要重新设置Jenkins的tmp目录。</p>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">cd /var/lib/jenkins/</div><div class="line">mkdir tmp</div><div class="line">chown jenkins:jenkins tmp</div><div class="line"></div><div class="line">vim /etc/sysconfig/jenkins</div></pre></td></tr></table></figure>
+<p>找到JENKINS_JAVA_OPTIONS，在之前的基础上，增加tmpdir部分，笔者在默认安装的基础上，修改完之后如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">JENKINS_JAVA_OPTIONS=&quot;-Djava.awt.headless=true -Djava.io.tmpdir=/var/lib/jenkins/tmp&quot;</div></pre></td></tr></table></figure>
+<p>之后重启Jenkins即可</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">/etc/init.d/jenkins restart</div></pre></td></tr></table></figure>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[CentOS用yum安装SVN]]></title>
+      <url>http://www.vipzhicheng.com/2014/04/03/install-svn-on-centos/</url>
+      <content type="html"><![CDATA[<p>源代码管理目前的市场上Git主键主流，SVN也仍然有大把的人用，其他也有一些新的或者小众的版本管理软件。对我来说，我选择SVN和Git，一个集中式管理，一个分布式管理，虽然Git强大到可以替代SVN，但有时也没有必要，对我来说部署一个简单的集中式版本控制系统，还是SVN要简单一些。</p>
+<p>本文以CentOS 6.3为例阐述了如何用yum的方式安装和部署SVN。</p>
+<a id="more"></a>
+<p>以下命令假设都是root用户来执行，我就可以不必每次都加sudo了。</p>
+<p>SVN一般有两种部署方式一种使用svn服务器模式，一种使用http做代理，其显示效果如下：</p>
+<p>svn://yourdomain/repo<br><a href="http://code.yourdomain/repo" target="_blank" rel="external">http://code.yourdomain/repo</a></p>
+<p>因为第一种部署最简单，所以先说第一种的部署方式。</p>
+<h2 id="svn服务器部署方式-1：svn-yourdomain-repo"><a href="#svn服务器部署方式-1：svn-yourdomain-repo" class="headerlink" title="svn服务器部署方式 1：svn://yourdomain/repo"></a>svn服务器部署方式 1：svn://yourdomain/repo</h2><p>首先检查已安装的版本并卸载，然后从源安装最新版SVN。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">rpm -qa subversion</div><div class="line">yum remove subversion</div><div class="line">yum install -y subversion</div></pre></td></tr></table></figure>
+<p>假设我们的版本库在服务器上都是在<code>/opt/svn</code>目录下分子目录存放，而我们第一个示例版本库名是repo。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">mkdir -p /opt/svn/repo</div><div class="line">svnadmin create /opt/svn/repo</div></pre></td></tr></table></figure>
+<p>为了SVN能够生效，我们需要编辑版本库的配置，首先是svnserve.conf</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">vim /opt/svn/repo/conf/svnserve.conf</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">[general]</div><div class="line">#匿名访问的权限，可以是read,write,none,默认为read</div><div class="line">anon-access=none</div><div class="line">#使授权用户有写权限</div><div class="line">auth-access=write</div><div class="line">#密码数据库的路径</div><div class="line">password-db=/opt/svn/passwd</div><div class="line">#访问控制文件</div><div class="line">authz-db=authz</div><div class="line">#认证命名空间，subversion会在认证提示里显示，并且作为凭证缓存的关键字</div><div class="line">realm=My Test Repo</div></pre></td></tr></table></figure>
+<p>password配置文件放在<code>/opt/svn/passwd</code>而不是<code>/opt/svn/repo/conf/passwd</code>的目的是让多个版本库共享同一份账户文件。</p>
+<p>配置密码只需要编辑对应的密码passwd文件,一看就明白就不演示了。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">vim /opt/svn/passwd</div></pre></td></tr></table></figure>
+<p>然后为了有权限访问，还需要编辑授权文件</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">vim /opt/svn/repo/conf/authz</div></pre></td></tr></table></figure>
+<p>在这个文件里，你可以针对不同的人授予不同的访问权限,这里授权给用户所有路径的权限。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">[/]</div><div class="line">testuser=rw</div></pre></td></tr></table></figure>
+<p>另外有的教程还会提一下如果设置iptables和关闭selinux，这里就默认大家这两个都已经弄好了。</p>
+<p>启动SVN</p>
+<p>一般的启动方式是直接使用svnserve -d -r DIR的形式，但在CentOS6，我发现有守护进程的方式，/etc/init.d/svnserve，这样就更简单和稳定。</p>
+<p>创建svnserve.conf</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">vim /etc/sysconfig/svnserve</div></pre></td></tr></table></figure>
+<p>只需要一行代码</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">OPTIONS=&apos;-d -r /opt/svn&apos;</div></pre></td></tr></table></figure>
+<p>当然这里你可以指定监听端口，和监听IP地址等其他额外参数，不过最常用的还是-d -r。</p>
+<p>这样一来，我们就可以使用svn://yourdomain/repo的方式checkout代码了。</p>
+<h2 id="svn服务器部署方式2：http-code-yourdomain-repo"><a href="#svn服务器部署方式2：http-code-yourdomain-repo" class="headerlink" title="svn服务器部署方式2：http://code.yourdomain/repo"></a>svn服务器部署方式2：<a href="http://code.yourdomain/repo" target="_blank" rel="external">http://code.yourdomain/repo</a></h2><p>配置http方式，还需要从源安装额外的软件,特别是我们需要Apache的DAV模块。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">yum install httpd httpd-devel subversion mod_dav_svn mod_auth_mysql</div></pre></td></tr></table></figure>
+<p>然后你需要为SVN服务器创建一个Apache虚拟主机，并且带DAV权限控制</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">&lt;Location /&gt;</div><div class="line">	DAV svn</div><div class="line">	SVNParentPath /opt/svn # 支持多个版本库</div><div class="line">	AuthType Basic</div><div class="line">	# SVNListParentPath on # 可以列出所有版本库</div><div class="line">	AuthName &quot;Authorization SVN&quot;</div><div class="line">	AuthUserFile /opt/svn/conf/passwd.conf</div><div class="line">	AuthzSVNAccessFile /opt/svn/conf/authz.conf</div><div class="line">	Require valid-user</div><div class="line">&lt;/Location&gt;</div></pre></td></tr></table></figure>
+<p>接下来就是对目录进行权限控制，以及设置SVN账户了，这里要注意的一点是使用DAV方式，版本库下的svnserve.conf就自动失效了，我们必须通过passwd.conf和authz.conf来保证版本库的安全性。</p>
+<p>为SVN添加账户</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line"># 首次</div><div class="line">htpasswd -c /opt/svn/conf/passwd.conf testuser</div><div class="line"></div><div class="line"># 以后</div><div class="line">htpasswd /opt/svn/conf/passwd.conf testuser</div></pre></td></tr></table></figure>
+<p>权限控制，以下配置掩饰了复杂授权控制的方法。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">[groups]</div><div class="line">svn_developer = testuser_1,testuser_2</div><div class="line">svn_admin = testuser_2,testuser_3</div><div class="line"></div><div class="line"># 已经离开的人最好还是保留账号，只是禁用权限，这样在blame的时候比较好追踪。</div><div class="line">user_left = testuser_4,testuser_5</div><div class="line"></div><div class="line"># 默认只要有SVN账号都可以有读权限，设为已经离开团队的人除外</div><div class="line">[/]</div><div class="line">@svn_developer = rw</div><div class="line">@svn_admin = rw</div><div class="line"></div><div class="line">* = r</div><div class="line"></div><div class="line">@user_left =</div><div class="line"></div><div class="line"></div><div class="line"># 根据版本库授权</div><div class="line">[repo:/trunk]</div><div class="line">@svn_developer = rw</div><div class="line">@svn_admin = rw</div><div class="line"></div><div class="line">[repo:/tags]</div><div class="line">@svn_admin = rw</div><div class="line">@svn_developer = r</div><div class="line"></div><div class="line"># 为单个用户提权</div><div class="line">testuser_2 = rw</div></pre></td></tr></table></figure>
+<p>以上仅仅是显示了可能性，实际要根据对项目安全性的要求结合团队规划，项目规划进行合理的设置。</p>
+<p>如果遇到错误：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">svn: E195019: Redirect cycle detected for URL ...</div></pre></td></tr></table></figure>
+<p>是因为你设置的DocumentRoot和SVN目录相同的原因，设置一个不同的即可。</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[MacOS安装Varnish]]></title>
+      <url>http://www.vipzhicheng.com/2014/03/17/install-varnish-on-mac/</url>
+      <content type="html"><![CDATA[<p>说到开发环境，已经不仅仅是开发本身所需要的软件集合了，也包括线上生产服务器所使用的种种服务器端软件，比如大多数时候我们本地只要有普通的LAMP环境即可开发，但有时候因为特殊需求，我们就需要往本地安装Memcache, APC, Solr, Varnish等等服务器软件或者组件， 本文要说的就是MacOS上安装Varnish的方法。</p>
+<a id="more"></a>
+<p>首先，你需要安装homebrew, 然后只需要执行一条命令就可以自动安装，包括其依赖的PCRE等。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">brew install varnish</div></pre></td></tr></table></figure>
+<p>安装的LOG信息里最重要的就是：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line"># 用于讲Varnish加到系统自动启动</div><div class="line">ln -sfv /usr/local/opt/varnish/*.plist ~/Library/LaunchAgents</div><div class="line"></div><div class="line"># 用于立即启动服务</div><div class="line">launchctl load ~/Library/LaunchAgents/homebrew.mxcl.varnish.plist</div><div class="line"></div><div class="line"># 用于立即关闭服务</div><div class="line">launchctl load ~/Library/LaunchAgents/homebrew.mxcl.varnish.plist</div></pre></td></tr></table></figure>
+<p>Varnish的配置文件在：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">/usr/local/etc/varnish/default.vcl</div></pre></td></tr></table></figure>
+<p>我们需要做一些配置，另外注意，我们要达到的目的是测试，我本地已经有许多网站测试环境了，用的自然是80端口，所以我偶尔才需要用到的Varnish，就分给他一个8080端口吧</p>
+<p>plist我们把启动端口改成8080</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</div><div class="line">&lt;!DOCTYPE plist PUBLIC &quot;-//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;</div><div class="line">&lt;plist version=&quot;1.0&quot;&gt;</div><div class="line">&lt;dict&gt;</div><div class="line">  &lt;key&gt;Label&lt;/key&gt;</div><div class="line">  &lt;string&gt;homebrew.mxcl.varnish&lt;/string&gt;</div><div class="line">  &lt;key&gt;ProgramArguments&lt;/key&gt;</div><div class="line">  &lt;array&gt;</div><div class="line">    &lt;string&gt;/usr/local/opt/varnish/sbin/varnishd&lt;/string&gt;</div><div class="line">    &lt;string&gt;-n&lt;/string&gt;</div><div class="line">    &lt;string&gt;/usr/local/var/varnish&lt;/string&gt;</div><div class="line">    &lt;string&gt;-f&lt;/string&gt;</div><div class="line">    &lt;string&gt;/usr/local/etc/varnish/default.vcl&lt;/string&gt;</div><div class="line">    &lt;string&gt;-s&lt;/string&gt;</div><div class="line">    &lt;string&gt;malloc,1G&lt;/string&gt;</div><div class="line">    &lt;string&gt;-T&lt;/string&gt;</div><div class="line">    &lt;string&gt;127.0.0.1:2000&lt;/string&gt;</div><div class="line">    &lt;string&gt;-a&lt;/string&gt;</div><div class="line">    &lt;string&gt;0.0.0.0:8080&lt;/string&gt;</div><div class="line">  &lt;/array&gt;</div><div class="line">  &lt;key&gt;KeepAlive&lt;/key&gt;</div><div class="line">  &lt;true/&gt;</div><div class="line">  &lt;key&gt;RunAtLoad&lt;/key&gt;</div><div class="line">  &lt;true/&gt;</div><div class="line">  &lt;key&gt;WorkingDirectory&lt;/key&gt;</div><div class="line">  &lt;string&gt;/usr/local&lt;/string&gt;</div><div class="line">  &lt;key&gt;StandardErrorPath&lt;/key&gt;</div><div class="line">  &lt;string&gt;/usr/local/var/varnish/varnish.log&lt;/string&gt;</div><div class="line">  &lt;key&gt;StandardOutPath&lt;/key&gt;</div><div class="line">  &lt;string&gt;/usr/local/var/varnish/varnish.log&lt;/string&gt;</div><div class="line">&lt;/dict&gt;</div><div class="line">&lt;/plist&gt;</div></pre></td></tr></table></figure>
+<p>vcl 文件，我们把80端口当作后端<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">backend default &#123;</div><div class="line">    .host = &quot;127.0.0.1&quot;;</div><div class="line">    .port = &quot;80&quot;;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>这样启动以后，我们访问任意一个本地测试虚拟主机的8080端口，可以在firebug的网络头看到Varnish头，证明Varnish已经安装成功。</p>
+<p>我们还可以使用Lingo这样的软件来管理服务的启动和停止，如果发现不好关闭的话，可以直接<code>sudo kill PID</code>的方式关闭服务。</p>
+<p>最后说一下上面几个启动选项的含义</p>
+<ul>
+<li>-n: 运行目录路径</li>
+<li>-f: 配置文件路径</li>
+<li>-s: 缓存方式，这里是内存划分1G，也可以是file，代表使用文件系统缓存</li>
+<li>-T: 管理后端，使用telnet来管理</li>
+<li>-a: 启动端口</li>
+</ul>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[向大家推荐一个Shell脚本：Go]]></title>
+      <url>http://www.vipzhicheng.com/2014/03/10/introduce-shell-command-go/</url>
+      <content type="html"><![CDATA[<p>这个脚本是做什么用的呢， 主要是用来管理大量SSH远程主机的，以前我们的做法要么就是把远程服务器的账户名，密码存成文本文档，每次连服务器都需要去查文档。要么就是编写一个个expect脚本，go-here, go-there的。</p>
+<p>这里给大家推荐的go命令，可以一个命令管理多个远程，而且配置简单</p>
+<a id="more"></a>
+<p>项目地址：<a href="https://github.com/vipzhicheng/go" target="_blank" rel="external">https://github.com/vipzhicheng/go</a></p>
+<p>详细的使用方法可以参考项目的简介，这里列出调用go命令的部分，大家可以看到， go命令后面可以跟ip或者label参数，可以随意匹配配置文件里的服务器，如果匹配的服务器只有一个，直接就可以登上去了，非常的方便。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">$ go label</div><div class="line"></div><div class="line">Found follow servers: (Which one do you want to connect?)</div><div class="line">[1] user1@192.168.1.7 label:7</div><div class="line">[2] user2@192.168.1.8 label:8</div><div class="line">Please choose by ID:</div><div class="line">1</div><div class="line"></div><div class="line">Logging into user1@192.168.1.7 ...</div><div class="line">spawn ssh user1@192.168.1.7 -p 22000</div><div class="line">user1@192.168.1.7&apos;s password:</div><div class="line">Last login: Mon Mar 10 18:35:02 2014 from 192.168.1.6</div><div class="line">$</div></pre></td></tr></table></figure>
+<p>如果你有任何建议，可以留言，我会继续完善，不过目前来讲已经够我使用了。</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Jenkins的安全防护]]></title>
+      <url>http://www.vipzhicheng.com/2014/03/09/access-control-for-jenkins/</url>
+      <content type="html"><![CDATA[<p>在<a href="http://www.vipzhicheng.com/blog/2014/02/24/yum-install-jenkins-on-centos/">这篇文章</a>中我们我们提到默认Jenkins是不提供任何权限控制的，但通过配置，可以增加用户名密码登陆机制。但更进一步的，我们不希望有人能够扫描到Jenkins的端口，通常默认是8080，所以我的思路是使用Apache的反向代理配置，并且使用HTTP BASIC AUTH机制。</p>
+<a id="more"></a>
+<p>反向代理的配置如下:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">&lt;VirtualHost *:80&gt;</div><div class="line">    ServerName your.domain.com</div><div class="line">    ProxyPass / http://127.0.0.1:8080/</div><div class="line">    ProxyPassReverse / http://127.0.0.1:8080/</div><div class="line">    ProxyRequests Off</div><div class="line">    ErrorLog logs/jenkins-error_log</div><div class="line">    CustomLog logs/jenkins-access_log common</div><div class="line"></div><div class="line">   &lt;Location /&gt;</div><div class="line">      AuthUserFile /var/www/html/etc/htpasswd</div><div class="line">      AuthType Basic</div><div class="line">      AuthName &quot;Jenkins&quot;</div><div class="line">      Require valid-user</div><div class="line">   &lt;/Location&gt;</div><div class="line"></div><div class="line">&lt;/VirtualHost&gt;</div></pre></td></tr></table></figure>
+<p>htpasswd文件是通过Apache的htpasswd命令设置的。</p>
+<p>但是启动之后发现输入了BASIC AUTH的用户名和密码之后，又弹出了Jenkins自己的BASIC AUTH，通过Google，找到如下解决方案，在httpd.conf里添加如下配置，这个依赖于mod_headers模块。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line"># remove auth from headers</div><div class="line">RequestHeader unset Authorization</div></pre></td></tr></table></figure>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[date命令获得上月的最后一天]]></title>
+      <url>http://www.vipzhicheng.com/2014/03/06/how-get-the-end-day-of-last-month-using-date-on-shell/</url>
+      <content type="html"><![CDATA[<p>工作中需要编写一些自动化脚本，有的涉及到定期执行的问题，我需要在Shell中得到上个月的第一天和最后一天，去网上查了一下，有的人给出的答案需要写一大段程序，有的需要使用其他脚本语言来实现，都不是很简练，还有的使用cal命令加awk, xargs等命令复合使用来实现。</p>
+<p>后来终于让我找到了合适的方法，就是使用系统自带的date指令+参数。<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">start_date=`date +&quot;%Y-%m-01&quot; --date=&quot;last month&quot;`</div><div class="line">end_date=`date -d &quot;$(date +&apos;%Y-%m-01&apos;) - 1 day&quot; +&quot;%Y-%m-%d&quot;`</div></pre></td></tr></table></figure></p>
+<p>其他实现方式就不在这里记录了，网上很容易找到。</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[CentOS设置Solr自动启动]]></title>
+      <url>http://www.vipzhicheng.com/2014/03/03/setup-solr-auto-start-on-centos/</url>
+      <content type="html"><![CDATA[<p>在生产服务器上部署Solr时，曾想过应该使用哪种容器运行Solr，使用Resin, Jetty还是Tomcat,后来看了一些评测说性能上Jetty也不是很差，就决定还是用Jetty，而且Jetty是默认就自带的方式，一条命令就能在测试环境启动起来。</p>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">java -jar start</div></pre></td></tr></table></figure>
+<p>在生产服务器上，考虑到希望可以随机启动，所以决定将脚本改写成可以随机自动启动的service形式。Google了一下，发现不同的人的实现都不一样，官方也提供了一种，不过需要依赖于start-stop-daemon这个程序，安装起来比较麻烦。后来我又找到了一种不依赖任何程序的方式。如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line"># description: Starts and stops Solr production</div><div class="line"></div><div class="line">set -e</div><div class="line">PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin</div><div class="line"></div><div class="line">SOLR_DIR=/data/solr/ #SOLR DIR</div><div class="line">JAVA_OPTIONS=&quot;-Dsolr.solr.home=/data/solr/multicore -Djava.util.logging.config.file=logging.properties -server -DSTOP.PORT=8079 -DSTOP.KEY=stopkey -Xmx256M -Xms128M -jar start.jar&quot;</div><div class="line">JAVA=&quot;/usr/bin/java&quot;</div><div class="line">LOG_FILE=&quot;/data/solr/logs/solr.log&quot;</div><div class="line"></div><div class="line">case $1 in</div><div class="line">  start)</div><div class="line">    echo &quot;Starting Solr&quot;</div><div class="line">    cd $SOLR_DIR</div><div class="line">  nohup $JAVA $JAVA_OPTIONS 2&gt; $LOG_FILE &amp;</div><div class="line">    echo &quot;ok - remember it may take a minute or two before Solr responds on requests&quot;</div><div class="line">  ;;</div><div class="line">  stop)</div><div class="line">    echo &quot;Stopping Solr&quot;</div><div class="line">    cd $SOLR_DIR</div><div class="line">    $JAVA $JAVA_OPTIONS --stop</div><div class="line">    echo &quot;ok&quot;</div><div class="line">  ;;</div><div class="line">  restart)</div><div class="line">    $0 stop</div><div class="line">    sleep 3</div><div class="line">    $0 start</div><div class="line">  ;;</div><div class="line"> *)</div><div class="line">    echo &quot;Usage: $0 &#123;start|stop|restart&#125;&quot; &gt;&amp;2exit 1</div><div class="line">  ;;</div><div class="line">esac</div></pre></td></tr></table></figure>
+<p>这种方式可以运行，也可以直接用，但我又找了另外一种，也是可以使用的。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">#!/bin/sh</div><div class="line"></div><div class="line"># Prerequisites:</div><div class="line"># 1. Check SOLR_DIR value is correct</div><div class="line"># 2. daemon needs to be installed</div><div class="line"># 3. Script needs to be executed by root</div><div class="line"></div><div class="line"># This script will launch Solr in a mode that will automatically respawn if it</div><div class="line"># crashes. Output will be sent to $LOG. A pid file will be</div><div class="line"># created in the standard location.</div><div class="line"></div><div class="line"># chkconfig: 2345 64 36</div><div class="line"></div><div class="line">NAME=solr</div><div class="line">SOLR_DIR=/data/solr</div><div class="line">COMMAND=&quot;java -Dsolr.solr.home=/data/solr/multicore -jar start.jar&quot;</div><div class="line">LOG=/var/log/solr/solr.log</div><div class="line"></div><div class="line">start () &#123;</div><div class="line">    echo -n &quot;Starting solr...&quot;</div><div class="line"></div><div class="line">    # start daemon</div><div class="line">    daemon --chdir=$SOLR_DIR --command &quot;$COMMAND&quot; --respawn --output=$LOG --name=$NAME --verbose</div><div class="line"></div><div class="line">    RETVAL=$?</div><div class="line">    if [ $RETVAL = 0 ]</div><div class="line">    then</div><div class="line">        echo &quot;done.&quot;</div><div class="line">    else</div><div class="line">        echo &quot;failed. See error code for more information.&quot;</div><div class="line">    fi</div><div class="line">    return $RETVAL</div><div class="line">&#125;</div><div class="line"></div><div class="line">stop () &#123;</div><div class="line">    # stop daemon</div><div class="line">    echo -n &quot;Stopping $NAME...&quot;</div><div class="line"></div><div class="line">    daemon --stop --name=$NAME  --verbose</div><div class="line">    RETVAL=$?</div><div class="line"></div><div class="line">    if [ $RETVAL = 0 ]</div><div class="line">    then</div><div class="line">        echo &quot;done.&quot;</div><div class="line">    else</div><div class="line">        echo &quot;failed. See error code for more information.&quot;</div><div class="line">    fi</div><div class="line">    return $RETVAL</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">restart () &#123;</div><div class="line">    daemon --restart --name=$NAME  --verbose</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">status () &#123;</div><div class="line">    # report on the status of the daemon</div><div class="line">    daemon --running --verbose --name=$NAME</div><div class="line">    return $?</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">case &quot;$1&quot; in</div><div class="line">    start)</div><div class="line">        start</div><div class="line">    ;;</div><div class="line">    status)</div><div class="line">        status</div><div class="line">    ;;</div><div class="line">    stop)</div><div class="line">        stop</div><div class="line">    ;;</div><div class="line">    restart)</div><div class="line">        restart</div><div class="line">    ;;</div><div class="line">    *)</div><div class="line">        echo $&quot;Usage: $NAME &#123;start|status|stop|restart&#125;&quot;</div><div class="line">        exit 3</div><div class="line">    ;; esac</div><div class="line"></div><div class="line">exit $RETVAL</div></pre></td></tr></table></figure>
+<p>相比较而言，我更喜欢第二种，不过第二种需要依赖一个叫做<a href="http://libslack.org/daemon" target="_blank" rel="external">daemon</a>的处理守护进程的程序，需要按照以下方式安装。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">rpm -i http://libslack.org/daemon/download/daemon-0.6.4-1.x86_64.rpm</div></pre></td></tr></table></figure>
+<p>这个脚本我一次就成功了，而且比较好用，可以查看状态。</p>
+<p>其实Solr官网提供的应该也是可以运行的，不过由于其依赖的start-stop-daemon是debian的程序，弄起来不是很方便，就放弃了，最后，我决定使用的就是本文的第二种方式。</p>
+<p>最后设置自动启动的方式很简单</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">chkconfig --add solr</div><div class="line">chkconfig solr on</div></pre></td></tr></table></figure>
+<p>另外，大家在使用这个脚本时需要注意换成你的Solr安装目录。</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[给CentOS安装start-stop-daemon]]></title>
+      <url>http://www.vipzhicheng.com/2014/03/03/install-start-stop-daemon-on-centos/</url>
+      <content type="html"><![CDATA[<p>start-stop-daemon是一个Debian体系里的一个守护进程管理软件，可以用指定的用户启动系统软件。CentOS有自己的daemon()机制（在/etc/init.d/functions)。但是如果你手上有一个脚本，必须使用start-stop-daemon在CentOS上运行，改写太麻烦，还是选择安装start-stop-daemon来的方便。</p>
+<a id="more"></a>
+<p>安装start-stop-daemon需要去debian下载源码包, 我是在这里下的：<a href="http://ftp.de.debian.org/debian/pool/main/d/dpkg/，找到最新的dpkg包" target="_blank" rel="external">http://ftp.de.debian.org/debian/pool/main/d/dpkg/，找到最新的dpkg包</a>, 注：以下以dpkg_1.17.6为例。</p>
+<p>然后按照以下步骤即可编译成功</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">wget http://ftp.de.debian.org/debian/pool/main/d/dpkg/dpkg_1.17.6.tar.xz</div><div class="line">tar -xf dpkg_1.17.6.tar.xz</div><div class="line">cd dpkg_1.17.6</div><div class="line">./configure # 这一步如果提示缺少curses，需要yun install ncurses-devel</div><div class="line">make # 这一步会报错，忽略即可</div><div class="line">cd utils</div><div class="line">make # 可能不需要执行这个</div><div class="line">sudo cp start-stop-daemon /usr/local/bin/start-stop-daemon</div></pre></td></tr></table></figure>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[使用yum给CentOS安装htop]]></title>
+      <url>http://www.vipzhicheng.com/2014/03/03/yum-install-htop-on-centos/</url>
+      <content type="html"><![CDATA[<p>我们一般认为htop比top更适合用来监控系统进程，图形化的界面，支持鼠标，可读性较好，并且有许多额外的功能，这里尽介绍怎样通过yum在CentOS上安装，不过源码编译安装也是非常简单的，这里就不再赘述。</p>
+<p>默认CentOS的源里是没有htop的，所以主要就是要找到合适的源，这个对不同的系统版本，以及对32bit,64bit的操作系统来说，需要添加的源是不同的，而且其实有多个第三方源，你只需要记住这种方式，如果这个源失效了，可以找其他的源代替。</p>
+<a id="more"></a>
+<h2 id="为CentOS-5-x添加RPM源"><a href="#为CentOS-5-x添加RPM源" class="headerlink" title="为CentOS 5.x添加RPM源"></a>为CentOS 5.x添加RPM源</h2><figure class="highlight bash"><figcaption><span>32bit:</span></figcaption><table><tr><td class="code"><pre><div class="line">wget http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el5.rf.i686.rpm</div><div class="line">rpm -Uhv rpmforge-release*.rf.i386.rpm</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><figcaption><span>64bit:</span></figcaption><table><tr><td class="code"><pre><div class="line">wget http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el5.rf.x86_64.rpm</div><div class="line">rpm -Uhv rpmforge-release*.rf.x86_64.rpm</div></pre></td></tr></table></figure>
+<h2 id="为CentOS-6-x添加RPM源"><a href="#为CentOS-6-x添加RPM源" class="headerlink" title="为CentOS 6.x添加RPM源"></a>为CentOS 6.x添加RPM源</h2><figure class="highlight bash"><figcaption><span>32bit:</span></figcaption><table><tr><td class="code"><pre><div class="line">wget http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el6.rf.i686.rpm</div><div class="line">rpm -Uhv rpmforge-release*.rf.i386.rpm</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><figcaption><span>64bit:</span></figcaption><table><tr><td class="code"><pre><div class="line">wget http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el6.rf.x86_64.rpm</div><div class="line">rpm -Uhv rpmforge-release*.rf.x86_64.rpm</div></pre></td></tr></table></figure>
+<p>之后我们就可以使用yum安装htop了</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">yum install -y htop</div></pre></td></tr></table></figure>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[CentOS yum安装jenkins笔记]]></title>
+      <url>http://www.vipzhicheng.com/2014/02/24/yum-install-jenkins-on-centos/</url>
+      <content type="html"><![CDATA[<p>因为工作需要，所以打算在一组服务器上配置Jenkins服务，搜索了一下，找到我操作起来最方便的方案，下面就陈述一下，大部分都是原文作者的功劳。</p>
+<h2 id="添加Jenkins的源"><a href="#添加Jenkins的源" class="headerlink" title="添加Jenkins的源"></a>添加Jenkins的源</h2><p>CentOS默认源里没有Jenkins</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">$ sudo wget -O /etc/yum.repos.d/jenkins.repo http://jenkins-ci.org/redhat/jenkins.repo</div><div class="line">$ sudo rpm --import http://pkg.jenkins-ci.org/redhat/jenkins-ci.org.key</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="安装-检查JDK"><a href="#安装-检查JDK" class="headerlink" title="安装/检查JDK"></a>安装/检查JDK</h2><p>注意，如果是agent服务器，不需要安装jenkins，只需要安装java即可</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">$ java -version</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">$ sudo yum install java-1.6.0-openjdk</div></pre></td></tr></table></figure>
+<h2 id="安装Jenkins"><a href="#安装Jenkins" class="headerlink" title="安装Jenkins"></a>安装Jenkins</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">$ sudo yum install jenkins</div></pre></td></tr></table></figure>
+<ul>
+<li>Jenkins的WAR包位于: <code>/usr/lib/jenkins/</code></li>
+<li>Jenkins的配置文件位于： <code>/etc/sysconfig/jenkins</code>，一般不需要配置</li>
+<li>Jenkins的home目录是：<code>/var/lib/jenkins</code>，开始的时候是空的，一般启动jenkins服务，就开始出现各种文件。</li>
+<li>Jenkins的日志文件是：<code>/var/log/jenkins/jenkins.log</code></li>
+</ul>
+<h2 id="启动Jenkins"><a href="#启动Jenkins" class="headerlink" title="启动Jenkins"></a>启动Jenkins</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">$ sudo service jenkins start</div></pre></td></tr></table></figure>
+<p>当然我还是习惯了比较原始的方式，不清楚区别是什么，有知道的请不吝赐教。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">$ sudo /etc/init.d/jenkins start</div></pre></td></tr></table></figure>
+<h2 id="登录Jenkins"><a href="#登录Jenkins" class="headerlink" title="登录Jenkins"></a>登录Jenkins</h2><p>如果没有特别配置端口，使用<code>http://&lt;ip address&gt;:8080/</code>登录Jenkins，并进行相关配置（插件安装、权限配置、View/Job创建等等）。这里一般我们还要做个二级域名解析，因为IP不是很好记。</p>
+<p>另外，Jenkins默认是不开启权限控制的，什么人都可以用，我们还是需要开启权限控制的，权限控制有很多选项，这里不一一赘述了。</p>
+<h2 id="参考文献："><a href="#参考文献：" class="headerlink" title="参考文献："></a>参考文献：</h2><ul>
+<li><a href="http://www.cnblogs.com/zhangqingsh/archive/2013/03/19/2968998.html" target="_blank" rel="external">CentOS上Jenkins安装记录</a></li>
+</ul>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[MacOS MAMP怎样添加扩展]]></title>
+      <url>http://www.vipzhicheng.com/2014/02/24/how-to-add-new-extension-to-mamp/</url>
+      <content type="html"><![CDATA[<p>在MacOS下开发，最常用的LAMP开发环境架设工具就是MAMP &amp; MAMP PRO了。其使用确实简单，但是一旦你需要一些额外的扩展时，就需要自己想办法编译了，笔者知道给MAMP添加扩展会有不同的方法，但一下介绍的仍然是笔者认为最简单的方法，思路其实来自于Google。<br><a id="more"></a><br>首先你需要确定你的MAMP所使用的PHP版本，因为MAMP可以在PHP5.2, PHP5.3, PHP5.4之间切换的。</p>
+<p>然后你需要下载相应版本的PHP源码，之后解压缩到MAMP对应PHP版本的include/php目录，这里我是为PHP5.3.20添加扩展，所以源码解压缩到以下目录，注意php目录里面就是源码本身了，不会再有php5.3.20这样的版本目录。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">/Applications/MAMP/bin/php/php5.3.20/include/php</div></pre></td></tr></table></figure>
+<p>然后还有一点就是你需要把MAMP的对应版本的bin添加到环境变量。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">export PATH=/Applications/MAMP/bin/php/php5.3.20/bin:$PATH</div></pre></td></tr></table></figure>
+<p>这样，你就可以在命令行直接使用MAMP当前对应的php版本指令了，这里我们用到的是pecl命令</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">pecl install memcache</div></pre></td></tr></table></figure>
+<p>然后，就会自动开始编译，而你需要做的仅仅是将编译好的扩展添加到php.ini，如果用的是MAMP PRO，需要注意php.ini的位置。</p>
+<p>需要思考两个问题</p>
+<ol>
+<li>我们并没有使用MAMP官方的components包，因为我觉得这种方法更简单。</li>
+<li>我们必须要下载PHP源码，是因为编译过程中需要一些头文件MAMP软件包默认是没有的。</li>
+</ol>
+<p>学会这种方式之后，我们就可以举一反三，彻底解决本地环境编译扩展的问题。</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Github密码缓存]]></title>
+      <url>http://www.vipzhicheng.com/2014/01/15/github-password-cache/</url>
+      <content type="html"><![CDATA[<p>本文的知识点是关于Git和Github的，但我遇到这个问题是在使用Octopress写博客的过程中，每次写好一个要提交给Github时，总是问我要用户名和密码，所以我就想研究一下，是否可以记住账号密码，还别说真让我找到了，而且是Github网站帮助系统中的一小节，我打算翻译一下，毕竟是新学会了一个知识点。</p>
+<a id="more"></a>
+<p>PS：本文的知识点要求你的Git版本超过1.7.10，系统是Mac。</p>
+<p>为了实现这个目的，你需要一个叫做osxkeychain credential helper的东东，不过有可能你已经安装了，如果你是使用的homebrew方式安装的git，或者你的git是最新版本。</p>
+<p>可以通过以下方式检查：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">git credential-osxkeychain</div><div class="line"># Test for the cred helper</div><div class="line"># Usage: git credential-osxkeychain &lt;get|store|erase&gt;</div></pre></td></tr></table></figure>
+<p>如果你没有安装这个helper，你需要手动安装一下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">git credential-osxkeychain</div><div class="line"># Test for the cred helper</div><div class="line"># git: &apos;credential-osxkeychain&apos; is not a git command. See &apos;git --help&apos;.</div><div class="line"></div><div class="line">curl -s -O \</div><div class="line">  https://github-media-downloads.s3.amazonaws.com/osx/git-credential-osxkeychain</div><div class="line"># Download the helper</div><div class="line"></div><div class="line">$ chmod u+x git-credential-osxkeychain</div><div class="line"># Fix the permissions on the file so it can be run</div></pre></td></tr></table></figure>
+<p>然后需要把这个脚本放到Git目录下：<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">sudo mv git-credential-osxkeychain \</div><div class="line">  &quot;$(dirname $(which git))/git-credential-osxkeychain&quot;</div><div class="line"># Move the helper to the path where git is installed</div><div class="line"># Password: [enter your password]</div></pre></td></tr></table></figure></p>
+<p>接着，需要告诉Git我们要用这个helper, 简单的配置一下全局Git配置就行了<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">git config --global credential.helper osxkeychain</div><div class="line"># Set git to use the osxkeychain credential helper</div></pre></td></tr></table></figure></p>
+<p>这样下次你提交代码时，会提示输入你账户和密码，并且Mac会弹窗问你是否授权使用钥匙链，授权后，以后提交代码就直接使用钥匙链里记录的密码，不会再提示输入了。</p>
+<p>这样我写完一篇博客直接提交就可以了，So easy!</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">rake generate &amp;&amp; rake deploy</div></pre></td></tr></table></figure>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Linux系统快速切换目录的神奇脚本]]></title>
+      <url>http://www.vipzhicheng.com/2014/01/13/a-short-way-to-switch-directory/</url>
+      <content type="html"><![CDATA[<p>每天在命令行下，一大部分的工作都是一遍又一遍的输入 cd ~/some/very/deep/often-used/directory这样来切换目录，现在利用一个简单的配置可以实现如下效果:</p>
+<p>首先进入我的日常工作目录，标记一个书签mark sanguo</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">cd /Users/kimi/work/123guo/sanguo</div><div class="line">mark sanguo</div></pre></td></tr></table></figure>
+<p>以后我再进入这个目录只需要g sanguo即可</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">g sanguo</div></pre></td></tr></table></figure>
+<p>通过输入gs指令来浏览所有的标签</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">gs</div><div class="line">#app -&gt; /Applications</div><div class="line">#sanguo -&gt; /Users/kimi/work/123guo/sanguo</div><div class="line">#web -&gt; /Library/WebServer/Documents</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>实现原理如下</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">sudo vim /etc/profile</div></pre></td></tr></table></figure>
+<p>编辑/etc/profile文件并在尾部添加以下内容后强制保存 wq!</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line"># mark</div><div class="line">export MARKPATH=$HOME/.marks</div><div class="line">export MARKDEFAULT=sanguo#设置你的默认书签，可以直接输入g跳转</div><div class="line"></div><div class="line">function g &#123;</div><div class="line">    local m=$1</div><div class="line">    if [ &quot;$m&quot; = &quot;&quot; ]; then m=$MARKDEFAULT; fi</div><div class="line">    cd -P &quot;$MARKPATH/$m&quot; 2&gt;/dev/null || echo &quot;No such mark: $m&quot;</div><div class="line">&#125;</div><div class="line">function mark &#123;</div><div class="line">    mkdir -p &quot;$MARKPATH&quot;</div><div class="line">    local m=$1</div><div class="line">    if [ &quot;$m&quot; = &quot;&quot; ]; then m=$MARKDEFAULT; fi</div><div class="line">    rm -f &quot;$MARKPATH/$m&quot;</div><div class="line">    ln -s &quot;$(pwd)&quot; &quot;$MARKPATH/$m&quot;</div><div class="line">&#125;</div><div class="line">function unmark &#123;</div><div class="line">    local m=$1</div><div class="line">    if [ &quot;$m&quot; = &quot;&quot; ]; then m=$MARKDEFAULT; fi</div><div class="line">    rm -i &quot;$MARKPATH/$m&quot;</div><div class="line">&#125;</div><div class="line">function gs &#123;</div><div class="line">    ls -l &quot;$MARKPATH&quot; | grep ^l | cut -d &apos; &apos; -f 13-</div><div class="line">&#125;</div><div class="line"></div><div class="line">_completemarks() &#123;</div><div class="line">    local curw=$&#123;COMP_WORDS[COMP_CWORD]&#125;</div><div class="line">    local wordlist=$(ls -l &quot;$MARKPATH&quot; | grep ^l | cut -d &apos; &apos; -f 13)</div><div class="line">    COMPREPLY=($(compgen -W &apos;$&#123;wordlist[@]&#125;&apos; -- &quot;$curw&quot;))</div><div class="line">    return 0</div><div class="line">&#125;</div><div class="line"></div><div class="line">complete -F _completemarks g unmark</div></pre></td></tr></table></figure>
+<p>转：<a href="http://www.ccvita.com/520.html" target="_blank" rel="external">在命令行快速切换目录</a></p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[MYSQL随机结果集方案比较]]></title>
+      <url>http://www.vipzhicheng.com/2014/01/06/solution-for-mysql-random-results/</url>
+      <content type="html"><![CDATA[<p>在我们的业务需求当中，经常有需要取得随机结果的需求，比如随机会员，随机文章列表，随机文章跳转等等，我们大家都知道MYSQL的ORDER BY RAND()有性能问题，本文翻译自国外的一篇博文，大家来学习一下作者是如何解决这个问题的，这个解决方案具有在生产环境中实施的可行性。</p>
+<a id="more"></a>
+<p>译文开始：</p>
+<p>作为第一个例子，我们假设数据的ID从1开始，并且在1和最大值之间是连续的。</p>
+<h2 id="把事情交给应用层（PHP-JSP-Python-Ruby-…"><a href="#把事情交给应用层（PHP-JSP-Python-Ruby-…" class="headerlink" title="把事情交给应用层（PHP, JSP, Python, Ruby …)"></a>把事情交给应用层（PHP, JSP, Python, Ruby …)</h2><p>第一个思路：我们可以简化整个工作，如果我们可以预先在应用层计算出随机ID<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">SELECT MAX(id) FROM random;</div><div class="line">## 在应用层生成随机ID &lt;random-id&gt;</div><div class="line">SELECT name FROM random WHERE id = &lt;random-id&gt;</div></pre></td></tr></table></figure></p>
+<p>因为MAX(id) == COUNT(id), 我们仅仅是在1和最大值之间生成了随机数，然后传给数据库取出随机记录。</p>
+<p>第一个SELECT是已经被优化好的，不需要任何计算。第二个是eq_ref(参见MYSQL EXPLAN语句）是一个常量，所以也非常快。</p>
+<h2 id="把事情交给数据库"><a href="#把事情交给数据库" class="headerlink" title="把事情交给数据库"></a>把事情交给数据库</h2><p>在应用层做这件事真的是必要的么？我们不能在数据库中做么？</p>
+<h3 id="生成一个随机的ID"><a href="#生成一个随机的ID" class="headerlink" title="生成一个随机的ID"></a>生成一个随机的ID</h3><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">&gt; SELECT RAND() * MAX(id) FROM random;</div><div class="line">+------------------+</div><div class="line">| RAND() * MAX(id) |</div><div class="line">+------------------+</div><div class="line">|  689.37582507297 |</div><div class="line">+------------------+</div></pre></td></tr></table></figure>
+<h3 id="哇，是一个浮点型数字，我们需要的是一个整型的随机数"><a href="#哇，是一个浮点型数字，我们需要的是一个整型的随机数" class="headerlink" title="哇，是一个浮点型数字，我们需要的是一个整型的随机数"></a>哇，是一个浮点型数字，我们需要的是一个整型的随机数</h3><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">&gt; SELECT CEIL(RAND() * MAX(id)) FROM random;</div><div class="line">+-------------------------+</div><div class="line">| CEIL(RAND() * MAX(id)) |</div><div class="line">+-------------------------+</div><div class="line">|                    1000000  |</div><div class="line">+-------------------------+</div></pre></td></tr></table></figure>
+<h3 id="看起来好了一些，但性能呢？"><a href="#看起来好了一些，但性能呢？" class="headerlink" title="看起来好了一些，但性能呢？"></a>看起来好了一些，但性能呢？</h3><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">&gt; EXPLAIN</div><div class="line">   SELECT CEIL(RAND() * MAX(id)) FROM random;</div><div class="line">+----+-------------+-------+-------+------+-------------+</div><div class="line">| id | select_type | table | type  | rows | Extra       |</div><div class="line">+----+-------------+-------+-------+------+-------------+</div><div class="line">|  1 | SIMPLE      | random  | index | 1000000  | Using index |</div><div class="line">+----+-------------+-------+-------+------+-------------+</div></pre></td></tr></table></figure>
+<h3 id="需要扫描索引-我们还没有对-MAX-进行优化。"><a href="#需要扫描索引-我们还没有对-MAX-进行优化。" class="headerlink" title="需要扫描索引 ? 我们还没有对 MAX()进行优化。"></a>需要扫描索引 ? 我们还没有对 MAX()进行优化。</h3><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">&gt; EXPLAIN</div><div class="line">   SELECT CEIL(RAND() * (SELECT MAX(id) FROM random));</div><div class="line">+----+-------------+-------+------+------+------------------------------+</div><div class="line">| id | select_type | table | type | rows | Extra                        |</div><div class="line">+----+-------------+-------+------+------+------------------------------+</div><div class="line">|  1 | PRIMARY     | NULL  | NULL | NULL | No tables used               |</div><div class="line">|  2 | SUBQUERY    | NULL  | NULL | NULL | Select tables optimized away |</div><div class="line">+----+-------------+-------+------+------+------------------------------+</div></pre></td></tr></table></figure>
+<h2 id="一个简单的子查询让我们重新获得了我们想要的性能。"><a href="#一个简单的子查询让我们重新获得了我们想要的性能。" class="headerlink" title="一个简单的子查询让我们重新获得了我们想要的性能。"></a>一个简单的子查询让我们重新获得了我们想要的性能。</h2><p>好吧，现在我知道了怎么获得一个随机数，那么怎么获得一条随机记录呢？<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">&gt; EXPLAIN</div><div class="line">SELECT name</div><div class="line">  FROM random</div><div class="line"> WHERE id = (SELECT CEIL(RAND() *</div><div class="line">                         (SELECT MAX(id)</div><div class="line">                            FROM random));</div><div class="line">+----+-------------+--------+------+---------------+------+---------+------+---------+------------------------------+</div><div class="line">| id | select_type | table  | type | possible_keys | key  | key_len | ref  | rows    | Extra                        |</div><div class="line">+----+-------------+--------+------+---------------+------+---------+------+---------+------------------------------+</div><div class="line">|  1 | PRIMARY     | random | ALL  | NULL          | NULL | NULL    | NULL | 1000000 | Using where                  |</div><div class="line">|  3 | SUBQUERY    | NULL   | NULL | NULL          | NULL | NULL    | NULL |    NULL | Select tables optimized away |</div><div class="line">+----+-------------+--------+------+---------------+------+---------+------+---------+------------------------------+</div><div class="line">&gt; show warnings;</div><div class="line">+-------+------+------------------------------------------+</div><div class="line">| Level | Code | Message                                  |</div><div class="line">+-------+------+------------------------------------------+</div><div class="line">| Note  | 1249 | Select 2 was reduced during optimization |</div><div class="line">+-------+------+------------------------------------------+</div></pre></td></tr></table></figure></p>
+<p><strong>不，不</strong>，一定不要这样做。这虽然是最显而易见的做法，但同时也是最错误的做法，原因是： 子查询里的select将在外层查询时对每一行分别执行，行数越多，性能越差。<br>我们需要找到一种方法确保随机ID只生成一次:<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">SELECT name</div><div class="line">  FROM random JOIN</div><div class="line">       (SELECT CEIL(RAND() *</div><div class="line">                    (SELECT MAX(id)</div><div class="line">                       FROM random)) AS id</div><div class="line">        ) AS r2</div><div class="line">       USING (id);</div><div class="line">+----+-------------+------------+--------+------+------------------------------+</div><div class="line">| id | select_type | table      | type   | rows | Extra                        |</div><div class="line">+----+-------------+------------+--------+------+------------------------------+</div><div class="line">|  1 | PRIMARY     | &lt;derived2&gt; | system |    1 |                              |</div><div class="line">|  1 | PRIMARY     | random     | const  |    1 |                              |</div><div class="line">|  2 | DERIVED     | NULL       | NULL   | NULL | No tables used               |</div><div class="line">|  3 | SUBQUERY    | NULL       | NULL   | NULL | Select tables optimized away |</div><div class="line">+----+-------------+------------+--------+------+------------------------------+</div></pre></td></tr></table></figure></p>
+<p>内层SELECT生成了一个常量临时表，JOIN也仅仅是JOIN一行，完美,没有Sorting, 没有用应用层，大部分的查询都是优化了的。</p>
+<h2 id="如果ID不是连续的呢…"><a href="#如果ID不是连续的呢…" class="headerlink" title="如果ID不是连续的呢…?"></a>如果ID不是连续的呢…?</h2><p>根据上面得到的结论，我们可以这样做<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">SELECT name</div><div class="line">  FROM random AS r1 JOIN</div><div class="line">       (SELECT (RAND() *</div><div class="line">                     (SELECT MAX(id)</div><div class="line">                        FROM random)) AS id)</div><div class="line">        AS r2</div><div class="line"> WHERE r1.id &gt;= r2.id</div><div class="line"> ORDER BY r1.id ASC</div><div class="line"> LIMIT 1;</div><div class="line">+----+-------------+------------+--------+------+------------------------------+</div><div class="line">| id | select_type | table      | type   | rows | Extra                        |</div><div class="line">+----+-------------+------------+--------+------+------------------------------+</div><div class="line">|  1 | PRIMARY     | &lt;derived2&gt; | system |    1 |                              |</div><div class="line">|  1 | PRIMARY     | r1         | range  |  689 | Using where                  |</div><div class="line">|  2 | DERIVED     | NULL       | NULL   | NULL | No tables used               |</div><div class="line">|  3 | SUBQUERY    | NULL       | NULL   | NULL | Select tables optimized away |</div><div class="line">+----+-------------+------------+--------+------+------------------------------+</div></pre></td></tr></table></figure></p>
+<p>JOIN语句找出所有比随机ID大的数据，并且在没有直接匹配的情况下会选择最接近的一个，一旦找到我们就停止（LIMIT 1), 我们读取数据时对索引字段进行了排序，由于我们用的是&gt;=,所以我们也就不必再使用CEIL函数来得到整型随机ID了。我们做了更少的事情，但效果是一样的。</p>
+<h2 id="数据分布导致的问题"><a href="#数据分布导致的问题" class="headerlink" title="数据分布导致的问题"></a>数据分布导致的问题</h2><p>一旦ID的分布不平均，我们得到的就不是真正的随机数据，通过统计我们可以看出：<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">&gt; select * from holes;</div><div class="line">+----+----------------------------------+----------+</div><div class="line">| id | name                             | accesses |</div><div class="line">+----+----------------------------------+----------+</div><div class="line">|  1 | d12b2551c6cb7d7a64e40221569a8571 |      107 |</div><div class="line">|  2 | f82ad6f29c9a680d7873d1bef822e3e9 |       50 |</div><div class="line">|  4 | 9da1ed7dbbdcc6ec90d6cb139521f14a |      132 |</div><div class="line">|  8 | 677a196206d93cdf18c3744905b94f73 |      230 |</div><div class="line">| 16 | b7556d8ed40587a33dc5c449ae0345aa |      481 |</div><div class="line">+----+----------------------------------+----------+</div></pre></td></tr></table></figure></p>
+<p>如果随机ID是9到15之间的数字，则我们总会取出id=16的那一条数据。</p>
+<p>针对这一问题，有一种不是真正的解决方案，但当你的数据大部分是不经常改变时，你可以添加一个map表，他分配一个连续ID给真正的ID。<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">&gt; create table holes_map ( row_id int not NULL primary key, random_id int not null);</div><div class="line">&gt; SET @id = 0;</div><div class="line">&gt; INSERT INTO holes_map SELECT @id := @id + 1, id FROM holes;</div><div class="line">&gt; select * from holes_map;</div><div class="line">+--------+-----------+</div><div class="line">| row_id | random_id |</div><div class="line">+--------+-----------+</div><div class="line">|      1 |         1 |</div><div class="line">|      2 |         2 |</div><div class="line">|      3 |         4 |</div><div class="line">|      4 |         8 |</div><div class="line">|      5 |        16 |</div><div class="line">+--------+-----------+</div></pre></td></tr></table></figure></p>
+<p>现在row_id就是我们的连续ID了，我们可以这样写我们的查询：<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">SELECT name FROM holes</div><div class="line">  JOIN (SELECT r1.random_id</div><div class="line">         FROM holes_map AS r1</div><div class="line">         JOIN (SELECT (RAND() *</div><div class="line">                      (SELECT MAX(row_id)</div><div class="line">                         FROM holes_map)) AS row_id)</div><div class="line">               AS r2</div><div class="line">        WHERE r1.row_id &gt;= r2.row_id</div><div class="line">        ORDER BY r1.row_id ASC</div><div class="line">        LIMIT 1) as rows ON (id = random_id);</div></pre></td></tr></table></figure></p>
+<p>通过1000次查询，我们得到如下统计，可以看出这次我们的随机访问是均匀的了。<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">&gt; select * from holes;</div><div class="line">+----+----------------------------------+----------+</div><div class="line">| id | name                             | accesses |</div><div class="line">+----+----------------------------------+----------+</div><div class="line">|  1 | d12b2551c6cb7d7a64e40221569a8571 |      222 |</div><div class="line">|  2 | f82ad6f29c9a680d7873d1bef822e3e9 |      187 |</div><div class="line">|  4 | 9da1ed7dbbdcc6ec90d6cb139521f14a |      195 |</div><div class="line">|  8 | 677a196206d93cdf18c3744905b94f73 |      207 |</div><div class="line">| 16 | b7556d8ed40587a33dc5c449ae0345aa |      189 |</div><div class="line">+----+----------------------------------+----------+</div></pre></td></tr></table></figure></p>
+<h2 id="通过触发器维护连续ID映射表"><a href="#通过触发器维护连续ID映射表" class="headerlink" title="通过触发器维护连续ID映射表"></a>通过触发器维护连续ID映射表</h2><p>首先我们先初始化表:<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">DROP TABLE IF EXISTS r2;CREATE TABLE r2 (</div><div class="line">  id SERIAL,</div><div class="line">  name VARCHAR(32) NOT NULL UNIQUE</div><div class="line">);</div><div class="line"></div><div class="line">DROP TABLE IF EXISTS r2_equi_dist;</div><div class="line">CREATE TABLE r2_equi_dist (</div><div class="line">  id SERIAL,</div><div class="line">  r2_id bigint unsigned NOT NULL UNIQUE</div><div class="line">);</div></pre></td></tr></table></figure></p>
+<p>当我们在r2中改变了一些记录，我们希望r2_equi_dist也能随之更新<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">DELIMITER $$</div><div class="line">DROP TRIGGER IF EXISTS tai_r2$$</div><div class="line">CREATE TRIGGER tai_r2</div><div class="line"> AFTER INSERT ON r2 FOR EACH ROW</div><div class="line">BEGIN</div><div class="line">  DECLARE m BIGINT UNSIGNED DEFAULT 1;</div><div class="line"></div><div class="line">  SELECT MAX(id) + 1 FROM r2_equi_dist INTO m;</div><div class="line">  SELECT IFNULL(m, 1) INTO m;</div><div class="line">  INSERT INTO r2_equi_dist (id, r2_id) VALUES (m, NEW.id);</div><div class="line">END$$</div><div class="line">DELIMITER ;</div><div class="line"></div><div class="line">DELETE FROM r2;</div><div class="line"></div><div class="line">INSERT INTO r2 VALUES ( NULL, MD5(RAND()) );</div><div class="line">INSERT INTO r2 VALUES ( NULL, MD5(RAND()) );</div><div class="line">INSERT INTO r2 VALUES ( NULL, MD5(RAND()) );</div><div class="line">INSERT INTO r2 VALUES ( NULL, MD5(RAND()) );</div><div class="line"></div><div class="line">SELECT * FROM r2;</div><div class="line">+----+----------------------------------+</div><div class="line">| id | name                             |</div><div class="line">+----+----------------------------------+</div><div class="line">|  1 | 8b4cf277a3343cdefbe19aa4dabc40e1 |</div><div class="line">|  2 | a09a3959d68187ce48f4fe7e388926a9 |</div><div class="line">|  3 | 4e1897cd6d326f8079108292376fa7d5 |</div><div class="line">|  4 | 29a5e3ed838db497aa330878920ec01b |</div><div class="line">+----+----------------------------------+</div><div class="line"></div><div class="line">SELECT * FROM r2_equi_dist;</div><div class="line">+----+-------+</div><div class="line">| id | r2_id |</div><div class="line">+----+-------+</div><div class="line">|  1 |     1 |</div><div class="line">|  2 |     2 |</div><div class="line">|  3 |     3 |</div><div class="line">|  4 |     4 |</div><div class="line">+----+-------+</div></pre></td></tr></table></figure></p>
+<p>INSERT是非常简单的，当DELETE时我们必须更新映射表来维护重建针对新不连续集合的映射<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">DELIMITER $$DROP TRIGGER IF EXISTS tad_r2$$</div><div class="line">CREATE TRIGGER tad_r2</div><div class="line"> AFTER DELETE ON r2 FOR EACH ROW</div><div class="line">BEGIN</div><div class="line">  DELETE FROM r2_equi_dist WHERE r2_id = OLD.id;</div><div class="line">  UPDATE r2_equi_dist SET id = id - 1 WHERE r2_id &gt; OLD.id;</div><div class="line">END$$</div><div class="line">DELIMITER ;</div><div class="line"></div><div class="line">DELETE FROM r2 WHERE id = 2;</div><div class="line"></div><div class="line">SELECT * FROM r2;</div><div class="line">+----+----------------------------------+</div><div class="line">| id | name                             |</div><div class="line">+----+----------------------------------+</div><div class="line">|  1 | 8b4cf277a3343cdefbe19aa4dabc40e1 |</div><div class="line">|  3 | 4e1897cd6d326f8079108292376fa7d5 |</div><div class="line">|  4 | 29a5e3ed838db497aa330878920ec01b |</div><div class="line">+----+----------------------------------+</div><div class="line"></div><div class="line">SELECT * FROM r2_equi_dist;</div><div class="line">+----+-------+</div><div class="line">| id | r2_id |</div><div class="line">+----+-------+</div><div class="line">|  1 |     1 |</div><div class="line">|  2 |     3 |</div><div class="line">|  3 |     4 |</div><div class="line">+----+-------+</div></pre></td></tr></table></figure></p>
+<p>UPDATE 也是很直接的，我们只需要维护外键的约束。<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">DELIMITER $$DROP TRIGGER IF EXISTS tau_r2$$</div><div class="line">CREATE TRIGGER tau_r2</div><div class="line"> AFTER UPDATE ON r2 FOR EACH ROW</div><div class="line">BEGIN</div><div class="line">  UPDATE r2_equi_dist SET r2_id = NEW.id WHERE r2_id = OLD.id;</div><div class="line">END$$</div><div class="line">DELIMITER ;</div><div class="line"></div><div class="line">UPDATE r2 SET id = 25 WHERE id = 4;</div><div class="line"></div><div class="line">SELECT * FROM r2;</div><div class="line">+----+----------------------------------+</div><div class="line">| id | name                             |</div><div class="line">+----+----------------------------------+</div><div class="line">|  1 | 8b4cf277a3343cdefbe19aa4dabc40e1 |</div><div class="line">|  3 | 4e1897cd6d326f8079108292376fa7d5 |</div><div class="line">| 25 | 29a5e3ed838db497aa330878920ec01b |</div><div class="line">+----+----------------------------------+</div><div class="line"></div><div class="line">SELECT * FROM r2_equi_dist;</div><div class="line">+----+-------+</div><div class="line">| id | r2_id |</div><div class="line">+----+-------+</div><div class="line">|  1 |     1 |</div><div class="line">|  2 |     3 |</div><div class="line">|  3 |    25 |</div><div class="line">+----+-------+</div></pre></td></tr></table></figure></p>
+<h2 id="一次取出多行随机结果"><a href="#一次取出多行随机结果" class="headerlink" title="一次取出多行随机结果"></a>一次取出多行随机结果</h2><p>如果你想取出多行结果，你可以这样做</p>
+<ul>
+<li>执行这个查询多次</li>
+<li>写存储过程，把结果存入临时表</li>
+<li>使用UNION语句</li>
+</ul>
+<h2 id="存储过程的方法"><a href="#存储过程的方法" class="headerlink" title="存储过程的方法"></a>存储过程的方法</h2><p>存储过程提供给你一些你从其他喜欢的编程语言中了解的结构</p>
+<ul>
+<li>循环</li>
+<li>控制</li>
+<li>顺序执行</li>
+</ul>
+<p>针对这个目标，我们只需要一个循环<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">DELIMITER $$</div><div class="line">DROP PROCEDURE IF EXISTS get_rands$$</div><div class="line">CREATE PROCEDURE get_rands(IN cnt INT)</div><div class="line">BEGIN</div><div class="line">  DROP TEMPORARY TABLE IF EXISTS rands;</div><div class="line">  CREATE TEMPORARY TABLE rands ( rand_id INT );</div><div class="line"></div><div class="line">loop_me: LOOP</div><div class="line">    IF cnt &lt; 1 THEN</div><div class="line">      LEAVE loop_me;</div><div class="line">    END IF;</div><div class="line"></div><div class="line">    INSERT INTO rands</div><div class="line">       SELECT r1.id</div><div class="line">         FROM random AS r1 JOIN</div><div class="line">              (SELECT (RAND() *</div><div class="line">                            (SELECT MAX(id)</div><div class="line">                               FROM random)) AS id)</div><div class="line">               AS r2</div><div class="line">        WHERE r1.id &gt;= r2.id</div><div class="line">        ORDER BY r1.id ASC</div><div class="line">        LIMIT 1;</div><div class="line"></div><div class="line">    SET cnt = cnt - 1;</div><div class="line">  END LOOP loop_me;</div><div class="line">END$$</div><div class="line">DELIMITER ;</div><div class="line"></div><div class="line">CALL get_rands(4);</div><div class="line">SELECT * FROM rands;</div><div class="line">+---------+</div><div class="line">| rand_id |</div><div class="line">+---------+</div><div class="line">|  133716 |</div><div class="line">|  702643 |</div><div class="line">|  112066 |</div><div class="line">|  452400 |</div><div class="line">+---------+</div></pre></td></tr></table></figure></p>
+<p>这里作者留给读者去修复一些仍然存在的问题</p>
+<ul>
+<li>使用动态SQL来确定要操作的临时表，以便于让同一个存储过程适用于多种随机需求</li>
+<li>使用UNIQUE 索引来避免随机数据的重复</li>
+</ul>
+<h2 id="性能"><a href="#性能" class="headerlink" title="性能"></a>性能</h2><p>现在，让我们来看一看性能怎么样，我们有3个不同的查询来解决我们的问题。</p>
+<ul>
+<li>Q1. ORDER BY RAND()</li>
+<li>Q2. RAND() * MAX(ID)</li>
+<li>Q3. RAND() * MAX(ID) + ORDER BY ID</li>
+</ul>
+<p>Q1 预期的代价是 N * log2(N), Q2 and Q3 都接近常数。</p>
+<p>我们用真实数据来测试，从100行到100万行，并且执行1000次做如下统计<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">   100        1.000      10.000     100.000    1.000.000</div><div class="line">Q1  0:00.718s  0:02.092s  0:18.684s  2:59.081s  58:20.000s</div><div class="line">Q2  0:00.519s  0:00.607s  0:00.614s  0:00.628s   0:00.637s</div><div class="line">Q3  0:00.570s  0:00.607s  0:00.614s  0:00.628s   0:00.637s</div></pre></td></tr></table></figure></p>
+<p>正如你所看到的，Q1在仅仅100行数据时就已经落后于我们优化后的SQL了。</p>
+<p>笔者会尽最大的努力翻译出原文中所有要表达的意思，但错误之处在所难免，请大家不吝指出。</p>
+<p>对原文感兴趣的读者，请参考作者博文原文<br><a href="http://jan.kneschke.de/projects/mysql/order-by-rand/" target="_blank" rel="external">http://jan.kneschke.de/projects/mysql/order-by-rand/</a></p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Drupal A/B Test解决方案之一]]></title>
+      <url>http://www.vipzhicheng.com/2014/01/05/drupal-ab-testing-solution/</url>
+      <content type="html"><![CDATA[<p>本文是我在工作中遇到A/B Test的需求，经过几天的研究的一篇心得笔记，不一定多专业，希望能给有类似需求的同行一些参考和灵感，在学习的过程中，也发现一些比较优秀的国外博文，我打算在近期翻译几篇，而不是把只言片语融入到本文当中，本文的重点仍然是Drupal A/B Test的解决方案，介绍性的文字来源于最近几天的学习心得，是给不熟悉A/B Test的同行的一些入门介绍。</p>
+<a id="more"></a>
+<p>PS1：所说的A/B Test，我想正确的说法应该是A/B Testing，但国人可能更习惯说A/B Test，本文也不是咬文嚼字，所以全篇也都叫A/B Test了。</p>
+<p>PS2：本文以Drupal 6环境为依托来介绍，Drupal 7也许会有更好的解决方案。</p>
+<h2 id="A-B-Test-简介"><a href="#A-B-Test-简介" class="headerlink" title="A/B Test 简介"></a>A/B Test 简介</h2><p>这一部分主要是简单介绍一下A/B Test的概念和相关知识。从而让读者对A/B Test有一个大概的了解。</p>
+<h3 id="什么是A-B-Test？"><a href="#什么是A-B-Test？" class="headerlink" title="什么是A/B Test？"></a>什么是A/B Test？</h3><p>A/B Test，是指对某一个特定的页面或者页面上的一部分，制作两个或两个以上版本，然后将网站的访问流量分发到不同的版本上，继而观察网站该页面或者该部分带来的转化率，或者一些重要指标的变化，从而得出其中的一个版本比另一个版本更好的结论，并以此决定最终上线的版本。</p>
+<p>最开始的时候，我觉得主要是市场人员希望知道改变了字体大小，颜色，文案之后，网站的转化率究竟发生了怎样的变化，但现在我们已经把A/B Test的内容进行了扩展和深化，可以应用于网站的方方面面，前端后端，是持续运营网站的一个有效工具。前端很好理解，后端的A/B Test举个例子来说，比如为了给用户推荐一个产品列表，我们设计了几个不同的算法，推荐结果是不同的，但从功能上又是相同的，那么怎么决定最终用哪个算法呢，这时候就可以针对算法做一次A/B Test。</p>
+<h3 id="什么是Bucket-Test"><a href="#什么是Bucket-Test" class="headerlink" title="什么是Bucket Test"></a>什么是Bucket Test</h3><p>Bucket Test 是A/B Test概念的扩展，中文翻译成分桶测试，外国人也有叫Split Test的， 其实都是一个意思，就是同时做多个A/B Test， 不是只有一个B版本，而是B1, B2 … BN 一共N个版本，做一次Bucket Test 就可以在多个改进版本中选出一个最优的版本。 实现Bucket Test的系统，就是Bucket Test System, 简称BTS， 一般来说只有有这样的系统才可以做好Bucket Testing， 因为他可以帮助我们很方便的管理每组测试，为每个Bucket分配流量，实时监控每个Bucket的运行效果，转化率等等各项指标。BTS根据各个公司的开发实力以及需求，可以做的很复杂，尤其是对自身业务关键指标的抽象，计算。如果是小公司，可以直接使用第三方系统做流量切割，然后使用半手动的方式评估每个版本的效果。 但是在实际测试中，一定要注意每个bucket要有足够多的测试样本，流量不平均分配也没事，但数量要够大，这样你才能对测试结果有信心，测试才有意义。</p>
+<h3 id="多因素测试"><a href="#多因素测试" class="headerlink" title="多因素测试"></a>多因素测试</h3><p>多因素测试是一种Bucket Test, 不是所有的Bucket Test都这样做。 比如在一次改版任务中， 我们认为提升转化率的关键因素有3个，标题字体大小有3个版本，标题颜色有2个版本，标题文案有2个版本，那么就有3x2x2一共12种组合， 所以我们就相当于有了12个Bucket， 这样我们就可以进行Bucket Test了， 最后我们得到一个结论，这3个关键因素的某个组合转化率最好，那么这个版本就是我们最应该采用的版本，拥有最优化的关键因素组合。 大多数时候，我们其实每次改版改动都是很大的，不去区分究竟哪些地方改变了，或者我们改动了很多地方，这样做多因素测试就是不现实的，这时往往我们就弄一两个自己认为关键的版本（往往就一个）就可以了，这样得到的结果未必是此次改版所能达到的最好效果，只能看这个版本和原版本的比较结果，但即使这样也是有意义的，比直接上线新版一段时间，然后再观察各项关键指标要客观。</p>
+<h3 id="A-B-Test的原则"><a href="#A-B-Test的原则" class="headerlink" title="A/B Test的原则"></a>A/B Test的原则</h3><ol>
+<li>只测试少量因素</li>
+<li>因素改版要有显著变化</li>
+<li>针对大流量页面做测试</li>
+<li>持续测试，仅仅做一两次A/B Test是达不到提高转化率的目的的</li>
+<li>各版本页面传达的信息应该是一致的只是形式稍有不同</li>
+<li>应该在同一时间测试</li>
+<li>各版本得到的流量都要比较大，这样结果才有说服力</li>
+<li>不要过早的停止A/B Test</li>
+<li>要让访问测试版本的访客始终看到那个版本</li>
+</ol>
+<h2 id="Drupal系统的A-B-Test解决方案"><a href="#Drupal系统的A-B-Test解决方案" class="headerlink" title="Drupal系统的A/B Test解决方案"></a>Drupal系统的A/B Test解决方案</h2><p>BTS系统有很多，这里主要推荐Google Analytics Content Experiments工具，关于怎样使用，这里有一个比较好的中文介绍，<a href="http://www.analyticskey.com/content-experiment-google-analytics/" target="_blank" rel="external">利用Google Analytics测试优化网站内容</a> 我们是Drupal程序员，那么我们在做A/B Test的时候，需要做些什么以及如何做呢，本文给出的是一个完全原创的代码级解决方案，需要使用GA Content Experiments做流量分发和效果监控，本文主要是告诉大家在这套方案里我们的代码应该怎样写。</p>
+<h3 id="将GA-A-B-Test相关的JS代码嵌入head标签"><a href="#将GA-A-B-Test相关的JS代码嵌入head标签" class="headerlink" title="将GA A/B Test相关的JS代码嵌入head标签"></a>将GA A/B Test相关的JS代码嵌入head标签</h3><p>首先，GA A/B Test工具中配置一个A/B Test实验时，会让你在原始版本添加一些GA统计代码到head标签，Drupal自身对这件事情支持的不是特别好，所以我的方案是在page.tpl.php里加入新的自定义变量到head标签，然后在template.php里加逻辑设置这个变量，最后在settings.php里对GA统计代码随时添加删除，这样做是因为A/B Test一般都是临时的,所以某些时候我们需要快速开启和关闭A/B Test，没有必要每次都走release流程。 编辑page.tpl.php，因为GA 的AB Testing工具要求统计代码放到head标签最开始的位置。（这里是因为不加空格就显示不出来）</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">&lt;head&gt;</div><div class="line">&lt;?php print $head_prepend;?&gt;`</div></pre></td></tr></table></figure>
+<p>编辑template.php， 我们在主题的template.php里为新加的模板变量复制，注意值是在settings.local.php里设置的，其实这里如果做的复杂一些，我们可以为模板变量的复制单独开发一个管理后台，但简单就是美，这里还是以突出核心概念为主。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">function MYTHEME_preprocess_page(&amp;$vars) &#123;</div><div class="line">  $vars[&apos;head_prepend&apos;] = zinchus_process_page_head_prepend();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>自定义函数,放到了template.php，因为不是API</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">function MYTHEME_get_page_head_prepend() &#123;</div><div class="line">  $request_uri = request_uri();</div><div class="line"></div><div class="line">  $head_prepend = variable_get(&apos;head_prepend&apos;, array());</div><div class="line">  if (array_key_exists($request_uri, $head_prepend)) &#123;</div><div class="line">    return $head_prepend[$request_uri];</div><div class="line">  &#125;</div><div class="line">  return &apos;&apos;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在settings.php里设置统计代码，注意里面的key是request_uri，也就是实际路径，不是Drupal Path</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">if (empty($_GET[&apos;v&apos;])) &#123;</div><div class="line">  $conf[&apos;head_prepend&apos;][&apos;/node/374&apos;] = [GA CODE];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="为原始代码实现多个版本"><a href="#为原始代码实现多个版本" class="headerlink" title="为原始代码实现多个版本"></a>为原始代码实现多个版本</h3><p>前面的逻辑都写好以后，我们就可以很方便的在任意页面插入统计JS代码了，但同时GA Content Experiments还需要多个版本，这里以一个版本为例，我们是可以随意开发一个新的版本用一个新的url，但要注意，这只是一个实验，在得出结果以后，好的版本会留下，不好的版本会被淘汰，这时如果我们让网站同时存在两个版本，时间长了会越来越难维护，有很多冗余代码在里面，为了解决这个问题，我写了一个简单的入口函数abtest()。也就是说我给出的是一个函数级别A/B Test的方案，可以给任意函数添加新版本。 下面来简单看一下这个函数的用法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">// 注意第二个参数可以传多个同功能新版函数</div><div class="line">$output = abtest(&apos;func_a&apos;, array(&apos;func_b&apos;));</div></pre></td></tr></table></figure>
+<p>当测试结束是，我们一般会随时希望将效果好的版本正式上线，这时我们会选择使用settings.php。如果想更加易用一般会为这个setting开发后台用于开关和版本选择，但settings.php一般来说是我们更加常用的settings设置手段，因为这种settings照顾到了可配置性，而且一般配置好了也不经常修改。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">// 如果设置成0就是强制启用原始版本，如果是2就是强制使用新版本2（如果有的话）</div><div class="line">$conf[&apos;abtest_force_func_a&apos;, 1);</div></pre></td></tr></table></figure>
+<p>入口函数源码</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">// 这个是用于分发各个版本的入口函数，很简单不是么</div><div class="line">// 第一个参数是原始函数，第二个参数是多个新版函数名组成的数组，第三个参数是传给函数的参数。</div><div class="line">function abtest($test_function, $buckets = array(), $args = array()) &#123;</div><div class="line">  !is_array($buckets) &amp;&amp; $buckets = (array) $buckets;</div><div class="line">  $bucket = variable_get(&apos;abtest_force_&apos; . $test_function, NULL);</div><div class="line"></div><div class="line">  if (!isset($bucket)) &#123;</div><div class="line">    if (isset($_GET[&apos;bucket_name&apos;])) &#123;</div><div class="line">      $bucket_name = check_plain($_GET[&apos;bucket_name&apos;]);</div><div class="line">    &#125; else &#123;</div><div class="line">      $bucket_name = variable_get(&apos;abtest_bucket_name&apos;, &apos;v&apos;);</div><div class="line">    &#125;</div><div class="line">    if (isset($_GET[$bucket_name])) &#123;</div><div class="line">      $bucket = check_plain($_GET[$bucket_name]);</div><div class="line">    &#125; else &#123;</div><div class="line">      $bucket = 0;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这里需要注意的是即使是Drupal页面级的A/B Test也可以从这个方案中获益</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">// 示例代码</div><div class="line">$item[&apos;page callback&apos;] = &apos;abtest&apos;;</div><div class="line">$item[&apos;page arguments&apos;] = array(&apos;func_a&apos;, array(&apos;func_b&apos;));</div></pre></td></tr></table></figure>
+<p>最后，为了清理代码方便，原则上建议把新版本的代码规划好，比如每个新版本都放到不同的文件夹中，杂揉在一起在将来删除时会浪费不少时间。</p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>A/B Test是一种数据驱动运营型网站的常用运营工具，因为我们需要不断优化，改版增加网站的用户体验，提高转化率，我们不仅要改，还要知道修改的部分对网站转化率的影响，还要知道影响的程度，这些数据有的可以通过BTS给出来，但有的需要对现有数据库进行数据分析，为此还可能需要在各个版本里嵌入自己的关键数据收集代码。总之一切都是为了做出更好的网站和提高我们的收入。</p>
+<h2 id="补充内容"><a href="#补充内容" class="headerlink" title="补充内容"></a>补充内容</h2><p>在Drupal项目中实施A/B Test的过程中，我们遇到了很多非典型问题，下面补充一些相关内容</p>
+<h3 id="B版本只有匿名用户能看到，而A版本登录和匿名用户都能看到"><a href="#B版本只有匿名用户能看到，而A版本登录和匿名用户都能看到" class="headerlink" title="B版本只有匿名用户能看到，而A版本登录和匿名用户都能看到"></a>B版本只有匿名用户能看到，而A版本登录和匿名用户都能看到</h3><p>这个解决起来很简单，只要登录用户不加载GA的实验代码，就不会进入统计了。</p>
+<h3 id="GA的A-B-Test流量分流不是平均分配"><a href="#GA的A-B-Test流量分流不是平均分配" class="headerlink" title="GA的A/B Test流量分流不是平均分配"></a>GA的A/B Test流量分流不是平均分配</h3><p>这个大家在使用过程中一定会遇到，因为这是GA故意为之的，目的也很好理解，A/B两个版本的线上测试，如果B版本比A版本好太多，意味着无论是Page views，还是实际销售额肯定相差很大，如果平均分配流量，是会损害网站的核心利益的，所以GA从算法上，使得根据转化率自动调整流量分配，转化率高的，得到的流量就多。 但有的时候，我们是需要流量平均分配的，这个时候，trick的解决方案是设置一个永远不可达到的Goal页面。经测试这种方式是十分有效的。 有兴趣的可以继续阅读<a href="http://support.google.com/analytics/bin/answer.py?hl=en&amp;answer=2844870" title="Multi-armed bandit experiments" target="_blank" rel="external">这篇GA文档</a>。</p>
+<h3 id="A-B-两个版本的Goal页面不是同一个"><a href="#A-B-两个版本的Goal页面不是同一个" class="headerlink" title="A/B 两个版本的Goal页面不是同一个"></a>A/B 两个版本的Goal页面不是同一个</h3><p>我们知道GA的A/B Test实验只能设置一个，这种两个Goal页面的事情，其实是在打破A/B Test的规则，这也数据测试的内容太多的问题，我们这是两个产品（页面同时上线，同时测），然后从总的转化上把握效果，不管是否对错，但总是要先实施出来，这里的实施方法是，在GA里只设置A版本的Goal页面，然后看B版本有多少去了A版本的Goal，算出比例，然后把A版本带来的转化量去掉这个比例后再进行评估。</p>
+<h2 id="参考文献和资源"><a href="#参考文献和资源" class="headerlink" title="参考文献和资源"></a>参考文献和资源</h2><p>1，<a href="http://www.analyticskey.com/content-experiment-google-analytics/" target="_blank" rel="external">http://www.analyticskey.com/content-experiment-google-analytics/</a> 详细介绍了Google Analytics Content Experiments的用法。我们的A/B Test方案中，流量分发和部分的数据监控都是交给GA的，我觉得这样没什么不好，可以让我们更专心专注于业务逻辑即新版本的开发。</p>
+<p>2，<a href="http://drupal.org/project/multivariate" target="_blank" rel="external">http://drupal.org/project/multivariate</a> Drupal Way的A/B Test模块，即提供了BTS的管理后台，又可以监控，以及A/B Test实施，我觉得做目前还用不上这个模块，或者说这个模块不能解决我们网站遇到的问题。</p>
+<p>3, <a href="http://phpabtest.com" target="_blank" rel="external">http://phpabtest.com</a> PHP级别的A/B Test解决方案，也是与GA继承，但似乎其并没有用到Content Experiments功能，而是简单的往GA发送数据的方式。不过还是值得借鉴的。</p>
+<p>4，<a href="http://whichtestwon.com/" target="_blank" rel="external">http://whichtestwon.com/</a> 一个投票网站，投A/B 两个版本哪个你觉得更好，这个就没什么转化的概念的，所以虽然也像是一个A/B Test，但我觉得更像是一个游戏。</p>
+<p>5, <a href="http://visualwebsiteoptimizer.com" target="_blank" rel="external">http://visualwebsiteoptimizer.com</a> 一个BTS系统，据说比GA提供的工具更强大，其实还有很多类似的第三方系统，不一一列举，我们目前是还没有到使用这样的系统频繁做大量A/B Test的程度。</p>
+<p>6, <a href="http://www.smashingmagazine.com/2010/06/24/the-ultimate-guide-to-a-b-testing/" target="_blank" rel="external">http://www.smashingmagazine.com/2010/06/24/the-ultimate-guide-to-a-b-testing/</a> 这篇文章的主要看点是看看各个网站是怎么做的A/B Test，又因为A/B Test提高了多少转化率，可谓是A/B Test里的经典案例了。</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[探讨Drupal模块目录组织方式]]></title>
+      <url>http://www.vipzhicheng.com/2014/01/05/drupal-modules-directory-structure/</url>
+      <content type="html"><![CDATA[<p>我们都知道在Drupal系统目录下模块可以放在很多目录下，Drupal会按照一定的次序扫描所有的符合规范的目录下的模块。但是并不意味着我们可以随意放置模块，比如系统的modules目录下放的都是核心自带的模块，为了以后的升级方便，我们不应该将模块放在/modules目录里面，那么Drupal的模块应该怎样放置呢？</p>
+<a id="more"></a>
+<h2 id="多站点模式"><a href="#多站点模式" class="headerlink" title="多站点模式"></a>多站点模式</h2><p>如果你的网站是以Drupal多站点方式运作的，意思是多个网站共享一套Drupal代码，这时我们的第三方模块一般都放在/sites/all/modules目录。而其他模块则分网站放到/sites/网站名/modules目录下，如果你的自定义模块想要跨多站共享的话，也需要放到/sites/all/modules里，这时为了区分，你需要在/sites/all/modules目录里建子目录，例如contrib代表第三方模块目录，custom代表自定义共享模块目录。</p>
+<p>Drupal多站点其实还有一种不共享代码，只共享数据库的情况，但这与本文要讨论的主题无关，就不做过多说明了。</p>
+<h2 id="单站点模式"><a href="#单站点模式" class="headerlink" title="单站点模式"></a>单站点模式</h2><p>单站点模式是我们最常见的情况，我们就是要用一套Drupal代码建一个站，如果是一个比较大型的网站，需要使用的模块众多，我们就需要做一些规划了，以下是我在开发过程中的一些心得，希望对大家有所帮助。（下文的目录都放在/sites/all/modules目录下，以保证/sites目录下的站点目录干净清爽）</p>
+<p><strong>contrib </strong></p>
+<p>毫无疑问，这个目录是放置第三方模块的</p>
+<p><strong>custom_contrib/patched</strong></p>
+<p>放置的也是第三方模块，但是有一点点与我们的需求不符，又没有提供足够的钩子做扩展，所以我们就需要硬编码了，放在这个目录可以提醒你哪些模块是被修改过的，升级时要多加小心，不要遗漏之前打过的补丁。</p>
+<p><strong>custom</strong></p>
+<p>存放自定义模块</p>
+<p><strong>features</strong></p>
+<p>存放我们经过规划从后台导出的一批features，每个feature一般是要围绕一个功能特性进行打包，不过如何规划features每个人可能有不同的理解，只要能有清晰的思路，并且以后便于维护即可。</p>
+<p><strong>development</strong></p>
+<p>存放所有开发相关，而与网站业务逻辑无关的模块，比如devel, schema等，这些模块也不一定是只能在本地使用，但一般是不建议在生产服务器启用的，将这些模块放在一起，对生产服务器的问题排查和优化有一定的帮助。</p>
+<p><strong>localhost</strong></p>
+<p>这是一个特殊的目录，里面存放的是不放入版本控制的模块，可以是第三方模块，也可以是自定义模块，一般我会在里面继续细分一些子目录，但localhost目录则需要根据版本控制软件设置目录的ignore属性，这样不管里面放了多少代码都不会因为误操作上传到代码库。</p>
+<p><code>第三方模块</code>，之所以有第三方模块放到localhost是因为在团队开发过程中，你不能任&gt; 意的提交模块到版本库，而有些开发相关的模块对本地开发又很有帮助，所以我将版本库里没有，但对我有用，对其他人未必有用的第三方模块，主要是开发相关的模块，放到localhost下，以提高本地开发调试效率。</p>
+<p><code>自定义模块</code>，自定义模块放到localhost当然也是不希望代码被上传到版本库，但为什么有这样的自定义模块呢，当然也是为了本地开发效率的提高，这也是一些开发相关的模块，但大多数情况下，都是对业务逻辑和数据做一些CRUD，比如一键插入删除测试数据，比如一键删除近期测试用户等等，这对本地开发效率有极大的提升，或者可以保证本地数据库的精简。</p>
+<p><strong>not_in_use</strong></p>
+<p>这个目录里的模块来自于custom目录，因为一些自定义的模块可能因为某些原因，比如需求变更，模块功能不再需要，这时如果封装良好的话，需要把模块禁用掉，但由于自定义代码里包含许多业务逻辑，删除肯定不是一个好办法，我们以后可能需要把这个功能拿回来重新使用，或者需要参考里面的代码，所以我们会需要把这样的模块放到一个单独的目录，从而哪些模块正在被使用，哪些模块目前已经不用了，就是一目了然的了。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>从以上目录划分可以看出，我们就是在通过多放几个子目录让代码结构，主要是模块结构，变得更有条例，在实际项目中，由于业务逻辑的不同，我绝对相信大家有需要新建除了上文提到目录以外的其他目录，而且根据项目大小的不同，以上的目录建议也不是都必须存在的，大家可以根据实际情况进行调整。</p>
+<p>总之由于网站一般都需要长期维护，而随着时间的推移很多项目相关的信息你可能都有所遗忘，因此我们开发过程中总要想一些办法让今后项目可以比较容易的理解和维护，从小的方面是代码符合规范，注释良好，代码精炼易懂，从大的方面就是项目的目录结构，技术架构，文档，任务管理等等。</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[基于Dropbox的免费Git项目托管]]></title>
+      <url>http://www.vipzhicheng.com/2014/01/05/free-private-git-repositories-base-on-dropbox/</url>
+      <content type="html"><![CDATA[<p>你是否有私有Git项目需要托管却又不想把你买午饭的钱用来购买Github的付费账户？Git与Dropbox整合使用可以免费的实现这一目的，从而你的代码库可以同步到Dropbox并且在多台电脑上同步，通过这种方式你可以托管任意数量的版本库，并且是云备份哦！～。Dropbox的免费账户就有2G的空间，如果只用来托管代码是完全足够的。</p>
+<a id="more"></a>
+<p>下面就来一步一步的实现这个功能。</p>
+<h2 id="创建一个普通的本地Git版本库"><a href="#创建一个普通的本地Git版本库" class="headerlink" title="创建一个普通的本地Git版本库"></a>创建一个普通的本地Git版本库</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">$ cd yourproject</div><div class="line">$ git init</div><div class="line">$ git add *</div><div class="line">$ git commit</div></pre></td></tr></table></figure>
+<h2 id="创建一个git目录来存放你的版本库"><a href="#创建一个git目录来存放你的版本库" class="headerlink" title="创建一个git目录来存放你的版本库"></a>创建一个git目录来存放你的版本库</h2><p>在你的Dropbox目录创建一个目录用于存放Git版本库，你当然可以将整个Dropbox目录都用于托管，不过大多数人应该是用Dropbox备份很多私人数据的吧。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">$ cd ~/Dropbox</div><div class="line">$ mkdir git</div></pre></td></tr></table></figure>
+<h2 id="创建一个bare版本库"><a href="#创建一个bare版本库" class="headerlink" title="创建一个bare版本库"></a>创建一个bare版本库</h2><p>现在为你的本地工作拷贝创建一个空的版本库作为Git远程版本库，除了这是在本地操作以外，这本质上和用Github或者其他版本库托管网站的工作方式类似。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">$ cd git</div><div class="line">$ mkdir yourproject.git</div><div class="line">$ cd yourproject.git</div><div class="line">$ git --bare init</div></pre></td></tr></table></figure>
+<h2 id="添加remote-origin并且push到“远程”Dropbox版本库"><a href="#添加remote-origin并且push到“远程”Dropbox版本库" class="headerlink" title="添加remote origin并且push到“远程”Dropbox版本库"></a>添加remote origin并且push到“远程”Dropbox版本库</h2><p>每次同步都会被Dropbox进程自动检测到改变并自动同步到Dropbox服务器</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">$ cd yourproject</div><div class="line">$ git remote add origin ~/Dropbox/git/yourproject.git</div><div class="line">$ git push origin master</div></pre></td></tr></table></figure>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ol>
+<li>这个方案只适用于单用户的私人项目，多个人一起使用这个方案会有冲突。</li>
+<li>其实更好的方案是使用BitBucket这样的私有项目托管方案，但我更倾向于双保险，尤其是当BitBucket不定时的出现问题的时候。</li>
+<li>此方案在Mac下测试通过，理论上Linux和Windows也应该是类似的方法。</li>
+<li>类似于Dropbox的服务提供商应该都可以用来做这种备份，但是要注意各家提供商的技术实力，是否会有丢失数据的情况，Dropbox的技术实力应该是比较强的。</li>
+<li>为什么不直接将Git的代码库直接放到Dropbox目录呢，原因是这样一边开发一边同步很可能会产生冲突，而本文描述的方式则不会产生这种冲突。</li>
+</ol>
+<p><strong>译者手语</strong>本文是翻译之作，并融入了译者的个人理解，若有翻译的不好或者不对之处，还请同行朋友指点，如需转载请注明出处。<br>原文出处：《<a href="http://mrdanadams.com/2011/github-free-private-git-repositories-dropbox" target="_blank" rel="external">Forget github limits: Free private git repositories with Dropbox</a>》</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[使用PEAR为MAMP环境安装Drush]]></title>
+      <url>http://www.vipzhicheng.com/2014/01/03/how-to-install-drush-with-mamp-on-mac-osx/</url>
+      <content type="html"><![CDATA[<p>Drush和其他的Unix/Linux软件一样，有多种安装方式，我们可以在<a href="http://drush.org" target="_blank" rel="external">Drush.ORG</a>上，或者<a href="https://github.com/drush-ops/drush" target="_blank" rel="external">Drupal Github项目</a>上看到更多关于安装方式的介绍。本文只是想谈谈Mac OSX系统里MAMP环境下的基于PEAR的Drush安装方法，为和我使用相同开发环境的朋友提供一个参考。</p>
+<a id="more"></a>
+<h2 id="为什么使用PEAR的安装方式"><a href="#为什么使用PEAR的安装方式" class="headerlink" title="为什么使用PEAR的安装方式"></a>为什么使用PEAR的安装方式</h2><p>不得不说，其实Drush一路走来发展的还是挺快的，我最开始是使用源码下载的安装方式，后来使用的是苹果的第三方包管理器Homebrew的安装方式，但最近才发现，最方便的安装方式还是PEAR的安装方式。</p>
+<h2 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h2><p>首先要确保环境变量设置正确，Mac系统可能会自带PHP以及PEAR，通过调整<code>$PATH</code>变量，可以让我们在命令行里直接使用MAMP带的PEAR程序，而不是系统的那一个。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">vim ~/.bash_profile</div><div class="line">export PATH=/Applications/MAMP/Library/bin/:/Applications/MAMP/bin/php/php5.2.17/bin:$PATH</div></pre></td></tr></table></figure>
+<p>注意，由于我的开发环境常用的是PHP5.2所以bin的路径是基于PHP5.2的，如果是使用PHP5.3及以上环境的朋友，需要修改一下这里。</p>
+<h2 id="安装PEAR"><a href="#安装PEAR" class="headerlink" title="安装PEAR"></a>安装PEAR</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">pear channel-discover pear.drush.org</div><div class="line">pear install drush/drush</div></pre></td></tr></table></figure>
+<p>如果需要安装某一个版本，或者切换drush版本，可以指定版本号，例如：<code>pear install drush/drush-4.5.0</code>，注意后面的.0是必须的，因为pear.drush.org发布的压缩包就是这样命名的。</p>
+<h2 id="使drush命令可执行"><a href="#使drush命令可执行" class="headerlink" title="使drush命令可执行"></a>使drush命令可执行</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">chmod u+x /path/to/drush/drush</div></pre></td></tr></table></figure>
+<p>安装说明里一般还需要建立符号链接，但是记得前面设置的环境变量么？有了这个就不需要设置符号连接也可以直接在命令行自动提示和执行了。</p>
+<h2 id="解决Drush找不到Console-Table库"><a href="#解决Drush找不到Console-Table库" class="headerlink" title="解决Drush找不到Console_Table库"></a>解决Drush找不到Console_Table库</h2><p>这是在一切就绪后执行drush时遇到的问题，这个问题很简单，只需要按照说明安装对应的依赖即可。<br>但是实际上drush支持自动解决这个问题，只需要在第一次执行drush命令时，使用sudo即可，例如：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">sudo drush st</div></pre></td></tr></table></figure>
+<p>好了，现在你的drush命令就彻底安装完成了，和一般的安装方式相比，少了下载解压的过程，不需要建立符号链接。drush安装路径更规范，我觉得这是在Mac系统MAMP环境安装drush的最佳实践。</p>
+]]></content>
+    </entry>
+    
+  
+  
+</search>

@@ -74,6 +74,8 @@
 
 
 
+  <link rel="alternate" href="/atom.xml" title="理查的学习笔记" type="application/atom+xml" />
+
 
 
 
@@ -101,7 +103,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     scheme: 'Mist',
-    sidebar: {"position":"left","display":"post"},
+    sidebar: {"position":"left","display":"hide"},
     fancybox: true,
     motion: true,
     duoshuo: {
@@ -183,12 +185,12 @@
         </li>
       
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
+        <li class="menu-item menu-item-drupal">
+          <a href="/tags/Drupal" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-drupal"></i> <br />
             
-            分类
+            Drupal
           </a>
         </li>
       
@@ -214,9 +216,32 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
   
 </nav>
 
@@ -290,6 +315,13 @@
 
           
             
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2014/04/09/install-redmine-on-centos/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/04/09/install-redmine-on-centos/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -316,30 +348,30 @@
 <h2 id="通过RVM安装Ruby"><a href="#通过RVM安装Ruby" class="headerlink" title="通过RVM安装Ruby"></a>通过RVM安装Ruby</h2><p>请参考之前笔者翻译的一篇教程<a href="http://vipzhicheng.dev/blog/2014/04/08/how-to-install-ruby-on-rails-on-centos-6-with-rvm/" target="_blank" rel="external">使用RVM在CentOS6安装Ruby on Rails</a>，由于Redmine会自己选择合适的版本，所以为了安装Redmine的话，你不需要执行最后的Rails安装。另外和这个教程一样，本文也推荐使用root用户来实施，少了许多麻烦，如果以后有其他安全性的需求而想要使用独立的非root账号，可以在安装成功了之后再考虑。</p>
 <p>我们需要安装Ruby 1.9.3，而不是最新的Ruby。理论上再新一些的Ruby也支持，可以查看Redmine源码里的安装文档里写的Ruby支持的版本，因为源码里的更新比较及时，官方WIKI文档里的信息很多都过时了。</p>
 <h2 id="下载Redmine"><a href="#下载Redmine" class="headerlink" title="下载Redmine"></a>下载Redmine</h2><p>去Redmine<a href="http://www.redmine.org/projects/redmine/wiki/Download" target="_blank" rel="external">官方下载页面</a>下载最新版的Redmine, 这里我们以撰写本文时最新的2.5.1为例。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">sudo su</div><div class="line">cd /var/www</div><div class="line">wget http://www.redmine.org/releases/redmine-2.5.1.tar.gz</div><div class="line">tar xvzf redmine-2.5.1.tar.gz</div><div class="line">mv redmine-2.5.1 redmine</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">sudo su</div><div class="line">cd /var/www</div><div class="line">wget http://www.redmine.org/releases/redmine-2.5.1.tar.gz</div><div class="line">tar xvzf redmine-2.5.1.tar.gz</div><div class="line">mv redmine-2.5.1 redmine</div></pre></td></tr></table></figure>
 <h2 id="安装Redmine"><a href="#安装Redmine" class="headerlink" title="安装Redmine"></a>安装Redmine</h2><p>然后可以先修改一下数据库链接配置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">cd redmine</div><div class="line">cp config/database.yml.example config/database.yml</div><div class="line">vim config/database.yml</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">cd redmine</div><div class="line">cp config/database.yml.example config/database.yml</div><div class="line">vim config/database.yml</div></pre></td></tr></table></figure>
 <p>修改里面的production段即可，因为一般我们安装Redmine只是为了使用。</p>
 <p>Redmine使用的是bundler处理版本依赖，这比一个一个手动安装要方便多了。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gem install bundler</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">gem install bundler</div></pre></td></tr></table></figure>
 <p>通过上面的指令安装好bundler之后，我们还需要为系统安装两个包，一个是mysql，一个是ImageMagick, 我们假设使用的是MySQL，需要注意的是，即使你的MySQL不是安装在本地，为了编译成功也是需要安装的，另外如果你想使用Redmine的甘特图导出功能，就必须安装ImageMagick。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">yum install -y ImageMagick-devel</div><div class="line">yum install -y mysql-devel</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">yum install -y ImageMagick-devel</div><div class="line">yum install -y mysql-devel</div></pre></td></tr></table></figure>
 <p>然后我们就要进行最重要的操作了。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bundle install --without development test</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">bundle install --without development test</div></pre></td></tr></table></figure>
 <p>上面的指令如果不出错，那么你会看到许多的Redmine依赖的Ruby扩展的安装记录。</p>
 <p>然后为了正常使用Redmine的认证系统，我们需要为其生成一个Session TOKEN。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rake generate_secret_token</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">rake generate_secret_token</div></pre></td></tr></table></figure>
 <p>接下来需要初始化数据库</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rake db:migrate RAILS_ENV=&quot;production&quot;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">rake db:migrate RAILS_ENV=&quot;production&quot;</div></pre></td></tr></table></figure>
 <p>到这里，Redmine就安装完了，使用以下方式测试：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ruby script/rails server -e production</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">ruby script/rails server -e production</div></pre></td></tr></table></figure>
 <p>如果启动成功，Redmine可以通过 <a href="http://yourip:3000" target="_blank" rel="external">http://yourip:3000</a> 访问，或者如果是本地就是 <a href="http://127.0.0.1:3000" target="_blank" rel="external">http://127.0.0.1:3000</a> ，如果可以访问成功，就用admin/admin账户登陆，然后就可以修改密码，创建项目了。</p>
 <p>如果觉得一切正常，可以将Redmine安装成守护进程。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ruby script/rails server -e production -d</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">ruby script/rails server -e production -d</div></pre></td></tr></table></figure>
 <h2 id="将Redmine程序设置成开机自启动"><a href="#将Redmine程序设置成开机自启动" class="headerlink" title="将Redmine程序设置成开机自启动"></a>将Redmine程序设置成开机自启动</h2><p>开机自启动有许多方式，尤其是chkconfig的方式，不过这里我们使用最原始的方式，把启动脚本加入到rc.local里。注意路径使用的是绝对路径。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/usr/local/rvm/rubies/ruby-1.9.3-p545/bin/ruby /var/www/redmine/script/rails server -e production -d</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">/usr/local/rvm/rubies/ruby-1.9.3-p545/bin/ruby /var/www/redmine/script/rails server -e production -d</div></pre></td></tr></table></figure>
 <p>另外还在网上找了一个Redmine启动控制脚本，可以尝试使用。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line"></div><div class="line"># Modify it to your configuration</div><div class="line">DIR=/var/www/html/redmine/</div><div class="line"></div><div class="line"># Start Redmine in daemon mode.</div><div class="line">start()&#123;</div><div class="line">  cd $DIR</div><div class="line">  ruby script/rails server -d -e production</div><div class="line">&#125;</div><div class="line"># Stop Redmine daemon</div><div class="line">stop()&#123;</div><div class="line">  RUBYPID=`ps aux | grep &quot;ruby script/rails&quot; | grep -v grep | awk &apos;&#123;print $2&#125;&apos;`</div><div class="line">  if [ &quot;x$RUBYPID&quot; != &quot;x&quot; ]; then</div><div class="line">    kill -2 $RUBYPID</div><div class="line">  fi</div><div class="line">&#125;</div><div class="line"># Check if Redmine is running</div><div class="line">status()&#123;</div><div class="line">  RUBYPID=`ps aux | grep &quot;ruby script/rails&quot; | grep -v grep | awk &apos;&#123;print $2&#125;&apos;`</div><div class="line">  if [ &quot;x$RUBYPID&quot; = &quot;x&quot; ]; then</div><div class="line">    echo &quot;* Redmine is not running&quot;</div><div class="line">  else</div><div class="line">    echo &quot;* Redmine is running&quot;</div><div class="line">  fi</div><div class="line">&#125;</div><div class="line"></div><div class="line">case &quot;$1&quot; in</div><div class="line">  start)</div><div class="line">    start</div><div class="line">    status</div><div class="line">    ;;</div><div class="line">  stop)</div><div class="line">    stop</div><div class="line">    sleep 2</div><div class="line">    status</div><div class="line">    ;;</div><div class="line">  status)</div><div class="line">    status</div><div class="line">    ;;</div><div class="line">  restart|force-reload)</div><div class="line">    stop</div><div class="line">    start</div><div class="line">    ;;</div><div class="line">  *)</div><div class="line">    echo &quot;Usage: $0 &#123;start|stop|restart|force-reload|status&#125;&quot;</div><div class="line">    exit 1</div><div class="line">esac</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line"></div><div class="line"># Modify it to your configuration</div><div class="line">DIR=/var/www/html/redmine/</div><div class="line"></div><div class="line"># Start Redmine in daemon mode.</div><div class="line">start()&#123;</div><div class="line">  cd $DIR</div><div class="line">  ruby script/rails server -d -e production</div><div class="line">&#125;</div><div class="line"># Stop Redmine daemon</div><div class="line">stop()&#123;</div><div class="line">  RUBYPID=`ps aux | grep &quot;ruby script/rails&quot; | grep -v grep | awk &apos;&#123;print $2&#125;&apos;`</div><div class="line">  if [ &quot;x$RUBYPID&quot; != &quot;x&quot; ]; then</div><div class="line">    kill -2 $RUBYPID</div><div class="line">  fi</div><div class="line">&#125;</div><div class="line"># Check if Redmine is running</div><div class="line">status()&#123;</div><div class="line">  RUBYPID=`ps aux | grep &quot;ruby script/rails&quot; | grep -v grep | awk &apos;&#123;print $2&#125;&apos;`</div><div class="line">  if [ &quot;x$RUBYPID&quot; = &quot;x&quot; ]; then</div><div class="line">    echo &quot;* Redmine is not running&quot;</div><div class="line">  else</div><div class="line">    echo &quot;* Redmine is running&quot;</div><div class="line">  fi</div><div class="line">&#125;</div><div class="line"></div><div class="line">case &quot;$1&quot; in</div><div class="line">  start)</div><div class="line">    start</div><div class="line">    status</div><div class="line">    ;;</div><div class="line">  stop)</div><div class="line">    stop</div><div class="line">    sleep 2</div><div class="line">    status</div><div class="line">    ;;</div><div class="line">  status)</div><div class="line">    status</div><div class="line">    ;;</div><div class="line">  restart|force-reload)</div><div class="line">    stop</div><div class="line">    start</div><div class="line">    ;;</div><div class="line">  *)</div><div class="line">    echo &quot;Usage: $0 &#123;start|stop|restart|force-reload|status&#125;&quot;</div><div class="line">    exit 1</div><div class="line">esac</div></pre></td></tr></table></figure>
 <h2 id="为Redmine选择合适的插件和主题"><a href="#为Redmine选择合适的插件和主题" class="headerlink" title="为Redmine选择合适的插件和主题"></a>为Redmine选择合适的插件和主题</h2><p>Redmine支持安装插件和更换主题，这样可以获得更丰富的功能和更漂亮的外观，可以去以下网址下载。</p>
 <ul>
 <li>插件：<a href="http://www.redmine.org/projects/redmine/wiki/Plugins" target="_blank" rel="external">http://www.redmine.org/projects/redmine/wiki/Plugins</a></li>
@@ -407,6 +439,25 @@
 
     <div class="post-spread">
       
+        <div class="ds-share flat" data-thread-key="2014/04/09/install-redmine-on-centos/"
+     data-title="最新安装Redmine的方法"
+     data-content=""
+     data-url="http://www.vipzhicheng.com/2014/04/09/install-redmine-on-centos/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
     </div>
   </div>
 
@@ -417,6 +468,10 @@
 
           
   <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2014/04/09/install-redmine-on-centos/"
+           data-title="最新安装Redmine的方法" data-url="http://www.vipzhicheng.com/2014/04/09/install-redmine-on-centos/">
+      </div>
     
   </div>
 
@@ -467,10 +522,10 @@
 
           
             <div class="site-state-item site-state-categories">
-              <a href="/categories">
+              
                 <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">分类</span>
-              </a>
+              
             </div>
           
 
@@ -486,8 +541,26 @@
         </nav>
 
         
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
 
         <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/vipzhicheng" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
           
         </div>
 
@@ -495,6 +568,24 @@
         
 
         
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.drupalproject.org/" title="Drupal项目社区" target="_blank">Drupal项目社区</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://drupalchina.cn" title="Drupal中国" target="_blank">Drupal中国</a>
+                </li>
+              
+            </ul>
+          </div>
         
 
       </section>
@@ -524,7 +615,7 @@
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy; 
+  &copy;  2014 - 
   <span itemprop="copyrightYear">2016</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
@@ -620,14 +711,162 @@
 
   
 
+  
+    
+  
 
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"vipzhicheng"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
 
+  
+    
   
 
 
 
+
+
   
   
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';                
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+                            
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').mousedown(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
   
 
   
