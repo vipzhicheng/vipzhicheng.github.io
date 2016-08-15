@@ -355,12 +355,12 @@
       
         <p>Nginx是一个高性能的Web服务器，比Apache要灵活和轻量。</p>
 <p>注，以下安装过程需要具有<code>root</code>权限或者用<code>sudo</code>来执行，注意这个教程是针对<code>CentOS 7</code>的，貌似<code>CentOS 7</code>上的软件安装都异常的简单。</p>
-<h2 id="第一步：添加Nginx软件源"><a href="#第一步：添加Nginx软件源" class="headerlink" title="第一步：添加Nginx软件源"></a>第一步：添加Nginx软件源</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">sudo yum install epel-release</div></pre></td></tr></table></figure>
-<h2 id="第二步：安装Nginx"><a href="#第二步：安装Nginx" class="headerlink" title="第二步：安装Nginx"></a>第二步：安装Nginx</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">sudo yum install nginx</div></pre></td></tr></table></figure>
-<h2 id="第三步：开启Nginx服务"><a href="#第三步：开启Nginx服务" class="headerlink" title="第三步：开启Nginx服务"></a>第三步：开启Nginx服务</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">sudo systemctl start nginx</div></pre></td></tr></table></figure>
-<h2 id="验证是否正常工作"><a href="#验证是否正常工作" class="headerlink" title="验证是否正常工作"></a>验证是否正常工作</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">http://server_domain_name_or_IP/</div></pre></td></tr></table></figure>
-<h2 id="把Nginx加到开机自启动"><a href="#把Nginx加到开机自启动" class="headerlink" title="把Nginx加到开机自启动"></a>把Nginx加到开机自启动</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">sudo systemctl enable nginx</div></pre></td></tr></table></figure>
-<h2 id="默认的配置文件路径和Web根目录"><a href="#默认的配置文件路径和Web根目录" class="headerlink" title="默认的配置文件路径和Web根目录"></a>默认的配置文件路径和Web根目录</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line"># 默认配置文件路径</div><div class="line">/etc/nginx/nginx.conf</div><div class="line"></div><div class="line"># 其他自定义配置文件所在目录，可定义虚拟主机，以`.conf`扩展名结尾</div><div class="line">/etc/nginx/conf.d</div><div class="line"></div><div class="line"># 默认Web根目录</div><div class="line">/usr/share/nginx/html</div></pre></td></tr></table></figure>
+<h2 id="第一步：添加Nginx软件源"><a href="#第一步：添加Nginx软件源" class="headerlink" title="第一步：添加Nginx软件源"></a>第一步：添加Nginx软件源</h2><figure class="highlight sql"><table><tr><td class="code"><pre><div class="line">sudo yum <span class="keyword">install</span> epel-<span class="keyword">release</span></div></pre></td></tr></table></figure>
+<h2 id="第二步：安装Nginx"><a href="#第二步：安装Nginx" class="headerlink" title="第二步：安装Nginx"></a>第二步：安装Nginx</h2><figure class="highlight cmake"><table><tr><td class="code"><pre><div class="line">sudo yum <span class="keyword">install</span> nginx</div></pre></td></tr></table></figure>
+<h2 id="第三步：开启Nginx服务"><a href="#第三步：开启Nginx服务" class="headerlink" title="第三步：开启Nginx服务"></a>第三步：开启Nginx服务</h2><figure class="highlight crmsh"><table><tr><td class="code"><pre><div class="line">sudo systemctl <span class="literal">start</span> nginx</div></pre></td></tr></table></figure>
+<h2 id="验证是否正常工作"><a href="#验证是否正常工作" class="headerlink" title="验证是否正常工作"></a>验证是否正常工作</h2><figure class="highlight dts"><table><tr><td class="code"><pre><div class="line"><span class="symbol">http:</span><span class="comment">//server_domain_name_or_IP/</span></div></pre></td></tr></table></figure>
+<h2 id="把Nginx加到开机自启动"><a href="#把Nginx加到开机自启动" class="headerlink" title="把Nginx加到开机自启动"></a>把Nginx加到开机自启动</h2><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">sudo systemctl <span class="built_in">enable</span> nginx</div></pre></td></tr></table></figure>
+<h2 id="默认的配置文件路径和Web根目录"><a href="#默认的配置文件路径和Web根目录" class="headerlink" title="默认的配置文件路径和Web根目录"></a>默认的配置文件路径和Web根目录</h2><figure class="highlight dts"><table><tr><td class="code"><pre><div class="line"><span class="meta"># 默认配置文件路径</span></div><div class="line"><span class="meta-keyword">/etc/</span>nginx/nginx.conf</div><div class="line"></div><div class="line"><span class="meta"># 其他自定义配置文件所在目录，可定义虚拟主机，以`.conf`扩展名结尾</span></div><div class="line"><span class="meta-keyword">/etc/</span>nginx/conf.d</div><div class="line"></div><div class="line"><span class="meta"># 默认Web根目录</span></div><div class="line"><span class="meta-keyword">/usr/</span>share<span class="meta-keyword">/nginx/</span>html</div></pre></td></tr></table></figure>
       
     </div>
 
@@ -401,6 +401,10 @@
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/08/15/多版本库协同网站开发方法浅谈/" rel="prev" title="多版本库协同网站开发方法浅谈">
+                多版本库协同网站开发方法浅谈 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -491,7 +495,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">29</span>
+              <span class="site-state-item-count">30</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

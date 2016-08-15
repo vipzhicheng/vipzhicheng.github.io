@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="CentOS,RVM,Redmine,Ruby on Rails," />
+  <meta name="keywords" content="CentOS,Redmine,RVM,Ruby on Rails," />
 
 
 
@@ -348,30 +348,30 @@
 <h2 id="通过RVM安装Ruby"><a href="#通过RVM安装Ruby" class="headerlink" title="通过RVM安装Ruby"></a>通过RVM安装Ruby</h2><p>请参考之前笔者翻译的一篇教程<a href="http://vipzhicheng.dev/blog/2014/04/08/how-to-install-ruby-on-rails-on-centos-6-with-rvm/" target="_blank" rel="external">使用RVM在CentOS6安装Ruby on Rails</a>，由于Redmine会自己选择合适的版本，所以为了安装Redmine的话，你不需要执行最后的Rails安装。另外和这个教程一样，本文也推荐使用root用户来实施，少了许多麻烦，如果以后有其他安全性的需求而想要使用独立的非root账号，可以在安装成功了之后再考虑。</p>
 <p>我们需要安装Ruby 1.9.3，而不是最新的Ruby。理论上再新一些的Ruby也支持，可以查看Redmine源码里的安装文档里写的Ruby支持的版本，因为源码里的更新比较及时，官方WIKI文档里的信息很多都过时了。</p>
 <h2 id="下载Redmine"><a href="#下载Redmine" class="headerlink" title="下载Redmine"></a>下载Redmine</h2><p>去Redmine<a href="http://www.redmine.org/projects/redmine/wiki/Download" target="_blank" rel="external">官方下载页面</a>下载最新版的Redmine, 这里我们以撰写本文时最新的2.5.1为例。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">sudo su</div><div class="line">cd /var/www</div><div class="line">wget http://www.redmine.org/releases/redmine-2.5.1.tar.gz</div><div class="line">tar xvzf redmine-2.5.1.tar.gz</div><div class="line">mv redmine-2.5.1 redmine</div></pre></td></tr></table></figure>
+<figure class="highlight stata"><table><tr><td class="code"><pre><div class="line">sudo <span class="keyword">su</span></div><div class="line"><span class="keyword">cd</span> /<span class="keyword">var</span>/www</div><div class="line">wget http:<span class="comment">//www.redmine.org/releases/redmine-2.5.1.tar.gz</span></div><div class="line">tar xvzf redmine-2.5.1.tar.gz</div><div class="line">mv redmine-2.5.1 redmine</div></pre></td></tr></table></figure>
 <h2 id="安装Redmine"><a href="#安装Redmine" class="headerlink" title="安装Redmine"></a>安装Redmine</h2><p>然后可以先修改一下数据库链接配置</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">cd redmine</div><div class="line">cp config/database.yml.example config/database.yml</div><div class="line">vim config/database.yml</div></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><div class="line">cd redmine</div><div class="line">cp config/database<span class="selector-class">.yml</span><span class="selector-class">.example</span> config/database<span class="selector-class">.yml</span></div><div class="line">vim config/database.yml</div></pre></td></tr></table></figure>
 <p>修改里面的production段即可，因为一般我们安装Redmine只是为了使用。</p>
 <p>Redmine使用的是bundler处理版本依赖，这比一个一个手动安装要方便多了。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">gem install bundler</div></pre></td></tr></table></figure>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><div class="line">gem <span class="keyword">install</span> bundler</div></pre></td></tr></table></figure>
 <p>通过上面的指令安装好bundler之后，我们还需要为系统安装两个包，一个是mysql，一个是ImageMagick, 我们假设使用的是MySQL，需要注意的是，即使你的MySQL不是安装在本地，为了编译成功也是需要安装的，另外如果你想使用Redmine的甘特图导出功能，就必须安装ImageMagick。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">yum install -y ImageMagick-devel</div><div class="line">yum install -y mysql-devel</div></pre></td></tr></table></figure>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><div class="line">yum <span class="keyword">install</span> -y ImageMagick-devel</div><div class="line">yum <span class="keyword">install</span> -y mysql-devel</div></pre></td></tr></table></figure>
 <p>然后我们就要进行最重要的操作了。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">bundle install --without development test</div></pre></td></tr></table></figure>
+<figure class="highlight mipsasm"><table><tr><td class="code"><pre><div class="line"><span class="keyword">bundle </span><span class="keyword">install </span>--without development test</div></pre></td></tr></table></figure>
 <p>上面的指令如果不出错，那么你会看到许多的Redmine依赖的Ruby扩展的安装记录。</p>
 <p>然后为了正常使用Redmine的认证系统，我们需要为其生成一个Session TOKEN。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">rake generate_secret_token</div></pre></td></tr></table></figure>
+<figure class="highlight gcode"><table><tr><td class="code"><pre><div class="line">rake <span class="keyword">ge</span><span class="symbol">nerate_secret_token</span></div></pre></td></tr></table></figure>
 <p>接下来需要初始化数据库</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">rake db:migrate RAILS_ENV=&quot;production&quot;</div></pre></td></tr></table></figure>
+<figure class="highlight groovy"><table><tr><td class="code"><pre><div class="line">rake <span class="string">db:</span>migrate RAILS_ENV=<span class="string">"production"</span></div></pre></td></tr></table></figure>
 <p>到这里，Redmine就安装完了，使用以下方式测试：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">ruby script/rails server -e production</div></pre></td></tr></table></figure>
+<figure class="highlight applescript"><table><tr><td class="code"><pre><div class="line">ruby <span class="keyword">script</span>/rails server -e production</div></pre></td></tr></table></figure>
 <p>如果启动成功，Redmine可以通过 <a href="http://yourip:3000" target="_blank" rel="external">http://yourip:3000</a> 访问，或者如果是本地就是 <a href="http://127.0.0.1:3000" target="_blank" rel="external">http://127.0.0.1:3000</a> ，如果可以访问成功，就用admin/admin账户登陆，然后就可以修改密码，创建项目了。</p>
 <p>如果觉得一切正常，可以将Redmine安装成守护进程。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">ruby script/rails server -e production -d</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">ruby script/rails server <span class="_">-e</span> production <span class="_">-d</span></div></pre></td></tr></table></figure>
 <h2 id="将Redmine程序设置成开机自启动"><a href="#将Redmine程序设置成开机自启动" class="headerlink" title="将Redmine程序设置成开机自启动"></a>将Redmine程序设置成开机自启动</h2><p>开机自启动有许多方式，尤其是chkconfig的方式，不过这里我们使用最原始的方式，把启动脚本加入到rc.local里。注意路径使用的是绝对路径。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">/usr/local/rvm/rubies/ruby-1.9.3-p545/bin/ruby /var/www/redmine/script/rails server -e production -d</div></pre></td></tr></table></figure>
+<figure class="highlight gradle"><table><tr><td class="code"><pre><div class="line"><span class="regexp">/usr/</span>local<span class="regexp">/rvm/</span>rubies<span class="regexp">/ruby-1.9.3-p545/</span>bin<span class="regexp">/ruby /</span>var<span class="regexp">/www/</span>redmine<span class="regexp">/script/</span>rails server -e production -d</div></pre></td></tr></table></figure>
 <p>另外还在网上找了一个Redmine启动控制脚本，可以尝试使用。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line"></div><div class="line"># Modify it to your configuration</div><div class="line">DIR=/var/www/html/redmine/</div><div class="line"></div><div class="line"># Start Redmine in daemon mode.</div><div class="line">start()&#123;</div><div class="line">  cd $DIR</div><div class="line">  ruby script/rails server -d -e production</div><div class="line">&#125;</div><div class="line"># Stop Redmine daemon</div><div class="line">stop()&#123;</div><div class="line">  RUBYPID=`ps aux | grep &quot;ruby script/rails&quot; | grep -v grep | awk &apos;&#123;print $2&#125;&apos;`</div><div class="line">  if [ &quot;x$RUBYPID&quot; != &quot;x&quot; ]; then</div><div class="line">    kill -2 $RUBYPID</div><div class="line">  fi</div><div class="line">&#125;</div><div class="line"># Check if Redmine is running</div><div class="line">status()&#123;</div><div class="line">  RUBYPID=`ps aux | grep &quot;ruby script/rails&quot; | grep -v grep | awk &apos;&#123;print $2&#125;&apos;`</div><div class="line">  if [ &quot;x$RUBYPID&quot; = &quot;x&quot; ]; then</div><div class="line">    echo &quot;* Redmine is not running&quot;</div><div class="line">  else</div><div class="line">    echo &quot;* Redmine is running&quot;</div><div class="line">  fi</div><div class="line">&#125;</div><div class="line"></div><div class="line">case &quot;$1&quot; in</div><div class="line">  start)</div><div class="line">    start</div><div class="line">    status</div><div class="line">    ;;</div><div class="line">  stop)</div><div class="line">    stop</div><div class="line">    sleep 2</div><div class="line">    status</div><div class="line">    ;;</div><div class="line">  status)</div><div class="line">    status</div><div class="line">    ;;</div><div class="line">  restart|force-reload)</div><div class="line">    stop</div><div class="line">    start</div><div class="line">    ;;</div><div class="line">  *)</div><div class="line">    echo &quot;Usage: $0 &#123;start|stop|restart|force-reload|status&#125;&quot;</div><div class="line">    exit 1</div><div class="line">esac</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line"><span class="meta">#!/bin/bash</span></div><div class="line"></div><div class="line"><span class="comment"># Modify it to your configuration</span></div><div class="line">DIR=/var/www/html/redmine/</div><div class="line"></div><div class="line"><span class="comment"># Start Redmine in daemon mode.</span></div><div class="line"><span class="function"><span class="title">start</span></span>()&#123;</div><div class="line">  <span class="built_in">cd</span> <span class="variable">$DIR</span></div><div class="line">  ruby script/rails server <span class="_">-d</span> <span class="_">-e</span> production</div><div class="line">&#125;</div><div class="line"><span class="comment"># Stop Redmine daemon</span></div><div class="line"><span class="function"><span class="title">stop</span></span>()&#123;</div><div class="line">  RUBYPID=`ps aux | grep <span class="string">"ruby script/rails"</span> | grep -v grep | awk <span class="string">'&#123;print $2&#125;'</span>`</div><div class="line">  <span class="keyword">if</span> [ <span class="string">"x<span class="variable">$RUBYPID</span>"</span> != <span class="string">"x"</span> ]; <span class="keyword">then</span></div><div class="line">    <span class="built_in">kill</span> -2 <span class="variable">$RUBYPID</span></div><div class="line">  <span class="keyword">fi</span></div><div class="line">&#125;</div><div class="line"><span class="comment"># Check if Redmine is running</span></div><div class="line"><span class="function"><span class="title">status</span></span>()&#123;</div><div class="line">  RUBYPID=`ps aux | grep <span class="string">"ruby script/rails"</span> | grep -v grep | awk <span class="string">'&#123;print $2&#125;'</span>`</div><div class="line">  <span class="keyword">if</span> [ <span class="string">"x<span class="variable">$RUBYPID</span>"</span> = <span class="string">"x"</span> ]; <span class="keyword">then</span></div><div class="line">    <span class="built_in">echo</span> <span class="string">"* Redmine is not running"</span></div><div class="line">  <span class="keyword">else</span></div><div class="line">    <span class="built_in">echo</span> <span class="string">"* Redmine is running"</span></div><div class="line">  <span class="keyword">fi</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">case</span> <span class="string">"<span class="variable">$1</span>"</span> <span class="keyword">in</span></div><div class="line">  start)</div><div class="line">    start</div><div class="line">    status</div><div class="line">    ;;</div><div class="line">  stop)</div><div class="line">    stop</div><div class="line">    sleep 2</div><div class="line">    status</div><div class="line">    ;;</div><div class="line">  status)</div><div class="line">    status</div><div class="line">    ;;</div><div class="line">  restart|force-reload)</div><div class="line">    stop</div><div class="line">    start</div><div class="line">    ;;</div><div class="line">  *)</div><div class="line">    <span class="built_in">echo</span> <span class="string">"Usage: <span class="variable">$0</span> &#123;start|stop|restart|force-reload|status&#125;"</span></div><div class="line">    <span class="built_in">exit</span> 1</div><div class="line"><span class="keyword">esac</span></div></pre></td></tr></table></figure>
 <h2 id="为Redmine选择合适的插件和主题"><a href="#为Redmine选择合适的插件和主题" class="headerlink" title="为Redmine选择合适的插件和主题"></a>为Redmine选择合适的插件和主题</h2><p>Redmine支持安装插件和更换主题，这样可以获得更丰富的功能和更漂亮的外观，可以去以下网址下载。</p>
 <ul>
 <li>插件：<a href="http://www.redmine.org/projects/redmine/wiki/Plugins" target="_blank" rel="external">http://www.redmine.org/projects/redmine/wiki/Plugins</a></li>
@@ -401,9 +401,9 @@
           
             <a href="/tags/CentOS/" rel="tag">#CentOS</a>
           
-            <a href="/tags/RVM/" rel="tag">#RVM</a>
-          
             <a href="/tags/Redmine/" rel="tag">#Redmine</a>
+          
+            <a href="/tags/RVM/" rel="tag">#RVM</a>
           
             <a href="/tags/Ruby-on-Rails/" rel="tag">#Ruby on Rails</a>
           
@@ -515,7 +515,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">29</span>
+              <span class="site-state-item-count">30</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

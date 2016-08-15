@@ -352,40 +352,40 @@
 <p>svn://yourdomain/repo<br><a href="http://code.yourdomain/repo" target="_blank" rel="external">http://code.yourdomain/repo</a></p>
 <p>因为第一种部署最简单，所以先说第一种的部署方式。</p>
 <h2 id="svn服务器部署方式-1：svn-yourdomain-repo"><a href="#svn服务器部署方式-1：svn-yourdomain-repo" class="headerlink" title="svn服务器部署方式 1：svn://yourdomain/repo"></a>svn服务器部署方式 1：svn://yourdomain/repo</h2><p>首先检查已安装的版本并卸载，然后从源安装最新版SVN。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">rpm -qa subversion</div><div class="line">yum remove subversion</div><div class="line">yum install -y subversion</div></pre></td></tr></table></figure>
+<figure class="highlight mipsasm"><table><tr><td class="code"><pre><div class="line">rpm -qa <span class="keyword">subversion</span></div><div class="line">yum remove <span class="keyword">subversion</span></div><div class="line">yum <span class="keyword">install </span>-y <span class="keyword">subversion</span></div></pre></td></tr></table></figure>
 <p>假设我们的版本库在服务器上都是在<code>/opt/svn</code>目录下分子目录存放，而我们第一个示例版本库名是repo。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">mkdir -p /opt/svn/repo</div><div class="line">svnadmin create /opt/svn/repo</div></pre></td></tr></table></figure>
+<figure class="highlight vim"><table><tr><td class="code"><pre><div class="line"><span class="built_in">mkdir</span> -<span class="keyword">p</span> /<span class="keyword">opt</span>/svn/repo</div><div class="line">svnadmin create /<span class="keyword">opt</span>/svn/repo</div></pre></td></tr></table></figure>
 <p>为了SVN能够生效，我们需要编辑版本库的配置，首先是svnserve.conf</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">vim /opt/svn/repo/conf/svnserve.conf</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">[general]</div><div class="line">#匿名访问的权限，可以是read,write,none,默认为read</div><div class="line">anon-access=none</div><div class="line">#使授权用户有写权限</div><div class="line">auth-access=write</div><div class="line">#密码数据库的路径</div><div class="line">password-db=/opt/svn/passwd</div><div class="line">#访问控制文件</div><div class="line">authz-db=authz</div><div class="line">#认证命名空间，subversion会在认证提示里显示，并且作为凭证缓存的关键字</div><div class="line">realm=My Test Repo</div></pre></td></tr></table></figure>
+<figure class="highlight vim"><table><tr><td class="code"><pre><div class="line"><span class="keyword">vim</span> /<span class="keyword">opt</span>/svn/repo/<span class="keyword">conf</span>/svnserve.<span class="keyword">conf</span></div></pre></td></tr></table></figure>
+<figure class="highlight ini"><table><tr><td class="code"><pre><div class="line"><span class="section">[general]</span></div><div class="line"><span class="comment">#匿名访问的权限，可以是read,write,none,默认为read</span></div><div class="line"><span class="attr">anon-access</span>=none</div><div class="line"><span class="comment">#使授权用户有写权限</span></div><div class="line"><span class="attr">auth-access</span>=write</div><div class="line"><span class="comment">#密码数据库的路径</span></div><div class="line"><span class="attr">password-db</span>=/opt/svn/passwd</div><div class="line"><span class="comment">#访问控制文件</span></div><div class="line"><span class="attr">authz-db</span>=authz</div><div class="line"><span class="comment">#认证命名空间，subversion会在认证提示里显示，并且作为凭证缓存的关键字</span></div><div class="line"><span class="attr">realm</span>=My Test Repo</div></pre></td></tr></table></figure>
 <p>password配置文件放在<code>/opt/svn/passwd</code>而不是<code>/opt/svn/repo/conf/passwd</code>的目的是让多个版本库共享同一份账户文件。</p>
 <p>配置密码只需要编辑对应的密码passwd文件,一看就明白就不演示了。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">vim /opt/svn/passwd</div></pre></td></tr></table></figure>
+<figure class="highlight vim"><table><tr><td class="code"><pre><div class="line"><span class="keyword">vim</span> /<span class="keyword">opt</span>/svn/passwd</div></pre></td></tr></table></figure>
 <p>然后为了有权限访问，还需要编辑授权文件</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">vim /opt/svn/repo/conf/authz</div></pre></td></tr></table></figure>
+<figure class="highlight vim"><table><tr><td class="code"><pre><div class="line"><span class="keyword">vim</span> /<span class="keyword">opt</span>/svn/repo/<span class="keyword">conf</span>/authz</div></pre></td></tr></table></figure>
 <p>在这个文件里，你可以针对不同的人授予不同的访问权限,这里授权给用户所有路径的权限。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">[/]</div><div class="line">testuser=rw</div></pre></td></tr></table></figure>
+<figure class="highlight ini"><table><tr><td class="code"><pre><div class="line"><span class="section">[/]</span></div><div class="line"><span class="attr">testuser</span>=rw</div></pre></td></tr></table></figure>
 <p>另外有的教程还会提一下如果设置iptables和关闭selinux，这里就默认大家这两个都已经弄好了。</p>
 <p>启动SVN</p>
 <p>一般的启动方式是直接使用svnserve -d -r DIR的形式，但在CentOS6，我发现有守护进程的方式，/etc/init.d/svnserve，这样就更简单和稳定。</p>
 <p>创建svnserve.conf</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">vim /etc/sysconfig/svnserve</div></pre></td></tr></table></figure>
+<figure class="highlight dts"><table><tr><td class="code"><pre><div class="line">vim <span class="meta-keyword">/etc/</span>sysconfig/svnserve</div></pre></td></tr></table></figure>
 <p>只需要一行代码</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">OPTIONS=&apos;-d -r /opt/svn&apos;</div></pre></td></tr></table></figure>
+<figure class="highlight ini"><table><tr><td class="code"><pre><div class="line"><span class="attr">OPTIONS</span>=<span class="string">'-d -r /opt/svn'</span></div></pre></td></tr></table></figure>
 <p>当然这里你可以指定监听端口，和监听IP地址等其他额外参数，不过最常用的还是-d -r。</p>
 <p>这样一来，我们就可以使用svn://yourdomain/repo的方式checkout代码了。</p>
 <h2 id="svn服务器部署方式2：http-code-yourdomain-repo"><a href="#svn服务器部署方式2：http-code-yourdomain-repo" class="headerlink" title="svn服务器部署方式2：http://code.yourdomain/repo"></a>svn服务器部署方式2：<a href="http://code.yourdomain/repo" target="_blank" rel="external">http://code.yourdomain/repo</a></h2><p>配置http方式，还需要从源安装额外的软件,特别是我们需要Apache的DAV模块。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">yum install httpd httpd-devel subversion mod_dav_svn mod_auth_mysql</div></pre></td></tr></table></figure>
+<figure class="highlight mipsasm"><table><tr><td class="code"><pre><div class="line">yum <span class="keyword">install </span>httpd httpd-devel <span class="keyword">subversion </span>mod_dav_svn mod_auth_mysql</div></pre></td></tr></table></figure>
 <p>然后你需要为SVN服务器创建一个Apache虚拟主机，并且带DAV权限控制</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">&lt;Location /&gt;</div><div class="line">	DAV svn</div><div class="line">	SVNParentPath /opt/svn # 支持多个版本库</div><div class="line">	AuthType Basic</div><div class="line">	# SVNListParentPath on # 可以列出所有版本库</div><div class="line">	AuthName &quot;Authorization SVN&quot;</div><div class="line">	AuthUserFile /opt/svn/conf/passwd.conf</div><div class="line">	AuthzSVNAccessFile /opt/svn/conf/authz.conf</div><div class="line">	Require valid-user</div><div class="line">&lt;/Location&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight dts"><table><tr><td class="code"><pre><div class="line"><span class="params">&lt;Location /&gt;</span></div><div class="line">	DAV svn</div><div class="line">	SVNParentPath <span class="meta-keyword">/opt/</span>svn <span class="meta"># 支持多个版本库</span></div><div class="line">	AuthType Basic</div><div class="line">	<span class="meta"># SVNListParentPath on # 可以列出所有版本库</span></div><div class="line">	AuthName <span class="string">"Authorization SVN"</span></div><div class="line">	AuthUserFile <span class="meta-keyword">/opt/</span>svn<span class="meta-keyword">/conf/</span>passwd.conf</div><div class="line">	AuthzSVNAccessFile <span class="meta-keyword">/opt/</span>svn<span class="meta-keyword">/conf/</span>authz.conf</div><div class="line">	Require valid-user</div><div class="line"><span class="params">&lt;/Location&gt;</span></div></pre></td></tr></table></figure>
 <p>接下来就是对目录进行权限控制，以及设置SVN账户了，这里要注意的一点是使用DAV方式，版本库下的svnserve.conf就自动失效了，我们必须通过passwd.conf和authz.conf来保证版本库的安全性。</p>
 <p>为SVN添加账户</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line"># 首次</div><div class="line">htpasswd -c /opt/svn/conf/passwd.conf testuser</div><div class="line"></div><div class="line"># 以后</div><div class="line">htpasswd /opt/svn/conf/passwd.conf testuser</div></pre></td></tr></table></figure>
+<figure class="highlight dts"><table><tr><td class="code"><pre><div class="line"><span class="meta"># 首次</span></div><div class="line">htpasswd -c <span class="meta-keyword">/opt/</span>svn<span class="meta-keyword">/conf/</span>passwd.conf testuser</div><div class="line"></div><div class="line"><span class="meta"># 以后</span></div><div class="line">htpasswd <span class="meta-keyword">/opt/</span>svn<span class="meta-keyword">/conf/</span>passwd.conf testuser</div></pre></td></tr></table></figure>
 <p>权限控制，以下配置掩饰了复杂授权控制的方法。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">[groups]</div><div class="line">svn_developer = testuser_1,testuser_2</div><div class="line">svn_admin = testuser_2,testuser_3</div><div class="line"></div><div class="line"># 已经离开的人最好还是保留账号，只是禁用权限，这样在blame的时候比较好追踪。</div><div class="line">user_left = testuser_4,testuser_5</div><div class="line"></div><div class="line"># 默认只要有SVN账号都可以有读权限，设为已经离开团队的人除外</div><div class="line">[/]</div><div class="line">@svn_developer = rw</div><div class="line">@svn_admin = rw</div><div class="line"></div><div class="line">* = r</div><div class="line"></div><div class="line">@user_left =</div><div class="line"></div><div class="line"></div><div class="line"># 根据版本库授权</div><div class="line">[repo:/trunk]</div><div class="line">@svn_developer = rw</div><div class="line">@svn_admin = rw</div><div class="line"></div><div class="line">[repo:/tags]</div><div class="line">@svn_admin = rw</div><div class="line">@svn_developer = r</div><div class="line"></div><div class="line"># 为单个用户提权</div><div class="line">testuser_2 = rw</div></pre></td></tr></table></figure>
+<figure class="highlight nix"><table><tr><td class="code"><pre><div class="line">[groups]</div><div class="line"><span class="attr">svn_developer</span> = testuser_1,testuser_2</div><div class="line"><span class="attr">svn_admin</span> = testuser_2,testuser_3</div><div class="line"></div><div class="line"><span class="comment"># 已经离开的人最好还是保留账号，只是禁用权限，这样在blame的时候比较好追踪。</span></div><div class="line"><span class="attr">user_left</span> = testuser_4,testuser_5</div><div class="line"></div><div class="line"><span class="comment"># 默认只要有SVN账号都可以有读权限，设为已经离开团队的人除外</span></div><div class="line">[/]</div><div class="line">@<span class="attr">svn_developer</span> = rw</div><div class="line">@<span class="attr">svn_admin</span> = rw</div><div class="line"></div><div class="line">* = r</div><div class="line"></div><div class="line">@<span class="attr">user_left</span> =</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># 根据版本库授权</span></div><div class="line">[repo:/trunk]</div><div class="line">@<span class="attr">svn_developer</span> = rw</div><div class="line">@<span class="attr">svn_admin</span> = rw</div><div class="line"></div><div class="line">[repo:/tags]</div><div class="line">@<span class="attr">svn_admin</span> = rw</div><div class="line">@<span class="attr">svn_developer</span> = r</div><div class="line"></div><div class="line"><span class="comment"># 为单个用户提权</span></div><div class="line"><span class="attr">testuser_2</span> = rw</div></pre></td></tr></table></figure>
 <p>以上仅仅是显示了可能性，实际要根据对项目安全性的要求结合团队规划，项目规划进行合理的设置。</p>
 <p>如果遇到错误：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">svn: E195019: Redirect cycle detected for URL ...</div></pre></td></tr></table></figure>
+<figure class="highlight coq"><table><tr><td class="code"><pre><div class="line">svn: E195019: <span class="keyword">Redirect</span> <span class="built_in">cycle</span> detected <span class="keyword">for</span> URL ...</div></pre></td></tr></table></figure>
 <p>是因为你设置的DocumentRoot和SVN目录相同的原因，设置一个不同的即可。</p>
 
       
@@ -522,7 +522,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">29</span>
+              <span class="site-state-item-count">30</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

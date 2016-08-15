@@ -274,6 +274,129 @@
             
               
                 
+                <a class="post-title-link" href="/2014/03/03/yum-install-htop-on-centos/" itemprop="url">
+                  使用yum给CentOS安装htop
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2014-03-03T10:51:30+08:00" content="2014-03-03">
+              2014-03-03
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Ops/" itemprop="url" rel="index">
+                    <span itemprop="name">Ops</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2014/03/03/yum-install-htop-on-centos/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/03/03/yum-install-htop-on-centos/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>我们一般认为htop比top更适合用来监控系统进程，图形化的界面，支持鼠标，可读性较好，并且有许多额外的功能，这里尽介绍怎样通过yum在CentOS上安装，不过源码编译安装也是非常简单的，这里就不再赘述。</p>
+<p>默认CentOS的源里是没有htop的，所以主要就是要找到合适的源，这个对不同的系统版本，以及对32bit,64bit的操作系统来说，需要添加的源是不同的，而且其实有多个第三方源，你只需要记住这种方式，如果这个源失效了，可以找其他的源代替。</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2014/03/03/yum-install-htop-on-centos/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2014/02/24/yum-install-jenkins-on-centos/" itemprop="url">
                   CentOS yum安装jenkins笔记
                 </a>
@@ -345,7 +468,7 @@
         
           <p>因为工作需要，所以打算在一组服务器上配置Jenkins服务，搜索了一下，找到我操作起来最方便的方案，下面就陈述一下，大部分都是原文作者的功劳。</p>
 <h2 id="添加Jenkins的源"><a href="#添加Jenkins的源" class="headerlink" title="添加Jenkins的源"></a>添加Jenkins的源</h2><p>CentOS默认源里没有Jenkins</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">$ sudo wget -O /etc/yum.repos.d/jenkins.repo http://jenkins-ci.org/redhat/jenkins.repo</div><div class="line">$ sudo rpm --import http://pkg.jenkins-ci.org/redhat/jenkins-ci.org.key</div></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><div class="line">$ sudo wget -O /etc/yum<span class="selector-class">.repos</span><span class="selector-class">.d</span>/jenkins<span class="selector-class">.repo</span> http:<span class="comment">//jenkins-ci.org/redhat/jenkins.repo</span></div><div class="line">$ sudo rpm --import http:<span class="comment">//pkg.jenkins-ci.org/redhat/jenkins-ci.org.key</span></div></pre></td></tr></table></figure>
           <div class="post-more-link text-center">
             <a class="btn" href="/2014/02/24/yum-install-jenkins-on-centos/#more" rel="contents">
               阅读全文 &raquo;
@@ -713,11 +836,11 @@
         
           <p>每天在命令行下，一大部分的工作都是一遍又一遍的输入 cd ~/some/very/deep/often-used/directory这样来切换目录，现在利用一个简单的配置可以实现如下效果:</p>
 <p>首先进入我的日常工作目录，标记一个书签mark sanguo</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">cd /Users/kimi/work/123guo/sanguo</div><div class="line">mark sanguo</div></pre></td></tr></table></figure>
+<figure class="highlight groovy"><table><tr><td class="code"><pre><div class="line">cd <span class="regexp">/Users/</span>kimi<span class="regexp">/work/</span><span class="number">123</span>guo/sanguo</div><div class="line">mark sanguo</div></pre></td></tr></table></figure>
 <p>以后我再进入这个目录只需要g sanguo即可</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">g sanguo</div></pre></td></tr></table></figure>
+<figure class="highlight nginx"><table><tr><td class="code"><pre><div class="line"><span class="attribute">g</span> sanguo</div></pre></td></tr></table></figure>
 <p>通过输入gs指令来浏览所有的标签</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">gs</div><div class="line">#app -&gt; /Applications</div><div class="line">#sanguo -&gt; /Users/kimi/work/123guo/sanguo</div><div class="line">#web -&gt; /Library/WebServer/Documents</div></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><div class="line">gs</div><div class="line"><span class="selector-id">#app</span> -&gt; /Applications</div><div class="line"><span class="selector-id">#sanguo</span> -&gt; /Users/kimi/work/<span class="number">123</span>guo/sanguo</div><div class="line"><span class="selector-id">#web</span> -&gt; /Library/WebServer/Documents</div></pre></td></tr></table></figure>
           <div class="post-more-link text-center">
             <a class="btn" href="/2014/01/13/a-short-way-to-switch-directory/#more" rel="contents">
               阅读全文 &raquo;
@@ -1404,7 +1527,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">29</span>
+              <span class="site-state-item-count">30</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

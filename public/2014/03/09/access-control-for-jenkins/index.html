@@ -344,10 +344,10 @@
         <p>在<a href="http://www.vipzhicheng.com/blog/2014/02/24/yum-install-jenkins-on-centos/">这篇文章</a>中我们我们提到默认Jenkins是不提供任何权限控制的，但通过配置，可以增加用户名密码登陆机制。但更进一步的，我们不希望有人能够扫描到Jenkins的端口，通常默认是8080，所以我的思路是使用Apache的反向代理配置，并且使用HTTP BASIC AUTH机制。</p>
 <a id="more"></a>
 <p>反向代理的配置如下:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">&lt;VirtualHost *:80&gt;</div><div class="line">    ServerName your.domain.com</div><div class="line">    ProxyPass / http://127.0.0.1:8080/</div><div class="line">    ProxyPassReverse / http://127.0.0.1:8080/</div><div class="line">    ProxyRequests Off</div><div class="line">    ErrorLog logs/jenkins-error_log</div><div class="line">    CustomLog logs/jenkins-access_log common</div><div class="line"></div><div class="line">   &lt;Location /&gt;</div><div class="line">      AuthUserFile /var/www/html/etc/htpasswd</div><div class="line">      AuthType Basic</div><div class="line">      AuthName &quot;Jenkins&quot;</div><div class="line">      Require valid-user</div><div class="line">   &lt;/Location&gt;</div><div class="line"></div><div class="line">&lt;/VirtualHost&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight dts"><table><tr><td class="code"><pre><div class="line"><span class="params">&lt;VirtualHost *:<span class="number">80</span>&gt;</span></div><div class="line">    ServerName your.domain.com</div><div class="line">    ProxyPass / http:<span class="comment">//127.0.0.1:8080/</span></div><div class="line">    ProxyPassReverse / http:<span class="comment">//127.0.0.1:8080/</span></div><div class="line">    ProxyRequests Off</div><div class="line">    ErrorLog logs/jenkins-error_log</div><div class="line">    CustomLog logs/jenkins-access_log common</div><div class="line"></div><div class="line">   <span class="params">&lt;Location /&gt;</span></div><div class="line">      AuthUserFile <span class="meta-keyword">/var/</span>www<span class="meta-keyword">/html/</span>etc/htpasswd</div><div class="line">      AuthType Basic</div><div class="line">      AuthName <span class="string">"Jenkins"</span></div><div class="line">      Require valid-user</div><div class="line">   <span class="params">&lt;/Location&gt;</span></div><div class="line"></div><div class="line"><span class="params">&lt;/VirtualHost&gt;</span></div></pre></td></tr></table></figure>
 <p>htpasswd文件是通过Apache的htpasswd命令设置的。</p>
 <p>但是启动之后发现输入了BASIC AUTH的用户名和密码之后，又弹出了Jenkins自己的BASIC AUTH，通过Google，找到如下解决方案，在httpd.conf里添加如下配置，这个依赖于mod_headers模块。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line"># remove auth from headers</div><div class="line">RequestHeader unset Authorization</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line"><span class="comment"># remove auth from headers</span></div><div class="line">RequestHeader <span class="built_in">unset</span> Authorization</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -483,7 +483,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">29</span>
+              <span class="site-state-item-count">30</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

@@ -347,22 +347,22 @@
         <p>如果你使用Github，Bitbucket, 或者国产的Coding.net等，都会在个人设置那里看到设置SSH Key的地方，这个是做什么用的呢，这个是用来让你提交代码通过SSH隧道的方式提交到远程服务器，这种方式有安全，稳定以及无需每次输入认证信息等特点。</p>
 <p>本文只是以Github为例，讲解怎么操作，至于原理和概念，请自行搜索。</p>
 <a id="more"></a>
-<h2 id="第一步，检查一下当前已经生成的SSH-keys"><a href="#第一步，检查一下当前已经生成的SSH-keys" class="headerlink" title="第一步，检查一下当前已经生成的SSH keys"></a>第一步，检查一下当前已经生成的SSH keys</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">ls -al ~/.ssh</div></pre></td></tr></table></figure>
+<h2 id="第一步，检查一下当前已经生成的SSH-keys"><a href="#第一步，检查一下当前已经生成的SSH-keys" class="headerlink" title="第一步，检查一下当前已经生成的SSH keys"></a>第一步，检查一下当前已经生成的SSH keys</h2><figure class="highlight vim"><table><tr><td class="code"><pre><div class="line"><span class="keyword">ls</span> -<span class="keyword">al</span> ~/.ssh</div></pre></td></tr></table></figure>
 <p>当然理论上当前存在的SSH keys不会影响你新创建的，注意为每个不同的key取不同的文件名。</p>
-<h2 id="第二步，创建一个新的SSH-key"><a href="#第二步，创建一个新的SSH-key" class="headerlink" title="第二步，创建一个新的SSH key"></a>第二步，创建一个新的SSH key</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">$ ssh-keygen -t rsa -C &quot;your_email@example.com&quot;</div><div class="line"># Creates a new ssh key, using the provided email as a label</div><div class="line"># Generating public/private rsa key pair.</div><div class="line"># Enter file in which to save the key (/Users/you/.ssh/id_rsa): [这里建议起个特殊的名字]</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">Enter passphrase (empty for no passphrase): [Type a passphrase]</div><div class="line"># Enter same passphrase again: [Type passphrase again]</div></pre></td></tr></table></figure>
+<h2 id="第二步，创建一个新的SSH-key"><a href="#第二步，创建一个新的SSH-key" class="headerlink" title="第二步，创建一个新的SSH key"></a>第二步，创建一个新的SSH key</h2><figure class="highlight elixir"><table><tr><td class="code"><pre><div class="line"><span class="variable">$ </span>ssh-keygen -t rsa -C <span class="string">"your_email@example.com"</span></div><div class="line"><span class="comment"># Creates a new ssh key, using the provided email as a label</span></div><div class="line"><span class="comment"># Generating public/private rsa key pair.</span></div><div class="line"><span class="comment"># Enter file in which to save the key (/Users/you/.ssh/id_rsa): [这里建议起个特殊的名字]</span></div></pre></td></tr></table></figure>
+<figure class="highlight ada"><table><tr><td class="code"><pre><div class="line">Enter passphrase (empty <span class="keyword">for</span> no passphrase): [<span class="keyword">Type</span> <span class="type">a </span>passphrase]</div><div class="line"># Enter same passphrase again: [<span class="keyword">Type</span> <span class="type">passphrase </span>again]</div></pre></td></tr></table></figure>
 <p>passphrase类似于密码，但只是本机使用，可以不设置，但这样不够安全。</p>
 <p>你会得到类似于下面的输出：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">Your identification has been saved in /Users/you/.ssh/id_rsa.</div><div class="line"># Your public key has been saved in /Users/you/.ssh/id_rsa.pub.</div><div class="line"># The key fingerprint is:</div><div class="line"># 01:0f:f4:3b:ca:85:d6:17:a1:7d:f0:68:9d:f0:a2:db your_email@example.com</div></pre></td></tr></table></figure>
+<figure class="highlight armasm"><table><tr><td class="code"><pre><div class="line"><span class="symbol">Your</span> identification has <span class="keyword">been </span>saved in /Users/you/.ssh/id_rsa.</div><div class="line"># Your public key has <span class="keyword">been </span>saved in /Users/you/.ssh/id_rsa.pub.</div><div class="line"># The key fingerprint is:</div><div class="line"># <span class="number">01</span>:<span class="number">0</span>f:<span class="built_in">f4</span>:<span class="number">3</span>b:ca:<span class="number">85</span>:<span class="built_in">d6</span>:<span class="number">17</span>:<span class="built_in">a1</span>:<span class="number">7</span>d:<span class="built_in">f0</span>:<span class="number">68</span>:<span class="number">9</span>d:<span class="built_in">f0</span>:<span class="built_in">a2</span>:db your_email<span class="comment">@example.com</span></div></pre></td></tr></table></figure>
 <p>然后，使用如下方式加载本地私钥，如果本机已经开启了ssh-agent就不需要再启动直接添加私钥即可。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line"># start the ssh-agent in the background</div><div class="line">eval &quot;$(ssh-agent -s)&quot;</div><div class="line"># Agent pid 59566</div><div class="line">ssh-add ~/.ssh/id_rsa</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line"><span class="comment"># start the ssh-agent in the background</span></div><div class="line"><span class="built_in">eval</span> <span class="string">"<span class="variable">$(ssh-agent -s)</span>"</span></div><div class="line"><span class="comment"># Agent pid 59566</span></div><div class="line">ssh-add ~/.ssh/id_rsa</div></pre></td></tr></table></figure>
 <h2 id="第三步，在Github上添加SSH-key"><a href="#第三步，在Github上添加SSH-key" class="headerlink" title="第三步，在Github上添加SSH key"></a>第三步，在Github上添加SSH key</h2><p>注意两点：</p>
 <ol>
 <li>Label只是用来助记的标识。</li>
 <li>里面填写的是公钥。</li>
 </ol>
 <p>最后，你只需要在你的本地代码添加对应远程SSH版本库地址即可。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">cd existing_git_repo //进入已有项目或更新的项目目录</div><div class="line">git remote add origin SSH_REPO_URL</div><div class="line">git push -u origin master //这两行将该目录下的文件推送到远端（origin）上的 &quot;master&quot; 分支</div></pre></td></tr></table></figure>
+<figure class="highlight maxima"><table><tr><td class="code"><pre><div class="line">cd existing_git_repo //进入已有项目或更新的项目目录</div><div class="line">git remote add <span class="built_in">origin</span> SSH_REPO_URL</div><div class="line">git <span class="built_in">push</span> -u <span class="built_in">origin</span> master //这两行将该目录下的文件推送到远端（<span class="built_in">origin</span>）上的 <span class="string">"master"</span> 分支</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -498,7 +498,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">29</span>
+              <span class="site-state-item-count">30</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

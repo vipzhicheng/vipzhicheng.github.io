@@ -274,6 +274,138 @@
             
               
                 
+                <a class="post-title-link" href="/2016/08/15/多版本库协同网站开发方法浅谈/" itemprop="url">
+                  多版本库协同网站开发方法浅谈
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-15T19:56:01+08:00" content="2016-08-15">
+              2016-08-15
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Dev/" itemprop="url" rel="index">
+                    <span itemprop="name">Dev</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/15/多版本库协同网站开发方法浅谈/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/15/多版本库协同网站开发方法浅谈/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>大多数时候，我们在开发一个项目的时候，只对应一个版本库，早期的时候我们用SVN，后来我们更常用Git。一般来说这样也就足够了，我这里和大家探讨的是多版本库协同工作的可能性。</p>
+<h2 id="Git与SVN同时用"><a href="#Git与SVN同时用" class="headerlink" title="Git与SVN同时用"></a>Git与SVN同时用</h2><p>说到这个话题，大家可以在网上搜到一大把文章，一般的场景是说我之前用的SVN，或者公司中心版本库是SVN，但我开发时想用Git进行版本控制之类的。是的这完全可以做得到，只需要让SVN忽略Git信息文件夹.git，Git忽略SVN信息文件夹.svn即可。</p>
+<p>注：SVN忽略Git的最佳实践是把配置写在客户端全局，而Git忽略SVN可以在Git的.gitignore中配置，而Git忽略Git则是Git内置的特性。</p>
+<h2 id="换一个思路"><a href="#换一个思路" class="headerlink" title="换一个思路"></a>换一个思路</h2><p>我这里想说的是多版本库协同，不仅是SVN与Git，也可以是Git与Git，一个大的项目下，各个组件的文件夹分别指向各自的版本库(一般组件版本库我们用Git)。</p>
+<p>为什么要这么做呢，意味着某些复用组件，我可以单独开发和测试，而对于大的项目而言，只是这个组件的其中一个调用实例。</p>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p>这样我们在开发项目时，如果改动了一个组件，我们需要先提交到组件版本库，然后我们可以有几个选择：</p>
+<ol>
+<li>如果初次引用，只需要删除同名文件夹，重新<code>git clone</code>即可。</li>
+<li>如果只有自己在维护，可以直接同时提交给本地项目。</li>
+<li>如果组件本身是多人维护的，那么我们可以<code>git pull</code>拉回最新代码，然后在本地项目完成对兼容性的测试。</li>
+</ol>
+<h2 id="好处在哪里？"><a href="#好处在哪里？" class="headerlink" title="好处在哪里？"></a>好处在哪里？</h2><p>如果这样划分项目，我们除了得到一个可以工作的项目之外，还可以得到若干可复用的组件。对于一些项目型公司来说，会逐渐积累起自己的核心竞争力。</p>
+<p>当然，这已经非常类似于一些组件依赖的包管理工具的核心原理了，所以这里的做法是在没有包管理规范的前提下，提炼复用组件的一种思路。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/08/11/怎样在-CentOS-7-上安装-Nginx/" itemprop="url">
                   怎样在 CentOS 7 上安装 Nginx
                 </a>
@@ -346,12 +478,12 @@
           
             <p>Nginx是一个高性能的Web服务器，比Apache要灵活和轻量。</p>
 <p>注，以下安装过程需要具有<code>root</code>权限或者用<code>sudo</code>来执行，注意这个教程是针对<code>CentOS 7</code>的，貌似<code>CentOS 7</code>上的软件安装都异常的简单。</p>
-<h2 id="第一步：添加Nginx软件源"><a href="#第一步：添加Nginx软件源" class="headerlink" title="第一步：添加Nginx软件源"></a>第一步：添加Nginx软件源</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">sudo yum install epel-release</div></pre></td></tr></table></figure>
-<h2 id="第二步：安装Nginx"><a href="#第二步：安装Nginx" class="headerlink" title="第二步：安装Nginx"></a>第二步：安装Nginx</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">sudo yum install nginx</div></pre></td></tr></table></figure>
-<h2 id="第三步：开启Nginx服务"><a href="#第三步：开启Nginx服务" class="headerlink" title="第三步：开启Nginx服务"></a>第三步：开启Nginx服务</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">sudo systemctl start nginx</div></pre></td></tr></table></figure>
-<h2 id="验证是否正常工作"><a href="#验证是否正常工作" class="headerlink" title="验证是否正常工作"></a>验证是否正常工作</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">http://server_domain_name_or_IP/</div></pre></td></tr></table></figure>
-<h2 id="把Nginx加到开机自启动"><a href="#把Nginx加到开机自启动" class="headerlink" title="把Nginx加到开机自启动"></a>把Nginx加到开机自启动</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">sudo systemctl enable nginx</div></pre></td></tr></table></figure>
-<h2 id="默认的配置文件路径和Web根目录"><a href="#默认的配置文件路径和Web根目录" class="headerlink" title="默认的配置文件路径和Web根目录"></a>默认的配置文件路径和Web根目录</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line"># 默认配置文件路径</div><div class="line">/etc/nginx/nginx.conf</div><div class="line"></div><div class="line"># 其他自定义配置文件所在目录，可定义虚拟主机，以`.conf`扩展名结尾</div><div class="line">/etc/nginx/conf.d</div><div class="line"></div><div class="line"># 默认Web根目录</div><div class="line">/usr/share/nginx/html</div></pre></td></tr></table></figure>
+<h2 id="第一步：添加Nginx软件源"><a href="#第一步：添加Nginx软件源" class="headerlink" title="第一步：添加Nginx软件源"></a>第一步：添加Nginx软件源</h2><figure class="highlight sql"><table><tr><td class="code"><pre><div class="line">sudo yum <span class="keyword">install</span> epel-<span class="keyword">release</span></div></pre></td></tr></table></figure>
+<h2 id="第二步：安装Nginx"><a href="#第二步：安装Nginx" class="headerlink" title="第二步：安装Nginx"></a>第二步：安装Nginx</h2><figure class="highlight cmake"><table><tr><td class="code"><pre><div class="line">sudo yum <span class="keyword">install</span> nginx</div></pre></td></tr></table></figure>
+<h2 id="第三步：开启Nginx服务"><a href="#第三步：开启Nginx服务" class="headerlink" title="第三步：开启Nginx服务"></a>第三步：开启Nginx服务</h2><figure class="highlight crmsh"><table><tr><td class="code"><pre><div class="line">sudo systemctl <span class="literal">start</span> nginx</div></pre></td></tr></table></figure>
+<h2 id="验证是否正常工作"><a href="#验证是否正常工作" class="headerlink" title="验证是否正常工作"></a>验证是否正常工作</h2><figure class="highlight dts"><table><tr><td class="code"><pre><div class="line"><span class="symbol">http:</span><span class="comment">//server_domain_name_or_IP/</span></div></pre></td></tr></table></figure>
+<h2 id="把Nginx加到开机自启动"><a href="#把Nginx加到开机自启动" class="headerlink" title="把Nginx加到开机自启动"></a>把Nginx加到开机自启动</h2><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">sudo systemctl <span class="built_in">enable</span> nginx</div></pre></td></tr></table></figure>
+<h2 id="默认的配置文件路径和Web根目录"><a href="#默认的配置文件路径和Web根目录" class="headerlink" title="默认的配置文件路径和Web根目录"></a>默认的配置文件路径和Web根目录</h2><figure class="highlight dts"><table><tr><td class="code"><pre><div class="line"><span class="meta"># 默认配置文件路径</span></div><div class="line"><span class="meta-keyword">/etc/</span>nginx/nginx.conf</div><div class="line"></div><div class="line"><span class="meta"># 其他自定义配置文件所在目录，可定义虚拟主机，以`.conf`扩展名结尾</span></div><div class="line"><span class="meta-keyword">/etc/</span>nginx/conf.d</div><div class="line"></div><div class="line"><span class="meta"># 默认Web根目录</span></div><div class="line"><span class="meta-keyword">/usr/</span>share<span class="meta-keyword">/nginx/</span>html</div></pre></td></tr></table></figure>
           
         
       
@@ -474,13 +606,13 @@
 <p>使用版本控制软件对代码变更进行追踪只是第一步，更进一步，我们还需要基于版本控制软件为团队开发定义工作流，并一直坚持相同的习惯。对于Git有<code>Git flow</code>, <code>Github flow</code>, <code>Gitlab flow</code>等等。对于之前比较流行的SVN也是如此。SVN的团队开发流程不止一种，常见的也是有单个长期分支的工作流和开发分支，线上分支双分支工作流。</p>
 <p>我们使用SVN进行代码管理的项目使用的是后者，也就是开发分支，线上分支分开，然后通过合并（Merge）来决定哪些版本上线，更进一步，我们使用Redmine进行任务管理，和SVN整合后，任务相关的版本是整合到一起的显示的。</p>
 <p>为了得到一个任务(我们叫Ticket)的全部版本号(Revision)，我们写了一小段JS代码在浏览器Redmine任务页面的Console里执行，如果小伙伴们有更好的获取一个Ticket下的版本号的方法，可以和我交流一下。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">var scriptNode = document.createElement(&apos;script&apos;); scriptNode.src = &apos;http://code.jquery.com/jquery-1.10.1.min.js&apos;; document.head.appendChild(scriptNode);</div><div class="line"></div><div class="line">var version = &apos;&apos;;</div><div class="line">$(&apos;.changeset &gt; p &gt; a&apos;).each(function(i)&#123;</div><div class="line">  version += $(this).text().replace(&apos;修订 &apos;, &apos;&apos;) + &apos;,&apos;;</div><div class="line">&#125;);</div><div class="line">console.log(version );</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="keyword">var</span> scriptNode = <span class="built_in">document</span>.createElement(<span class="string">'script'</span>); scriptNode.src = <span class="string">'http://code.jquery.com/jquery-1.10.1.min.js'</span>; <span class="built_in">document</span>.head.appendChild(scriptNode);</div><div class="line"></div><div class="line"><span class="keyword">var</span> version = <span class="string">''</span>;</div><div class="line">$(<span class="string">'.changeset &gt; p &gt; a'</span>).each(<span class="function"><span class="keyword">function</span>(<span class="params">i</span>)</span>&#123;</div><div class="line">  version += $(<span class="keyword">this</span>).text().replace(<span class="string">'修订 '</span>, <span class="string">''</span>) + <span class="string">','</span>;</div><div class="line">&#125;);</div><div class="line"><span class="built_in">console</span>.log(version );</div></pre></td></tr></table></figure>
 <p>PS：里面的修订两个字也可能是Revision，取决于Redmine当前语言是中文还是英文。</p>
 <p>然后就会得到类似于下面这样的输出：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">40643,40645,40646,40647,40648,40649,40650,40652,40655,40660,40668,40669,40702,40704,40708,40709,40710,40712,40718,40719,40720,40721,40722,40723,40724,40726,40727,40728,40729,40730,40731,40732,40733,40734,40735,40736,40737,40738,40739,40740,40741,40742,40746,40747,40748,40749,40751,40753,40754,40755,40756,40757,40766,40770,40772,40774,40786</div></pre></td></tr></table></figure>
+<figure class="highlight lsl"><table><tr><td class="code"><pre><div class="line"><span class="number">40643</span>,<span class="number">40645</span>,<span class="number">40646</span>,<span class="number">40647</span>,<span class="number">40648</span>,<span class="number">40649</span>,<span class="number">40650</span>,<span class="number">40652</span>,<span class="number">40655</span>,<span class="number">40660</span>,<span class="number">40668</span>,<span class="number">40669</span>,<span class="number">40702</span>,<span class="number">40704</span>,<span class="number">40708</span>,<span class="number">40709</span>,<span class="number">40710</span>,<span class="number">40712</span>,<span class="number">40718</span>,<span class="number">40719</span>,<span class="number">40720</span>,<span class="number">40721</span>,<span class="number">40722</span>,<span class="number">40723</span>,<span class="number">40724</span>,<span class="number">40726</span>,<span class="number">40727</span>,<span class="number">40728</span>,<span class="number">40729</span>,<span class="number">40730</span>,<span class="number">40731</span>,<span class="number">40732</span>,<span class="number">40733</span>,<span class="number">40734</span>,<span class="number">40735</span>,<span class="number">40736</span>,<span class="number">40737</span>,<span class="number">40738</span>,<span class="number">40739</span>,<span class="number">40740</span>,<span class="number">40741</span>,<span class="number">40742</span>,<span class="number">40746</span>,<span class="number">40747</span>,<span class="number">40748</span>,<span class="number">40749</span>,<span class="number">40751</span>,<span class="number">40753</span>,<span class="number">40754</span>,<span class="number">40755</span>,<span class="number">40756</span>,<span class="number">40757</span>,<span class="number">40766</span>,<span class="number">40770</span>,<span class="number">40772</span>,<span class="number">40774</span>,<span class="number">40786</span></div></pre></td></tr></table></figure>
 <p>接下来为了将这些代码上线，我们就需要知道怎么将Trunk上面的这些代码变更合并到线上分支。当然Tortorise SVN软件内置了这样的功能，但是对于有的钟爱命令行的人士来说，还是要学会如何使用命令行来做这件事。</p>
 <p>说了这么多，其实答案很简单，这里我直接给出答案：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">cd WWW_WORKING_COPY_DIR</div><div class="line">svn merge -c 40643,40645,40646,40647,40648,40649,40650,40652,40655,40660,40668,40669,40702,40704,40708,40709,40710,40712,40718,40719,40720,40721,40722,40723,40724,40726,40727,40728,40729,40730,40731,40732,40733,40734,40735,40736,40737,40738,40739,40740,40741,40742,40746,40747,40748,40749,40751,40753,40754,40755,40756,40757,40766,40770,40772,40774,40786 TRUNK_REPO_URL .</div></pre></td></tr></table></figure>
+<figure class="highlight lsl"><table><tr><td class="code"><pre><div class="line">cd WWW_WORKING_COPY_DIR</div><div class="line">svn merge -c <span class="number">40643</span>,<span class="number">40645</span>,<span class="number">40646</span>,<span class="number">40647</span>,<span class="number">40648</span>,<span class="number">40649</span>,<span class="number">40650</span>,<span class="number">40652</span>,<span class="number">40655</span>,<span class="number">40660</span>,<span class="number">40668</span>,<span class="number">40669</span>,<span class="number">40702</span>,<span class="number">40704</span>,<span class="number">40708</span>,<span class="number">40709</span>,<span class="number">40710</span>,<span class="number">40712</span>,<span class="number">40718</span>,<span class="number">40719</span>,<span class="number">40720</span>,<span class="number">40721</span>,<span class="number">40722</span>,<span class="number">40723</span>,<span class="number">40724</span>,<span class="number">40726</span>,<span class="number">40727</span>,<span class="number">40728</span>,<span class="number">40729</span>,<span class="number">40730</span>,<span class="number">40731</span>,<span class="number">40732</span>,<span class="number">40733</span>,<span class="number">40734</span>,<span class="number">40735</span>,<span class="number">40736</span>,<span class="number">40737</span>,<span class="number">40738</span>,<span class="number">40739</span>,<span class="number">40740</span>,<span class="number">40741</span>,<span class="number">40742</span>,<span class="number">40746</span>,<span class="number">40747</span>,<span class="number">40748</span>,<span class="number">40749</span>,<span class="number">40751</span>,<span class="number">40753</span>,<span class="number">40754</span>,<span class="number">40755</span>,<span class="number">40756</span>,<span class="number">40757</span>,<span class="number">40766</span>,<span class="number">40770</span>,<span class="number">40772</span>,<span class="number">40774</span>,<span class="number">40786</span> TRUNK_REPO_URL .</div></pre></td></tr></table></figure>
 <p>这里TRUNK_REPO_URL支持绝对路径和将对路径，如果是将对路径，是基于跟进行寻址的，比如^/trunk。</p>
 <p>当然，有可能会产生冲突，个人比较推荐的方式是一律保留冲突继续，然后一起处理。</p>
 
@@ -1385,128 +1517,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2014/04/09/install-redmine-on-centos/" itemprop="url">
-                  最新安装Redmine的方法
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2014-04-09T18:02:45+08:00" content="2014-04-09">
-              2014-04-09
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Ops/" itemprop="url" rel="index">
-                    <span itemprop="name">Ops</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2014/04/09/install-redmine-on-centos/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/04/09/install-redmine-on-centos/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>Redmine官网的安装向导基本上不怎么更新，里面的安装说明比较混乱，看着迷糊，实施起来也会遇到诸多问题，但其实现在最新版的Redmine安装已经非常简单了，当然如果英文比较好的话，按源码包里的安装说明文档也是可以的，本文结合不久前的实施经验记录最新的Redmine安装流程。</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2014/04/09/install-redmine-on-centos/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1552,7 +1562,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">29</span>
+              <span class="site-state-item-count">30</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

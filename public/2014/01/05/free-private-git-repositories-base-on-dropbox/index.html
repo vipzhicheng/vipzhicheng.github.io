@@ -344,13 +344,13 @@
         <p>你是否有私有Git项目需要托管却又不想把你买午饭的钱用来购买Github的付费账户？Git与Dropbox整合使用可以免费的实现这一目的，从而你的代码库可以同步到Dropbox并且在多台电脑上同步，通过这种方式你可以托管任意数量的版本库，并且是云备份哦！～。Dropbox的免费账户就有2G的空间，如果只用来托管代码是完全足够的。</p>
 <a id="more"></a>
 <p>下面就来一步一步的实现这个功能。</p>
-<h2 id="创建一个普通的本地Git版本库"><a href="#创建一个普通的本地Git版本库" class="headerlink" title="创建一个普通的本地Git版本库"></a>创建一个普通的本地Git版本库</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">$ cd yourproject</div><div class="line">$ git init</div><div class="line">$ git add *</div><div class="line">$ git commit</div></pre></td></tr></table></figure>
+<h2 id="创建一个普通的本地Git版本库"><a href="#创建一个普通的本地Git版本库" class="headerlink" title="创建一个普通的本地Git版本库"></a>创建一个普通的本地Git版本库</h2><figure class="highlight elixir"><table><tr><td class="code"><pre><div class="line"><span class="variable">$ </span>cd yourproject</div><div class="line"><span class="variable">$ </span>git init</div><div class="line"><span class="variable">$ </span>git add *</div><div class="line"><span class="variable">$ </span>git commit</div></pre></td></tr></table></figure>
 <h2 id="创建一个git目录来存放你的版本库"><a href="#创建一个git目录来存放你的版本库" class="headerlink" title="创建一个git目录来存放你的版本库"></a>创建一个git目录来存放你的版本库</h2><p>在你的Dropbox目录创建一个目录用于存放Git版本库，你当然可以将整个Dropbox目录都用于托管，不过大多数人应该是用Dropbox备份很多私人数据的吧。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">$ cd ~/Dropbox</div><div class="line">$ mkdir git</div></pre></td></tr></table></figure>
+<figure class="highlight dos"><table><tr><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> ~/Dropbox</div><div class="line">$ <span class="built_in">mkdir</span> git</div></pre></td></tr></table></figure>
 <h2 id="创建一个bare版本库"><a href="#创建一个bare版本库" class="headerlink" title="创建一个bare版本库"></a>创建一个bare版本库</h2><p>现在为你的本地工作拷贝创建一个空的版本库作为Git远程版本库，除了这是在本地操作以外，这本质上和用Github或者其他版本库托管网站的工作方式类似。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">$ cd git</div><div class="line">$ mkdir yourproject.git</div><div class="line">$ cd yourproject.git</div><div class="line">$ git --bare init</div></pre></td></tr></table></figure>
+<figure class="highlight elixir"><table><tr><td class="code"><pre><div class="line"><span class="variable">$ </span>cd git</div><div class="line"><span class="variable">$ </span>mkdir yourproject.git</div><div class="line"><span class="variable">$ </span>cd yourproject.git</div><div class="line"><span class="variable">$ </span>git --bare init</div></pre></td></tr></table></figure>
 <h2 id="添加remote-origin并且push到“远程”Dropbox版本库"><a href="#添加remote-origin并且push到“远程”Dropbox版本库" class="headerlink" title="添加remote origin并且push到“远程”Dropbox版本库"></a>添加remote origin并且push到“远程”Dropbox版本库</h2><p>每次同步都会被Dropbox进程自动检测到改变并自动同步到Dropbox服务器</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">$ cd yourproject</div><div class="line">$ git remote add origin ~/Dropbox/git/yourproject.git</div><div class="line">$ git push origin master</div></pre></td></tr></table></figure>
+<figure class="highlight gams"><table><tr><td class="code"><pre><div class="line"><span class="symbol">$</span> cd yourproject</div><div class="line"><span class="symbol">$</span> git remote add origin ~/Dropbox/git/yourproject.git</div><div class="line"><span class="symbol">$</span> git push origin master</div></pre></td></tr></table></figure>
 <h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ol>
 <li>这个方案只适用于单用户的私人项目，多个人一起使用这个方案会有冲突。</li>
 <li>其实更好的方案是使用BitBucket这样的私有项目托管方案，但我更倾向于双保险，尤其是当BitBucket不定时的出现问题的时候。</li>
@@ -492,7 +492,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">29</span>
+              <span class="site-state-item-count">30</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

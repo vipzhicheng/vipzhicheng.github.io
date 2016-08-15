@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Git,SVN," />
 
 
 
@@ -86,12 +86,19 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="理查的学习笔记">
-<meta property="og:url" content="http://www.vipzhicheng.com/tags/Octopress/index.html">
+<meta name="description" content="前言大多数时候，我们在开发一个项目的时候，只对应一个版本库，早期的时候我们用SVN，后来我们更常用Git。一般来说这样也就足够了，我这里和大家探讨的是多版本库协同工作的可能性。
+Git与SVN同时用说到这个话题，大家可以在网上搜到一大把文章，一般的场景是说我之前用的SVN，或者公司中心版本库是SVN，但我开发时想用Git进行版本控制之类的。是的这完全可以做得到，只需要让SVN忽略Git信息文件夹.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="多版本库协同网站开发方法浅谈">
+<meta property="og:url" content="http://www.vipzhicheng.com/2016/08/15/多版本库协同网站开发方法浅谈/index.html">
 <meta property="og:site_name" content="理查的学习笔记">
+<meta property="og:description" content="前言大多数时候，我们在开发一个项目的时候，只对应一个版本库，早期的时候我们用SVN，后来我们更常用Git。一般来说这样也就足够了，我这里和大家探讨的是多版本库协同工作的可能性。
+Git与SVN同时用说到这个话题，大家可以在网上搜到一大把文章，一般的场景是说我之前用的SVN，或者公司中心版本库是SVN，但我开发时想用Git进行版本控制之类的。是的这完全可以做得到，只需要让SVN忽略Git信息文件夹.">
+<meta property="og:updated_time" content="2016-08-15T12:13:24.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="理查的学习笔记">
+<meta name="twitter:title" content="多版本库协同网站开发方法浅谈">
+<meta name="twitter:description" content="前言大多数时候，我们在开发一个项目的时候，只对应一个版本库，早期的时候我们用SVN，后来我们更常用Git。一般来说这样也就足够了，我这里和大家探讨的是多版本库协同工作的可能性。
+Git与SVN同时用说到这个话题，大家可以在网上搜到一大把文章，一般的场景是说我之前用的SVN，或者公司中心版本库是SVN，但我开发时想用Git进行版本控制之类的。是的这完全可以做得到，只需要让SVN忽略Git信息文件夹.">
 
 
 
@@ -109,7 +116,7 @@
   };
 </script>
 
-  <title> 标签: Octopress | 理查的学习笔记 </title>
+  <title> 多版本库协同网站开发方法浅谈 | 理查的学习笔记 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -139,7 +146,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -250,46 +257,180 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        Octopress
-        <small>标签</small>
-      </h2>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                多版本库协同网站开发方法浅谈
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-15T19:56:01+08:00" content="2016-08-15">
+              2016-08-15
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Dev/" itemprop="url" rel="index">
+                    <span itemprop="name">Dev</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/15/多版本库协同网站开发方法浅谈/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/15/多版本库协同网站开发方法浅谈/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>大多数时候，我们在开发一个项目的时候，只对应一个版本库，早期的时候我们用SVN，后来我们更常用Git。一般来说这样也就足够了，我这里和大家探讨的是多版本库协同工作的可能性。</p>
+<h2 id="Git与SVN同时用"><a href="#Git与SVN同时用" class="headerlink" title="Git与SVN同时用"></a>Git与SVN同时用</h2><p>说到这个话题，大家可以在网上搜到一大把文章，一般的场景是说我之前用的SVN，或者公司中心版本库是SVN，但我开发时想用Git进行版本控制之类的。是的这完全可以做得到，只需要让SVN忽略Git信息文件夹.git，Git忽略SVN信息文件夹.svn即可。</p>
+<p>注：SVN忽略Git的最佳实践是把配置写在客户端全局，而Git忽略SVN可以在Git的.gitignore中配置，而Git忽略Git则是Git内置的特性。</p>
+<h2 id="换一个思路"><a href="#换一个思路" class="headerlink" title="换一个思路"></a>换一个思路</h2><p>我这里想说的是多版本库协同，不仅是SVN与Git，也可以是Git与Git，一个大的项目下，各个组件的文件夹分别指向各自的版本库(一般组件版本库我们用Git)。</p>
+<p>为什么要这么做呢，意味着某些复用组件，我可以单独开发和测试，而对于大的项目而言，只是这个组件的其中一个调用实例。</p>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p>这样我们在开发项目时，如果改动了一个组件，我们需要先提交到组件版本库，然后我们可以有几个选择：</p>
+<ol>
+<li>如果初次引用，只需要删除同名文件夹，重新<code>git clone</code>即可。</li>
+<li>如果只有自己在维护，可以直接同时提交给本地项目。</li>
+<li>如果组件本身是多人维护的，那么我们可以<code>git pull</code>拉回最新代码，然后在本地项目完成对兼容性的测试。</li>
+</ol>
+<h2 id="好处在哪里？"><a href="#好处在哪里？" class="headerlink" title="好处在哪里？"></a>好处在哪里？</h2><p>如果这样划分项目，我们除了得到一个可以工作的项目之外，还可以得到若干可复用的组件。对于一些项目型公司来说，会逐渐积累起自己的核心竞争力。</p>
+<p>当然，这已经非常类似于一些组件依赖的包管理工具的核心原理了，所以这里的做法是在没有包管理规范的前提下，提炼复用组件的一种思路。</p>
 
-      <h1 class="post-title">
+      
+    </div>
+
+    <div>
+      
         
-            <a class="post-title-link" href="/2014/01/15/github-password-cache/" itemprop="url">
-              
-                <span itemprop="name">Github密码缓存</span>
-              
-            </a>
+      
+    </div>
+
+    <div>
+      
         
-      </h1>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2014-01-15T02:40:05+08:00"
-              content="2014-01-15" >
-          01-15
-        </time>
-      </div>
+      
+    </div>
 
-    </header>
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Git/" rel="tag">#Git</a>
+          
+            <a href="/tags/SVN/" rel="tag">#SVN</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/11/怎样在-CentOS-7-上安装-Nginx/" rel="next" title="怎样在 CentOS 7 上安装 Nginx">
+                <i class="fa fa-chevron-left"></i> 怎样在 CentOS 7 上安装 Nginx
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </div>
 
-  
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2016/08/15/多版本库协同网站开发方法浅谈/"
+     data-title="多版本库协同网站开发方法浅谈"
+     data-content=""
+     data-url="http://www.vipzhicheng.com/2016/08/15/多版本库协同网站开发方法浅谈/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
 
 
           </div>
@@ -297,6 +438,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/08/15/多版本库协同网站开发方法浅谈/"
+           data-title="多版本库协同网站开发方法浅谈" data-url="http://www.vipzhicheng.com/2016/08/15/多版本库协同网站开发方法浅谈/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -316,8 +465,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpeg"
@@ -403,6 +561,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git与SVN同时用"><span class="nav-number">2.</span> <span class="nav-text">Git与SVN同时用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#换一个思路"><span class="nav-number">3.</span> <span class="nav-text">换一个思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意事项"><span class="nav-number">4.</span> <span class="nav-text">注意事项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#好处在哪里？"><span class="nav-number">5.</span> <span class="nav-text">好处在哪里？</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -499,6 +668,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 

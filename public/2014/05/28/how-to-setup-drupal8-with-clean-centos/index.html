@@ -348,14 +348,14 @@
 <p>因为需要PHP5.4，而源里默认只有php5.3.3，所以按照<a href="http://webtatic.com/packages/php54/" target="_blank" rel="external">这个教程</a>安装了php5.4，然后从源里安装了httpd和mysql-server</p>
 <a id="more"></a>
 <p>以下都假设在root账户下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">yum install httpd mysql-server</div></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="code"><pre><div class="line">yum <span class="keyword">install</span> httpd mysql-<span class="keyword">server</span></div></pre></td></tr></table></figure>
 <p>然后配置了一个虚拟主机，Drupal8用的是alpha11版，注意要开启httpd的重写机制，因为默认就开启了clean url。</p>
 <p>本来Drupal8是可以自动下载语言包的，安装时提示语言包下载不下来，于是我选择了安装英文版。</p>
 <p>为了体验Drupal8，Profile选择的是Standard。</p>
 <p>之后检测依赖扩展，结果需要继续安装缺失的扩展：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">yum install php54w-gd php54w-pdo php54w-dom php54w-mbstring php54w-mysql</div></pre></td></tr></table></figure>
+<figure class="highlight smali"><table><tr><td class="code"><pre><div class="line">yum install php54w-gd php54w-pdo php54w-dom php54w-mbstring php54w-mysql</div></pre></td></tr></table></figure>
 <p>之后别忘了reload httpd</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">/etc/init.d/httpd reload</div></pre></td></tr></table></figure>
+<figure class="highlight dts"><table><tr><td class="code"><pre><div class="line"><span class="meta-keyword">/etc/</span>init.d/httpd reload</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -489,7 +489,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">29</span>
+              <span class="site-state-item-count">30</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

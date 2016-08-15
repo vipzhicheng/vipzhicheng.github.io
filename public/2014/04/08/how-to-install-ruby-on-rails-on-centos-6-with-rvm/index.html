@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="CentOS,Ruby on rails,RVM," />
+  <meta name="keywords" content="CentOS,RVM,Ruby on rails," />
 
 
 
@@ -351,29 +351,29 @@
 <h2 id="关于-Ruby-on-Rails"><a href="#关于-Ruby-on-Rails" class="headerlink" title="关于 Ruby on Rails"></a>关于 Ruby on Rails</h2><p>Ruby on Rails，简称RoR，是一个应用程序集合，提供给开发者一个快速创建Web应用程序的开发框架。</p>
 <p>安装Ruby on Rails环境确实需要一定的时间，不过幸运的是有许多工具可以让安装RoR的流程尽可能的简单。本文基于CentOS6，根据实际安装时的经验对原文步骤略有调整，虽然RVM支持在任意账户下安装，但这里还是以root账户为例，会为以后减少许多不必要的麻烦。<br><a id="more"></a></p>
 <h2 id="第一步，安装RVM"><a href="#第一步，安装RVM" class="headerlink" title="第一步，安装RVM"></a>第一步，安装RVM</h2><p>在我们做任何其他步骤之前，首先要从源做一次更新以确保我们下载的所有包(Package)都是最新的。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">yum update</div></pre></td></tr></table></figure>
+<figure class="highlight nginx"><table><tr><td class="code"><pre><div class="line"><span class="attribute">yum</span> update</div></pre></td></tr></table></figure>
 <p>一旦上面的更新结束，我们就可以开始安装RVM（Ruby Version Manager）了，这个程序可以让你在一台服务器上使用多个版本的Ruby。</p>
 <p>如果你的系统里还没有安装curl，请从安装curl开始。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">yum install curl</div></pre></td></tr></table></figure>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><div class="line">yum <span class="keyword">install</span> curl</div></pre></td></tr></table></figure>
 <p>安装RVM只需要在终端执行以下指令。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">curl -sSL https://get.rvm.io | bash -s stable</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">curl <span class="_">-s</span>SL https://get.rvm.io | bash <span class="_">-s</span> stable</div></pre></td></tr></table></figure>
 <p>安装后，我们需要加载RVM</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">source .bashrc</div><div class="line">source .bash_profile</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><div class="line"><span class="built_in">source</span> .bashrc</div><div class="line"><span class="built_in">source</span> .bash_profile</div></pre></td></tr></table></figure>
 <p>为了保证RVM正常工作，RVM自己有一些软件依赖需要安装，可以通过以下指令查看这些依赖。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">rvm requirements</div></pre></td></tr></table></figure>
+<figure class="highlight mizar"><table><tr><td class="code"><pre><div class="line">rvm <span class="keyword">requirements</span></div></pre></td></tr></table></figure>
 <p>以上指令将自动安装依赖，一般需要根据实际情况安装额外的依赖包，比如笔者在一台服务器非常顺利的执行了这个指令，而在另外一个服务器上则需要安装一个依赖包：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">yum install -y libyaml-devel</div></pre></td></tr></table></figure>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><div class="line">yum <span class="keyword">install</span> -y libyaml-devel</div></pre></td></tr></table></figure>
 <p>以下是参考的反馈信息：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">Checking requirements for centos.</div><div class="line">Installing requirements for centos.</div><div class="line">Updating system-</div><div class="line"></div><div class="line">.</div><div class="line">Installing required packages: patch, libyaml-devel, libffi-devel, autoconf, gcc-c++, patch, readline-devel, zlib-devel, openssl-devel, automake, libtool, bison............. ...............</div><div class="line">Requirements installation successful.</div></pre></td></tr></table></figure>
+<figure class="highlight lasso"><table><tr><td class="code"><pre><div class="line">Checking requirements for centos.</div><div class="line">Installing requirements for centos.</div><div class="line">Updating system-</div><div class="line"></div><div class="line">.</div><div class="line">Installing required packages: patch, libyaml<span class="attr">-devel</span>, libffi<span class="attr">-devel</span>, autoconf, gcc<span class="attr">-c</span>++, patch, readline<span class="attr">-devel</span>, zlib<span class="attr">-devel</span>, openssl<span class="attr">-devel</span>, automake, libtool, bison<span class="attr">...</span><span class="attr">...</span><span class="attr">...</span><span class="attr">...</span>. <span class="attr">...</span><span class="attr">...</span><span class="attr">...</span><span class="attr">...</span><span class="attr">...</span></div><div class="line">Requirements installation successful.</div></pre></td></tr></table></figure>
 <h2 id="第二步，通过RVM安装Ruby"><a href="#第二步，通过RVM安装Ruby" class="headerlink" title="第二步，通过RVM安装Ruby"></a>第二步，通过RVM安装Ruby</h2><p>一旦我们安装好了RVM，安装Ruby是非常容易的。这里要等待比较长的时间。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">rvm install 1.9.3</div></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="code"><pre><div class="line"><span class="selector-tag">rvm</span> <span class="selector-tag">install</span> 1<span class="selector-class">.9</span><span class="selector-class">.3</span></div></pre></td></tr></table></figure>
 <p>因为RVM支持多个Ruby版本，所以我们需要告诉系统我们默认使用哪个版本的Ruby。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">rvm use 1.9.3 --default</div></pre></td></tr></table></figure>
+<figure class="highlight lsl"><table><tr><td class="code"><pre><div class="line">rvm use <span class="number">1.9</span><span class="number">.3</span> --<span class="section">default</span></div></pre></td></tr></table></figure>
 <h2 id="第三步，安装RubyGems"><a href="#第三步，安装RubyGems" class="headerlink" title="第三步，安装RubyGems"></a>第三步，安装RubyGems</h2><p>为了让RoR程序正常工作，我们还需要安装许多Ruby组件，这些都需要靠RubyGems，和前面一样，RubyGems我们也通过RVM来安装。</p>
 <p>PS: 实际测试中，安装了Ruby 1.9.3后，就已经安装了gem，不需要执行下面的指令。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">rvm rubygems current</div></pre></td></tr></table></figure>
+<figure class="highlight nginx"><table><tr><td class="code"><pre><div class="line"><span class="attribute">rvm</span> rubygems current</div></pre></td></tr></table></figure>
 <h2 id="第四步，安装Rails"><a href="#第四步，安装Rails" class="headerlink" title="第四步，安装Rails"></a>第四步，安装Rails</h2><p>最后就是安装Rails了，只需要执行一行指令，但是可能要等上一段时间。如果你安装Rails的目的是安装Redmine，就不用执行下面的指令了，因为Redmine的安装流程会自动安装合适版本的Rails。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">gem install rails</div></pre></td></tr></table></figure>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><div class="line">gem <span class="keyword">install</span> rails</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -397,9 +397,9 @@
           
             <a href="/tags/CentOS/" rel="tag">#CentOS</a>
           
-            <a href="/tags/Ruby-on-rails/" rel="tag">#Ruby on rails</a>
-          
             <a href="/tags/RVM/" rel="tag">#RVM</a>
+          
+            <a href="/tags/Ruby-on-rails/" rel="tag">#Ruby on rails</a>
           
         </div>
       
@@ -509,7 +509,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">29</span>
+              <span class="site-state-item-count">30</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
