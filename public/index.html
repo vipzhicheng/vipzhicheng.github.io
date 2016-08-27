@@ -274,6 +274,139 @@
             
               
                 
+                <a class="post-title-link" href="/2016/08/27/Mac基于socks5的http代理的设置方法/" itemprop="url">
+                  Mac基于socks5的http代理的设置方法
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-27T17:01:40+08:00" content="2016-08-27">
+              2016-08-27
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Ops/" itemprop="url" rel="index">
+                    <span itemprop="name">Ops</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/27/Mac基于socks5的http代理的设置方法/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/27/Mac基于socks5的http代理的设置方法/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>现在主流的代理方式是基于shadowsocks的socks5方式，这是一种局部代理方法，浏览器可以通过插件使用这个代理，但不是任意软件都可以使用的，很多软件不支持socks5方式，一般会支持http代理。</p>
+<p>除了直接架设http代理，我们还有一种选择，就是将流量从http代理端口转发到socks5代理。Mac下，能够实现这个事情的方法有很多，比如polipo，proxychains，不过配置起来比较复杂，这里给大家介绍的是一个配置起来比较简单的方法。</p>
+<p>注意，这种方法需要依赖于本机有个能够正常工作的socks5代理。</p>
+<h2 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h2><ul>
+<li>Homebrew</li>
+</ul>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight mipsasm"><table><tr><td class="code"><pre><div class="line"><span class="keyword">brew </span><span class="keyword">install </span>privoxy</div></pre></td></tr></table></figure>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><figure class="highlight dts"><table><tr><td class="code"><pre><div class="line">vim <span class="meta-keyword">/usr/</span>local<span class="meta-keyword">/etc/</span>privoxy/config</div></pre></td></tr></table></figure>
+<p>只需要配置第一个地方</p>
+<figure class="highlight x86asm"><table><tr><td class="code"><pre><div class="line">forward-socks5   /               <span class="number">127.0</span><span class="meta">.0</span><span class="meta">.1</span>:<span class="number">1080</span> .</div></pre></td></tr></table></figure>
+<p>如果需要修改端口，可以改如下配置，否则默认是8118</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><div class="line"><span class="selector-tag">listen-address</span>  127<span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.1</span><span class="selector-pseudo">:8118</span></div></pre></td></tr></table></figure>
+<h2 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h2><figure class="highlight dts"><table><tr><td class="code"><pre><div class="line"><span class="meta"># 加入开机自启动服务</span></div><div class="line">brew services start privoxy</div><div class="line"></div><div class="line"><span class="meta"># 不加入开机自启动服务</span></div><div class="line">privoxy <span class="meta-keyword">/usr/</span>local<span class="meta-keyword">/etc/</span>privoxy/config</div></pre></td></tr></table></figure>
+<h2 id="对开发人员来说的好处"><a href="#对开发人员来说的好处" class="headerlink" title="对开发人员来说的好处"></a>对开发人员来说的好处</h2><p>一些常用的软件有时需要代理才能够正常下载组件，比如<code>sublime text</code>，<code>atom</code>, <code>npm</code>, <code>git</code>, <code>bower</code>等等。以目前天朝的网络环境，掌握一定的代理技巧是十分有必要的。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/08/15/多版本库协同网站开发方法浅谈/" itemprop="url">
                   多版本库协同网站开发方法浅谈
                 </a>
@@ -1395,133 +1528,11 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2014/04/21/solve-bitbucket-can-not-access/" itemprop="url">
-                  解决Bitbucket无法访问和push
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2014-04-21T00:41:44+08:00" content="2014-04-21">
-              2014-04-21
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Ops/" itemprop="url" rel="index">
-                    <span itemprop="name">Ops</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2014/04/21/solve-bitbucket-can-not-access/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/04/21/solve-bitbucket-can-not-access/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>近日的网络不知道又出了什么状况，各种被墙，尤其是Bitbucket不能使用，严重影响了工作的效率和心情，有时候是网页打不开，有时候是不能pull或者push，通过搜索找到了解决方法，记录如下。</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2014/04/21/solve-bitbucket-can-not-access/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1562,7 +1573,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">30</span>
+              <span class="site-state-item-count">31</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -1579,7 +1590,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">57</span>
+                <span class="site-state-item-count">59</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
