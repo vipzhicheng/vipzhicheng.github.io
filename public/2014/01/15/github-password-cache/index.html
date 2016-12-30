@@ -92,7 +92,7 @@
 <meta property="og:url" content="http://www.vipzhicheng.com/2014/01/15/github-password-cache/index.html">
 <meta property="og:site_name" content="理查的学习笔记">
 <meta property="og:description" content="本文的知识点是关于Git和Github的，但我遇到这个问题是在使用Octopress写博客的过程中，每次写好一个要提交给Github时，总是问我要用户名和密码，所以我就想研究一下，是否可以记住账号密码，还别说真让我找到了，而且是Github网站帮助系统中的一小节，我打算翻译一下，毕竟是新学会了一个知识点。">
-<meta property="og:updated_time" content="2016-08-05T16:24:03.000Z">
+<meta property="og:updated_time" content="2016-08-02T10:38:13.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Github密码缓存">
 <meta name="twitter:description" content="本文的知识点是关于Git和Github的，但我遇到这个问题是在使用Octopress写博客的过程中，每次写好一个要提交给Github时，总是问我要用户名和密码，所以我就想研究一下，是否可以记住账号密码，还别说真让我找到了，而且是Github网站帮助系统中的一小节，我打算翻译一下，毕竟是新学会了一个知识点。">
@@ -350,7 +350,7 @@
 <p>如果你没有安装这个helper，你需要手动安装一下：</p>
 <figure class="highlight nginx"><table><tr><td class="code"><pre><div class="line"><span class="attribute">git</span> credential-osxkeychain</div><div class="line"><span class="comment"># Test for the cred helper</span></div><div class="line"><span class="comment"># git: 'credential-osxkeychain' is not a git command. See 'git --help'.</span></div><div class="line"></div><div class="line">curl -s -O \</div><div class="line">  https://github-media-downloads.s3.amazonaws.com/osx/git-credential-osxkeychain</div><div class="line"><span class="comment"># Download the helper</span></div><div class="line"></div><div class="line">$ chmod u+x git-credential-osxkeychain</div><div class="line"><span class="comment"># Fix the permissions on the file so it can be run</span></div></pre></td></tr></table></figure>
 <p>然后需要把这个脚本放到Git目录下：<br><figure class="highlight bash"><table><tr><td class="code"><pre><div class="line">sudo mv git-credential-osxkeychain \</div><div class="line">  <span class="string">"<span class="variable">$(dirname $(which git)</span>)/git-credential-osxkeychain"</span></div><div class="line"><span class="comment"># Move the helper to the path where git is installed</span></div><div class="line"><span class="comment"># Password: [enter your password]</span></div></pre></td></tr></table></figure></p>
-<p>接着，需要告诉Git我们要用这个helper, 简单的配置一下全局Git配置就行了<br><figure class="highlight applescript"><table><tr><td class="code"><pre><div class="line">git config <span class="comment">--global credential.helper osxkeychain</span></div><div class="line"><span class="comment"># Set git to use the osxkeychain credential helper</span></div></pre></td></tr></table></figure></p>
+<p>接着，需要告诉Git我们要用这个helper, 简单的配置一下全局Git配置就行了<br><figure class="highlight php"><table><tr><td class="code"><pre><div class="line">git config --<span class="keyword">global</span> credential.helper osxkeychain</div><div class="line"><span class="comment"># Set git to use the osxkeychain credential helper</span></div></pre></td></tr></table></figure></p>
 <p>这样下次你提交代码时，会提示输入你账户和密码，并且Mac会弹窗问你是否授权使用钥匙链，授权后，以后提交代码就直接使用钥匙链里记录的密码，不会再提示输入了。</p>
 <p>这样我写完一篇博客直接提交就可以了，So easy!</p>
 <figure class="highlight verilog"><table><tr><td class="code"><pre><div class="line">rake <span class="keyword">generate</span> &amp;&amp; rake deploy</div></pre></td></tr></table></figure>
@@ -493,7 +493,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">31</span>
+              <span class="site-state-item-count">32</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -510,7 +510,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">59</span>
+                <span class="site-state-item-count">64</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
