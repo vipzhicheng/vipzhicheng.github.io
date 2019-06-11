@@ -63,12 +63,12 @@
 
 
 
-<link href="/vendors/font-awesome/css/font-awesome.min.css?v=5.7.2" rel="stylesheet" type="text/css">
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css">
 
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="SVN,CentOS,Subversion,">
+  <meta name="keywords" content="CentOS,SVN,Subversion,">
 
 
 
@@ -87,7 +87,7 @@
 
 
 <meta name="description" content="源代码管理目前的市场上Git主键主流，SVN也仍然有大把的人用，其他也有一些新的或者小众的版本管理软件。对我来说，我选择SVN和Git，一个集中式管理，一个分布式管理，虽然Git强大到可以替代SVN，但有时也没有必要，对我来说部署一个简单的集中式版本控制系统，还是SVN要简单一些。 本文以CentOS 6.3为例阐述了如何用yum的方式安装和部署SVN。">
-<meta name="keywords" content="SVN,CentOS,Subversion">
+<meta name="keywords" content="CentOS,SVN,Subversion">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CentOS用yum安装SVN">
 <meta property="og:url" content="http://www.vipzhicheng.com/2014/04/03/install-svn-on-centos/index.html">
@@ -109,7 +109,7 @@
     fancybox: true,
     motion: true,
     duoshuo: {
-      userId: undefined,
+      userId: 0,
       author: '博主'
     }
   };
@@ -187,12 +187,12 @@
         </li>
       
         
-        <li class="menu-item menu-item-node">
-          <a href="/tags/Node" rel="section">
+        <li class="menu-item menu-item-drupal">
+          <a href="/tags/Drupal" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-drupal"></i> <br>
             
-            menu.node
+            Drupal
           </a>
         </li>
       
@@ -317,6 +317,13 @@
 
           
             
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2014/04/03/install-svn-on-centos/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/04/03/install-svn-on-centos/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -400,9 +407,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/SVN/" rel="tag">#SVN</a>
-          
             <a href="/tags/CentOS/" rel="tag">#CentOS</a>
+          
+            <a href="/tags/SVN/" rel="tag">#SVN</a>
           
             <a href="/tags/Subversion/" rel="tag">#Subversion</a>
           
@@ -438,6 +445,22 @@
 
     <div class="post-spread">
       
+        <div class="ds-share flat" data-thread-key="2014/04/03/install-svn-on-centos/" data-title="CentOS用yum安装SVN" data-content data-url="http://www.vipzhicheng.com/2014/04/03/install-svn-on-centos/">
+  <div class="ds-share-inline">
+    <ul class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
     </div>
   </div>
 
@@ -448,6 +471,9 @@
 
           
   <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2014/04/03/install-svn-on-centos/" data-title="CentOS用yum安装SVN" data-url="http://www.vipzhicheng.com/2014/04/03/install-svn-on-centos/">
+      </div>
     
   </div>
 
@@ -685,9 +711,28 @@
 
   
 
+  
+    
+  
 
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"vipzhicheng"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
 
   
+    
+  
+
+
 
 
 

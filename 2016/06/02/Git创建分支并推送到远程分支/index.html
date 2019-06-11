@@ -63,12 +63,12 @@
 
 
 
-<link href="/vendors/font-awesome/css/font-awesome.min.css?v=5.7.2" rel="stylesheet" type="text/css">
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css">
 
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="Git,分支,Node,">
+  <meta name="keywords" content="Git,分支,">
 
 
 
@@ -86,18 +86,18 @@
 
 
 
-<meta name="description" content="在为公司技术部选型博客系统的过程中，最终选择了 Hexo+Git 内网构建的方式，一方面是希望大家学会这一优秀的静态博客系统的使用方法，另一方面，也是希望大家逐渐熟悉 Git，为下一步真正的项目代码迁移到 Git 做准备。 Git 上手很简单，但其实很复杂，很多命令都并没有真正理解，就算学会了也很容易忘，这就需要不断实践，也需要时间来体会。 本文的重点主要还是学到的一点 Git 知识，做一个记录，">
-<meta name="keywords" content="Git,分支,Node">
+<meta name="description" content="在为公司技术部选型博客系统的过程中，最终选择了Hexo+Git内网构建的方式，一方面是希望大家学会这一优秀的静态博客系统的使用方法，另一方面，也是希望大家逐渐熟悉Git，为下一步真正的项目代码迁移到Git做准备。 Git上手很简单，但其实很复杂，很多命令都并没有真正理解，就算学会了也很容易忘，这就需要不断实践，也需要时间来体会。 本文的重点主要还是学到的一点Git知识，做一个记录，感觉不记下来不久">
+<meta name="keywords" content="Git,分支">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git创建分支并推送到远程分支">
 <meta property="og:url" content="http://www.vipzhicheng.com/2016/06/02/Git创建分支并推送到远程分支/index.html">
 <meta property="og:site_name" content="理查的学习笔记">
-<meta property="og:description" content="在为公司技术部选型博客系统的过程中，最终选择了 Hexo+Git 内网构建的方式，一方面是希望大家学会这一优秀的静态博客系统的使用方法，另一方面，也是希望大家逐渐熟悉 Git，为下一步真正的项目代码迁移到 Git 做准备。 Git 上手很简单，但其实很复杂，很多命令都并没有真正理解，就算学会了也很容易忘，这就需要不断实践，也需要时间来体会。 本文的重点主要还是学到的一点 Git 知识，做一个记录，">
+<meta property="og:description" content="在为公司技术部选型博客系统的过程中，最终选择了Hexo+Git内网构建的方式，一方面是希望大家学会这一优秀的静态博客系统的使用方法，另一方面，也是希望大家逐渐熟悉Git，为下一步真正的项目代码迁移到Git做准备。 Git上手很简单，但其实很复杂，很多命令都并没有真正理解，就算学会了也很容易忘，这就需要不断实践，也需要时间来体会。 本文的重点主要还是学到的一点Git知识，做一个记录，感觉不记下来不久">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-16T17:58:24.826Z">
+<meta property="og:updated_time" content="2019-06-11T16:53:18.197Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git创建分支并推送到远程分支">
-<meta name="twitter:description" content="在为公司技术部选型博客系统的过程中，最终选择了 Hexo+Git 内网构建的方式，一方面是希望大家学会这一优秀的静态博客系统的使用方法，另一方面，也是希望大家逐渐熟悉 Git，为下一步真正的项目代码迁移到 Git 做准备。 Git 上手很简单，但其实很复杂，很多命令都并没有真正理解，就算学会了也很容易忘，这就需要不断实践，也需要时间来体会。 本文的重点主要还是学到的一点 Git 知识，做一个记录，">
+<meta name="twitter:description" content="在为公司技术部选型博客系统的过程中，最终选择了Hexo+Git内网构建的方式，一方面是希望大家学会这一优秀的静态博客系统的使用方法，另一方面，也是希望大家逐渐熟悉Git，为下一步真正的项目代码迁移到Git做准备。 Git上手很简单，但其实很复杂，很多命令都并没有真正理解，就算学会了也很容易忘，这就需要不断实践，也需要时间来体会。 本文的重点主要还是学到的一点Git知识，做一个记录，感觉不记下来不久">
 
 
 
@@ -109,7 +109,7 @@
     fancybox: true,
     motion: true,
     duoshuo: {
-      userId: undefined,
+      userId: 0,
       author: '博主'
     }
   };
@@ -187,12 +187,12 @@
         </li>
       
         
-        <li class="menu-item menu-item-node">
-          <a href="/tags/Node" rel="section">
+        <li class="menu-item menu-item-drupal">
+          <a href="/tags/Drupal" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-drupal"></i> <br>
             
-            menu.node
+            Drupal
           </a>
         </li>
       
@@ -317,6 +317,13 @@
 
           
             
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/02/Git创建分支并推送到远程分支/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/02/Git创建分支并推送到远程分支/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -336,15 +343,15 @@
       
 
       
-        <p>在为公司技术部选型博客系统的过程中，最终选择了 Hexo+Git 内网构建的方式，一方面是希望大家学会这一优秀的静态博客系统的使用方法，另一方面，也是希望大家逐渐熟悉 Git，为下一步真正的项目代码迁移到 Git 做准备。</p>
-<p>Git 上手很简单，但其实很复杂，很多命令都并没有真正理解，就算学会了也很容易忘，这就需要不断实践，也需要时间来体会。</p>
-<p>本文的重点主要还是学到的一点 Git 知识，做一个记录，感觉不记下来不久以后还会忘。</p>
+        <p>在为公司技术部选型博客系统的过程中，最终选择了Hexo+Git内网构建的方式，一方面是希望大家学会这一优秀的静态博客系统的使用方法，另一方面，也是希望大家逐渐熟悉Git，为下一步真正的项目代码迁移到Git做准备。</p>
+<p>Git上手很简单，但其实很复杂，很多命令都并没有真正理解，就算学会了也很容易忘，这就需要不断实践，也需要时间来体会。</p>
+<p>本文的重点主要还是学到的一点Git知识，做一个记录，感觉不记下来不久以后还会忘。</p>
 <h1 id="创建分支"><a href="#创建分支" class="headerlink" title="创建分支"></a>创建分支</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git checkout -b richardyu</span><br></pre></td></tr></table></figure>
 <h1 id="添加远程版本库"><a href="#添加远程版本库" class="headerlink" title="添加远程版本库"></a>添加远程版本库</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git remote add origin GIT_REPO_URL</span><br></pre></td></tr></table></figure>
 <h1 id="推送到远程分支"><a href="#推送到远程分支" class="headerlink" title="推送到远程分支"></a>推送到远程分支</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git push origin richardyu:richardyu</span><br></pre></td></tr></table></figure>
 <h1 id="删除远程分支"><a href="#删除远程分支" class="headerlink" title="删除远程分支"></a>删除远程分支</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git push origin :richardyu</span><br></pre></td></tr></table></figure>
 <h1 id="获取远程分支"><a href="#获取远程分支" class="headerlink" title="获取远程分支"></a>获取远程分支</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> -b master GIT_REPO repo</span><br></pre></td></tr></table></figure>
-<h1 id="在-clone-之后，获取远程的其他分支"><a href="#在-clone-之后，获取远程的其他分支" class="headerlink" title="在 clone 之后，获取远程的其他分支"></a>在 clone 之后，获取远程的其他分支</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git fetch origin BRANCH:BRANCH</span><br></pre></td></tr></table></figure>
+<h1 id="在clone之后，获取远程的其他分支"><a href="#在clone之后，获取远程的其他分支" class="headerlink" title="在clone之后，获取远程的其他分支"></a>在clone之后，获取远程的其他分支</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git fetch origin BRANCH:BRANCH</span><br></pre></td></tr></table></figure>
 <p>注意，删除远程分支不会删除本地分支，还可以再推回去。</p>
 
       
@@ -370,8 +377,6 @@
             <a href="/tags/Git/" rel="tag">#Git</a>
           
             <a href="/tags/分支/" rel="tag">#分支</a>
-          
-            <a href="/tags/Node/" rel="tag">#Node</a>
           
         </div>
       
@@ -405,6 +410,22 @@
 
     <div class="post-spread">
       
+        <div class="ds-share flat" data-thread-key="2016/06/02/Git创建分支并推送到远程分支/" data-title="Git创建分支并推送到远程分支" data-content data-url="http://www.vipzhicheng.com/2016/06/02/Git创建分支并推送到远程分支/">
+  <div class="ds-share-inline">
+    <ul class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
     </div>
   </div>
 
@@ -415,6 +436,9 @@
 
           
   <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/06/02/Git创建分支并推送到远程分支/" data-title="Git创建分支并推送到远程分支" data-url="http://www.vipzhicheng.com/2016/06/02/Git创建分支并推送到远程分支/">
+      </div>
     
   </div>
 
@@ -538,7 +562,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#创建分支"><span class="nav-number">1.</span> <span class="nav-text">创建分支</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#添加远程版本库"><span class="nav-number">2.</span> <span class="nav-text">添加远程版本库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#推送到远程分支"><span class="nav-number">3.</span> <span class="nav-text">推送到远程分支</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#删除远程分支"><span class="nav-number">4.</span> <span class="nav-text">删除远程分支</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#获取远程分支"><span class="nav-number">5.</span> <span class="nav-text">获取远程分支</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#在-clone-之后，获取远程的其他分支"><span class="nav-number">6.</span> <span class="nav-text">在 clone 之后，获取远程的其他分支</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#创建分支"><span class="nav-number">1.</span> <span class="nav-text">创建分支</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#添加远程版本库"><span class="nav-number">2.</span> <span class="nav-text">添加远程版本库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#推送到远程分支"><span class="nav-number">3.</span> <span class="nav-text">推送到远程分支</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#删除远程分支"><span class="nav-number">4.</span> <span class="nav-text">删除远程分支</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#获取远程分支"><span class="nav-number">5.</span> <span class="nav-text">获取远程分支</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#在clone之后，获取远程的其他分支"><span class="nav-number">6.</span> <span class="nav-text">在clone之后，获取远程的其他分支</span></a></li></ol></div>
             
           </div>
         </section>
@@ -652,9 +676,28 @@
 
   
 
+  
+    
+  
 
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"vipzhicheng"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
 
   
+    
+  
+
+
 
 
 

@@ -63,7 +63,7 @@
 
 
 
-<link href="/vendors/font-awesome/css/font-awesome.min.css?v=5.7.2" rel="stylesheet" type="text/css">
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css">
 
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css">
 
@@ -104,7 +104,7 @@
     fancybox: true,
     motion: true,
     duoshuo: {
-      userId: undefined,
+      userId: 0,
       author: '博主'
     }
   };
@@ -184,12 +184,12 @@
         </li>
       
         
-        <li class="menu-item menu-item-node">
-          <a href="/tags/Node" rel="section">
+        <li class="menu-item menu-item-drupal">
+          <a href="/tags/Drupal" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-drupal"></i> <br>
             
-            menu.node
+            Drupal
           </a>
         </li>
       
@@ -317,6 +317,13 @@
 
           
             
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/12/28/Drupal网站添加https实战/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/28/Drupal网站添加https实战/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -364,7 +371,7 @@
 <p>我个人认为这样的配置，对我来说是最合理的一种配置。</p>
 <h1 id="网站配置"><a href="#网站配置" class="headerlink" title="网站配置"></a>网站配置</h1><p>这样配置以后，网站本身已经支持https了，但是由于网站还没有进行配置，所以现在打开的话，网页浏览还是不正常的，地址栏还没有出现绿色的锁头。</p>
 <p>下面是网站需要做的相关配置：</p>
-<p>settings.php<br><figure class="highlight php"><table><tr><td class="code"><pre><span class="line">$conf[<span class="string">'https'</span>] = <span class="keyword">TRUE</span>;</span><br></pre></td></tr></table></figure></p>
+<p>settings.php<br><figure class="highlight autoit"><table><tr><td class="code"><pre><span class="line">$conf[<span class="string">'https'</span>] = <span class="literal">TRUE</span><span class="comment">;</span></span><br></pre></td></tr></table></figure></p>
 <p>开启了这项服务之后，网站是可以在http和https中共享session的，虽然我要的是全站https，但我还是开着，万一以后改成半http半https呢？</p>
 <p>https网站如果想要被浏览器信任，需要进一步加载的资源都是https的，这就需要网站在https访问时对网站代码进行一个替换，这种替换有多种方法，比如只修改$base_url就是其中最简单的一种。这里我不是这样做的。我用的完整代码如下，大家可以看到我封装了一个http2https的模块，因为我还不认为这是最佳方式，只是可以工作的一种方式，还有进一步的优化空间：</p>
 <figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">define(<span class="string">'HTTP2HTTPS_SERVER_KEY'</span>, <span class="string">'HTTPS'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Implement hook_page_delivery_callback_alter</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> $delivery_callback</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">http2https_page_delivery_callback_alter</span><span class="params">(&amp;$delivery_callback)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">isset</span>($_SERVER[HTTP2HTTPS_SERVER_KEY]) &amp;&amp; !<span class="keyword">empty</span>($_SERVER[HTTP2HTTPS_SERVER_KEY])) &#123;</span><br><span class="line">    $delivery_callback = <span class="string">'http2https_drupal_deliver_html_page_https'</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">http2https_drupal_deliver_html_page_https</span><span class="params">($page_callback_result)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (is_int($page_callback_result)) &#123;</span><br><span class="line">    drupal_deliver_html_page($page_callback_result);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">elseif</span> (<span class="keyword">isset</span>($page_callback_result)) &#123;</span><br><span class="line">    <span class="comment">// Emit the correct charset HTTP header, but not if the page callback</span></span><br><span class="line">    <span class="comment">// result is NULL, since that likely indicates that it printed something</span></span><br><span class="line">    <span class="comment">// in which case, no further headers may be sent, and not if code running</span></span><br><span class="line">    <span class="comment">// for this page request has already set the content type header.</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">isset</span>($page_callback_result) &amp;&amp; is_null(drupal_get_http_header(<span class="string">'Content-Type'</span>))) &#123;</span><br><span class="line">      drupal_add_http_header(<span class="string">'Content-Type'</span>, <span class="string">'text/html; charset=utf-8'</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Send appropriate HTTP-Header for browsers and search engines.</span></span><br><span class="line">    <span class="keyword">global</span> $language;</span><br><span class="line">    drupal_add_http_header(<span class="string">'Content-Language'</span>, $language-&gt;language);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Print anything besides a menu constant, assuming it's not NULL or</span></span><br><span class="line">    <span class="comment">// undefined.</span></span><br><span class="line">    $content =  drupal_render_page($page_callback_result);</span><br><span class="line">    $content = str_replace(<span class="string">'http://'</span>, <span class="string">'https://'</span>, $content);</span><br><span class="line">    $content = str_replace(<span class="string">'http:\/\/'</span>, <span class="string">'https:\/\/'</span>, $content);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">print</span> $content;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Perform end-of-request tasks.</span></span><br><span class="line">    drupal_page_footer();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -459,6 +466,13 @@
           
 
           
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/27/Mac基于socks5的http代理的设置方法/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/27/Mac基于socks5的http代理的设置方法/" itemprop="commentsCount"></span>
+                </a>
+              </span>
             
           
 
@@ -586,6 +600,13 @@
 
           
             
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/15/多版本库协同网站开发方法浅谈/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/15/多版本库协同网站开发方法浅谈/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -711,6 +732,13 @@
 
           
             
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/11/怎样在-CentOS-7-上安装-Nginx/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/11/怎样在-CentOS-7-上安装-Nginx/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -829,6 +857,13 @@
           
 
           
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/07/25/SVN合并trunk的一些版本到分支/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/25/SVN合并trunk的一些版本到分支/" itemprop="commentsCount"></span>
+                </a>
+              </span>
             
           
 
@@ -955,6 +990,13 @@
 
           
             
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/15/让New-Relic排除不需要统计的PHP请求/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/15/让New-Relic排除不需要统计的PHP请求/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -1080,6 +1122,13 @@
 
           
             
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/06/02/Git创建分支并推送到远程分支/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/02/Git创建分支并推送到远程分支/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -1101,15 +1150,15 @@
       
         
           
-            <p>在为公司技术部选型博客系统的过程中，最终选择了 Hexo+Git 内网构建的方式，一方面是希望大家学会这一优秀的静态博客系统的使用方法，另一方面，也是希望大家逐渐熟悉 Git，为下一步真正的项目代码迁移到 Git 做准备。</p>
-<p>Git 上手很简单，但其实很复杂，很多命令都并没有真正理解，就算学会了也很容易忘，这就需要不断实践，也需要时间来体会。</p>
-<p>本文的重点主要还是学到的一点 Git 知识，做一个记录，感觉不记下来不久以后还会忘。</p>
+            <p>在为公司技术部选型博客系统的过程中，最终选择了Hexo+Git内网构建的方式，一方面是希望大家学会这一优秀的静态博客系统的使用方法，另一方面，也是希望大家逐渐熟悉Git，为下一步真正的项目代码迁移到Git做准备。</p>
+<p>Git上手很简单，但其实很复杂，很多命令都并没有真正理解，就算学会了也很容易忘，这就需要不断实践，也需要时间来体会。</p>
+<p>本文的重点主要还是学到的一点Git知识，做一个记录，感觉不记下来不久以后还会忘。</p>
 <h1 id="创建分支"><a href="#创建分支" class="headerlink" title="创建分支"></a>创建分支</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git checkout -b richardyu</span><br></pre></td></tr></table></figure>
 <h1 id="添加远程版本库"><a href="#添加远程版本库" class="headerlink" title="添加远程版本库"></a>添加远程版本库</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git remote add origin GIT_REPO_URL</span><br></pre></td></tr></table></figure>
 <h1 id="推送到远程分支"><a href="#推送到远程分支" class="headerlink" title="推送到远程分支"></a>推送到远程分支</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git push origin richardyu:richardyu</span><br></pre></td></tr></table></figure>
 <h1 id="删除远程分支"><a href="#删除远程分支" class="headerlink" title="删除远程分支"></a>删除远程分支</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git push origin :richardyu</span><br></pre></td></tr></table></figure>
 <h1 id="获取远程分支"><a href="#获取远程分支" class="headerlink" title="获取远程分支"></a>获取远程分支</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> -b master GIT_REPO repo</span><br></pre></td></tr></table></figure>
-<h1 id="在-clone-之后，获取远程的其他分支"><a href="#在-clone-之后，获取远程的其他分支" class="headerlink" title="在 clone 之后，获取远程的其他分支"></a>在 clone 之后，获取远程的其他分支</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git fetch origin BRANCH:BRANCH</span><br></pre></td></tr></table></figure>
+<h1 id="在clone之后，获取远程的其他分支"><a href="#在clone之后，获取远程的其他分支" class="headerlink" title="在clone之后，获取远程的其他分支"></a>在clone之后，获取远程的其他分支</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git fetch origin BRANCH:BRANCH</span><br></pre></td></tr></table></figure>
 <p>注意，删除远程分支不会删除本地分支，还可以再推回去。</p>
 
           
@@ -1201,6 +1250,13 @@
           
 
           
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2014/08/22/add-ssh-key-to-github/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/08/22/add-ssh-key-to-github/" itemprop="commentsCount"></span>
+                </a>
+              </span>
             
           
 
@@ -1318,6 +1374,13 @@
 
           
             
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2014/05/28/how-to-setup-drupal8-with-clean-centos/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/05/28/how-to-setup-drupal8-with-clean-centos/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -1433,6 +1496,13 @@
           
 
           
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2014/05/22/init-ubuntu/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/05/22/init-ubuntu/" itemprop="commentsCount"></span>
+                </a>
+              </span>
             
           
 
@@ -1710,9 +1780,28 @@
 
   
 
+  
+    
+  
 
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"vipzhicheng"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
 
   
+    
+  
+
+
 
 
 

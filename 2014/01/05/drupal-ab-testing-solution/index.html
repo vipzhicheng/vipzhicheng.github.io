@@ -63,7 +63,7 @@
 
 
 
-<link href="/vendors/font-awesome/css/font-awesome.min.css?v=5.7.2" rel="stylesheet" type="text/css">
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css">
 
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css">
 
@@ -109,7 +109,7 @@
     fancybox: true,
     motion: true,
     duoshuo: {
-      userId: undefined,
+      userId: 0,
       author: '博主'
     }
   };
@@ -187,12 +187,12 @@
         </li>
       
         
-        <li class="menu-item menu-item-node">
-          <a href="/tags/Node" rel="section">
+        <li class="menu-item menu-item-drupal">
+          <a href="/tags/Drupal" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-drupal"></i> <br>
             
-            menu.node
+            Drupal
           </a>
         </li>
       
@@ -317,6 +317,13 @@
 
           
             
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2014/01/05/drupal-ab-testing-solution/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/01/05/drupal-ab-testing-solution/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -366,9 +373,9 @@
 <p>在settings.php里设置统计代码，注意里面的key是request_uri，也就是实际路径，不是Drupal Path</p>
 <figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">if (empty($_GET['v'])) &#123;</span><br><span class="line">  $conf[<span class="string">'head_prepend'</span>][<span class="symbol">'/node/374'</span>] = [GA CODE];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="为原始代码实现多个版本"><a href="#为原始代码实现多个版本" class="headerlink" title="为原始代码实现多个版本"></a>为原始代码实现多个版本</h3><p>前面的逻辑都写好以后，我们就可以很方便的在任意页面插入统计JS代码了，但同时GA Content Experiments还需要多个版本，这里以一个版本为例，我们是可以随意开发一个新的版本用一个新的url，但要注意，这只是一个实验，在得出结果以后，好的版本会留下，不好的版本会被淘汰，这时如果我们让网站同时存在两个版本，时间长了会越来越难维护，有很多冗余代码在里面，为了解决这个问题，我写了一个简单的入口函数abtest()。也就是说我给出的是一个函数级别A/B Test的方案，可以给任意函数添加新版本。 下面来简单看一下这个函数的用法</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 注意第二个参数可以传多个同功能新版函数</span></span><br><span class="line">$output = abtest(<span class="string">'func_a'</span>, <span class="keyword">array</span>(<span class="string">'func_b'</span>));</span><br></pre></td></tr></table></figure>
+<figure class="highlight lasso"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 注意第二个参数可以传多个同功能新版函数</span></span><br><span class="line">$output = abtest(<span class="string">'func_a'</span>, <span class="built_in">array</span>(<span class="string">'func_b'</span>));</span><br></pre></td></tr></table></figure>
 <p>当测试结束是，我们一般会随时希望将效果好的版本正式上线，这时我们会选择使用settings.php。如果想更加易用一般会为这个setting开发后台用于开关和版本选择，但settings.php一般来说是我们更加常用的settings设置手段，因为这种settings照顾到了可配置性，而且一般配置好了也不经常修改。</p>
-<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 如果设置成0就是强制启用原始版本，如果是2就是强制使用新版本2（如果有的话）</span></span><br><span class="line">$conf[<span class="string">'abtest_force_func_a'</span>, <span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line"><span class="regexp">//</span> 如果设置成<span class="number">0</span>就是强制启用原始版本，如果是<span class="number">2</span>就是强制使用新版本<span class="number">2</span>（如果有的话）</span><br><span class="line"><span class="variable">$conf</span>[<span class="string">'abtest_force_func_a'</span>, <span class="number">1</span>);</span><br></pre></td></tr></table></figure>
 <p>入口函数源码</p>
 <figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 这个是用于分发各个版本的入口函数，很简单不是么</span></span><br><span class="line"><span class="comment">// 第一个参数是原始函数，第二个参数是多个新版函数名组成的数组，第三个参数是传给函数的参数。</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">abtest</span><span class="params">($test_function, $buckets = array<span class="params">()</span>, $args = array<span class="params">()</span>)</span> </span>&#123;</span><br><span class="line">  !is_array($buckets) &amp;&amp; $buckets = (<span class="keyword">array</span>) $buckets;</span><br><span class="line">  $bucket = variable_get(<span class="string">'abtest_force_'</span> . $test_function, <span class="keyword">NULL</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (!<span class="keyword">isset</span>($bucket)) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">isset</span>($_GET[<span class="string">'bucket_name'</span>])) &#123;</span><br><span class="line">      $bucket_name = check_plain($_GET[<span class="string">'bucket_name'</span>]);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      $bucket_name = variable_get(<span class="string">'abtest_bucket_name'</span>, <span class="string">'v'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">isset</span>($_GET[$bucket_name])) &#123;</span><br><span class="line">      $bucket = check_plain($_GET[$bucket_name]);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      $bucket = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>这里需要注意的是即使是Drupal页面级的A/B Test也可以从这个方案中获益</p>
@@ -442,6 +449,22 @@
 
     <div class="post-spread">
       
+        <div class="ds-share flat" data-thread-key="2014/01/05/drupal-ab-testing-solution/" data-title="Drupal A/B Test解决方案之一" data-content data-url="http://www.vipzhicheng.com/2014/01/05/drupal-ab-testing-solution/">
+  <div class="ds-share-inline">
+    <ul class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
     </div>
   </div>
 
@@ -452,6 +475,9 @@
 
           
   <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2014/01/05/drupal-ab-testing-solution/" data-title="Drupal A/B Test解决方案之一" data-url="http://www.vipzhicheng.com/2014/01/05/drupal-ab-testing-solution/">
+      </div>
     
   </div>
 
@@ -689,9 +715,28 @@
 
   
 
+  
+    
+  
 
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"vipzhicheng"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
 
   
+    
+  
+
+
 
 
 
