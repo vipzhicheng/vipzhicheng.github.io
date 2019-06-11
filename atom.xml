@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>理查的学习笔记</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://www.vipzhicheng.com/"/>
+  <updated>2019-03-16T17:05:55.443Z</updated>
+  <id>http://www.vipzhicheng.com/</id>
+  
+  <author>
+    <name>Richard Yu</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Drupal网站添加https实战</title>
+    <link href="http://www.vipzhicheng.com/2016/12/28/Drupal%E7%BD%91%E7%AB%99%E6%B7%BB%E5%8A%A0https%E5%AE%9E%E6%88%98/"/>
+    <id>http://www.vipzhicheng.com/2016/12/28/Drupal网站添加https实战/</id>
+    <published>2016-12-28T14:10:43.000Z</published>
+    <updated>2019-03-16T17:05:55.443Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>时间即将进入2017年，2017年，苹果开始强制要求APP使用https的接口；2017年，各大营销平台对落地页的要求是必须是https页面；2017年，是微信小程序元年，微信小程序要求接口必须是https的。2017年，https已经到来，你和你的网站准备好了么？</p><p>怀着这样一个目的，我开始了给自己的网站安装https的历程。首先，介绍一下我的网站，Drupal项目社区，域名是：<a href="https://www.drupalproject.org" target="_blank" rel="noopener">www.drupalproject.org</a>。主要是为了Drupal在国内的推广以及Drupal新手查阅一些相关资料。这个网站目前基于Drupal7，有多个子域名，是典型的Drupal多站点架构。</p><p>在实施的过程中，我最大的体会是大部分查阅的资料很多都没办法用上，因为每个人的网站运行环境是不同的，所以我不打算把这篇文字写的特别细，只概述几个我印象特别深刻的几个地方，希望能给朋友们一些思路和灵感。</p><h1 id="谁可以给我证书"><a href="#谁可以给我证书" class="headerlink" title="谁可以给我证书"></a>谁可以给我证书</h1><p>第一件事就是到哪里注册证书，查阅了一些资料，大家首推的是<a href="https://letsencrypt.org/" target="_blank" rel="noopener">Let’s Encrypt</a>，其他的我也就不提及了，只说一下这个CA是免费的，各浏览器都信任，可以自动更新。在选择机构上面，我并没有花太多时间。通过官网的介绍，我知道我需要用一个叫<a href="https://certbot.eff.org/" target="_blank" rel="noopener">Certbot</a>的东西当客户端。</p><h1 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h1><p>本文不会详细介绍Docker，但我的网站目前是基于Docker架构运行的，通过Docker Compose管理，内部基于Nginx和php-fpm，通过几个月的尝试，非常的稳定，而且易于运维，所以非常推荐大家也开始尝试Docker。</p><h1 id="Certbot"><a href="#Certbot" class="headerlink" title="Certbot"></a>Certbot</h1><p>由于用的是Docker，所以Certbot也要在Docker的架构下，在Docker官方的<a href="http://hub.docker.com" target="_blank" rel="noopener">镜像仓库</a>搜了一下，有很多私有镜像已经帮我做好了，通过尝试，我选择了其中的一个，以下是docker-compose.yml中的相关配置。</p><figure class="highlight http"><table><tr><td class="code"><pre><span class="line"><span class="attribute">version</span>: '2'</span><br><span class="line"></span><br><span class="line"><span class="attribute">volumes:</span></span><br><span class="line">   letsencrypt:</span><br><span class="line">     <span class="attribute">driver</span>: local</span><br><span class="line"></span><br><span class="line"><span class="attribute">services:</span></span><br><span class="line">  certbot:</span><br><span class="line">    <span class="attribute">container_name</span>: certbot</span><br><span class="line">    <span class="attribute">image</span>: quay.io/letsencrypt/letsencrypt</span><br><span class="line">    <span class="attribute">ports:</span></span><br><span class="line">      - '443:443'</span><br><span class="line">      - '80:80'</span><br><span class="line">    <span class="attribute">volumes:</span></span><br><span class="line">      - letsencrypt:/etc/letsencrypt</span><br><span class="line">      - /var/lib/letsencrypt:/var/lib/letsencrypt</span><br><span class="line">    <span class="attribute">entrypoint</span>: ""</span><br><span class="line">    <span class="attribute">command</span>: bash -c "certbot auth -n --standalone -d drupalproject.org -d www.drupalproject.org -d code.drupalproject.org -d api.drupalproject.org --agree-tos --email 我的邮箱"</span><br></pre></td></tr></table></figure><p>这里不会讲Docker Compose配置文件的语法，大家需要注意到的是，我使用的镜像是quay.io/letsencrypt/letsencrypt，是由CoreOS提供的。启动这个容器之后，我们就能得到证书了，是不是很简单？</p><p>证书的地址在容器中的位置是：</p><figure class="highlight awk"><table><tr><td class="code"><pre><span class="line"><span class="regexp">/etc/</span>letsencrypt<span class="regexp">/live/</span>drupalproject.org</span><br></pre></td></tr></table></figure><p>在实际使用时，我是通过Docker容器卷挂载的方式，所以路径会有所不同。</p><p>大家可能会注意到，我分别为每个子域名申请了证书，因为Let’s encrypt不发放泛域名证书，这一点大家要注意，另外证书的有效期只有3个月。</p><p>那么证书过期了怎么办呢？我们需要在证书过期之前更新证书，这一点Certbot客户端为我们封装了命令，使用起来很简单，借助于Docker这个更新就更方便了，以下是命令，要注意的是启动之前要关闭Nginx，执行后再开启Nginx，我是把这件事情放在服务器的计划任务的，但是也可以手动执行。</p><figure class="highlight applescript"><table><tr><td class="code"><pre><span class="line">docker-compose <span class="built_in">run</span> <span class="comment">--rm --service-ports certbot certbot renew</span></span><br></pre></td></tr></table></figure><h1 id="使用证书"><a href="#使用证书" class="headerlink" title="使用证书"></a>使用证书</h1><p>得到了证书只是第一步，我们还需要把证书配置在Web服务器中，例如Apache或者Nginx，我自己用的是Nginx，所以我以Nginx为例。并且这里要提前跟大家说的是，证书配置到Nginx之后还不行，后面还要做一些其他配置。</p><p>以下是我Nginx上证书相关的配置。</p><figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># Part 1</span></span><br><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">    <span class="attribute">listen</span> <span class="number">80</span>;</span><br><span class="line">    <span class="attribute">listen</span> <span class="number">443</span> ssl;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">server_name</span> drupalproject.org;</span><br><span class="line">    <span class="attribute">return</span> <span class="number">301</span> <span class="variable">$scheme</span>://www.drupalproject.org<span class="variable">$request_uri</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># Part 2</span></span><br><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">    <span class="attribute">listen</span> <span class="number">80</span>;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">server_name</span> <span class="regexp">*.drupalproject.org</span>;</span><br><span class="line">    <span class="attribute">return</span> <span class="number">301</span> https://<span class="variable">$host</span><span class="variable">$request_uri</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># Part 3</span></span><br><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">    <span class="attribute">listen</span> <span class="number">443</span> ssl;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">server_name</span> www.drupalproject.org code.drupalproject.org api.drupalproject.org;</span><br><span class="line">    </span><br><span class="line">    <span class="attribute">ssl</span> <span class="literal">on</span>;</span><br><span class="line">    <span class="attribute">ssl_certificate</span>     /etc/nginx/certs/live/drupalproject.org/fullchain.pem;</span><br><span class="line">    <span class="attribute">ssl_certificate_key</span> /etc/nginx/certs/live/drupalproject.org/privkey.pem;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>这里的配置只是和证书相关的一部分，不是我完整虚拟主机的配置。并且也不是每个人都需要和我一样的配置，这个配置只是一个参考。下面我来解释各个部分的含义：</p><ul><li>Part 1 是用于把drupalproject跳转到<a href="http://www.drupalproject.org，不管是不是https。" target="_blank" rel="noopener">www.drupalproject.org，不管是不是https。</a></li><li>Part 2 是把任何非https的二级域名跳转到https的向应二级域名。</li><li>Part 3 是真正的对https的请求，挂载https证书。</li></ul><p>我个人认为这样的配置，对我来说是最合理的一种配置。</p><h1 id="网站配置"><a href="#网站配置" class="headerlink" title="网站配置"></a>网站配置</h1><p>这样配置以后，网站本身已经支持https了，但是由于网站还没有进行配置，所以现在打开的话，网页浏览还是不正常的，地址栏还没有出现绿色的锁头。</p><p>下面是网站需要做的相关配置：</p><p>settings.php<br><figure class="highlight php"><table><tr><td class="code"><pre><span class="line">$conf[<span class="string">'https'</span>] = <span class="keyword">TRUE</span>;</span><br></pre></td></tr></table></figure></p><p>开启了这项服务之后，网站是可以在http和https中共享session的，虽然我要的是全站https，但我还是开着，万一以后改成半http半https呢？</p><p>https网站如果想要被浏览器信任，需要进一步加载的资源都是https的，这就需要网站在https访问时对网站代码进行一个替换，这种替换有多种方法，比如只修改$base_url就是其中最简单的一种。这里我不是这样做的。我用的完整代码如下，大家可以看到我封装了一个http2https的模块，因为我还不认为这是最佳方式，只是可以工作的一种方式，还有进一步的优化空间：</p><figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">define(<span class="string">'HTTP2HTTPS_SERVER_KEY'</span>, <span class="string">'HTTPS'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Implement hook_page_delivery_callback_alter</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> $delivery_callback</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">http2https_page_delivery_callback_alter</span><span class="params">(&amp;$delivery_callback)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">isset</span>($_SERVER[HTTP2HTTPS_SERVER_KEY]) &amp;&amp; !<span class="keyword">empty</span>($_SERVER[HTTP2HTTPS_SERVER_KEY])) &#123;</span><br><span class="line">    $delivery_callback = <span class="string">'http2https_drupal_deliver_html_page_https'</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">http2https_drupal_deliver_html_page_https</span><span class="params">($page_callback_result)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (is_int($page_callback_result)) &#123;</span><br><span class="line">    drupal_deliver_html_page($page_callback_result);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">elseif</span> (<span class="keyword">isset</span>($page_callback_result)) &#123;</span><br><span class="line">    <span class="comment">// Emit the correct charset HTTP header, but not if the page callback</span></span><br><span class="line">    <span class="comment">// result is NULL, since that likely indicates that it printed something</span></span><br><span class="line">    <span class="comment">// in which case, no further headers may be sent, and not if code running</span></span><br><span class="line">    <span class="comment">// for this page request has already set the content type header.</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">isset</span>($page_callback_result) &amp;&amp; is_null(drupal_get_http_header(<span class="string">'Content-Type'</span>))) &#123;</span><br><span class="line">      drupal_add_http_header(<span class="string">'Content-Type'</span>, <span class="string">'text/html; charset=utf-8'</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Send appropriate HTTP-Header for browsers and search engines.</span></span><br><span class="line">    <span class="keyword">global</span> $language;</span><br><span class="line">    drupal_add_http_header(<span class="string">'Content-Language'</span>, $language-&gt;language);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Print anything besides a menu constant, assuming it's not NULL or</span></span><br><span class="line">    <span class="comment">// undefined.</span></span><br><span class="line">    $content =  drupal_render_page($page_callback_result);</span><br><span class="line">    $content = str_replace(<span class="string">'http://'</span>, <span class="string">'https://'</span>, $content);</span><br><span class="line">    $content = str_replace(<span class="string">'http:\/\/'</span>, <span class="string">'https:\/\/'</span>, $content);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">print</span> $content;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Perform end-of-request tasks.</span></span><br><span class="line">    drupal_page_footer();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>在以上代码和配置的作用下，我的网站终于实现了全站https。虽然本文篇幅不长，但是从我开始决定这么做，到我成功实现实际用了很长时间，踩了无数的坑儿，我的摸索之路也不是按照上面的顺序一帆风顺，而是来回调整的。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h1&gt;&lt;p&gt;时间即将进入2017年，2017年，苹果开始强制要求APP使用https的接口；2017年，各大营销平台对落地页的要求是必须是https页面
+      
+    
+    </summary>
+    
+      <category term="Ops" scheme="http://www.vipzhicheng.com/categories/Ops/"/>
+    
+    
+      <category term="Drupal" scheme="http://www.vipzhicheng.com/tags/Drupal/"/>
+    
+      <category term="HTTPS" scheme="http://www.vipzhicheng.com/tags/HTTPS/"/>
+    
+      <category term="证书" scheme="http://www.vipzhicheng.com/tags/%E8%AF%81%E4%B9%A6/"/>
+    
+      <category term="Docker" scheme="http://www.vipzhicheng.com/tags/Docker/"/>
+    
+      <category term="Letsencrypt" scheme="http://www.vipzhicheng.com/tags/Letsencrypt/"/>
+    
+      <category term="Certbot" scheme="http://www.vipzhicheng.com/tags/Certbot/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Mac基于socks5的http代理的设置方法</title>
+    <link href="http://www.vipzhicheng.com/2016/08/27/Mac%E5%9F%BA%E4%BA%8Esocks5%E7%9A%84http%E4%BB%A3%E7%90%86%E7%9A%84%E8%AE%BE%E7%BD%AE%E6%96%B9%E6%B3%95/"/>
+    <id>http://www.vipzhicheng.com/2016/08/27/Mac基于socks5的http代理的设置方法/</id>
+    <published>2016-08-27T09:01:40.000Z</published>
+    <updated>2019-03-16T17:05:55.442Z</updated>
+    
+    <content type="html"><![CDATA[<p>现在主流的代理方式是基于shadowsocks的socks5方式，这是一种局部代理方法，浏览器可以通过插件使用这个代理，但不是任意软件都可以使用的，很多软件不支持socks5方式，一般会支持http代理。</p><p>除了直接架设http代理，我们还有一种选择，就是将流量从http代理端口转发到socks5代理。Mac下，能够实现这个事情的方法有很多，比如polipo，proxychains，不过配置起来比较复杂，这里给大家介绍的是一个配置起来比较简单的方法。</p><p>注意，这种方法需要依赖于本机有个能够正常工作的socks5代理。</p><h2 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h2><ul><li>Homebrew</li></ul><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight mipsasm"><table><tr><td class="code"><pre><span class="line"><span class="keyword">brew </span><span class="keyword">install </span>privoxy</span><br></pre></td></tr></table></figure><h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">vim <span class="regexp">/usr/</span>local<span class="regexp">/etc/</span>privoxy<span class="regexp">/config</span></span><br></pre></td></tr></table></figure><p>只需要配置第一个地方</p><figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line">forward-socks5   /               <span class="number">127.0</span><span class="meta">.0</span><span class="meta">.1</span>:<span class="number">1080</span> .</span><br></pre></td></tr></table></figure><p>如果需要修改端口，可以改如下配置，否则默认是8118</p><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">listen-address</span>  127<span class="selector-class">.0</span><span class="selector-class">.0</span><span class="selector-class">.1</span><span class="selector-pseudo">:8118</span></span><br></pre></td></tr></table></figure><h2 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h2><figure class="highlight awk"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 加入开机自启动服务</span></span><br><span class="line">brew services start privoxy</span><br><span class="line"></span><br><span class="line"><span class="comment"># 不加入开机自启动服务</span></span><br><span class="line">privoxy <span class="regexp">/usr/</span>local<span class="regexp">/etc/</span>privoxy<span class="regexp">/config</span></span><br></pre></td></tr></table></figure><h2 id="对开发人员来说的好处"><a href="#对开发人员来说的好处" class="headerlink" title="对开发人员来说的好处"></a>对开发人员来说的好处</h2><p>一些常用的软件有时需要代理才能够正常下载组件，比如<code>sublime text</code>，<code>atom</code>, <code>npm</code>, <code>git</code>, <code>bower</code>等等。以目前天朝的网络环境，掌握一定的代理技巧是十分有必要的。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;现在主流的代理方式是基于shadowsocks的socks5方式，这是一种局部代理方法，浏览器可以通过插件使用这个代理，但不是任意软件都可以使用的，很多软件不支持socks5方式，一般会支持http代理。&lt;/p&gt;
+&lt;p&gt;除了直接架设http代理，我们还有一种选择，就是将流量
+      
+    
+    </summary>
+    
+      <category term="Ops" scheme="http://www.vipzhicheng.com/categories/Ops/"/>
+    
+    
+      <category term="代理" scheme="http://www.vipzhicheng.com/tags/%E4%BB%A3%E7%90%86/"/>
+    
+      <category term="HTTP代理" scheme="http://www.vipzhicheng.com/tags/HTTP%E4%BB%A3%E7%90%86/"/>
+    
+      <category term="Privoxy" scheme="http://www.vipzhicheng.com/tags/Privoxy/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>多版本库协同网站开发方法浅谈</title>
+    <link href="http://www.vipzhicheng.com/2016/08/15/%E5%A4%9A%E7%89%88%E6%9C%AC%E5%BA%93%E5%8D%8F%E5%90%8C%E7%BD%91%E7%AB%99%E5%BC%80%E5%8F%91%E6%96%B9%E6%B3%95%E6%B5%85%E8%B0%88/"/>
+    <id>http://www.vipzhicheng.com/2016/08/15/多版本库协同网站开发方法浅谈/</id>
+    <published>2016-08-15T11:56:01.000Z</published>
+    <updated>2019-03-16T17:05:55.442Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>大多数时候，我们在开发一个项目的时候，只对应一个版本库，早期的时候我们用SVN，后来我们更常用Git。一般来说这样也就足够了，我这里和大家探讨的是多版本库协同工作的可能性。</p><h2 id="Git与SVN同时用"><a href="#Git与SVN同时用" class="headerlink" title="Git与SVN同时用"></a>Git与SVN同时用</h2><p>说到这个话题，大家可以在网上搜到一大把文章，一般的场景是说我之前用的SVN，或者公司中心版本库是SVN，但我开发时想用Git进行版本控制之类的。是的这完全可以做得到，只需要让SVN忽略Git信息文件夹.git，Git忽略SVN信息文件夹.svn即可。</p><p>注：SVN忽略Git的最佳实践是把配置写在客户端全局，而Git忽略SVN可以在Git的.gitignore中配置，而Git忽略Git则是Git内置的特性。</p><h2 id="换一个思路"><a href="#换一个思路" class="headerlink" title="换一个思路"></a>换一个思路</h2><p>我这里想说的是多版本库协同，不仅是SVN与Git，也可以是Git与Git，一个大的项目下，各个组件的文件夹分别指向各自的版本库(一般组件版本库我们用Git)。</p><p>为什么要这么做呢，意味着某些复用组件，我可以单独开发和测试，而对于大的项目而言，只是这个组件的其中一个调用实例。</p><h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p>这样我们在开发项目时，如果改动了一个组件，我们需要先提交到组件版本库，然后我们可以有几个选择：</p><ol><li>如果初次引用，只需要删除同名文件夹，重新<code>git clone</code>即可。</li><li>如果只有自己在维护，可以直接同时提交给本地项目。</li><li>如果组件本身是多人维护的，那么我们可以<code>git pull</code>拉回最新代码，然后在本地项目完成对兼容性的测试。</li></ol><h2 id="好处在哪里？"><a href="#好处在哪里？" class="headerlink" title="好处在哪里？"></a>好处在哪里？</h2><p>如果这样划分项目，我们除了得到一个可以工作的项目之外，还可以得到若干可复用的组件。对于一些项目型公司来说，会逐渐积累起自己的核心竞争力。</p><p>当然，这已经非常类似于一些组件依赖的包管理工具的核心原理了，所以这里的做法是在没有包管理规范的前提下，提炼复用组件的一种思路。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;大多数时候，我们在开发一个项目的时候，只对应一个版本库，早期的时候我们用SVN，后来我们更常用Git。一般来说这样也就足够了，我这里和大家探
+      
+    
+    </summary>
+    
+      <category term="Dev" scheme="http://www.vipzhicheng.com/categories/Dev/"/>
+    
+    
+      <category term="Git" scheme="http://www.vipzhicheng.com/tags/Git/"/>
+    
+      <category term="SVN" scheme="http://www.vipzhicheng.com/tags/SVN/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>怎样在 CentOS 7 上安装 Nginx</title>
+    <link href="http://www.vipzhicheng.com/2016/08/11/%E6%80%8E%E6%A0%B7%E5%9C%A8-CentOS-7-%E4%B8%8A%E5%AE%89%E8%A3%85-Nginx/"/>
+    <id>http://www.vipzhicheng.com/2016/08/11/怎样在-CentOS-7-上安装-Nginx/</id>
+    <published>2016-08-11T11:40:03.000Z</published>
+    <updated>2019-03-16T17:05:55.442Z</updated>
+    
+    <content type="html"><![CDATA[<p>Nginx是一个高性能的Web服务器，比Apache要灵活和轻量。</p><p>注，以下安装过程需要具有<code>root</code>权限或者用<code>sudo</code>来执行，注意这个教程是针对<code>CentOS 7</code>的，貌似<code>CentOS 7</code>上的软件安装都异常的简单。</p><h2 id="第一步：添加Nginx软件源"><a href="#第一步：添加Nginx软件源" class="headerlink" title="第一步：添加Nginx软件源"></a>第一步：添加Nginx软件源</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">sudo yum <span class="keyword">install</span> epel-<span class="keyword">release</span></span><br></pre></td></tr></table></figure><h2 id="第二步：安装Nginx"><a href="#第二步：安装Nginx" class="headerlink" title="第二步：安装Nginx"></a>第二步：安装Nginx</h2><figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">sudo yum <span class="keyword">install</span> nginx</span><br></pre></td></tr></table></figure><h2 id="第三步：开启Nginx服务"><a href="#第三步：开启Nginx服务" class="headerlink" title="第三步：开启Nginx服务"></a>第三步：开启Nginx服务</h2><figure class="highlight crmsh"><table><tr><td class="code"><pre><span class="line">sudo systemctl <span class="literal">start</span> nginx</span><br></pre></td></tr></table></figure><h2 id="验证是否正常工作"><a href="#验证是否正常工作" class="headerlink" title="验证是否正常工作"></a>验证是否正常工作</h2><figure class="highlight dts"><table><tr><td class="code"><pre><span class="line"><span class="symbol">http:</span><span class="comment">//server_domain_name_or_IP/</span></span><br></pre></td></tr></table></figure><h2 id="把Nginx加到开机自启动"><a href="#把Nginx加到开机自启动" class="headerlink" title="把Nginx加到开机自启动"></a>把Nginx加到开机自启动</h2><figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">sudo systemctl <span class="builtin-name">enable</span> nginx</span><br></pre></td></tr></table></figure><h2 id="默认的配置文件路径和Web根目录"><a href="#默认的配置文件路径和Web根目录" class="headerlink" title="默认的配置文件路径和Web根目录"></a>默认的配置文件路径和Web根目录</h2><figure class="highlight crystal"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 默认配置文件路径</span></span><br><span class="line">/etc/nginx/nginx.conf</span><br><span class="line"></span><br><span class="line"><span class="comment"># 其他自定义配置文件所在目录，可定义虚拟主机，以`.conf`扩展名结尾</span></span><br><span class="line">/etc/nginx/conf.d</span><br><span class="line"></span><br><span class="line"><span class="comment"># 默认Web根目录</span></span><br><span class="line">/usr/share/nginx/html</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Nginx是一个高性能的Web服务器，比Apache要灵活和轻量。&lt;/p&gt;
+&lt;p&gt;注，以下安装过程需要具有&lt;code&gt;root&lt;/code&gt;权限或者用&lt;code&gt;sudo&lt;/code&gt;来执行，注意这个教程是针对&lt;code&gt;CentOS 7&lt;/code&gt;的，貌似&lt;code&gt;C
+      
+    
+    </summary>
+    
+      <category term="Ops" scheme="http://www.vipzhicheng.com/categories/Ops/"/>
+    
+    
+      <category term="CentOS" scheme="http://www.vipzhicheng.com/tags/CentOS/"/>
+    
+      <category term="CentOS 7" scheme="http://www.vipzhicheng.com/tags/CentOS-7/"/>
+    
+      <category term="Nginx" scheme="http://www.vipzhicheng.com/tags/Nginx/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SVN merge命令合并trunk的一些版本到分支</title>
+    <link href="http://www.vipzhicheng.com/2016/07/25/SVN%E5%90%88%E5%B9%B6trunk%E7%9A%84%E4%B8%80%E4%BA%9B%E7%89%88%E6%9C%AC%E5%88%B0%E5%88%86%E6%94%AF/"/>
+    <id>http://www.vipzhicheng.com/2016/07/25/SVN合并trunk的一些版本到分支/</id>
+    <published>2016-07-25T09:16:32.000Z</published>
+    <updated>2019-03-16T17:05:55.442Z</updated>
+    
+    <content type="html"><![CDATA[<p>这里主要是先描述问题产生的场景，然后给出答案，并少量设计了代码工作流方面的话题，但并没有做重点阐述。</p><p>使用版本控制软件对代码变更进行追踪只是第一步，更进一步，我们还需要基于版本控制软件为团队开发定义工作流，并一直坚持相同的习惯。对于Git有<code>Git flow</code>, <code>Github flow</code>, <code>Gitlab flow</code>等等。对于之前比较流行的SVN也是如此。SVN的团队开发流程不止一种，常见的也是有单个长期分支的工作流和开发分支，线上分支双分支工作流。</p><p>我们使用SVN进行代码管理的项目使用的是后者，也就是开发分支，线上分支分开，然后通过合并（Merge）来决定哪些版本上线，更进一步，我们使用Redmine进行任务管理，和SVN整合后，任务相关的版本是整合到一起的显示的。</p><p>为了得到一个任务(我们叫Ticket)的全部版本号(Revision)，我们写了一小段JS代码在浏览器Redmine任务页面的Console里执行，如果小伙伴们有更好的获取一个Ticket下的版本号的方法，可以和我交流一下。</p><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> scriptNode = <span class="built_in">document</span>.createElement(<span class="string">'script'</span>); scriptNode.src = <span class="string">'http://code.jquery.com/jquery-1.10.1.min.js'</span>; <span class="built_in">document</span>.head.appendChild(scriptNode);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> version = <span class="string">''</span>;</span><br><span class="line">$(<span class="string">'.changeset &gt; p &gt; a'</span>).each(<span class="function"><span class="keyword">function</span>(<span class="params">i</span>)</span>&#123;</span><br><span class="line">  version += $(<span class="keyword">this</span>).text().replace(<span class="string">'修订 '</span>, <span class="string">''</span>) + <span class="string">','</span>;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(version );</span><br></pre></td></tr></table></figure><p>PS：里面的修订两个字也可能是Revision，取决于Redmine当前语言是中文还是英文。</p><p>然后就会得到类似于下面这样的输出：</p><figure class="highlight lsl"><table><tr><td class="code"><pre><span class="line"><span class="number">40643</span>,<span class="number">40645</span>,<span class="number">40646</span>,<span class="number">40647</span>,<span class="number">40648</span>,<span class="number">40649</span>,<span class="number">40650</span>,<span class="number">40652</span>,<span class="number">40655</span>,<span class="number">40660</span>,<span class="number">40668</span>,<span class="number">40669</span>,<span class="number">40702</span>,<span class="number">40704</span>,<span class="number">40708</span>,<span class="number">40709</span>,<span class="number">40710</span>,<span class="number">40712</span>,<span class="number">40718</span>,<span class="number">40719</span>,<span class="number">40720</span>,<span class="number">40721</span>,<span class="number">40722</span>,<span class="number">40723</span>,<span class="number">40724</span>,<span class="number">40726</span>,<span class="number">40727</span>,<span class="number">40728</span>,<span class="number">40729</span>,<span class="number">40730</span>,<span class="number">40731</span>,<span class="number">40732</span>,<span class="number">40733</span>,<span class="number">40734</span>,<span class="number">40735</span>,<span class="number">40736</span>,<span class="number">40737</span>,<span class="number">40738</span>,<span class="number">40739</span>,<span class="number">40740</span>,<span class="number">40741</span>,<span class="number">40742</span>,<span class="number">40746</span>,<span class="number">40747</span>,<span class="number">40748</span>,<span class="number">40749</span>,<span class="number">40751</span>,<span class="number">40753</span>,<span class="number">40754</span>,<span class="number">40755</span>,<span class="number">40756</span>,<span class="number">40757</span>,<span class="number">40766</span>,<span class="number">40770</span>,<span class="number">40772</span>,<span class="number">40774</span>,<span class="number">40786</span></span><br></pre></td></tr></table></figure><p>接下来为了将这些代码上线，我们就需要知道怎么将Trunk上面的这些代码变更合并到线上分支。当然Tortorise SVN软件内置了这样的功能，但是对于有的钟爱命令行的人士来说，还是要学会如何使用命令行来做这件事。</p><p>说了这么多，其实答案很简单，这里我直接给出答案：</p><figure class="highlight lsl"><table><tr><td class="code"><pre><span class="line">cd WWW_WORKING_COPY_DIR</span><br><span class="line">svn merge -c <span class="number">40643</span>,<span class="number">40645</span>,<span class="number">40646</span>,<span class="number">40647</span>,<span class="number">40648</span>,<span class="number">40649</span>,<span class="number">40650</span>,<span class="number">40652</span>,<span class="number">40655</span>,<span class="number">40660</span>,<span class="number">40668</span>,<span class="number">40669</span>,<span class="number">40702</span>,<span class="number">40704</span>,<span class="number">40708</span>,<span class="number">40709</span>,<span class="number">40710</span>,<span class="number">40712</span>,<span class="number">40718</span>,<span class="number">40719</span>,<span class="number">40720</span>,<span class="number">40721</span>,<span class="number">40722</span>,<span class="number">40723</span>,<span class="number">40724</span>,<span class="number">40726</span>,<span class="number">40727</span>,<span class="number">40728</span>,<span class="number">40729</span>,<span class="number">40730</span>,<span class="number">40731</span>,<span class="number">40732</span>,<span class="number">40733</span>,<span class="number">40734</span>,<span class="number">40735</span>,<span class="number">40736</span>,<span class="number">40737</span>,<span class="number">40738</span>,<span class="number">40739</span>,<span class="number">40740</span>,<span class="number">40741</span>,<span class="number">40742</span>,<span class="number">40746</span>,<span class="number">40747</span>,<span class="number">40748</span>,<span class="number">40749</span>,<span class="number">40751</span>,<span class="number">40753</span>,<span class="number">40754</span>,<span class="number">40755</span>,<span class="number">40756</span>,<span class="number">40757</span>,<span class="number">40766</span>,<span class="number">40770</span>,<span class="number">40772</span>,<span class="number">40774</span>,<span class="number">40786</span> TRUNK_REPO_URL .</span><br></pre></td></tr></table></figure><p>这里TRUNK_REPO_URL支持绝对路径和将对路径，如果是将对路径，是基于跟进行寻址的，比如^/trunk。</p><p>当然，有可能会产生冲突，个人比较推荐的方式是一律保留冲突继续，然后一起处理。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;这里主要是先描述问题产生的场景，然后给出答案，并少量设计了代码工作流方面的话题，但并没有做重点阐述。&lt;/p&gt;
+&lt;p&gt;使用版本控制软件对代码变更进行追踪只是第一步，更进一步，我们还需要基于版本控制软件为团队开发定义工作流，并一直坚持相同的习惯。对于Git有&lt;code&gt;Git 
+      
+    
+    </summary>
+    
+      <category term="Dev" scheme="http://www.vipzhicheng.com/categories/Dev/"/>
+    
+    
+      <category term="SVN" scheme="http://www.vipzhicheng.com/tags/SVN/"/>
+    
+      <category term="Merge" scheme="http://www.vipzhicheng.com/tags/Merge/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>让New Relic排除不需要统计的PHP请求</title>
+    <link href="http://www.vipzhicheng.com/2016/06/15/%E8%AE%A9New-Relic%E6%8E%92%E9%99%A4%E4%B8%8D%E9%9C%80%E8%A6%81%E7%BB%9F%E8%AE%A1%E7%9A%84PHP%E8%AF%B7%E6%B1%82/"/>
+    <id>http://www.vipzhicheng.com/2016/06/15/让New-Relic排除不需要统计的PHP请求/</id>
+    <published>2016-06-15T09:36:59.000Z</published>
+    <updated>2019-03-16T17:05:55.440Z</updated>
+    
+    <content type="html"><![CDATA[<p>我们使用<code>New Relic</code>作为性能监控分析工具，关于<code>New Relic</code>就不过多介绍了，大家可以自己去搜搜。这种性能分析工具对于大型网站来说是必不可少的，而其特色不仅在于可以监控服务器硬件指标，而且可以监控应用级别的各种数据，当网站发生性能问题时，可以在上面找到一些线索，甚至是直接找到答案。目前国内也有同类产品了，比如说听云，目前还没有机会尝试。</p><p>我们遇到的问题是，我们希望<code>New Relic</code>监控我们的部分核心应用的性能指标，但服务器上部署了一些非核心应用，这些应用又存在着访问量大，但是逻辑简单，所以响应迅速的问题，所以从监控上看，这个服务器的平均响应时间非常的低，而其他只部署核心应用的服务器的平均响应时间是很高的，这就给人了一个假象，从而看不出这台服务器核心应用的真实水准。</p><p>那么怎么排除掉非核心应用呢？经过调查，发现<code>New Relic</code>支持一些<a href="https://docs.newrelic.com/docs/agents/php-agent/configuration/php-agent-api" target="_blank" rel="noopener">API</a>，可以对上传的数据做定制，里面恰好就有解决这个问题的API。</p><figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (extension_loaded(<span class="string">'newrelic'</span>)) &#123;</span><br><span class="line">    newrelic_ignore_transaction();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>这个API函数的描述是这样的：</p><blockquote><p>Do not generate metrics for this transaction. This is useful when you have transactions that are particularly slow for known reasons and you do not want them always being reported as the transaction trace or skewing your site averages.</p></blockquote><p>将这段代码加到非核心应用的入口文件里的，效果是立竿见影。</p><img src="/2016/06/15/让New-Relic排除不需要统计的PHP请求/QQ20160615-1@2x.png" title="New Relic 监控截图"><p>如果进一步思考，我的核心应用里可能有一些已知性能差，但是不需要理会的程序（比如计划任务），我也是不希望在里面混淆视听的，这时，我们就需要把这段代码放到我们的核心应用里，根据路径或者其他判定条件忽略对本次请求的监控。</p><p>监控的意义在于，发现突然出现的波峰波谷，如果引起动荡的原因是你肯定不关心的，就可以忽略掉，不上传数据给<code>New Relic</code>。</p><p>更多<code>New Relic</code> API大家就自己去探索吧，当我有使用场景时，也会记录下来，跟大家分享。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;我们使用&lt;code&gt;New Relic&lt;/code&gt;作为性能监控分析工具，关于&lt;code&gt;New Relic&lt;/code&gt;就不过多介绍了，大家可以自己去搜搜。这种性能分析工具对于大型网站来说是必不可少的，而其特色不仅在于可以监控服务器硬件指标，而且可以监控应用级别的各种数据
+      
+    
+    </summary>
+    
+      <category term="Dev" scheme="http://www.vipzhicheng.com/categories/Dev/"/>
+    
+    
+      <category term="New Relic" scheme="http://www.vipzhicheng.com/tags/New-Relic/"/>
+    
+      <category term="性能优化" scheme="http://www.vipzhicheng.com/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
+    
+      <category term="监控" scheme="http://www.vipzhicheng.com/tags/%E7%9B%91%E6%8E%A7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Git创建分支并推送到远程分支</title>
+    <link href="http://www.vipzhicheng.com/2016/06/02/Git%E5%88%9B%E5%BB%BA%E5%88%86%E6%94%AF%E5%B9%B6%E6%8E%A8%E9%80%81%E5%88%B0%E8%BF%9C%E7%A8%8B%E5%88%86%E6%94%AF/"/>
+    <id>http://www.vipzhicheng.com/2016/06/02/Git创建分支并推送到远程分支/</id>
+    <published>2016-06-02T10:20:56.000Z</published>
+    <updated>2019-03-16T17:58:24.826Z</updated>
+    
+    <content type="html"><![CDATA[<p>在为公司技术部选型博客系统的过程中，最终选择了 Hexo+Git 内网构建的方式，一方面是希望大家学会这一优秀的静态博客系统的使用方法，另一方面，也是希望大家逐渐熟悉 Git，为下一步真正的项目代码迁移到 Git 做准备。</p><p>Git 上手很简单，但其实很复杂，很多命令都并没有真正理解，就算学会了也很容易忘，这就需要不断实践，也需要时间来体会。</p><p>本文的重点主要还是学到的一点 Git 知识，做一个记录，感觉不记下来不久以后还会忘。</p><h1 id="创建分支"><a href="#创建分支" class="headerlink" title="创建分支"></a>创建分支</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git checkout -b richardyu</span><br></pre></td></tr></table></figure><h1 id="添加远程版本库"><a href="#添加远程版本库" class="headerlink" title="添加远程版本库"></a>添加远程版本库</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git remote add origin GIT_REPO_URL</span><br></pre></td></tr></table></figure><h1 id="推送到远程分支"><a href="#推送到远程分支" class="headerlink" title="推送到远程分支"></a>推送到远程分支</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git push origin richardyu:richardyu</span><br></pre></td></tr></table></figure><h1 id="删除远程分支"><a href="#删除远程分支" class="headerlink" title="删除远程分支"></a>删除远程分支</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git push origin :richardyu</span><br></pre></td></tr></table></figure><h1 id="获取远程分支"><a href="#获取远程分支" class="headerlink" title="获取远程分支"></a>获取远程分支</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> -b master GIT_REPO repo</span><br></pre></td></tr></table></figure><h1 id="在-clone-之后，获取远程的其他分支"><a href="#在-clone-之后，获取远程的其他分支" class="headerlink" title="在 clone 之后，获取远程的其他分支"></a>在 clone 之后，获取远程的其他分支</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git fetch origin BRANCH:BRANCH</span><br></pre></td></tr></table></figure><p>注意，删除远程分支不会删除本地分支，还可以再推回去。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;在为公司技术部选型博客系统的过程中，最终选择了 Hexo+Git 内网构建的方式，一方面是希望大家学会这一优秀的静态博客系统的使用方法，另一方面，也是希望大家逐渐熟悉 Git，为下一步真正的项目代码迁移到 Git 做准备。&lt;/p&gt;
+&lt;p&gt;Git 上手很简单，但其实很复杂，很
+      
+    
+    </summary>
+    
+      <category term="Ops" scheme="http://www.vipzhicheng.com/categories/Ops/"/>
+    
+    
+      <category term="Git" scheme="http://www.vipzhicheng.com/tags/Git/"/>
+    
+      <category term="分支" scheme="http://www.vipzhicheng.com/tags/%E5%88%86%E6%94%AF/"/>
+    
+      <category term="Node" scheme="http://www.vipzhicheng.com/tags/Node/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>为Github添加SSH KEY</title>
+    <link href="http://www.vipzhicheng.com/2014/08/22/add-ssh-key-to-github/"/>
+    <id>http://www.vipzhicheng.com/2014/08/22/add-ssh-key-to-github/</id>
+    <published>2014-08-22T08:19:43.000Z</published>
+    <updated>2019-03-16T17:05:55.440Z</updated>
+    
+    <content type="html"><![CDATA[<p>如果你使用Github，Bitbucket, 或者国产的Coding.net等，都会在个人设置那里看到设置SSH Key的地方，这个是做什么用的呢，这个是用来让你提交代码通过SSH隧道的方式提交到远程服务器，这种方式有安全，稳定以及无需每次输入认证信息等特点。</p><p>本文只是以Github为例，讲解怎么操作，至于原理和概念，请自行搜索。</p><a id="more"></a><h2 id="第一步，检查一下当前已经生成的SSH-keys"><a href="#第一步，检查一下当前已经生成的SSH-keys" class="headerlink" title="第一步，检查一下当前已经生成的SSH keys"></a>第一步，检查一下当前已经生成的SSH keys</h2><figure class="highlight jboss-cli"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ls</span> -al ~<span class="string">/.ssh</span></span><br></pre></td></tr></table></figure><p>当然理论上当前存在的SSH keys不会影响你新创建的，注意为每个不同的key取不同的文件名。</p><h2 id="第二步，创建一个新的SSH-key"><a href="#第二步，创建一个新的SSH-key" class="headerlink" title="第二步，创建一个新的SSH key"></a>第二步，创建一个新的SSH key</h2><figure class="highlight elixir"><table><tr><td class="code"><pre><span class="line"><span class="variable">$ </span>ssh-keygen -t rsa -C <span class="string">"your_email@example.com"</span></span><br><span class="line"><span class="comment"># Creates a new ssh key, using the provided email as a label</span></span><br><span class="line"><span class="comment"># Generating public/private rsa key pair.</span></span><br><span class="line"><span class="comment"># Enter file in which to save the key (/Users/you/.ssh/id_rsa): [这里建议起个特殊的名字]</span></span><br></pre></td></tr></table></figure><figure class="highlight ada"><table><tr><td class="code"><pre><span class="line">Enter passphrase (empty <span class="keyword">for</span> no passphrase): [<span class="keyword">Type</span> <span class="type">a </span>passphrase]</span><br><span class="line"># Enter same passphrase again: [<span class="keyword">Type</span> <span class="type">passphrase </span>again]</span><br></pre></td></tr></table></figure><p>passphrase类似于密码，但只是本机使用，可以不设置，但这样不够安全。</p><p>你会得到类似于下面的输出：</p><figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">Your</span> <span class="selector-tag">identification</span> <span class="selector-tag">has</span> <span class="selector-tag">been</span> <span class="selector-tag">saved</span> <span class="selector-tag">in</span> /<span class="selector-tag">Users</span>/<span class="selector-tag">you</span>/<span class="selector-class">.ssh</span>/<span class="selector-tag">id_rsa</span>.</span><br><span class="line"># <span class="selector-tag">Your</span> <span class="selector-tag">public</span> <span class="selector-tag">key</span> <span class="selector-tag">has</span> <span class="selector-tag">been</span> <span class="selector-tag">saved</span> <span class="selector-tag">in</span> /<span class="selector-tag">Users</span>/<span class="selector-tag">you</span>/<span class="selector-class">.ssh</span>/<span class="selector-tag">id_rsa</span><span class="selector-class">.pub</span>.</span><br><span class="line"># <span class="selector-tag">The</span> <span class="selector-tag">key</span> <span class="selector-tag">fingerprint</span> <span class="selector-tag">is</span>:</span><br><span class="line"># <span class="selector-tag">01</span><span class="selector-pseudo">:0f</span><span class="selector-pseudo">:f4</span><span class="selector-pseudo">:3b</span><span class="selector-pseudo">:ca</span><span class="selector-pseudo">:85</span><span class="selector-pseudo">:d6</span><span class="selector-pseudo">:17</span><span class="selector-pseudo">:a1</span><span class="selector-pseudo">:7d</span><span class="selector-pseudo">:f0</span><span class="selector-pseudo">:68</span><span class="selector-pseudo">:9d</span><span class="selector-pseudo">:f0</span><span class="selector-pseudo">:a2</span><span class="selector-pseudo">:db</span> <span class="selector-tag">your_email</span>@<span class="selector-tag">example</span><span class="selector-class">.com</span></span><br></pre></td></tr></table></figure><p>然后，使用如下方式加载本地私钥，如果本机已经开启了ssh-agent就不需要再启动直接添加私钥即可。</p><figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line"><span class="comment"># start the ssh-agent in the background</span></span><br><span class="line">eval <span class="string">"<span class="variable">$(ssh-agent -s)</span>"</span></span><br><span class="line"><span class="comment"># Agent pid 59566</span></span><br><span class="line">ssh-<span class="builtin-name">add</span> ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure><h2 id="第三步，在Github上添加SSH-key"><a href="#第三步，在Github上添加SSH-key" class="headerlink" title="第三步，在Github上添加SSH key"></a>第三步，在Github上添加SSH key</h2><p>注意两点：</p><ol><li>Label只是用来助记的标识。</li><li>里面填写的是公钥。</li></ol><p>最后，你只需要在你的本地代码添加对应远程SSH版本库地址即可。</p><figure class="highlight maxima"><table><tr><td class="code"><pre><span class="line">cd existing_git_repo //进入已有项目或更新的项目目录</span><br><span class="line">git remote add <span class="built_in">origin</span> SSH_REPO_URL</span><br><span class="line">git <span class="built_in">push</span> -u <span class="built_in">origin</span> master //这两行将该目录下的文件推送到远端（<span class="built_in">origin</span>）上的 <span class="string">"master"</span> 分支</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;如果你使用Github，Bitbucket, 或者国产的Coding.net等，都会在个人设置那里看到设置SSH Key的地方，这个是做什么用的呢，这个是用来让你提交代码通过SSH隧道的方式提交到远程服务器，这种方式有安全，稳定以及无需每次输入认证信息等特点。&lt;/p&gt;
+&lt;p&gt;本文只是以Github为例，讲解怎么操作，至于原理和概念，请自行搜索。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Ops" scheme="http://www.vipzhicheng.com/categories/Ops/"/>
+    
+    
+      <category term="Github" scheme="http://www.vipzhicheng.com/tags/Github/"/>
+    
+      <category term="Bitbucket" scheme="http://www.vipzhicheng.com/tags/Bitbucket/"/>
+    
+      <category term="CodingNet" scheme="http://www.vipzhicheng.com/tags/CodingNet/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>在全新的CentOS里安装Drupal8</title>
+    <link href="http://www.vipzhicheng.com/2014/05/28/how-to-setup-drupal8-with-clean-centos/"/>
+    <id>http://www.vipzhicheng.com/2014/05/28/how-to-setup-drupal8-with-clean-centos/</id>
+    <published>2014-05-28T05:34:53.000Z</published>
+    <updated>2019-03-16T17:05:55.439Z</updated>
+    
+    <content type="html"><![CDATA[<p>本文在全新安装的CentOS6.5里安装Drupal8。</p><p>因为需要PHP5.4，而源里默认只有php5.3.3，所以按照<a href="http://webtatic.com/packages/php54/" target="_blank" rel="noopener">这个教程</a>安装了php5.4，然后从源里安装了httpd和mysql-server</p><a id="more"></a><p>以下都假设在root账户下：</p><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">yum <span class="keyword">install</span> httpd mysql-<span class="keyword">server</span></span><br></pre></td></tr></table></figure><p>然后配置了一个虚拟主机，Drupal8用的是alpha11版，注意要开启httpd的重写机制，因为默认就开启了clean url。</p><p>本来Drupal8是可以自动下载语言包的，安装时提示语言包下载不下来，于是我选择了安装英文版。</p><p>为了体验Drupal8，Profile选择的是Standard。</p><p>之后检测依赖扩展，结果需要继续安装缺失的扩展：</p><figure class="highlight smali"><table><tr><td class="code"><pre><span class="line">yum install php54w-gd php54w-pdo php54w-dom php54w-mbstring php54w-mysql</span><br></pre></td></tr></table></figure><p>之后别忘了reload httpd</p><figure class="highlight jboss-cli"><table><tr><td class="code"><pre><span class="line"><span class="string">/etc/init.d/httpd</span> <span class="keyword">reload</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文在全新安装的CentOS6.5里安装Drupal8。&lt;/p&gt;
+&lt;p&gt;因为需要PHP5.4，而源里默认只有php5.3.3，所以按照&lt;a href=&quot;http://webtatic.com/packages/php54/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;这个教程&lt;/a&gt;安装了php5.4，然后从源里安装了httpd和mysql-server&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Ops" scheme="http://www.vipzhicheng.com/categories/Ops/"/>
+    
+    
+      <category term="CentOS" scheme="http://www.vipzhicheng.com/tags/CentOS/"/>
+    
+      <category term="Drupal8" scheme="http://www.vipzhicheng.com/tags/Drupal8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>初始化Ubuntu</title>
+    <link href="http://www.vipzhicheng.com/2014/05/22/init-ubuntu/"/>
+    <id>http://www.vipzhicheng.com/2014/05/22/init-ubuntu/</id>
+    <published>2014-05-22T06:22:17.000Z</published>
+    <updated>2019-03-16T17:05:55.439Z</updated>
+    
+    <content type="html"><![CDATA[<p>Ubuntu桌面版应该说已经做的不错了，总有一些需要定制的地方，本文以Ubuntu 14.04为例介绍安装Ubuntu之后要做的设置工作。</p><a id="more"></a><h2 id="为终端设置等宽字体"><a href="#为终端设置等宽字体" class="headerlink" title="为终端设置等宽字体"></a>为终端设置等宽字体</h2><p>默认的monospace字体貌似不是很好用，我一般给改成UbuntuMono 13号字粗体。</p><h2 id="关闭独立显卡"><a href="#关闭独立显卡" class="headerlink" title="关闭独立显卡"></a>关闭独立显卡</h2><p>Ubuntu安装完之后，风扇狂转，需要关闭独立显卡，可能只是N卡才有这个问题</p><figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">sudo apt-<span class="builtin-name">get</span> install bumblebee</span><br></pre></td></tr></table></figure><p>安装完，重启即可，无需设置。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Ubuntu桌面版应该说已经做的不错了，总有一些需要定制的地方，本文以Ubuntu 14.04为例介绍安装Ubuntu之后要做的设置工作。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Ops" scheme="http://www.vipzhicheng.com/categories/Ops/"/>
+    
+    
+      <category term="Ubuntu" scheme="http://www.vipzhicheng.com/tags/Ubuntu/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>根据经纬度计算之间距离</title>
+    <link href="http://www.vipzhicheng.com/2014/05/21/get-distance-by-lat-and-lng/"/>
+    <id>http://www.vipzhicheng.com/2014/05/21/get-distance-by-lat-and-lng/</id>
+    <published>2014-05-21T01:37:19.000Z</published>
+    <updated>2019-03-16T17:05:55.439Z</updated>
+    
+    <content type="html"><![CDATA[<p>网上搜集的两种计算方法，</p><p>PHP版</p><a id="more"></a><figure class="highlight gams"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">*  @desc 根据两点间的经纬度计算距离</span></span><br><span class="line"><span class="comment">*  @param float $lat 纬度值</span></span><br><span class="line"><span class="comment">*  @param float $lng 经度值</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"> function getDistance(<span class="symbol">$</span>lat1, <span class="symbol">$</span>lng1, <span class="symbol">$</span>lat2, <span class="symbol">$</span>lng2)</span><br><span class="line"> &#123;</span><br><span class="line">     <span class="symbol">$</span>earthRadius = <span class="number">6367000</span>; <span class="comment">//approximate radius of earth in meters</span></span><br><span class="line"></span><br><span class="line">     <span class="comment">/*</span></span><br><span class="line"><span class="comment">       Convert these degrees to radians</span></span><br><span class="line"><span class="comment">       to work with the formula</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line"></span><br><span class="line">     <span class="symbol">$</span>lat1 = (<span class="symbol">$</span>lat1 * <span class="built-in">pi</span>() ) / <span class="number">180</span>;</span><br><span class="line">     <span class="symbol">$</span>lng1 = (<span class="symbol">$</span>lng1 * <span class="built-in">pi</span>() ) / <span class="number">180</span>;</span><br><span class="line"></span><br><span class="line">     <span class="symbol">$</span>lat2 = (<span class="symbol">$</span>lat2 * <span class="built-in">pi</span>() ) / <span class="number">180</span>;</span><br><span class="line">     <span class="symbol">$</span>lng2 = (<span class="symbol">$</span>lng2 * <span class="built-in">pi</span>() ) / <span class="number">180</span>;</span><br><span class="line"></span><br><span class="line">     <span class="comment">/*</span></span><br><span class="line"><span class="comment">       Using the</span></span><br><span class="line"><span class="comment">       Haversine formula</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">       http://en.wikipedia.org/wiki/Haversine_formula</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">       calculate the distance</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line"></span><br><span class="line">     <span class="symbol">$</span>calcLongitude = <span class="symbol">$</span>lng2 - <span class="symbol">$</span>lng1;</span><br><span class="line">     <span class="symbol">$</span>calcLatitude = <span class="symbol">$</span>lat2 - <span class="symbol">$</span>lat1;</span><br><span class="line">     <span class="symbol">$</span>stepOne = pow(<span class="built-in">sin</span>(<span class="symbol">$</span>calcLatitude / <span class="number">2</span>), <span class="number">2</span>) + <span class="built-in">cos</span>(<span class="symbol">$</span>lat1) * <span class="built-in">cos</span>(<span class="symbol">$</span>lat2) * pow(<span class="built-in">sin</span>(<span class="symbol">$</span>calcLongitude / <span class="number">2</span>), <span class="number">2</span>);  <span class="symbol">$</span>stepTwo = <span class="number">2</span> * asin(<span class="built-in">min</span>(<span class="number">1</span>, <span class="built-in">sqrt</span>(<span class="symbol">$</span>stepOne)));</span><br><span class="line">     <span class="symbol">$</span>calculatedDistance = <span class="symbol">$</span>earthRadius * <span class="symbol">$</span>stepTwo;</span><br><span class="line"></span><br><span class="line">     return <span class="built-in">round</span>(<span class="symbol">$</span>calculatedDistance);</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure><p> Javascript版：</p> <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">GetDistance</span>(<span class="params">lat1, lng1, lat2, lng2</span>)</span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">    <span class="keyword">if</span>( ( <span class="built_in">Math</span>.abs( lat1 ) &gt; <span class="number">90</span> ) ||( <span class="built_in">Math</span>.abs( lat2 ) &gt; <span class="number">90</span> ) )&#123;  </span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;  </span><br><span class="line">    &#125;  </span><br><span class="line">    <span class="keyword">if</span>( ( <span class="built_in">Math</span>.abs( lng1 ) &gt; <span class="number">180</span> ) ||( <span class="built_in">Math</span>.abs( lng2 ) &gt; <span class="number">180</span> ) )&#123;  </span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;  </span><br><span class="line">    &#125;  </span><br><span class="line">    <span class="keyword">var</span> radLat1 = rad(lat1);  </span><br><span class="line">    <span class="keyword">var</span> radLat2 = rad(lat2);  </span><br><span class="line">    <span class="keyword">var</span> a = radLat1 - radLat2;  </span><br><span class="line">    <span class="keyword">var</span> b = rad(lng1) - rad(lng2);  </span><br><span class="line">    <span class="keyword">var</span> s = <span class="number">2</span> * <span class="built_in">Math</span>.asin(<span class="built_in">Math</span>.sqrt(<span class="built_in">Math</span>.pow(<span class="built_in">Math</span>.sin(a/<span class="number">2</span>),<span class="number">2</span>) +  </span><br><span class="line">    <span class="built_in">Math</span>.cos(radLat1)*<span class="built_in">Math</span>.cos(radLat2)*<span class="built_in">Math</span>.pow(<span class="built_in">Math</span>.sin(b/<span class="number">2</span>),<span class="number">2</span>)));  </span><br><span class="line">    s = s *<span class="number">6378.137</span> ;<span class="comment">// EARTH_RADIUS;  </span></span><br><span class="line">    s = <span class="built_in">Math</span>.round(s * <span class="number">10000</span>) / <span class="number">10000</span>;  </span><br><span class="line">    <span class="keyword">return</span> s;  </span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">rad</span>(<span class="params">d</span>)</span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">    <span class="keyword">return</span> d * <span class="built_in">Math</span>.PI / <span class="number">180.0</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;网上搜集的两种计算方法，&lt;/p&gt;
+&lt;p&gt;PHP版&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Dev" scheme="http://www.vipzhicheng.com/categories/Dev/"/>
+    
+    
+      <category term="Distance" scheme="http://www.vipzhicheng.com/tags/Distance/"/>
+    
+      <category term="Geo" scheme="http://www.vipzhicheng.com/tags/Geo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>解决Bitbucket无法访问和push</title>
+    <link href="http://www.vipzhicheng.com/2014/04/21/solve-bitbucket-can-not-access/"/>
+    <id>http://www.vipzhicheng.com/2014/04/21/solve-bitbucket-can-not-access/</id>
+    <published>2014-04-20T16:41:44.000Z</published>
+    <updated>2019-03-16T17:05:55.439Z</updated>
+    
+    <content type="html"><![CDATA[<p>近日的网络不知道又出了什么状况，各种被墙，尤其是Bitbucket不能使用，严重影响了工作的效率和心情，有时候是网页打不开，有时候是不能pull或者push，通过搜索找到了解决方法，记录如下。</p><a id="more"></a><p>这里，我们需要有一种翻墙措施，你可以是自己的VPN， ssh翻墙， goagent，或者其他，笔者是Mac系统，翻墙暂时使用的是鱼摆摆（不知道是啥东西的可以去搜搜），这个VPN开启的端口是9743, 如果用goagent，端口可能是8087，这个端口号接下来会用到。</p><p>切换到git项目目录，这里我们使用的是bitbucket的https项目路径，假设之前是可以正常工作的，为了可以让push也翻墙，我们需要做如下设置：（再一次说明，以下不是完整设置，仅仅是为了解决本文标题所说的状况）。</p><figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">git<span class="built_in"> config </span>--<span class="builtin-name">add</span> http.proxy 127.0.0.1:8087</span><br><span class="line">git<span class="built_in"> config </span>--<span class="builtin-name">add</span> https.proxy 127.0.0.1:8087</span><br><span class="line">git<span class="built_in"> config </span>--<span class="builtin-name">add</span> https.sslVerify <span class="literal">false</span></span><br><span class="line">git<span class="built_in"> config </span>--global http.postBuffer 524288000   #非常重要，否则可能提交不成功。</span><br></pre></td></tr></table></figure><p>之后我们就可以push了，当然以上设置也可以直接在.git/config里修改设置。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;近日的网络不知道又出了什么状况，各种被墙，尤其是Bitbucket不能使用，严重影响了工作的效率和心情，有时候是网页打不开，有时候是不能pull或者push，通过搜索找到了解决方法，记录如下。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Ops" scheme="http://www.vipzhicheng.com/categories/Ops/"/>
+    
+    
+      <category term="Git" scheme="http://www.vipzhicheng.com/tags/Git/"/>
+    
+      <category term="代理" scheme="http://www.vipzhicheng.com/tags/%E4%BB%A3%E7%90%86/"/>
+    
+      <category term="Github" scheme="http://www.vipzhicheng.com/tags/Github/"/>
+    
+      <category term="Bitbucket" scheme="http://www.vipzhicheng.com/tags/Bitbucket/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>最新安装Redmine的方法</title>
+    <link href="http://www.vipzhicheng.com/2014/04/09/install-redmine-on-centos/"/>
+    <id>http://www.vipzhicheng.com/2014/04/09/install-redmine-on-centos/</id>
+    <published>2014-04-09T10:02:45.000Z</published>
+    <updated>2019-03-16T17:05:55.438Z</updated>
+    
+    <content type="html"><![CDATA[<p>Redmine官网的安装向导基本上不怎么更新，里面的安装说明比较混乱，看着迷糊，实施起来也会遇到诸多问题，但其实现在最新版的Redmine安装已经非常简单了，当然如果英文比较好的话，按源码包里的安装说明文档也是可以的，本文结合不久前的实施经验记录最新的Redmine安装流程。</p><a id="more"></a><h2 id="Redmine版本"><a href="#Redmine版本" class="headerlink" title="Redmine版本"></a>Redmine版本</h2><p>本文使用的是Redmine的是2.5.1版，撰写本文时的最新版本，理论上以后的安装一定要比本文记录的还要简单才对。</p><h2 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h2><p>CentOS 6.3，因此本文至少适用于CentOS 6.x</p><h2 id="通过RVM安装Ruby"><a href="#通过RVM安装Ruby" class="headerlink" title="通过RVM安装Ruby"></a>通过RVM安装Ruby</h2><p>请参考之前笔者翻译的一篇教程<a href="http://vipzhicheng.dev/blog/2014/04/08/how-to-install-ruby-on-rails-on-centos-6-with-rvm/" target="_blank" rel="noopener">使用RVM在CentOS6安装Ruby on Rails</a>，由于Redmine会自己选择合适的版本，所以为了安装Redmine的话，你不需要执行最后的Rails安装。另外和这个教程一样，本文也推荐使用root用户来实施，少了许多麻烦，如果以后有其他安全性的需求而想要使用独立的非root账号，可以在安装成功了之后再考虑。</p><p>我们需要安装Ruby 1.9.3，而不是最新的Ruby。理论上再新一些的Ruby也支持，可以查看Redmine源码里的安装文档里写的Ruby支持的版本，因为源码里的更新比较及时，官方WIKI文档里的信息很多都过时了。</p><h2 id="下载Redmine"><a href="#下载Redmine" class="headerlink" title="下载Redmine"></a>下载Redmine</h2><p>去Redmine<a href="http://www.redmine.org/projects/redmine/wiki/Download" target="_blank" rel="noopener">官方下载页面</a>下载最新版的Redmine, 这里我们以撰写本文时最新的2.5.1为例。</p><figure class="highlight stata"><table><tr><td class="code"><pre><span class="line">sudo <span class="keyword">su</span></span><br><span class="line"><span class="keyword">cd</span> /<span class="keyword">var</span>/www</span><br><span class="line">wget http:<span class="comment">//www.redmine.org/releases/redmine-2.5.1.tar.gz</span></span><br><span class="line">tar xvzf redmine-2.5.1.tar.gz</span><br><span class="line">mv redmine-2.5.1 redmine</span><br></pre></td></tr></table></figure><h2 id="安装Redmine"><a href="#安装Redmine" class="headerlink" title="安装Redmine"></a>安装Redmine</h2><p>然后可以先修改一下数据库链接配置</p><figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">cd redmine</span><br><span class="line">cp config/database<span class="selector-class">.yml</span><span class="selector-class">.example</span> config/database.yml</span><br><span class="line">vim config/database.yml</span><br></pre></td></tr></table></figure><p>修改里面的production段即可，因为一般我们安装Redmine只是为了使用。</p><p>Redmine使用的是bundler处理版本依赖，这比一个一个手动安装要方便多了。</p><figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">gem <span class="keyword">install</span> bundler</span><br></pre></td></tr></table></figure><p>通过上面的指令安装好bundler之后，我们还需要为系统安装两个包，一个是mysql，一个是ImageMagick, 我们假设使用的是MySQL，需要注意的是，即使你的MySQL不是安装在本地，为了编译成功也是需要安装的，另外如果你想使用Redmine的甘特图导出功能，就必须安装ImageMagick。</p><figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">yum <span class="keyword">install</span> -y ImageMagick-devel</span><br><span class="line">yum <span class="keyword">install</span> -y mysql-devel</span><br></pre></td></tr></table></figure><p>然后我们就要进行最重要的操作了。</p><figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">bundle <span class="keyword">install</span> --without development <span class="keyword">test</span></span><br></pre></td></tr></table></figure><p>上面的指令如果不出错，那么你会看到许多的Redmine依赖的Ruby扩展的安装记录。</p><p>然后为了正常使用Redmine的认证系统，我们需要为其生成一个Session TOKEN。</p><figure class="highlight gcode"><table><tr><td class="code"><pre><span class="line">rake <span class="keyword">ge</span><span class="symbol">nerate_secret_token</span></span><br></pre></td></tr></table></figure><p>接下来需要初始化数据库</p><figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line">rake <span class="string">db:</span>migrate RAILS_ENV=<span class="string">"production"</span></span><br></pre></td></tr></table></figure><p>到这里，Redmine就安装完了，使用以下方式测试：</p><figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">ruby script/rails<span class="built_in"> server </span>-e production</span><br></pre></td></tr></table></figure><p>如果启动成功，Redmine可以通过 <a href="http://yourip:3000" target="_blank" rel="noopener">http://yourip:3000</a> 访问，或者如果是本地就是 <a href="http://127.0.0.1:3000" target="_blank" rel="noopener">http://127.0.0.1:3000</a> ，如果可以访问成功，就用admin/admin账户登陆，然后就可以修改密码，创建项目了。</p><p>如果觉得一切正常，可以将Redmine安装成守护进程。</p><figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">ruby script/rails<span class="built_in"> server </span>-e production -d</span><br></pre></td></tr></table></figure><h2 id="将Redmine程序设置成开机自启动"><a href="#将Redmine程序设置成开机自启动" class="headerlink" title="将Redmine程序设置成开机自启动"></a>将Redmine程序设置成开机自启动</h2><p>开机自启动有许多方式，尤其是chkconfig的方式，不过这里我们使用最原始的方式，把启动脚本加入到rc.local里。注意路径使用的是绝对路径。</p><figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">/usr/local/rvm/rubies/ruby-1.9.3-p545/bin/ruby /var/www/redmine/script/rails<span class="built_in"> server </span>-e production -d</span><br></pre></td></tr></table></figure><p>另外还在网上找了一个Redmine启动控制脚本，可以尝试使用。</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Modify it to your configuration</span></span><br><span class="line">DIR=/var/www/html/redmine/</span><br><span class="line"></span><br><span class="line"><span class="comment"># Start Redmine in daemon mode.</span></span><br><span class="line"><span class="function"><span class="title">start</span></span>()&#123;</span><br><span class="line">  <span class="built_in">cd</span> <span class="variable">$DIR</span></span><br><span class="line">  ruby script/rails server -d -e production</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"># Stop Redmine daemon</span></span><br><span class="line"><span class="function"><span class="title">stop</span></span>()&#123;</span><br><span class="line">  RUBYPID=`ps aux | grep <span class="string">"ruby script/rails"</span> | grep -v grep | awk <span class="string">'&#123;print $2&#125;'</span>`</span><br><span class="line">  <span class="keyword">if</span> [ <span class="string">"x<span class="variable">$RUBYPID</span>"</span> != <span class="string">"x"</span> ]; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">kill</span> -2 <span class="variable">$RUBYPID</span></span><br><span class="line">  <span class="keyword">fi</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"># Check if Redmine is running</span></span><br><span class="line"><span class="function"><span class="title">status</span></span>()&#123;</span><br><span class="line">  RUBYPID=`ps aux | grep <span class="string">"ruby script/rails"</span> | grep -v grep | awk <span class="string">'&#123;print $2&#125;'</span>`</span><br><span class="line">  <span class="keyword">if</span> [ <span class="string">"x<span class="variable">$RUBYPID</span>"</span> = <span class="string">"x"</span> ]; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"* Redmine is not running"</span></span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"* Redmine is running"</span></span><br><span class="line">  <span class="keyword">fi</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">case</span> <span class="string">"<span class="variable">$1</span>"</span> <span class="keyword">in</span></span><br><span class="line">  start)</span><br><span class="line">    start</span><br><span class="line">    status</span><br><span class="line">    ;;</span><br><span class="line">  stop)</span><br><span class="line">    stop</span><br><span class="line">    sleep 2</span><br><span class="line">    status</span><br><span class="line">    ;;</span><br><span class="line">  status)</span><br><span class="line">    status</span><br><span class="line">    ;;</span><br><span class="line">  restart|force-reload)</span><br><span class="line">    stop</span><br><span class="line">    start</span><br><span class="line">    ;;</span><br><span class="line">  *)</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"Usage: <span class="variable">$0</span> &#123;start|stop|restart|force-reload|status&#125;"</span></span><br><span class="line">    <span class="built_in">exit</span> 1</span><br><span class="line"><span class="keyword">esac</span></span><br></pre></td></tr></table></figure><h2 id="为Redmine选择合适的插件和主题"><a href="#为Redmine选择合适的插件和主题" class="headerlink" title="为Redmine选择合适的插件和主题"></a>为Redmine选择合适的插件和主题</h2><p>Redmine支持安装插件和更换主题，这样可以获得更丰富的功能和更漂亮的外观，可以去以下网址下载。</p><ul><li>插件：<a href="http://www.redmine.org/projects/redmine/wiki/Plugins" target="_blank" rel="noopener">http://www.redmine.org/projects/redmine/wiki/Plugins</a></li><li>主题：<a href="http://www.redmine.org/projects/redmine/wiki/Themes" target="_blank" rel="noopener">http://www.redmine.org/projects/redmine/wiki/Themes</a></li></ul><h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>其实Redmine部署以后，为了更好的访问，我们一般还需要再外层加一层反向代理，这个有许多方法，这里就不再赘述了。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Redmine官网的安装向导基本上不怎么更新，里面的安装说明比较混乱，看着迷糊，实施起来也会遇到诸多问题，但其实现在最新版的Redmine安装已经非常简单了，当然如果英文比较好的话，按源码包里的安装说明文档也是可以的，本文结合不久前的实施经验记录最新的Redmine安装流程。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Ops" scheme="http://www.vipzhicheng.com/categories/Ops/"/>
+    
+    
+      <category term="CentOS" scheme="http://www.vipzhicheng.com/tags/CentOS/"/>
+    
+      <category term="RVM" scheme="http://www.vipzhicheng.com/tags/RVM/"/>
+    
+      <category term="Redmine" scheme="http://www.vipzhicheng.com/tags/Redmine/"/>
+    
+      <category term="Ruby on Rails" scheme="http://www.vipzhicheng.com/tags/Ruby-on-Rails/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[译]使用RVM安装Ruby on Rails</title>
+    <link href="http://www.vipzhicheng.com/2014/04/08/how-to-install-ruby-on-rails-on-centos-6-with-rvm/"/>
+    <id>http://www.vipzhicheng.com/2014/04/08/how-to-install-ruby-on-rails-on-centos-6-with-rvm/</id>
+    <published>2014-04-08T09:25:43.000Z</published>
+    <updated>2019-03-16T17:05:55.438Z</updated>
+    
+    <content type="html"><![CDATA[<p>本文译自<a href="https://www.digitalocean.com/community/articles/how-to-install-ruby-on-rails-on-centos-6-with-rvm" target="_blank" rel="noopener">How To Install Ruby on Rails on CentOS 6 with RVM</a>,转载请著名原文出处及译文出处。</p><h2 id="关于-Ruby-on-Rails"><a href="#关于-Ruby-on-Rails" class="headerlink" title="关于 Ruby on Rails"></a>关于 Ruby on Rails</h2><p>Ruby on Rails，简称RoR，是一个应用程序集合，提供给开发者一个快速创建Web应用程序的开发框架。</p><p>安装Ruby on Rails环境确实需要一定的时间，不过幸运的是有许多工具可以让安装RoR的流程尽可能的简单。本文基于CentOS6，根据实际安装时的经验对原文步骤略有调整，虽然RVM支持在任意账户下安装，但这里还是以root账户为例，会为以后减少许多不必要的麻烦。<br><a id="more"></a></p><h2 id="第一步，安装RVM"><a href="#第一步，安装RVM" class="headerlink" title="第一步，安装RVM"></a>第一步，安装RVM</h2><p>在我们做任何其他步骤之前，首先要从源做一次更新以确保我们下载的所有包(Package)都是最新的。</p><figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">yum update</span></span><br></pre></td></tr></table></figure><p>一旦上面的更新结束，我们就可以开始安装RVM（Ruby Version Manager）了，这个程序可以让你在一台服务器上使用多个版本的Ruby。</p><p>如果你的系统里还没有安装curl，请从安装curl开始。</p><figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">yum <span class="keyword">install</span> curl</span><br></pre></td></tr></table></figure><p>安装RVM只需要在终端执行以下指令。</p><figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line">curl -sSL <span class="string">https:</span><span class="comment">//get.rvm.io | bash -s stable</span></span><br></pre></td></tr></table></figure><p>安装后，我们需要加载RVM</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">source</span> .bashrc</span><br><span class="line"><span class="built_in">source</span> .bash_profile</span><br></pre></td></tr></table></figure><p>为了保证RVM正常工作，RVM自己有一些软件依赖需要安装，可以通过以下指令查看这些依赖。</p><figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">rvm requirements</span></span><br></pre></td></tr></table></figure><p>以上指令将自动安装依赖，一般需要根据实际情况安装额外的依赖包，比如笔者在一台服务器非常顺利的执行了这个指令，而在另外一个服务器上则需要安装一个依赖包：</p><figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">yum <span class="keyword">install</span> -y libyaml-devel</span><br></pre></td></tr></table></figure><p>以下是参考的反馈信息：</p><figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">Checking requirements <span class="keyword">for</span> centos.</span><br><span class="line">Installing requirements <span class="keyword">for</span> centos.</span><br><span class="line">Updating system-</span><br><span class="line"></span><br><span class="line">.</span><br><span class="line">Installing required packages: patch, libyaml-devel, libffi-devel, autoconf, gcc-c++, patch, readline-devel, zlib-devel, openssl-devel, automake, libtool, bison<span class="built_in">..</span><span class="built_in">..</span><span class="built_in">..</span><span class="built_in">..</span><span class="built_in">..</span><span class="built_in">..</span>. <span class="built_in">..</span><span class="built_in">..</span><span class="built_in">..</span><span class="built_in">..</span><span class="built_in">..</span><span class="built_in">..</span><span class="built_in">..</span>.</span><br><span class="line">Requirements installation successful.</span><br></pre></td></tr></table></figure><h2 id="第二步，通过RVM安装Ruby"><a href="#第二步，通过RVM安装Ruby" class="headerlink" title="第二步，通过RVM安装Ruby"></a>第二步，通过RVM安装Ruby</h2><p>一旦我们安装好了RVM，安装Ruby是非常容易的。这里要等待比较长的时间。</p><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">rvm</span> <span class="selector-tag">install</span> 1<span class="selector-class">.9</span><span class="selector-class">.3</span></span><br></pre></td></tr></table></figure><p>因为RVM支持多个Ruby版本，所以我们需要告诉系统我们默认使用哪个版本的Ruby。</p><figure class="highlight lsl"><table><tr><td class="code"><pre><span class="line">rvm use <span class="number">1.9</span><span class="number">.3</span> --<span class="section">default</span></span><br></pre></td></tr></table></figure><h2 id="第三步，安装RubyGems"><a href="#第三步，安装RubyGems" class="headerlink" title="第三步，安装RubyGems"></a>第三步，安装RubyGems</h2><p>为了让RoR程序正常工作，我们还需要安装许多Ruby组件，这些都需要靠RubyGems，和前面一样，RubyGems我们也通过RVM来安装。</p><p>PS: 实际测试中，安装了Ruby 1.9.3后，就已经安装了gem，不需要执行下面的指令。</p><figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">rvm rubygems current</span></span><br></pre></td></tr></table></figure><h2 id="第四步，安装Rails"><a href="#第四步，安装Rails" class="headerlink" title="第四步，安装Rails"></a>第四步，安装Rails</h2><p>最后就是安装Rails了，只需要执行一行指令，但是可能要等上一段时间。如果你安装Rails的目的是安装Redmine，就不用执行下面的指令了，因为Redmine的安装流程会自动安装合适版本的Rails。</p><figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">gem <span class="keyword">install</span> rails</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文译自&lt;a href=&quot;https://www.digitalocean.com/community/articles/how-to-install-ruby-on-rails-on-centos-6-with-rvm&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;How To Install Ruby on Rails on CentOS 6 with RVM&lt;/a&gt;,转载请著名原文出处及译文出处。&lt;/p&gt;
+&lt;h2 id=&quot;关于-Ruby-on-Rails&quot;&gt;&lt;a href=&quot;#关于-Ruby-on-Rails&quot; class=&quot;headerlink&quot; title=&quot;关于 Ruby on Rails&quot;&gt;&lt;/a&gt;关于 Ruby on Rails&lt;/h2&gt;&lt;p&gt;Ruby on Rails，简称RoR，是一个应用程序集合，提供给开发者一个快速创建Web应用程序的开发框架。&lt;/p&gt;
+&lt;p&gt;安装Ruby on Rails环境确实需要一定的时间，不过幸运的是有许多工具可以让安装RoR的流程尽可能的简单。本文基于CentOS6，根据实际安装时的经验对原文步骤略有调整，虽然RVM支持在任意账户下安装，但这里还是以root账户为例，会为以后减少许多不必要的麻烦。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Ops" scheme="http://www.vipzhicheng.com/categories/Ops/"/>
+    
+    
+      <category term="CentOS" scheme="http://www.vipzhicheng.com/tags/CentOS/"/>
+    
+      <category term="Ruby on rails" scheme="http://www.vipzhicheng.com/tags/Ruby-on-rails/"/>
+    
+      <category term="RVM" scheme="http://www.vipzhicheng.com/tags/RVM/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>解决Jenkins长时间运行后样式丢失</title>
+    <link href="http://www.vipzhicheng.com/2014/04/08/fix-jenkins-broken-css-and-images/"/>
+    <id>http://www.vipzhicheng.com/2014/04/08/fix-jenkins-broken-css-and-images/</id>
+    <published>2014-04-08T04:03:54.000Z</published>
+    <updated>2019-03-16T17:05:55.438Z</updated>
+    
+    <content type="html"><![CDATA[<p>这个问题具有一定的普遍性，在百度和Google都能搜到，本文以CentOS 6.3为例进行记录。Jenkins是通过yum方式安装。</p><p>原因是系统自动清理/tmp目录（参考：/etc/cron.daily/tmpwatch），但Jenkins默认把图片和样式资源解压缩到/tmp下。为了解决这个问题，我们需要重新设置Jenkins的tmp目录。</p><a id="more"></a><figure class="highlight crystal"><table><tr><td class="code"><pre><span class="line">cd /var/<span class="class"><span class="keyword">lib</span>/<span class="title">jenkins</span>/</span></span><br><span class="line">mkdir tmp</span><br><span class="line">chown <span class="symbol">jenkins:</span>jenkins tmp</span><br><span class="line"></span><br><span class="line">vim /etc/sysconfig/jenkins</span><br></pre></td></tr></table></figure><p>找到JENKINS_JAVA_OPTIONS，在之前的基础上，增加tmpdir部分，笔者在默认安装的基础上，修改完之后如下所示：</p><figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="attr">JENKINS_JAVA_OPTIONS</span>=<span class="string">"-Djava.awt.headless=true -Djava.io.tmpdir=/var/lib/jenkins/tmp"</span></span><br></pre></td></tr></table></figure><p>之后重启Jenkins即可</p><figure class="highlight awk"><table><tr><td class="code"><pre><span class="line"><span class="regexp">/etc/i</span>nit.d<span class="regexp">/jenkins restart</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;这个问题具有一定的普遍性，在百度和Google都能搜到，本文以CentOS 6.3为例进行记录。Jenkins是通过yum方式安装。&lt;/p&gt;
+&lt;p&gt;原因是系统自动清理/tmp目录（参考：/etc/cron.daily/tmpwatch），但Jenkins默认把图片和样式资源解压缩到/tmp下。为了解决这个问题，我们需要重新设置Jenkins的tmp目录。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Ops" scheme="http://www.vipzhicheng.com/categories/Ops/"/>
+    
+    
+      <category term="CentOS" scheme="http://www.vipzhicheng.com/tags/CentOS/"/>
+    
+      <category term="Jenkins" scheme="http://www.vipzhicheng.com/tags/Jenkins/"/>
+    
+      <category term="样式错乱" scheme="http://www.vipzhicheng.com/tags/%E6%A0%B7%E5%BC%8F%E9%94%99%E4%B9%B1/"/>
+    
+      <category term="图片丢失" scheme="http://www.vipzhicheng.com/tags/%E5%9B%BE%E7%89%87%E4%B8%A2%E5%A4%B1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CentOS用yum安装SVN</title>
+    <link href="http://www.vipzhicheng.com/2014/04/03/install-svn-on-centos/"/>
+    <id>http://www.vipzhicheng.com/2014/04/03/install-svn-on-centos/</id>
+    <published>2014-04-03T14:00:03.000Z</published>
+    <updated>2019-03-16T17:05:55.438Z</updated>
+    
+    <content type="html"><![CDATA[<p>源代码管理目前的市场上Git主键主流，SVN也仍然有大把的人用，其他也有一些新的或者小众的版本管理软件。对我来说，我选择SVN和Git，一个集中式管理，一个分布式管理，虽然Git强大到可以替代SVN，但有时也没有必要，对我来说部署一个简单的集中式版本控制系统，还是SVN要简单一些。</p><p>本文以CentOS 6.3为例阐述了如何用yum的方式安装和部署SVN。</p><a id="more"></a><p>以下命令假设都是root用户来执行，我就可以不必每次都加sudo了。</p><p>SVN一般有两种部署方式一种使用svn服务器模式，一种使用http做代理，其显示效果如下：</p><p>svn://yourdomain/repo<br><a href="http://code.yourdomain/repo" target="_blank" rel="noopener">http://code.yourdomain/repo</a></p><p>因为第一种部署最简单，所以先说第一种的部署方式。</p><h2 id="svn服务器部署方式-1：svn-yourdomain-repo"><a href="#svn服务器部署方式-1：svn-yourdomain-repo" class="headerlink" title="svn服务器部署方式 1：svn://yourdomain/repo"></a>svn服务器部署方式 1：svn://yourdomain/repo</h2><p>首先检查已安装的版本并卸载，然后从源安装最新版SVN。</p><figure class="highlight mipsasm"><table><tr><td class="code"><pre><span class="line">rpm -qa <span class="keyword">subversion</span></span><br><span class="line"><span class="keyword">yum </span>remove <span class="keyword">subversion</span></span><br><span class="line"><span class="keyword">yum </span><span class="keyword">install </span>-y <span class="keyword">subversion</span></span><br></pre></td></tr></table></figure><p>假设我们的版本库在服务器上都是在<code>/opt/svn</code>目录下分子目录存放，而我们第一个示例版本库名是repo。</p><figure class="highlight vim"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -<span class="keyword">p</span> /<span class="keyword">opt</span>/svn/repo</span><br><span class="line">svnadmin create /<span class="keyword">opt</span>/svn/repo</span><br></pre></td></tr></table></figure><p>为了SVN能够生效，我们需要编辑版本库的配置，首先是svnserve.conf</p><figure class="highlight vim"><table><tr><td class="code"><pre><span class="line"><span class="keyword">vim</span> /<span class="keyword">opt</span>/svn/repo/<span class="keyword">conf</span>/svnserve.<span class="keyword">conf</span></span><br></pre></td></tr></table></figure><figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="section">[general]</span></span><br><span class="line"><span class="comment">#匿名访问的权限，可以是read,write,none,默认为read</span></span><br><span class="line"><span class="attr">anon-access</span>=none</span><br><span class="line"><span class="comment">#使授权用户有写权限</span></span><br><span class="line"><span class="attr">auth-access</span>=write</span><br><span class="line"><span class="comment">#密码数据库的路径</span></span><br><span class="line"><span class="attr">password-db</span>=/opt/svn/passwd</span><br><span class="line"><span class="comment">#访问控制文件</span></span><br><span class="line"><span class="attr">authz-db</span>=authz</span><br><span class="line"><span class="comment">#认证命名空间，subversion会在认证提示里显示，并且作为凭证缓存的关键字</span></span><br><span class="line"><span class="attr">realm</span>=My Test Repo</span><br></pre></td></tr></table></figure><p>password配置文件放在<code>/opt/svn/passwd</code>而不是<code>/opt/svn/repo/conf/passwd</code>的目的是让多个版本库共享同一份账户文件。</p><p>配置密码只需要编辑对应的密码passwd文件,一看就明白就不演示了。</p><figure class="highlight vim"><table><tr><td class="code"><pre><span class="line"><span class="keyword">vim</span> /<span class="keyword">opt</span>/svn/passwd</span><br></pre></td></tr></table></figure><p>然后为了有权限访问，还需要编辑授权文件</p><figure class="highlight vim"><table><tr><td class="code"><pre><span class="line"><span class="keyword">vim</span> /<span class="keyword">opt</span>/svn/repo/<span class="keyword">conf</span>/authz</span><br></pre></td></tr></table></figure><p>在这个文件里，你可以针对不同的人授予不同的访问权限,这里授权给用户所有路径的权限。</p><figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="section">[/]</span></span><br><span class="line"><span class="attr">testuser</span>=rw</span><br></pre></td></tr></table></figure><p>另外有的教程还会提一下如果设置iptables和关闭selinux，这里就默认大家这两个都已经弄好了。</p><p>启动SVN</p><p>一般的启动方式是直接使用svnserve -d -r DIR的形式，但在CentOS6，我发现有守护进程的方式，/etc/init.d/svnserve，这样就更简单和稳定。</p><p>创建svnserve.conf</p><figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">vim <span class="regexp">/etc/</span>sysconfig<span class="regexp">/svnserve</span></span><br></pre></td></tr></table></figure><p>只需要一行代码</p><figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="attr">OPTIONS</span>=<span class="string">'-d -r /opt/svn'</span></span><br></pre></td></tr></table></figure><p>当然这里你可以指定监听端口，和监听IP地址等其他额外参数，不过最常用的还是-d -r。</p><p>这样一来，我们就可以使用svn://yourdomain/repo的方式checkout代码了。</p><h2 id="svn服务器部署方式2：http-code-yourdomain-repo"><a href="#svn服务器部署方式2：http-code-yourdomain-repo" class="headerlink" title="svn服务器部署方式2：http://code.yourdomain/repo"></a>svn服务器部署方式2：<a href="http://code.yourdomain/repo" target="_blank" rel="noopener">http://code.yourdomain/repo</a></h2><p>配置http方式，还需要从源安装额外的软件,特别是我们需要Apache的DAV模块。</p><figure class="highlight mipsasm"><table><tr><td class="code"><pre><span class="line">yum <span class="keyword">install </span>httpd httpd-devel <span class="keyword">subversion </span>mod_dav_svn mod_auth_mysql</span><br></pre></td></tr></table></figure><p>然后你需要为SVN服务器创建一个Apache虚拟主机，并且带DAV权限控制</p><figure class="highlight dts"><table><tr><td class="code"><pre><span class="line"><span class="params">&lt;Location /&gt;</span></span><br><span class="line">DAV svn</span><br><span class="line">SVNParentPath <span class="meta-keyword">/opt/</span>svn <span class="meta"># 支持多个版本库</span></span><br><span class="line">AuthType Basic</span><br><span class="line"><span class="meta"># SVNListParentPath on # 可以列出所有版本库</span></span><br><span class="line">AuthName <span class="string">"Authorization SVN"</span></span><br><span class="line">AuthUserFile <span class="meta-keyword">/opt/</span>svn<span class="meta-keyword">/conf/</span>passwd.conf</span><br><span class="line">AuthzSVNAccessFile <span class="meta-keyword">/opt/</span>svn<span class="meta-keyword">/conf/</span>authz.conf</span><br><span class="line">Require valid-user</span><br><span class="line"><span class="params">&lt;/Location&gt;</span></span><br></pre></td></tr></table></figure><p>接下来就是对目录进行权限控制，以及设置SVN账户了，这里要注意的一点是使用DAV方式，版本库下的svnserve.conf就自动失效了，我们必须通过passwd.conf和authz.conf来保证版本库的安全性。</p><p>为SVN添加账户</p><figure class="highlight awk"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 首次</span></span><br><span class="line">htpasswd -c <span class="regexp">/opt/</span>svn<span class="regexp">/conf/</span>passwd.conf testuser</span><br><span class="line"></span><br><span class="line"><span class="comment"># 以后</span></span><br><span class="line">htpasswd <span class="regexp">/opt/</span>svn<span class="regexp">/conf/</span>passwd.conf testuser</span><br></pre></td></tr></table></figure><p>权限控制，以下配置掩饰了复杂授权控制的方法。</p><figure class="highlight nix"><table><tr><td class="code"><pre><span class="line">[groups]</span><br><span class="line"><span class="attr">svn_developer</span> = testuser_1,testuser_2</span><br><span class="line"><span class="attr">svn_admin</span> = testuser_2,testuser_3</span><br><span class="line"></span><br><span class="line"><span class="comment"># 已经离开的人最好还是保留账号，只是禁用权限，这样在blame的时候比较好追踪。</span></span><br><span class="line"><span class="attr">user_left</span> = testuser_4,testuser_5</span><br><span class="line"></span><br><span class="line"><span class="comment"># 默认只要有SVN账号都可以有读权限，设为已经离开团队的人除外</span></span><br><span class="line">[/]</span><br><span class="line">@<span class="attr">svn_developer</span> = rw</span><br><span class="line">@<span class="attr">svn_admin</span> = rw</span><br><span class="line"></span><br><span class="line">* = r</span><br><span class="line"></span><br><span class="line">@<span class="attr">user_left</span> =</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 根据版本库授权</span></span><br><span class="line">[repo:/trunk]</span><br><span class="line">@<span class="attr">svn_developer</span> = rw</span><br><span class="line">@<span class="attr">svn_admin</span> = rw</span><br><span class="line"></span><br><span class="line">[repo:/tags]</span><br><span class="line">@<span class="attr">svn_admin</span> = rw</span><br><span class="line">@<span class="attr">svn_developer</span> = r</span><br><span class="line"></span><br><span class="line"><span class="comment"># 为单个用户提权</span></span><br><span class="line"><span class="attr">testuser_2</span> = rw</span><br></pre></td></tr></table></figure><p>以上仅仅是显示了可能性，实际要根据对项目安全性的要求结合团队规划，项目规划进行合理的设置。</p><p>如果遇到错误：</p><figure class="highlight coq"><table><tr><td class="code"><pre><span class="line">svn: E195019: <span class="keyword">Redirect</span> <span class="built_in">cycle</span> detected <span class="keyword">for</span> URL ...</span><br></pre></td></tr></table></figure><p>是因为你设置的DocumentRoot和SVN目录相同的原因，设置一个不同的即可。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;源代码管理目前的市场上Git主键主流，SVN也仍然有大把的人用，其他也有一些新的或者小众的版本管理软件。对我来说，我选择SVN和Git，一个集中式管理，一个分布式管理，虽然Git强大到可以替代SVN，但有时也没有必要，对我来说部署一个简单的集中式版本控制系统，还是SVN要简单一些。&lt;/p&gt;
+&lt;p&gt;本文以CentOS 6.3为例阐述了如何用yum的方式安装和部署SVN。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Ops" scheme="http://www.vipzhicheng.com/categories/Ops/"/>
+    
+    
+      <category term="SVN" scheme="http://www.vipzhicheng.com/tags/SVN/"/>
+    
+      <category term="CentOS" scheme="http://www.vipzhicheng.com/tags/CentOS/"/>
+    
+      <category term="Subversion" scheme="http://www.vipzhicheng.com/tags/Subversion/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MacOS安装Varnish</title>
+    <link href="http://www.vipzhicheng.com/2014/03/17/install-varnish-on-mac/"/>
+    <id>http://www.vipzhicheng.com/2014/03/17/install-varnish-on-mac/</id>
+    <published>2014-03-16T19:25:14.000Z</published>
+    <updated>2019-03-16T17:05:55.437Z</updated>
+    
+    <content type="html"><![CDATA[<p>说到开发环境，已经不仅仅是开发本身所需要的软件集合了，也包括线上生产服务器所使用的种种服务器端软件，比如大多数时候我们本地只要有普通的LAMP环境即可开发，但有时候因为特殊需求，我们就需要往本地安装Memcache, APC, Solr, Varnish等等服务器软件或者组件， 本文要说的就是MacOS上安装Varnish的方法。</p><a id="more"></a><p>首先，你需要安装homebrew, 然后只需要执行一条命令就可以自动安装，包括其依赖的PCRE等。</p><figure class="highlight mipsasm"><table><tr><td class="code"><pre><span class="line"><span class="keyword">brew </span><span class="keyword">install </span>varnish</span><br></pre></td></tr></table></figure><p>安装的LOG信息里最重要的就是：</p><figure class="highlight jboss-cli"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 用于讲Varnish加到系统自动启动</span></span><br><span class="line">ln -sfv <span class="string">/usr/local/opt/varnish/</span>*<span class="string">.plist</span> ~<span class="string">/Library/LaunchAgents</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 用于立即启动服务</span></span><br><span class="line">launchctl load ~<span class="string">/Library/LaunchAgents/homebrew.mxcl.varnish.plist</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 用于立即关闭服务</span></span><br><span class="line">launchctl load ~<span class="string">/Library/LaunchAgents/homebrew.mxcl.varnish.plist</span></span><br></pre></td></tr></table></figure><p>Varnish的配置文件在：</p><figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line"><span class="regexp">/usr/</span>local<span class="regexp">/etc/</span>varnish/<span class="keyword">default</span>.vcl</span><br></pre></td></tr></table></figure><p>我们需要做一些配置，另外注意，我们要达到的目的是测试，我本地已经有许多网站测试环境了，用的自然是80端口，所以我偶尔才需要用到的Varnish，就分给他一个8080端口吧</p><p>plist我们把启动端口改成8080</p><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">plist</span> <span class="attr">version</span>=<span class="string">"1.0"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dict</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">key</span>&gt;</span>Label<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">string</span>&gt;</span>homebrew.mxcl.varnish<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">key</span>&gt;</span>ProgramArguments<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">array</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">string</span>&gt;</span>/usr/local/opt/varnish/sbin/varnishd<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">string</span>&gt;</span>-n<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">string</span>&gt;</span>/usr/local/var/varnish<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">string</span>&gt;</span>-f<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">string</span>&gt;</span>/usr/local/etc/varnish/default.vcl<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">string</span>&gt;</span>-s<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">string</span>&gt;</span>malloc,1G<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">string</span>&gt;</span>-T<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">string</span>&gt;</span>127.0.0.1:2000<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">string</span>&gt;</span>-a<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">string</span>&gt;</span>0.0.0.0:8080<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">array</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">key</span>&gt;</span>KeepAlive<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">true</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">key</span>&gt;</span>RunAtLoad<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">true</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">key</span>&gt;</span>WorkingDirectory<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">string</span>&gt;</span>/usr/local<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">key</span>&gt;</span>StandardErrorPath<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">string</span>&gt;</span>/usr/local/var/varnish/varnish.log<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">key</span>&gt;</span>StandardOutPath<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">string</span>&gt;</span>/usr/local/var/varnish/varnish.log<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dict</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">plist</span>&gt;</span></span><br></pre></td></tr></table></figure><p>vcl 文件，我们把80端口当作后端<br><figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">backend<span class="built_in"> default </span>&#123;</span><br><span class="line">    .host = <span class="string">"127.0.0.1"</span>;</span><br><span class="line">    .port = <span class="string">"80"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>这样启动以后，我们访问任意一个本地测试虚拟主机的8080端口，可以在firebug的网络头看到Varnish头，证明Varnish已经安装成功。</p><p>我们还可以使用Lingo这样的软件来管理服务的启动和停止，如果发现不好关闭的话，可以直接<code>sudo kill PID</code>的方式关闭服务。</p><p>最后说一下上面几个启动选项的含义</p><ul><li>-n: 运行目录路径</li><li>-f: 配置文件路径</li><li>-s: 缓存方式，这里是内存划分1G，也可以是file，代表使用文件系统缓存</li><li>-T: 管理后端，使用telnet来管理</li><li>-a: 启动端口</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;说到开发环境，已经不仅仅是开发本身所需要的软件集合了，也包括线上生产服务器所使用的种种服务器端软件，比如大多数时候我们本地只要有普通的LAMP环境即可开发，但有时候因为特殊需求，我们就需要往本地安装Memcache, APC, Solr, Varnish等等服务器软件或者组件， 本文要说的就是MacOS上安装Varnish的方法。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Ops" scheme="http://www.vipzhicheng.com/categories/Ops/"/>
+    
+    
+      <category term="MacOS" scheme="http://www.vipzhicheng.com/tags/MacOS/"/>
+    
+      <category term="Varnish" scheme="http://www.vipzhicheng.com/tags/Varnish/"/>
+    
+      <category term="Homebrew" scheme="http://www.vipzhicheng.com/tags/Homebrew/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>向大家推荐一个Shell脚本：Go</title>
+    <link href="http://www.vipzhicheng.com/2014/03/10/introduce-shell-command-go/"/>
+    <id>http://www.vipzhicheng.com/2014/03/10/introduce-shell-command-go/</id>
+    <published>2014-03-10T15:15:25.000Z</published>
+    <updated>2019-03-16T17:05:55.437Z</updated>
+    
+    <content type="html"><![CDATA[<p>这个脚本是做什么用的呢， 主要是用来管理大量SSH远程主机的，以前我们的做法要么就是把远程服务器的账户名，密码存成文本文档，每次连服务器都需要去查文档。要么就是编写一个个expect脚本，go-here, go-there的。</p><p>这里给大家推荐的go命令，可以一个命令管理多个远程，而且配置简单</p><a id="more"></a><p>项目地址：<a href="https://github.com/vipzhicheng/go" target="_blank" rel="noopener">https://github.com/vipzhicheng/go</a></p><p>详细的使用方法可以参考项目的简介，这里列出调用go命令的部分，大家可以看到， go命令后面可以跟ip或者label参数，可以随意匹配配置文件里的服务器，如果匹配的服务器只有一个，直接就可以登上去了，非常的方便。</p><figure class="highlight x86asm"><table><tr><td class="code"><pre><span class="line">$ go label</span><br><span class="line"></span><br><span class="line">Found follow servers: (Which one <span class="built_in">do</span> you want to connect?)</span><br><span class="line">[<span class="number">1</span>] user1@<span class="number">192.168</span><span class="meta">.1</span><span class="meta">.7</span> label:<span class="number">7</span></span><br><span class="line">[<span class="number">2</span>] user2@<span class="number">192.168</span><span class="meta">.1</span><span class="meta">.8</span> label:<span class="number">8</span></span><br><span class="line">Please choose by ID:</span><br><span class="line"><span class="number">1</span></span><br><span class="line"></span><br><span class="line">Logging <span class="keyword">into</span> user1@<span class="number">192.168</span><span class="meta">.1</span><span class="meta">.7</span> ...</span><br><span class="line">spawn ssh user1@<span class="number">192.168</span><span class="meta">.1</span><span class="meta">.7</span> -p <span class="number">22000</span></span><br><span class="line">user1@<span class="number">192.168</span><span class="meta">.1</span><span class="meta">.7</span><span class="string">'s password:</span></span><br><span class="line"><span class="string">Last login: Mon Mar 10 18:35:02 2014 from 192.168.1.6</span></span><br><span class="line"><span class="string">$</span></span><br></pre></td></tr></table></figure><p>如果你有任何建议，可以留言，我会继续完善，不过目前来讲已经够我使用了。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;这个脚本是做什么用的呢， 主要是用来管理大量SSH远程主机的，以前我们的做法要么就是把远程服务器的账户名，密码存成文本文档，每次连服务器都需要去查文档。要么就是编写一个个expect脚本，go-here, go-there的。&lt;/p&gt;
+&lt;p&gt;这里给大家推荐的go命令，可以一个命令管理多个远程，而且配置简单&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Ops" scheme="http://www.vipzhicheng.com/categories/Ops/"/>
+    
+    
+      <category term="Shell" scheme="http://www.vipzhicheng.com/tags/Shell/"/>
+    
+      <category term="SSH" scheme="http://www.vipzhicheng.com/tags/SSH/"/>
+    
+      <category term="多个账户" scheme="http://www.vipzhicheng.com/tags/%E5%A4%9A%E4%B8%AA%E8%B4%A6%E6%88%B7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Jenkins的安全防护</title>
+    <link href="http://www.vipzhicheng.com/2014/03/09/access-control-for-jenkins/"/>
+    <id>http://www.vipzhicheng.com/2014/03/09/access-control-for-jenkins/</id>
+    <published>2014-03-09T09:50:57.000Z</published>
+    <updated>2019-03-16T17:05:55.437Z</updated>
+    
+    <content type="html"><![CDATA[<p>在<a href="http://www.vipzhicheng.com/blog/2014/02/24/yum-install-jenkins-on-centos/">这篇文章</a>中我们我们提到默认Jenkins是不提供任何权限控制的，但通过配置，可以增加用户名密码登陆机制。但更进一步的，我们不希望有人能够扫描到Jenkins的端口，通常默认是8080，所以我的思路是使用Apache的反向代理配置，并且使用HTTP BASIC AUTH机制。</p><a id="more"></a><p>反向代理的配置如下:</p><figure class="highlight dts"><table><tr><td class="code"><pre><span class="line"><span class="params">&lt;VirtualHost *:<span class="number">80</span>&gt;</span></span><br><span class="line">    ServerName your.domain.com</span><br><span class="line">    ProxyPass / http:<span class="comment">//127.0.0.1:8080/</span></span><br><span class="line">    ProxyPassReverse / http:<span class="comment">//127.0.0.1:8080/</span></span><br><span class="line">    ProxyRequests Off</span><br><span class="line">    ErrorLog logs/jenkins-error_log</span><br><span class="line">    CustomLog logs/jenkins-access_log common</span><br><span class="line"></span><br><span class="line">   <span class="params">&lt;Location /&gt;</span></span><br><span class="line">      AuthUserFile <span class="meta-keyword">/var/</span>www<span class="meta-keyword">/html/</span>etc/htpasswd</span><br><span class="line">      AuthType Basic</span><br><span class="line">      AuthName <span class="string">"Jenkins"</span></span><br><span class="line">      Require valid-user</span><br><span class="line">   <span class="params">&lt;/Location&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="params">&lt;/VirtualHost&gt;</span></span><br></pre></td></tr></table></figure><p>htpasswd文件是通过Apache的htpasswd命令设置的。</p><p>但是启动之后发现输入了BASIC AUTH的用户名和密码之后，又弹出了Jenkins自己的BASIC AUTH，通过Google，找到如下解决方案，在httpd.conf里添加如下配置，这个依赖于mod_headers模块。</p><figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment"># remove auth from headers</span></span><br><span class="line">RequestHeader <span class="keyword">unset</span> Authorization</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在&lt;a href=&quot;http://www.vipzhicheng.com/blog/2014/02/24/yum-install-jenkins-on-centos/&quot;&gt;这篇文章&lt;/a&gt;中我们我们提到默认Jenkins是不提供任何权限控制的，但通过配置，可以增加用户名密码登陆机制。但更进一步的，我们不希望有人能够扫描到Jenkins的端口，通常默认是8080，所以我的思路是使用Apache的反向代理配置，并且使用HTTP BASIC AUTH机制。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Ops" scheme="http://www.vipzhicheng.com/categories/Ops/"/>
+    
+    
+      <category term="CentOS" scheme="http://www.vipzhicheng.com/tags/CentOS/"/>
+    
+      <category term="Jenkins" scheme="http://www.vipzhicheng.com/tags/Jenkins/"/>
+    
+      <category term="安全" scheme="http://www.vipzhicheng.com/tags/%E5%AE%89%E5%85%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>date命令获得上月的最后一天</title>
+    <link href="http://www.vipzhicheng.com/2014/03/06/how-get-the-end-day-of-last-month-using-date-on-shell/"/>
+    <id>http://www.vipzhicheng.com/2014/03/06/how-get-the-end-day-of-last-month-using-date-on-shell/</id>
+    <published>2014-03-06T04:06:10.000Z</published>
+    <updated>2019-03-16T17:05:55.436Z</updated>
+    
+    <content type="html"><![CDATA[<p>工作中需要编写一些自动化脚本，有的涉及到定期执行的问题，我需要在Shell中得到上个月的第一天和最后一天，去网上查了一下，有的人给出的答案需要写一大段程序，有的需要使用其他脚本语言来实现，都不是很简练，还有的使用cal命令加awk, xargs等命令复合使用来实现。</p><p>后来终于让我找到了合适的方法，就是使用系统自带的date指令+参数。<br><a id="more"></a><br><figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line"><span class="attribute">start_date</span>=`date +<span class="string">"%Y-%m-01"</span> <span class="attribute">--date</span>=<span class="string">"last month"</span>`</span><br><span class="line"><span class="attribute">end_date</span>=`date -d <span class="string">"<span class="variable">$(date +'%Y-%m-01')</span> - 1 day"</span> +<span class="string">"%Y-%m-%d"</span>`</span><br></pre></td></tr></table></figure></p><p>其他实现方式就不在这里记录了，网上很容易找到。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;工作中需要编写一些自动化脚本，有的涉及到定期执行的问题，我需要在Shell中得到上个月的第一天和最后一天，去网上查了一下，有的人给出的答案需要写一大段程序，有的需要使用其他脚本语言来实现，都不是很简练，还有的使用cal命令加awk, xargs等命令复合使用来实现。&lt;/p&gt;
+&lt;p&gt;后来终于让我找到了合适的方法，就是使用系统自带的date指令+参数。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="Ops" scheme="http://www.vipzhicheng.com/categories/Ops/"/>
+    
+    
+      <category term="Shell" scheme="http://www.vipzhicheng.com/tags/Shell/"/>
+    
+      <category term="脚本" scheme="http://www.vipzhicheng.com/tags/%E8%84%9A%E6%9C%AC/"/>
+    
+      <category term="日期" scheme="http://www.vipzhicheng.com/tags/%E6%97%A5%E6%9C%9F/"/>
+    
+  </entry>
+  
+</feed>

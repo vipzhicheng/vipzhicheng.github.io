@@ -1,0 +1,836 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=5.7.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="Drupal,A/B Test,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="理查的学习笔记" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1">
+
+
+
+
+
+
+<meta name="description" content="本文是我在工作中遇到A/B Test的需求，经过几天的研究的一篇心得笔记，不一定多专业，希望能给有类似需求的同行一些参考和灵感，在学习的过程中，也发现一些比较优秀的国外博文，我打算在近期翻译几篇，而不是把只言片语融入到本文当中，本文的重点仍然是Drupal A/B Test的解决方案，介绍性的文字来源于最近几天的学习心得，是给不熟悉A/B Test的同行的一些入门介绍。">
+<meta name="keywords" content="Drupal,A&#x2F;B Test">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Drupal A&#x2F;B Test解决方案之一">
+<meta property="og:url" content="http://www.vipzhicheng.com/2014/01/05/drupal-ab-testing-solution/index.html">
+<meta property="og:site_name" content="理查的学习笔记">
+<meta property="og:description" content="本文是我在工作中遇到A/B Test的需求，经过几天的研究的一篇心得笔记，不一定多专业，希望能给有类似需求的同行一些参考和灵感，在学习的过程中，也发现一些比较优秀的国外博文，我打算在近期翻译几篇，而不是把只言片语融入到本文当中，本文的重点仍然是Drupal A/B Test的解决方案，介绍性的文字来源于最近几天的学习心得，是给不熟悉A/B Test的同行的一些入门介绍。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-03-16T17:05:55.433Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Drupal A&#x2F;B Test解决方案之一">
+<meta name="twitter:description" content="本文是我在工作中遇到A/B Test的需求，经过几天的研究的一篇心得笔记，不一定多专业，希望能给有类似需求的同行一些参考和灵感，在学习的过程中，也发现一些比较优秀的国外博文，我打算在近期翻译几篇，而不是把只言片语融入到本文当中，本文的重点仍然是Drupal A/B Test的解决方案，介绍性的文字来源于最近几天的学习心得，是给不熟悉A/B Test的同行的一些入门介绍。">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"hide"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: undefined,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> Drupal A/B Test解决方案之一 | 理查的学习笔记 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-6515979-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">理查的学习笔记</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-node">
+          <a href="/tags/Node" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-"></i> <br>
+            
+            menu.node
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Drupal A/B Test解决方案之一
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2014-01-05T22:32:14+08:00" content="2014-01-05">
+              2014-01-05
+            </time>
+          </span>
+
+          
+            <span class="post-category">
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Dev/" itemprop="url" rel="index">
+                    <span itemprop="name">Dev</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>本文是我在工作中遇到A/B Test的需求，经过几天的研究的一篇心得笔记，不一定多专业，希望能给有类似需求的同行一些参考和灵感，在学习的过程中，也发现一些比较优秀的国外博文，我打算在近期翻译几篇，而不是把只言片语融入到本文当中，本文的重点仍然是Drupal A/B Test的解决方案，介绍性的文字来源于最近几天的学习心得，是给不熟悉A/B Test的同行的一些入门介绍。</p>
+<a id="more"></a>
+<p>PS1：所说的A/B Test，我想正确的说法应该是A/B Testing，但国人可能更习惯说A/B Test，本文也不是咬文嚼字，所以全篇也都叫A/B Test了。</p>
+<p>PS2：本文以Drupal 6环境为依托来介绍，Drupal 7也许会有更好的解决方案。</p>
+<h2 id="A-B-Test-简介"><a href="#A-B-Test-简介" class="headerlink" title="A/B Test 简介"></a>A/B Test 简介</h2><p>这一部分主要是简单介绍一下A/B Test的概念和相关知识。从而让读者对A/B Test有一个大概的了解。</p>
+<h3 id="什么是A-B-Test？"><a href="#什么是A-B-Test？" class="headerlink" title="什么是A/B Test？"></a>什么是A/B Test？</h3><p>A/B Test，是指对某一个特定的页面或者页面上的一部分，制作两个或两个以上版本，然后将网站的访问流量分发到不同的版本上，继而观察网站该页面或者该部分带来的转化率，或者一些重要指标的变化，从而得出其中的一个版本比另一个版本更好的结论，并以此决定最终上线的版本。</p>
+<p>最开始的时候，我觉得主要是市场人员希望知道改变了字体大小，颜色，文案之后，网站的转化率究竟发生了怎样的变化，但现在我们已经把A/B Test的内容进行了扩展和深化，可以应用于网站的方方面面，前端后端，是持续运营网站的一个有效工具。前端很好理解，后端的A/B Test举个例子来说，比如为了给用户推荐一个产品列表，我们设计了几个不同的算法，推荐结果是不同的，但从功能上又是相同的，那么怎么决定最终用哪个算法呢，这时候就可以针对算法做一次A/B Test。</p>
+<h3 id="什么是Bucket-Test"><a href="#什么是Bucket-Test" class="headerlink" title="什么是Bucket Test"></a>什么是Bucket Test</h3><p>Bucket Test 是A/B Test概念的扩展，中文翻译成分桶测试，外国人也有叫Split Test的， 其实都是一个意思，就是同时做多个A/B Test， 不是只有一个B版本，而是B1, B2 … BN 一共N个版本，做一次Bucket Test 就可以在多个改进版本中选出一个最优的版本。 实现Bucket Test的系统，就是Bucket Test System, 简称BTS， 一般来说只有有这样的系统才可以做好Bucket Testing， 因为他可以帮助我们很方便的管理每组测试，为每个Bucket分配流量，实时监控每个Bucket的运行效果，转化率等等各项指标。BTS根据各个公司的开发实力以及需求，可以做的很复杂，尤其是对自身业务关键指标的抽象，计算。如果是小公司，可以直接使用第三方系统做流量切割，然后使用半手动的方式评估每个版本的效果。 但是在实际测试中，一定要注意每个bucket要有足够多的测试样本，流量不平均分配也没事，但数量要够大，这样你才能对测试结果有信心，测试才有意义。</p>
+<h3 id="多因素测试"><a href="#多因素测试" class="headerlink" title="多因素测试"></a>多因素测试</h3><p>多因素测试是一种Bucket Test, 不是所有的Bucket Test都这样做。 比如在一次改版任务中， 我们认为提升转化率的关键因素有3个，标题字体大小有3个版本，标题颜色有2个版本，标题文案有2个版本，那么就有3x2x2一共12种组合， 所以我们就相当于有了12个Bucket， 这样我们就可以进行Bucket Test了， 最后我们得到一个结论，这3个关键因素的某个组合转化率最好，那么这个版本就是我们最应该采用的版本，拥有最优化的关键因素组合。 大多数时候，我们其实每次改版改动都是很大的，不去区分究竟哪些地方改变了，或者我们改动了很多地方，这样做多因素测试就是不现实的，这时往往我们就弄一两个自己认为关键的版本（往往就一个）就可以了，这样得到的结果未必是此次改版所能达到的最好效果，只能看这个版本和原版本的比较结果，但即使这样也是有意义的，比直接上线新版一段时间，然后再观察各项关键指标要客观。</p>
+<h3 id="A-B-Test的原则"><a href="#A-B-Test的原则" class="headerlink" title="A/B Test的原则"></a>A/B Test的原则</h3><ol>
+<li>只测试少量因素</li>
+<li>因素改版要有显著变化</li>
+<li>针对大流量页面做测试</li>
+<li>持续测试，仅仅做一两次A/B Test是达不到提高转化率的目的的</li>
+<li>各版本页面传达的信息应该是一致的只是形式稍有不同</li>
+<li>应该在同一时间测试</li>
+<li>各版本得到的流量都要比较大，这样结果才有说服力</li>
+<li>不要过早的停止A/B Test</li>
+<li>要让访问测试版本的访客始终看到那个版本</li>
+</ol>
+<h2 id="Drupal系统的A-B-Test解决方案"><a href="#Drupal系统的A-B-Test解决方案" class="headerlink" title="Drupal系统的A/B Test解决方案"></a>Drupal系统的A/B Test解决方案</h2><p>BTS系统有很多，这里主要推荐Google Analytics Content Experiments工具，关于怎样使用，这里有一个比较好的中文介绍，<a href="http://www.analyticskey.com/content-experiment-google-analytics/" target="_blank" rel="noopener">利用Google Analytics测试优化网站内容</a> 我们是Drupal程序员，那么我们在做A/B Test的时候，需要做些什么以及如何做呢，本文给出的是一个完全原创的代码级解决方案，需要使用GA Content Experiments做流量分发和效果监控，本文主要是告诉大家在这套方案里我们的代码应该怎样写。</p>
+<h3 id="将GA-A-B-Test相关的JS代码嵌入head标签"><a href="#将GA-A-B-Test相关的JS代码嵌入head标签" class="headerlink" title="将GA A/B Test相关的JS代码嵌入head标签"></a>将GA A/B Test相关的JS代码嵌入head标签</h3><p>首先，GA A/B Test工具中配置一个A/B Test实验时，会让你在原始版本添加一些GA统计代码到head标签，Drupal自身对这件事情支持的不是特别好，所以我的方案是在page.tpl.php里加入新的自定义变量到head标签，然后在template.php里加逻辑设置这个变量，最后在settings.php里对GA统计代码随时添加删除，这样做是因为A/B Test一般都是临时的,所以某些时候我们需要快速开启和关闭A/B Test，没有必要每次都走release流程。 编辑page.tpl.php，因为GA 的AB Testing工具要求统计代码放到head标签最开始的位置。（这里是因为不加空格就显示不出来）</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="php"><span class="meta">&lt;?php</span> <span class="keyword">print</span> $head_prepend;<span class="meta">?&gt;</span></span>`</span><br></pre></td></tr></table></figure>
+<p>编辑template.php， 我们在主题的template.php里为新加的模板变量复制，注意值是在settings.local.php里设置的，其实这里如果做的复杂一些，我们可以为模板变量的复制单独开发一个管理后台，但简单就是美，这里还是以突出核心概念为主。</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">MYTHEME_preprocess_page</span><span class="params">(&amp;$vars)</span> </span>&#123;</span><br><span class="line">  $vars[<span class="string">'head_prepend'</span>] = zinchus_process_page_head_prepend();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>自定义函数,放到了template.php，因为不是API</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">MYTHEME_get_page_head_prepend</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  $request_uri = request_uri();</span><br><span class="line"></span><br><span class="line">  $head_prepend = variable_get(<span class="string">'head_prepend'</span>, <span class="keyword">array</span>());</span><br><span class="line">  <span class="keyword">if</span> (array_key_exists($request_uri, $head_prepend)) &#123;</span><br><span class="line">    <span class="keyword">return</span> $head_prepend[$request_uri];</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">''</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在settings.php里设置统计代码，注意里面的key是request_uri，也就是实际路径，不是Drupal Path</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">if (empty($_GET['v'])) &#123;</span><br><span class="line">  $conf[<span class="string">'head_prepend'</span>][<span class="symbol">'/node/374'</span>] = [GA CODE];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="为原始代码实现多个版本"><a href="#为原始代码实现多个版本" class="headerlink" title="为原始代码实现多个版本"></a>为原始代码实现多个版本</h3><p>前面的逻辑都写好以后，我们就可以很方便的在任意页面插入统计JS代码了，但同时GA Content Experiments还需要多个版本，这里以一个版本为例，我们是可以随意开发一个新的版本用一个新的url，但要注意，这只是一个实验，在得出结果以后，好的版本会留下，不好的版本会被淘汰，这时如果我们让网站同时存在两个版本，时间长了会越来越难维护，有很多冗余代码在里面，为了解决这个问题，我写了一个简单的入口函数abtest()。也就是说我给出的是一个函数级别A/B Test的方案，可以给任意函数添加新版本。 下面来简单看一下这个函数的用法</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 注意第二个参数可以传多个同功能新版函数</span></span><br><span class="line">$output = abtest(<span class="string">'func_a'</span>, <span class="keyword">array</span>(<span class="string">'func_b'</span>));</span><br></pre></td></tr></table></figure>
+<p>当测试结束是，我们一般会随时希望将效果好的版本正式上线，这时我们会选择使用settings.php。如果想更加易用一般会为这个setting开发后台用于开关和版本选择，但settings.php一般来说是我们更加常用的settings设置手段，因为这种settings照顾到了可配置性，而且一般配置好了也不经常修改。</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 如果设置成0就是强制启用原始版本，如果是2就是强制使用新版本2（如果有的话）</span></span><br><span class="line">$conf[<span class="string">'abtest_force_func_a'</span>, <span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+<p>入口函数源码</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 这个是用于分发各个版本的入口函数，很简单不是么</span></span><br><span class="line"><span class="comment">// 第一个参数是原始函数，第二个参数是多个新版函数名组成的数组，第三个参数是传给函数的参数。</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">abtest</span><span class="params">($test_function, $buckets = array<span class="params">()</span>, $args = array<span class="params">()</span>)</span> </span>&#123;</span><br><span class="line">  !is_array($buckets) &amp;&amp; $buckets = (<span class="keyword">array</span>) $buckets;</span><br><span class="line">  $bucket = variable_get(<span class="string">'abtest_force_'</span> . $test_function, <span class="keyword">NULL</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (!<span class="keyword">isset</span>($bucket)) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">isset</span>($_GET[<span class="string">'bucket_name'</span>])) &#123;</span><br><span class="line">      $bucket_name = check_plain($_GET[<span class="string">'bucket_name'</span>]);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      $bucket_name = variable_get(<span class="string">'abtest_bucket_name'</span>, <span class="string">'v'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">isset</span>($_GET[$bucket_name])) &#123;</span><br><span class="line">      $bucket = check_plain($_GET[$bucket_name]);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      $bucket = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里需要注意的是即使是Drupal页面级的A/B Test也可以从这个方案中获益</p>
+<figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 示例代码</span></span><br><span class="line">$item[<span class="string">'page callback'</span>] = <span class="string">'abtest'</span>;</span><br><span class="line">$item[<span class="string">'page arguments'</span>] = <span class="keyword">array</span>(<span class="string">'func_a'</span>, <span class="keyword">array</span>(<span class="string">'func_b'</span>));</span><br></pre></td></tr></table></figure>
+<p>最后，为了清理代码方便，原则上建议把新版本的代码规划好，比如每个新版本都放到不同的文件夹中，杂揉在一起在将来删除时会浪费不少时间。</p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>A/B Test是一种数据驱动运营型网站的常用运营工具，因为我们需要不断优化，改版增加网站的用户体验，提高转化率，我们不仅要改，还要知道修改的部分对网站转化率的影响，还要知道影响的程度，这些数据有的可以通过BTS给出来，但有的需要对现有数据库进行数据分析，为此还可能需要在各个版本里嵌入自己的关键数据收集代码。总之一切都是为了做出更好的网站和提高我们的收入。</p>
+<h2 id="补充内容"><a href="#补充内容" class="headerlink" title="补充内容"></a>补充内容</h2><p>在Drupal项目中实施A/B Test的过程中，我们遇到了很多非典型问题，下面补充一些相关内容</p>
+<h3 id="B版本只有匿名用户能看到，而A版本登录和匿名用户都能看到"><a href="#B版本只有匿名用户能看到，而A版本登录和匿名用户都能看到" class="headerlink" title="B版本只有匿名用户能看到，而A版本登录和匿名用户都能看到"></a>B版本只有匿名用户能看到，而A版本登录和匿名用户都能看到</h3><p>这个解决起来很简单，只要登录用户不加载GA的实验代码，就不会进入统计了。</p>
+<h3 id="GA的A-B-Test流量分流不是平均分配"><a href="#GA的A-B-Test流量分流不是平均分配" class="headerlink" title="GA的A/B Test流量分流不是平均分配"></a>GA的A/B Test流量分流不是平均分配</h3><p>这个大家在使用过程中一定会遇到，因为这是GA故意为之的，目的也很好理解，A/B两个版本的线上测试，如果B版本比A版本好太多，意味着无论是Page views，还是实际销售额肯定相差很大，如果平均分配流量，是会损害网站的核心利益的，所以GA从算法上，使得根据转化率自动调整流量分配，转化率高的，得到的流量就多。 但有的时候，我们是需要流量平均分配的，这个时候，trick的解决方案是设置一个永远不可达到的Goal页面。经测试这种方式是十分有效的。 有兴趣的可以继续阅读<a href="http://support.google.com/analytics/bin/answer.py?hl=en&amp;answer=2844870" title="Multi-armed bandit experiments" target="_blank" rel="noopener">这篇GA文档</a>。</p>
+<h3 id="A-B-两个版本的Goal页面不是同一个"><a href="#A-B-两个版本的Goal页面不是同一个" class="headerlink" title="A/B 两个版本的Goal页面不是同一个"></a>A/B 两个版本的Goal页面不是同一个</h3><p>我们知道GA的A/B Test实验只能设置一个，这种两个Goal页面的事情，其实是在打破A/B Test的规则，这也数据测试的内容太多的问题，我们这是两个产品（页面同时上线，同时测），然后从总的转化上把握效果，不管是否对错，但总是要先实施出来，这里的实施方法是，在GA里只设置A版本的Goal页面，然后看B版本有多少去了A版本的Goal，算出比例，然后把A版本带来的转化量去掉这个比例后再进行评估。</p>
+<h2 id="参考文献和资源"><a href="#参考文献和资源" class="headerlink" title="参考文献和资源"></a>参考文献和资源</h2><p>1，<a href="http://www.analyticskey.com/content-experiment-google-analytics/" target="_blank" rel="noopener">http://www.analyticskey.com/content-experiment-google-analytics/</a> 详细介绍了Google Analytics Content Experiments的用法。我们的A/B Test方案中，流量分发和部分的数据监控都是交给GA的，我觉得这样没什么不好，可以让我们更专心专注于业务逻辑即新版本的开发。</p>
+<p>2，<a href="http://drupal.org/project/multivariate" target="_blank" rel="noopener">http://drupal.org/project/multivariate</a> Drupal Way的A/B Test模块，即提供了BTS的管理后台，又可以监控，以及A/B Test实施，我觉得做目前还用不上这个模块，或者说这个模块不能解决我们网站遇到的问题。</p>
+<p>3, <a href="http://phpabtest.com" target="_blank" rel="noopener">http://phpabtest.com</a> PHP级别的A/B Test解决方案，也是与GA继承，但似乎其并没有用到Content Experiments功能，而是简单的往GA发送数据的方式。不过还是值得借鉴的。</p>
+<p>4，<a href="http://whichtestwon.com/" target="_blank" rel="noopener">http://whichtestwon.com/</a> 一个投票网站，投A/B 两个版本哪个你觉得更好，这个就没什么转化的概念的，所以虽然也像是一个A/B Test，但我觉得更像是一个游戏。</p>
+<p>5, <a href="http://visualwebsiteoptimizer.com" target="_blank" rel="noopener">http://visualwebsiteoptimizer.com</a> 一个BTS系统，据说比GA提供的工具更强大，其实还有很多类似的第三方系统，不一一列举，我们目前是还没有到使用这样的系统频繁做大量A/B Test的程度。</p>
+<p>6, <a href="http://www.smashingmagazine.com/2010/06/24/the-ultimate-guide-to-a-b-testing/" target="_blank" rel="noopener">http://www.smashingmagazine.com/2010/06/24/the-ultimate-guide-to-a-b-testing/</a> 这篇文章的主要看点是看看各个网站是怎么做的A/B Test，又因为A/B Test提高了多少转化率，可谓是A/B Test里的经典案例了。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Drupal/" rel="tag">#Drupal</a>
+          
+            <a href="/tags/A-B-Test/" rel="tag">#A/B Test</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2014/01/05/drupal-modules-directory-structure/" rel="next" title="探讨Drupal模块目录组织方式">
+                <i class="fa fa-chevron-left"></i> 探讨Drupal模块目录组织方式
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2014/01/06/solution-for-mysql-random-results/" rel="prev" title="MYSQL随机结果集方案比较">
+                MYSQL随机结果集方案比较 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.jpeg" alt="Richard Yu">
+          <p class="site-author-name" itemprop="name">Richard Yu</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">32</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">65</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/vipzhicheng" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.drupalproject.org/" title="Drupal项目社区" target="_blank">Drupal项目社区</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://drupalchina.cn" title="Drupal中国" target="_blank">Drupal中国</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#A-B-Test-简介"><span class="nav-number">1.</span> <span class="nav-text">A/B Test 简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是A-B-Test？"><span class="nav-number">1.1.</span> <span class="nav-text">什么是A/B Test？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是Bucket-Test"><span class="nav-number">1.2.</span> <span class="nav-text">什么是Bucket Test</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多因素测试"><span class="nav-number">1.3.</span> <span class="nav-text">多因素测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#A-B-Test的原则"><span class="nav-number">1.4.</span> <span class="nav-text">A/B Test的原则</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Drupal系统的A-B-Test解决方案"><span class="nav-number">2.</span> <span class="nav-text">Drupal系统的A/B Test解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#将GA-A-B-Test相关的JS代码嵌入head标签"><span class="nav-number">2.1.</span> <span class="nav-text">将GA A/B Test相关的JS代码嵌入head标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为原始代码实现多个版本"><span class="nav-number">2.2.</span> <span class="nav-text">为原始代码实现多个版本</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小结"><span class="nav-number">3.</span> <span class="nav-text">小结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#补充内容"><span class="nav-number">4.</span> <span class="nav-text">补充内容</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#B版本只有匿名用户能看到，而A版本登录和匿名用户都能看到"><span class="nav-number">4.1.</span> <span class="nav-text">B版本只有匿名用户能看到，而A版本登录和匿名用户都能看到</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GA的A-B-Test流量分流不是平均分配"><span class="nav-number">4.2.</span> <span class="nav-text">GA的A/B Test流量分流不是平均分配</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#A-B-两个版本的Goal页面不是同一个"><span class="nav-number">4.3.</span> <span class="nav-text">A/B 两个版本的Goal页面不是同一个</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文献和资源"><span class="nav-number">5.</span> <span class="nav-text">参考文献和资源</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy;  2014 - 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Richard Yu</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';                
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+                            
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').mousedown(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+  
+
+  
+
+  
+
+</body>
+</html>

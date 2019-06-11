@@ -1,0 +1,290 @@
+<h1 id="Upgrading-Guide"><a href="#Upgrading-Guide" class="headerlink" title="Upgrading Guide"></a>Upgrading Guide</h1><p>See the <a href="./CHANGELOG.md">CHANGELOG.md</a> for detailed information about what has changed between versions.</p>
+<p>This guide is useful to figure out what you need to do between breaking changes.</p>
+<p>As always, <a href="https://github.com/FortAwesome/Font-Awesome/issues/new">submit issues</a> that you run into with this guide or with these upgrades to us.</p>
+<hr>
+<h2 id="5-7-1-to-5-7-2"><a href="#5-7-1-to-5-7-2" class="headerlink" title="5.7.1 to 5.7.2"></a>5.7.1 to 5.7.2</h2><p>There are no breaking changes in this version upgrade.</p>
+<hr>
+<h2 id="5-7-0-to-5-7-1"><a href="#5-7-0-to-5-7-1" class="headerlink" title="5.7.0 to 5.7.1"></a>5.7.0 to 5.7.1</h2><p>The cheeseburger icon incorrectly placed the cheese <em>under</em> the patty. This is unacceptable and we’ve fixed it.</p>
+<hr>
+<h2 id="5-6-x-to-5-7-0"><a href="#5-6-x-to-5-7-0" class="headerlink" title="5.6.x to 5.7.0"></a>5.6.x to 5.7.0</h2><h3 id="OTF-and-TTF-files"><a href="#OTF-and-TTF-files" class="headerlink" title="OTF and TTF files"></a>OTF and TTF files</h3><p>The PostScript name has been changed from <code>FontAwesome5ProSolid</code> to <code>FontAwesome5Pro-Solid</code>. This was done to be more compatible with tooling such as XCode.</p>
+<p>We’ve also update the <code>Version</code> specifier. Font files only support a MAJOR and MINOR version number so we have modifed our schema. For example, version 5.7.0 of Font Awesome is reflected as 329.472 in the individual font files.</p>
+<h3 id="Icon-changes"><a href="#Icon-changes" class="headerlink" title="Icon changes"></a>Icon changes</h3><p>The calendar-alt icon has been reverted back to the previous design in versions &lt;= 5.6.0.</p>
+<hr>
+<h2 id="5-6-x-to-5-6-3"><a href="#5-6-x-to-5-6-3" class="headerlink" title="5.6.x to 5.6.3"></a>5.6.x to 5.6.3</h2><p>The fire icon has been reverted back to the previous design in versions &lt;= 5.5.0.</p>
+<p>We have moved the redesigned icon to fire-alt.</p>
+<hr>
+<h2 id="5-6-0-to-5-6-1"><a href="#5-6-0-to-5-6-1" class="headerlink" title="5.6.0 to 5.6.1"></a>5.6.0 to 5.6.1</h2><p>There are no breaking changes in this version upgrade.</p>
+<hr>
+<h2 id="5-5-0-to-5-6-0"><a href="#5-5-0-to-5-6-0" class="headerlink" title="5.5.0 to 5.6.0"></a>5.5.0 to 5.6.0</h2><p>In this release we’ve taken time to re-organize the directory structure to<br>prevent redundancy and improve findability.</p>
+<h3 id="Directory-structure-changes"><a href="#Directory-structure-changes" class="headerlink" title="Directory structure changes"></a>Directory structure changes</h3><table>
+<thead>
+<tr>
+<th>Old path</th>
+<th>New path</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>advanced-options/metadata</td>
+<td>metadata</td>
+</tr>
+<tr>
+<td>advanced-options/raw-svg</td>
+<td>svgs</td>
+</tr>
+<tr>
+<td>advanced-options/svg-sprites</td>
+<td>sprites</td>
+</tr>
+<tr>
+<td>advanced-options/use-with-node-js</td>
+<td>js-packages</td>
+</tr>
+<tr>
+<td>svg-with-js/js</td>
+<td>js</td>
+</tr>
+<tr>
+<td>svg-with-js/css</td>
+<td>css</td>
+</tr>
+<tr>
+<td>use-on-desktop</td>
+<td>otfs</td>
+</tr>
+<tr>
+<td>web-fonts-with-css/css</td>
+<td>css</td>
+</tr>
+<tr>
+<td>web-fonts-with-css/less</td>
+<td>less</td>
+</tr>
+<tr>
+<td>web-fonts-with-css/scss</td>
+<td>scss</td>
+</tr>
+<tr>
+<td>web-fonts-with-css/webfonts</td>
+<td>webfonts</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="5-4-x-to-5-5-0"><a href="#5-4-x-to-5-5-0" class="headerlink" title="5.4.x to 5.5.0"></a>5.4.x to 5.5.0</h2><p>There are no breaking changes in this version upgrade.</p>
+<hr>
+<h2 id="5-4-0-to-5-4-1"><a href="#5-4-0-to-5-4-1" class="headerlink" title="5.4.0 to 5.4.1"></a>5.4.0 to 5.4.1</h2><p>Categories were renamed from:</p>
+<ul>
+<li>Holiday to Halloween</li>
+<li>Seasonal to Autumn</li>
+</ul>
+<p>The “wand” icon in version 5.4.0 matched the “wand-magic” icon. The magical<br>sparkles have been removed for “wand”. If you were relying on this decoration<br>in your design switch to “wand-magic” to bring the magic back.</p>
+<hr>
+<h2 id="5-3-x-to-5-4-0"><a href="#5-3-x-to-5-4-0" class="headerlink" title="5.3.x to 5.4.0"></a>5.3.x to 5.4.0</h2><p>There are no breaking changes in this version upgrade.</p>
+<hr>
+<h2 id="5-3-0-to-5-3-1"><a href="#5-3-0-to-5-3-1" class="headerlink" title="5.3.0 to 5.3.1"></a>5.3.0 to 5.3.1</h2><p>The following Pro-only icons were removed from Font Awesome Free as of 5.3.1:</p>
+<ul>
+<li>abacus</li>
+<li>calculator-alt</li>
+<li>empty-set</li>
+<li>function</li>
+<li>integral</li>
+<li>intersection</li>
+<li>lambda</li>
+<li>omega</li>
+<li>pi</li>
+<li>sigma</li>
+<li>signal-alt</li>
+<li>signal-alt-slash</li>
+<li>signal-slash</li>
+<li>square-root</li>
+<li>tally</li>
+<li>theta</li>
+<li>tilde</li>
+<li>union</li>
+<li>value-absolute</li>
+<li>volume</li>
+<li>volume-down</li>
+<li>volume-slash</li>
+<li>wifi-slash</li>
+</ul>
+<p>These icons were unintentionally included in 5.3.0.</p>
+<hr>
+<h2 id="5-x-x-to-5-3-0"><a href="#5-x-x-to-5-3-0" class="headerlink" title="5.x.x to 5.3.0"></a>5.x.x to 5.3.0</h2><p>Sass mixin syntax has been updated to address a bug.</p>
+<p>Use <code>@extend %fa-icon</code> to correctly maintain CSS order in output files.</p>
+<p><del>Old way:</del></p>
+<pre><code>.twitter {
+  @include fa-icon; /* incorrect */
+  @extend .fab;
+
+  &amp;:before {
+    content: fa-content($fa-var-twitter);
+  }
+}
+</code></pre><p>New way:</p>
+<pre><code>.twitter {
+  @extend %fa-icon; /* correct */
+  @extend .fab;
+
+  &amp;:before {
+    content: fa-content($fa-var-twitter);
+  }
+}
+</code></pre><hr>
+<h2 id="5-1-x-to-5-2-x"><a href="#5-1-x-to-5-2-x" class="headerlink" title="5.1.x to 5.2.x"></a>5.1.x to 5.2.x</h2><p>There are no breaking changes in this version upgrade.</p>
+<hr>
+<h2 id="5-1-0-to-5-1-1"><a href="#5-1-0-to-5-1-1" class="headerlink" title="5.1.0 to 5.1.1"></a>5.1.0 to 5.1.1</h2><p>Less and Sass files incorrectly contained the “fa-“ prefix for style files.<br>These files have been renamed to be consistent with other files in the<br>packages.</p>
+<p>If you are using the Less or Sass file styles individually you will need to<br>correct the names in your builds.</p>
+<table>
+<thead>
+<tr>
+<th>Old filename</th>
+<th>New filename</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>less/fa-solid.less</td>
+<td>less/solid.less</td>
+</tr>
+<tr>
+<td>less/fa-regular.less</td>
+<td>less/regular.less</td>
+</tr>
+<tr>
+<td>less/fa-light.less</td>
+<td>less/light.less</td>
+</tr>
+<tr>
+<td>less/fa-brands.less</td>
+<td>less/brands.less</td>
+</tr>
+<tr>
+<td>scss/fa-solid.scss</td>
+<td>scss/solid.scss</td>
+</tr>
+<tr>
+<td>scss/fa-regular.scss</td>
+<td>scss/regular.scss</td>
+</tr>
+<tr>
+<td>scss/fa-light.scss</td>
+<td>scss/light.scss</td>
+</tr>
+<tr>
+<td>scss/fa-brands.scss</td>
+<td>scss/brands.scss</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="5-0-x-to-5-1-0"><a href="#5-0-x-to-5-1-0" class="headerlink" title="5.0.x to 5.1.0"></a>5.0.x to 5.1.0</h2><h3 id="New-packages-available-for-browser-only-integration"><a href="#New-packages-available-for-browser-only-integration" class="headerlink" title="New packages available for browser-only integration"></a>New packages available for browser-only integration</h3><p><strong>If you were previously using @fortawesome/fontawesome you need to switch to one of the new packages.</strong></p>
+<p>Our Free and Pro CDN provide access to JS, CSS, sprites, and separate SVG files.</p>
+<p>We’ve now made these files conveniently available through NPM.</p>
+<ul>
+<li><a href="https://www.npmjs.com/package/@fortawesome/fontawesome-free">@fortawesome/fontawesome-free</a></li>
+<li>@fortawesome/fontawesome-pro (private package, requires Pro subscription)</li>
+</ul>
+<p>If you are familiar with the paths and options available with the CDN these<br>packages should be familiar.</p>
+<p>Information about <a href="https://fontawesome.com/pro">Font Awesome Pro subscriptions</a><br>can be found in your <a href="https://fontawesome.com/account/services">Font Awesome awesome<br>account</a>.</p>
+<h3 id="Renamed-packages"><a href="#Renamed-packages" class="headerlink" title="Renamed packages"></a>Renamed packages</h3><p>The following packages have been renamed as part of 5.1.0 of Font Awesome.</p>
+<p><em>All packages are in the <a href="https://www.npmjs.com/search?q=scope:fortawesome&amp;ranking=optimal">@fortawesome NPM scope</a></em></p>
+<table>
+<thead>
+<tr>
+<th>Old package(1)</th>
+<th>New package</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fontawesome-free-webfonts</td>
+<td>fontawesome-free</td>
+</tr>
+<tr>
+<td>fontawesome-pro-webfonts</td>
+<td>fontawesome-pro</td>
+</tr>
+<tr>
+<td>fontawesome-free-solid</td>
+<td>free-solid-svg-icons</td>
+</tr>
+<tr>
+<td>fontawesome-free-regular</td>
+<td>free-regular-svg-icons</td>
+</tr>
+<tr>
+<td>fontawesome-free-brands</td>
+<td>free-brands-svg-icons</td>
+</tr>
+<tr>
+<td>fontawesome-pro-solid</td>
+<td>pro-solid-svg-icons</td>
+</tr>
+<tr>
+<td>fontawesome-pro-regular</td>
+<td>pro-regular-svg-icons</td>
+</tr>
+<tr>
+<td>fontawesome-pro-light</td>
+<td>pro-light-svg-icons</td>
+</tr>
+</tbody>
+</table>
+<p>(1) Old packages have now been deprecated. They are still available but will only receive high priority patch release fixes.</p>
+<p><strong>You’ll need to update your package.json file with the renamed packages and new versions.</strong></p>
+<h3 id="No-more-default-imports"><a href="#No-more-default-imports" class="headerlink" title="No more default imports"></a>No more default imports</h3><p>Recently we spent a good deal of time supporting TypeScript to enable us to<br>create the Angular Font Awesome component. During that adventure we<br><a href="https://basarat.gitbooks.io/typescript/docs/tips/defaultIsBad.html">were</a><br><a href="https://blog.neufund.org/why-we-have-banned-default-exports-and-you-should-do-the-same-d51fdc2cf2ad">convinced</a><br>that we were going to remove default exports from all of our components,<br>libraries, and packages. This is complete with the umbrella release of <code>5.1.0</code> of Font Awesome.</p>
+<p>What does that mean?</p>
+<p><del>Old way:</del></p>
+<pre><code class="javascript"><span class="keyword">import</span> fontawesome <span class="keyword">from</span> <span class="string">'@fortawesome/fontawesome'</span>
+<span class="keyword">import</span> solid <span class="keyword">from</span> <span class="string">'@fortawesome/fontawesome-free-solid'</span>
+<span class="keyword">import</span> faTwitter <span class="keyword">from</span> <span class="string">'@fortawesome/fontawesome-free-brands/faTwitter'</span>
+<span class="keyword">import</span> FontAwesomeIcon <span class="keyword">from</span> <span class="string">'@fortawesome/vue-fontawesome'</span>
+
+library.add(solid, faTwitter)
+</code></pre>
+<p>New way:</p>
+<pre><code class="javascript"><span class="keyword">import</span> { library, dom } <span class="keyword">from</span> <span class="string">'@fortawesome/fontawesome-svg-core'</span>
+<span class="keyword">import</span> { fas } <span class="keyword">from</span> <span class="string">'@fortawesome/free-solid-svg-icons'</span>
+<span class="keyword">import</span> { faTwitter } <span class="keyword">from</span> <span class="string">'@fortawesome/free-brands-svg-icons'</span>
+<span class="keyword">import</span> { FontAwesomeIcon } <span class="keyword">from</span> <span class="string">'@fortawesome/vue-fontawesome'</span>
+
+library.add(fas, faTwitter)
+
+<span class="comment">// Kicks off the process of finding &lt;i&gt; tags and replacing with &lt;svg&gt;</span>
+dom.watch()
+</code></pre>
+<p>This is also a valid way to import icons that works if your tool does not support tree shaking:</p>
+<pre><code class="javascript"><span class="keyword">import</span> { faTwitter } <span class="keyword">from</span> <span class="string">'@fortawesome/free-brands-svg-icons/faTwitter'</span>
+</code></pre>
+<h3 id="Improved-support-for-tree-shaking"><a href="#Improved-support-for-tree-shaking" class="headerlink" title="Improved support for tree shaking"></a>Improved support for tree shaking</h3><p>Tree shaking is now functional by default and no additional configuration is required to make it work.</p>
+<p>The <code>shakable.es.js</code> module has been removed and is no longer needed.</p>
+<p>If you’ve previously configured tree shaking by modifying your webpack or rollup you can safely remove these.</p>
+<p><strong>We recommend that you check your bundle size after upgrading an ensure that file sizes are as you would expect.</strong></p>
+<pre><code class="javascript"><span class="built_in">module</span>.exports = {
+  <span class="comment">// ...</span>
+  resolve: {
+    alias: {
+      <span class="string">'@fortawesome/fontawesome-free-solid$'</span>: <span class="string">'@fortawesome/fontawesome-free-solid/shakable.es.js'</span>
+    }
+  }
+}
+</code></pre>
+<pre><code class="javascript"><span class="keyword">const</span> alias = <span class="built_in">require</span>(<span class="string">'rollup-plugin-alias'</span>)
+
+rollup({
+  <span class="comment">// ...</span>
+  plugins: [
+    alias({
+      <span class="string">'@fortawesome/fontawesome-free-solid'</span>: <span class="string">'node_modules/@fortawesome/fontawesome-free-solid/shakable.es.js'</span>
+    })
+  ]
+})
+</code></pre>
+<hr>
+<h2 id="5-0-11-to-5-0-12"><a href="#5-0-11-to-5-0-12" class="headerlink" title="5.0.11 to 5.0.12"></a>5.0.11 to 5.0.12</h2><p>Due to a collision with the “r” glyph the R Project brand icon has been renamed to <code>r-project</code>.</p>
+<hr>
+<h2 id="5-0-x-to-5-0-6"><a href="#5-0-x-to-5-0-6" class="headerlink" title="5.0.x to 5.0.6"></a>5.0.x to 5.0.6</h2><h3 id="SVG-Attribute-was-changed-from-data-fa-processed-to-data-fa-i2svg"><a href="#SVG-Attribute-was-changed-from-data-fa-processed-to-data-fa-i2svg" class="headerlink" title="SVG Attribute was changed from data-fa-processed to data-fa-i2svg"></a>SVG Attribute was changed from data-fa-processed to data-fa-i2svg</h3><p>As part of a bug fix for the release of 5.0.6 we renamed an attribute that was found on <code>&lt;svg&gt;</code> elements from<br><code>data-fa-processed</code> to <code>data-fa-i2svg</code>. We feel this more accurately reflects the intent and purpose.</p>
+<p>This attribute is added to any icon that has been generated using <code>fontawesome.dom.i2svg()</code>.</p>
+<p>Be aware that <code>data-fa-i2svg</code> (or <code>data-fa-processed</code>) will no longer be present on icons that are created using<br><code>fontawesome.icon()</code>.</p>
+<p>If you’ve written and DOM queries that rely on <code>data-fa-processed</code> you should get things working again by doing a<br>simple find and replace.</p>
