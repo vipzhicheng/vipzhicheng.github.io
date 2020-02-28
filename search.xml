@@ -425,11 +425,11 @@
             
             <tag> Git </tag>
             
+            <tag> 代理 </tag>
+            
             <tag> Github </tag>
             
             <tag> Bitbucket </tag>
-            
-            <tag> 代理 </tag>
             
         </tags>
         
@@ -488,9 +488,9 @@
             
             <tag> CentOS </tag>
             
-            <tag> RVM </tag>
-            
             <tag> Redmine </tag>
+            
+            <tag> RVM </tag>
             
             <tag> Ruby on Rails </tag>
             
@@ -541,9 +541,9 @@
             
             <tag> CentOS </tag>
             
-            <tag> Ruby on rails </tag>
-            
             <tag> RVM </tag>
+            
+            <tag> Ruby on rails </tag>
             
         </tags>
         
@@ -813,9 +813,9 @@
         
         <tags>
             
-            <tag> Shell </tag>
-            
             <tag> CentOS </tag>
+            
+            <tag> Shell </tag>
             
             <tag> Solr </tag>
             

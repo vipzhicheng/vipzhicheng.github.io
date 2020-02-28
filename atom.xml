@@ -342,11 +342,11 @@
     
       <category term="Git" scheme="http://www.vipzhicheng.com/tags/Git/"/>
     
+      <category term="代理" scheme="http://www.vipzhicheng.com/tags/%E4%BB%A3%E7%90%86/"/>
+    
       <category term="Github" scheme="http://www.vipzhicheng.com/tags/Github/"/>
     
       <category term="Bitbucket" scheme="http://www.vipzhicheng.com/tags/Bitbucket/"/>
-    
-      <category term="代理" scheme="http://www.vipzhicheng.com/tags/%E4%BB%A3%E7%90%86/"/>
     
   </entry>
   
@@ -370,9 +370,9 @@
     
       <category term="CentOS" scheme="http://www.vipzhicheng.com/tags/CentOS/"/>
     
-      <category term="RVM" scheme="http://www.vipzhicheng.com/tags/RVM/"/>
-    
       <category term="Redmine" scheme="http://www.vipzhicheng.com/tags/Redmine/"/>
+    
+      <category term="RVM" scheme="http://www.vipzhicheng.com/tags/RVM/"/>
     
       <category term="Ruby on Rails" scheme="http://www.vipzhicheng.com/tags/Ruby-on-Rails/"/>
     
@@ -400,9 +400,9 @@
     
       <category term="CentOS" scheme="http://www.vipzhicheng.com/tags/CentOS/"/>
     
-      <category term="Ruby on rails" scheme="http://www.vipzhicheng.com/tags/Ruby-on-rails/"/>
-    
       <category term="RVM" scheme="http://www.vipzhicheng.com/tags/RVM/"/>
+    
+      <category term="Ruby on rails" scheme="http://www.vipzhicheng.com/tags/Ruby-on-rails/"/>
     
   </entry>
   
