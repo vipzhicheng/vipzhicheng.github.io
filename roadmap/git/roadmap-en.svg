@@ -1,0 +1,2028 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  viewBox="185 64 1103 3786" style="font-family: balsamiq" version="1.1">
+  <path d="" fill="none" stroke="#2b78e4" stroke-width="3.5" data-edge-id="XX0I26JoVMVXIe_7bVMix"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"></path>
+  <path d="" fill="none" stroke="#2b78e4" stroke-width="3.5" data-edge-id="dFn6kGOoJ-0BzJJEb9DSG"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path d="" fill="none" stroke="#2b78e4" stroke-width="3.5" data-edge-id="arkF7QJJRbCBYWp0crqa2"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path d="" fill="none" stroke="#2b78e4" stroke-width="3.5" data-edge-id="HNVw8OboycWKLEtEbG2bn"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path d="" fill="none" stroke="#2b78e4" stroke-width="3.5" data-edge-id="auB7Png72XjmhcLr3IJA7"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path d="" fill="none" stroke="#2b78e4" stroke-width="3.5" data-edge-id="2aoDIr80lXSJLW1hIGUkb"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"></path>
+  <path d="" fill="none" stroke="#2b78e4" stroke-width="3.5" data-edge-id="m-_y7nLeYFkUKGiacxWA0"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path d="" fill="none" stroke="#2b78e4" stroke-width="3.5" data-edge-id="G7pXuJfkyt2nWAOHU8yV0"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path d="" fill="none" stroke="#2b78e4" stroke-width="3.5" data-edge-id="2_6Yz3-Agx9_rEN5xW86c"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path d="" fill="none" stroke="#2b78e4" stroke-width="3.5" data-edge-id="kgMI98fg2-mKMgUs0wnjD"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path d="" fill="none" stroke="#2b78e4" stroke-width="3.5" data-edge-id="ts38Q2ceHs60TJscUBZVE"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"></path>
+  <path d="" fill="none" stroke="#2b78e4" stroke-width="3.5" data-edge-id="ZiMV7umyPdhy3JJDcopR-"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path d="" fill="none" stroke="#2b78e4" stroke-width="3.5" data-edge-id="WI-MhbxrehFcVwyGJ5CQJ"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path d="" fill="none" stroke="#2b78e4" stroke-width="3.5" data-edge-id="qUrLBzvXvJOg53HBfjrOI"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"></path>
+  <path
+    d="M708.3760409943199,234.2553633125035 C708.3760409943199,304.3723826536956 708.3760409943199,304.3723826536956 708.3760409943199,374.48940199488766"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-5Z9o-b3vBA-ITFg86zzYMx2-HlUUGj3dOZ68t4gIjerXhw1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"></path>
+  <path
+    d="M846.3760409943199,398.98940199488766 C915.203867214397,398.98940199488766 915.203867214397,324.34893300452904 984.0316934344742,324.34893300452904"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-HlUUGj3dOZ68t4gIjerXhz2-bY6b1GV2XQQ52NOx8gWFjy1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M846.3760409943199,398.98940199488766 C915.203867214397,398.98940199488766 915.203867214397,377.34893300452904 984.0316934344742,377.34893300452904"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-HlUUGj3dOZ68t4gIjerXhz2-dhIx1GnynvbSUriqYLUt0y1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M846.3760409943199,398.98940199488766 C915.203867214397,398.98940199488766 915.203867214397,430.34893300452904 984.0316934344742,430.34893300452904"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-HlUUGj3dOZ68t4gIjerXhz2-_jSTrYN9G8EsGHkbusKPUy2"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M846.3760409943199,398.98940199488766 C915.203867214397,398.98940199488766 915.203867214397,483.34893300452904 984.0316934344742,483.34893300452904"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-HlUUGj3dOZ68t4gIjerXhz2-v7hCNbgPByi3YiLSs46BKy2"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M708.3760409943199,423.48940199488766 C708.3760409943199,447.66916749970835 708.3760409943199,447.66916749970835 708.3760409943199,471.84893300452904"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-HlUUGj3dOZ68t4gIjerXhx2-bXfCUG3h1TIFPgD4WUDphw2"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"></path>
+  <path
+    d="M846.3760409943199,496.34893300452904 C947.703867214397,496.34893300452904 947.703867214397,598.348933004529 1049.0316934344742,598.348933004529"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-PtU5Qwfzn3N1i3oRlCGoRz2-bXfCUG3h1TIFPgD4WUDphy1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"></path>
+  <path
+    d="M1156.5316934344742,622.848933004529 C1156.5316934344742,637.948933004529 1156.5316934344742,637.948933004529 1156.5316934344742,653.0489330045289"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-bXfCUG3h1TIFPgD4WUDphx2-OegitQ5Ngjvd3ZfMpfrkMw2"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M903.8760409943199,749.848933004529 C903.8760409943199,774.448933004529 903.8760409943199,774.448933004529 903.8760409943199,799.0489330045289"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-fIfmS6BkkOFWzCB1RqrhKx2-NeSvgS2yA5x8qbcJHrV__w1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"></path>
+  <path
+    d="M903.8760409943199,848.0489330045289 C903.8760409943199,863.448933004529 903.8760409943199,863.448933004529 903.8760409943199,878.848933004529"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-NeSvgS2yA5x8qbcJHrV__x2-i7fIIHcBEk473te8bniJ5w2"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M1010.8760409943199,1009.348933004529 C1043.703867214397,1009.348933004529 1043.703867214397,1009.348933004529 1076.5316934344742,1009.348933004529"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-GS3f1FKFVKT0-GJQrgCm8z2-KbVvFVQ4k77R2_ddsc7WTy1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M1010.8760409943199,1062.348933004529 C1043.703867214397,1062.348933004529 1043.703867214397,1062.348933004529 1076.5316934344742,1062.348933004529"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-c_FO6xMixrrMo6iisfsvlz2-HEqBbw_A4ZbJI5zEy8ViNy1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M1049.0316934344742,598.348933004529 C976.453867214397,598.348933004529 903.8760409943199,651.098933004529 903.8760409943199,703.848933004529"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-bXfCUG3h1TIFPgD4WUDphy2-fIfmS6BkkOFWzCB1RqrhKw2"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"></path>
+  <path
+    d="M796.8760409943199,823.5489330045289 C760.1260409943199,823.5489330045289 760.1260409943199,823.5489330045289 723.3760409943199,823.5489330045289"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-NeSvgS2yA5x8qbcJHrV__y2-zLSGqFLjw2kodmMwurzrYz1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"></path>
+  <path
+    d="M544.3760409943199,956.348933004529 C493.953867214397,956.348933004529 493.953867214397,876.5489330045289 443.53169343447416,876.5489330045289"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-0rHDUbAdXqH9zQW2VfJ8vy2-agtPWS8j6i6wQPk10cy8Ez1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M544.3760409943199,956.348933004529 C493.953867214397,956.348933004529 493.953867214397,929.5489330045289 443.53169343447416,929.5489330045289"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-0rHDUbAdXqH9zQW2VfJ8vy2-Z-srOhYFGVEKDexlJ6cjtz1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M544.3760409943199,956.348933004529 C493.953867214397,956.348933004529 493.953867214397,982.5489330045289 443.53169343447416,982.5489330045289"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-0rHDUbAdXqH9zQW2VfJ8vy2-9Dt4Gyiiq5jteWSKxsRMKz1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M544.3760409943199,956.348933004529 C493.953867214397,956.348933004529 493.953867214397,1035.5489330045289 443.53169343447416,1035.5489330045289"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-0rHDUbAdXqH9zQW2VfJ8vy2-eFf2fesrs-1aVM5tH3ORQz1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M722.3760409943199,1381.0489330045289 C769.3760409943199,1381.0489330045289 769.3760409943199,1381.0489330045289 816.3760409943199,1381.0489330045289"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-d_GNnB6PBINz1jxGNWAE-z2-C1ai9r31b7HPySw0o9tyTy1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"></path>
+  <path
+    d="M902.3760409943199,1360.0489330045289 C902.3760409943199,1337.448933004529 902.3760409943199,1337.448933004529 902.3760409943199,1314.848933004529"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-C1ai9r31b7HPySw0o9tyTw2-i3AbARgzQtxtlB-1AS8zvx1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M902.3760409943199,1402.0489330045289 C902.3760409943199,1424.698933004529 902.3760409943199,1424.698933004529 902.3760409943199,1447.348933004529"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-C1ai9r31b7HPySw0o9tyTx2-i3AbARgzQtxtlB-1AS8zvw1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M429.03169343447416,1226.0489330045289 C465.453867214397,1226.0489330045289 465.453867214397,1194.0489330045289 501.87604099431985,1194.0489330045289"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-x6eILrLCQrVpz4j8uOuy6z2-8lXXVFkgK6n5IHaYkYe3ly1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M429.03169343447416,1226.0489330045289 C465.953867214397,1226.0489330045289 465.953867214397,1247.0489330045289 502.87604099431985,1247.0489330045289"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-x6eILrLCQrVpz4j8uOuy6z2-r-u1vTpUyuvsB0revOU0Cy1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M988.3760409943199,1381.0489330045289 C1028.203867214397,1381.0489330045289 1028.203867214397,1381.0489330045289 1068.0316934344742,1381.0489330045289"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-C1ai9r31b7HPySw0o9tyTz2-D2WIExwfSnkAPIa5O-Hp5y1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"></path>
+  <path
+    d="M1165.5316934344742,1405.5489330045289 C1165.5316934344742,1518.698933004529 1165.5316934344742,1518.698933004529 1165.5316934344742,1631.848933004529"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-D2WIExwfSnkAPIa5O-Hp5x2-yMx3LdadPz4g25CL3N8daw1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"></path>
+  <path
+    d="M1068.0316934344742,1656.348933004529 C1017.953867214397,1656.348933004529 1017.953867214397,1655.848933004529 967.8760409943199,1655.848933004529"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-yMx3LdadPz4g25CL3N8day2-DzFJDdqnSy5GeGHWOpcVoz1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"></path>
+  <path
+    d="M877.3760409943199,1680.348933004529 C877.3760409943199,1701.848933004529 877.3760409943199,1701.848933004529 877.3760409943199,1723.348933004529"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-DzFJDdqnSy5GeGHWOpcVox2-q0zy_hXav5iXw8LpGVJVdw2"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M786.8760409943199,1655.848933004529 C754.6260409943199,1655.848933004529 754.6260409943199,1655.848933004529 722.3760409943199,1655.848933004529"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-DzFJDdqnSy5GeGHWOpcVoy2-hes8XQqAvpxWITcbU9tiHz2"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"></path>
+  <path
+    d="M611.8760409943199,1630.848933004529 C611.8760409943199,1599.4244665022645 611.8760409943199,1599.4244665022645 611.8760409943199,1568"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-hes8XQqAvpxWITcbU9tiHw2-X9K3PBpGsMoXkJsKdJPI7x2"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"></path>
+  <path
+    d="M611.8760409943199,1680.848933004529 C611.8760409943199,1700.848933004529 611.8760409943199,1700.848933004529 611.8760409943199,1720.848933004529"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-hes8XQqAvpxWITcbU9tiHx2-iFJBF-EEnLjQVsFSXjo_iw1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"></path>
+  <path
+    d="M543.8760409943199,1745.348933004529 C486.203867214397,1745.348933004529 486.203867214397,1653.348933004529 428.53169343447416,1653.348933004529"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-iFJBF-EEnLjQVsFSXjo_iy2-lXC07j6dOa3rQixY1P-Obz1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M543.8760409943199,1745.348933004529 C486.203867214397,1745.348933004529 486.203867214397,1706.348933004529 428.53169343447416,1706.348933004529"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-iFJBF-EEnLjQVsFSXjo_iy2-V8nLIvddyOKTzEjOJX5GWz1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M543.8760409943199,1745.348933004529 C486.203867214397,1745.348933004529 486.203867214397,1759.348933004529 428.53169343447416,1759.348933004529"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-iFJBF-EEnLjQVsFSXjo_iy2-0cLf7FiI9CX--UX45sm2fz1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M543.8760409943199,1745.348933004529 C486.203867214397,1745.348933004529 486.203867214397,1812.348933004529 428.53169343447416,1812.348933004529"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-iFJBF-EEnLjQVsFSXjo_iy2-qFEonbCMLri8iA0yONwufz2"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M611.8760409943199,1769.848933004529 C611.8760409943199,1875.098933004529 611.3760409943199,1875.098933004529 611.3760409943199,1980.348933004529"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-zen3RRdK9_nPAYgicRoHkx2-iFJBF-EEnLjQVsFSXjo_iw2"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"></path>
+  <path
+    d="M518.3760409943199,2004.848933004529 C500.87604099431985,2004.848933004529 500.87604099431985,2004.848933004529 483.37604099431985,2004.848933004529"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-iFJBF-EEnLjQVsFSXjo_iy2-igrR7LguU1jemg_mf_AD6z2"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M374.37604099431985,2004.848933004529 C343.703867214397,2004.848933004529 343.703867214397,2004.848933004529 313.03169343447416,2004.848933004529"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-igrR7LguU1jemg_mf_AD6y2-V_joZNpQsS9G9PI-o-GmCz1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M374.37604099431985,2004.848933004529 C343.703867214397,2004.848933004529 343.703867214397,2057.848933004529 313.03169343447416,2057.848933004529"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-igrR7LguU1jemg_mf_AD6y2-qis7Z5VRxMcOmbesQlegZz1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M374.37604099431985,2004.848933004529 C343.703867214397,2004.848933004529 343.703867214397,1951.848933004529 313.03169343447416,1951.848933004529"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-igrR7LguU1jemg_mf_AD6y2-Uc7FyfAKpDFRGRNHwztFoz1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M704.3760409943199,2004.848933004529 C748.6260409943199,2004.848933004529 748.6260409943199,2004.848933004529 792.8760409943199,2004.848933004529"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-0Yi4cryT2v2SGBjouOas3z2-iFJBF-EEnLjQVsFSXjo_iy1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"></path>
+  <path
+    d="M968.8760409943199,2004.848933004529 C1016.703867214397,2004.848933004529 1016.703867214397,1922.2489330045287 1064.5316934344742,1922.2489330045287"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-iFJBF-EEnLjQVsFSXjo_iz2-Rwpeltygwzcf6hnuZNUREy1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M968.8760409943199,2004.848933004529 C1016.703867214397,2004.848933004529 1016.703867214397,1975.2489330045287 1064.5316934344742,1975.2489330045287"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-iFJBF-EEnLjQVsFSXjo_iz2-O-zoAWkDvyn7B8_TmY257y1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M968.8760409943199,2004.848933004529 C1016.703867214397,2004.848933004529 1016.703867214397,2028.2489330045287 1064.5316934344742,2028.2489330045287"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-iFJBF-EEnLjQVsFSXjo_iz2-mzjtCdpke1ayHcEuS-YUSy1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M968.8760409943199,2004.848933004529 C1016.703867214397,2004.848933004529 1016.703867214397,2081.2489330045287 1064.5316934344742,2081.2489330045287"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-iFJBF-EEnLjQVsFSXjo_iz2-uxqJzQFRcALqatNRIWR0wy1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M880.8760409943199,2029.348933004529 C880.8760409943199,2123.548933004529 880.8760409943199,2123.548933004529 880.8760409943199,2217.7489330045287"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge--0zQvCHG8jS_ghSjmTeIxx2-iFJBF-EEnLjQVsFSXjo_iw1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"></path>
+  <path
+    d="M968.8760409943199,2242.2489330045287 C1019.453867214397,2242.2489330045287 1019.453867214397,2163.2489330045287 1070.0316934344742,2163.2489330045287"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-iFJBF-EEnLjQVsFSXjo_iz2-NjPnEXLf1Lt9qzgxccogvy1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M968.8760409943199,2242.2489330045287 C1019.453867214397,2242.2489330045287 1019.453867214397,2216.2489330045287 1070.0316934344742,2216.2489330045287"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-iFJBF-EEnLjQVsFSXjo_iz2-HMEfUFNu_Wp_Pac7VWHr-y1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M968.8760409943199,2242.2489330045287 C1019.453867214397,2242.2489330045287 1019.453867214397,2269.2489330045287 1070.0316934344742,2269.2489330045287"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-iFJBF-EEnLjQVsFSXjo_iz2-BKVA6Q7DXemAYjyQOA0nhy1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M968.8760409943199,2242.2489330045287 C1019.453867214397,2242.2489330045287 1019.453867214397,2322.2489330045287 1070.0316934344742,2322.2489330045287"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-iFJBF-EEnLjQVsFSXjo_iz2-OQOmxg9mCfcjt80hpvXkAy1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M880.8760409943199,2266.7489330045287 C880.8760409943199,2365.9989330045287 879.8760409943199,2365.9989330045287 879.8760409943199,2465.2489330045287"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-sOoC-XxEoIvwKct00oKlXx2-iFJBF-EEnLjQVsFSXjo_iw1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"></path>
+  <path
+    d="M967.8760409943199,2489.7489330045287 C1018.953867214397,2489.7489330045287 1018.953867214397,2408.2489330045287 1070.0316934344742,2408.2489330045287"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-iFJBF-EEnLjQVsFSXjo_iz2-NeU38WPbEphJuJ_AMkH82y1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M967.8760409943199,2489.7489330045287 C1018.953867214397,2489.7489330045287 1018.953867214397,2461.2489330045287 1070.0316934344742,2461.2489330045287"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-iFJBF-EEnLjQVsFSXjo_iz2-E3HAGNM-kXLL4Oci5JzpQy1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M967.8760409943199,2489.7489330045287 C1018.953867214397,2489.7489330045287 1018.953867214397,2514.2489330045287 1070.0316934344742,2514.2489330045287"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-iFJBF-EEnLjQVsFSXjo_iz2-62E1tDMXB6K74OEN0WsS0y1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M967.8760409943199,2489.7489330045287 C1018.953867214397,2489.7489330045287 1018.953867214397,2567.2489330045287 1070.0316934344742,2567.2489330045287"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-iFJBF-EEnLjQVsFSXjo_iz2-YmnTrjJtqHPXbEVrP8vd7y1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M791.8760409943199,2489.7489330045287 C742.703867214397,2489.7489330045287 742.703867214397,2489.7489330045287 693.5316934344742,2489.7489330045287"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-iFJBF-EEnLjQVsFSXjo_iy2-sFf1PdFfmEdQxsEntfeFqz2"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"></path>
+  <path
+    d="M630.5316934344742,2465.2489330045287 C630.5316934344742,2440.7489330045287 630.5316934344742,2440.7489330045287 630.5316934344742,2416.2489330045287"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-sFf1PdFfmEdQxsEntfeFqw2-e5O8lUSSEOEFR-dlZV5wNx1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M630.5316934344742,2514.2489330045287 C630.5316934344742,2527.4989330045287 630.5316934344742,2527.4989330045287 630.5316934344742,2540.7489330045287"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-sFf1PdFfmEdQxsEntfeFqx2-v7uabKuMQPOD_hBIaHOVTw2"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M334.03169343447416,2293.7489330045287 C334.03169343447416,2265.4989330045287 334.03169343447416,2265.4989330045287 334.03169343447416,2237.2489330045287"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-fjAFNjNNbPOzme9Uk_fDVw2-x4bnsPVTiX2xOCSyrgWpFx1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M387.53169343447416,2703.862719846154 C586.703867214397,2703.862719846154 586.703867214397,2701.91990782706 785.8760409943199,2701.91990782706"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-h9cf_dh_pwjialOXOlNW-z2-AmetdCURXXob5TUsikAaby2"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"></path>
+  <path
+    d="M867.3760409943199,2677.41990782706 C867.3760409943199,2661.0844204157943 867.3760409943199,2661.0844204157943 867.3760409943199,2644.7489330045287"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-AmetdCURXXob5TUsikAabw2-PUnYNBrAZWoZiopjtNgnAx1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M746.0316934344742,2890.602227419993 C689.7197913256106,2890.602227419993 689.7197913256106,2787.602227419993 633.407889216747,2787.602227419993"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-RvqrjCowu0YK5QWK2ZVygy2-hru0sL1-D4bJSQI1efEyUz1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M746.0316934344742,2890.602227419993 C689.7197913256106,2890.602227419993 689.7197913256106,2840.602227419993 633.407889216747,2840.602227419993"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-RvqrjCowu0YK5QWK2ZVygy2-ExXuwTQSI_lg4SRGW3Iu1z1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M746.0316934344742,2890.602227419993 C689.7197913256106,2890.602227419993 689.7197913256106,2893.602227419993 633.407889216747,2893.602227419993"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-RvqrjCowu0YK5QWK2ZVygy2-4dxVN81rXWn6VZqK99yq0z1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M746.0316934344742,2890.602227419993 C689.7197913256106,2890.602227419993 689.7197913256106,2946.602227419993 633.407889216747,2946.602227419993"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-RvqrjCowu0YK5QWK2ZVygy2-CGj_UX5JMOOCKinedsNRcz1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M746.0316934344742,2890.602227419993 C690.2197913256106,2890.602227419993 690.2197913256106,2999.602227419993 634.407889216747,2999.602227419993"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-RvqrjCowu0YK5QWK2ZVygy2-zdunaucVe8J1tKf_z-NQoz1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M732.5316934344742,3221.29226453252 C683.4697913256106,3221.29226453252 683.4697913256106,3221.29226453252 634.407889216747,3221.29226453252"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-RvqrjCowu0YK5QWK2ZVygy2-5Oax1p7zIZ9HD2hmENPofz1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"></path>
+  <path
+    d="M556.907889216747,3196.79226453252 C556.907889216747,3178.5994525134265 556.907889216747,3178.5994525134265 556.907889216747,3160.4066404943324"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-5Oax1p7zIZ9HD2hmENPofw2-KlXPt-K6br8PtpLgELaCjx1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M292.53169343447416,3196.79226453252 C292.53169343447416,3179.096593114381 292.53169343447416,3179.096593114381 292.53169343447416,3161.400921696242"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-5Oax1p7zIZ9HD2hmENPofw2-qrdOARfqGPF9xhF6snbAnx1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M479.407889216747,3221.29226453252 C424.7197913256106,3221.29226453252 424.7197913256106,3221.29226453252 370.03169343447416,3221.29226453252"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-MoG7D9kqPuA6o52-z_WDNy2-5Oax1p7zIZ9HD2hmENPofz1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"></path>
+  <path
+    d="M997.5316934344742,3221.29226453252 C1038.2816934344742,3221.29226453252 1038.2816934344742,3221.29226453252 1079.0316934344742,3221.29226453252"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-RvqrjCowu0YK5QWK2ZVygz2-MoG7D9kqPuA6o52-z_WDNy1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"></path>
+  <path
+    d="M999.8760409943199,3401.381300735853 C1044.4567266134422,3401.381300735853 1044.4567266134422,3401.381300735853 1089.0374122325647,3401.381300735853"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-RvqrjCowu0YK5QWK2ZVygz2-bnai6R6pOq_L5CPdbVwMWy2"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M325.3814171159704,3505.583923235142 C325.3814171159704,3539.99143538337 325.3814171159704,3539.99143538337 325.3814171159704,3574.398947531598"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-pFyMiyNQ16-kP7jKaKKEUx2-XRSVRl6iHncMmgSXoB7Lqw1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M734.8760409943199,3401.381300735853 C692.3602967117596,3401.381300735853 692.3602967117596,3323.381300735853 649.8445524291993,3323.381300735853"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-RvqrjCowu0YK5QWK2ZVygy2-M2_hBvXou7cCNqsMnexCtz1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M734.8760409943199,3401.381300735853 C692.3602967117596,3401.381300735853 692.3602967117596,3376.381300735853 649.8445524291993,3376.381300735853"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-RvqrjCowu0YK5QWK2ZVygy2-rqPCHh25xX_ROMr-ULpawz1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M734.8760409943199,3401.381300735853 C692.3602967117596,3401.381300735853 692.3602967117596,3429.381300735853 649.8445524291993,3429.381300735853"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-RvqrjCowu0YK5QWK2ZVygy2-NdfwgwMOewiyEAFyC2l7Uz1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M734.8760409943199,3401.381300735853 C692.3602967117596,3401.381300735853 692.3602967117596,3482.381300735853 649.8445524291993,3482.381300735853"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-RvqrjCowu0YK5QWK2ZVygy2-f2PG4t6iVtfIH8BVe5H7fz1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path d="" fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-KMA7NkxFbPoUDtFnGBFnjx2-0vLaVNJaJSHZ_bHli6Qzsw1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"></path>
+  <path d="" fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-wBKp8Q5D6WhjVVsD89UHlx2-0vLaVNJaJSHZ_bHli6Qzsw1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"></path>
+  <path
+    d="M1165.5316934344742,1356.5489330045289 C1165.5316934344742,1335.198933004529 1165.5316934344742,1335.198933004529 1165.5316934344742,1313.848933004529"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-D2WIExwfSnkAPIa5O-Hp5w2-Ddkss13_qDJTquDHbVTVsx1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <g data-node-id="lGNqOaL2J0jaYewnPbrxZ" data-type="vertical">
+    <line x1="1176.5374122325647" y1="3312.536593518702" x2="1176.5374122325647"
+      y2="3504.536593518702"
+      style="stroke-linecap: round; stroke-width: 3.5; stroke: #2B78E4; stroke-dasharray: 0.8 8;"></line>
+  </g>
+  <g data-node-id="lqrIjDM7CfF2CNgcIOq3Z" data-type="vertical">
+    <line x1="867.3760409943199" y1="2716.91990782706" x2="867.3760409943199" y2="2855.91990782706"
+      style="stroke-linecap: round; stroke-width: 3.55; stroke: #2B78E4; stroke-dasharray: 0;"></line>
+  </g>
+  <g data-node-id="ZRB7mytelAk8pg5gsu2Xs" data-type="horizontal">
+    <line x1="843.0316934344742" y1="2701.91990782706" x2="1020.0316934344742" y2="2701.91990782706"
+      style="stroke-linecap: round; stroke-width: 3.55; stroke: #2B78E4; stroke-dasharray: 0.8 8;"></line>
+  </g>
+  <g data-node-id="mGoWfyS0DO8L-JwPDK5p9" data-type="vertical">
+    <line x1="318.03169343447416" y1="2605.7489330045287" x2="318.03169343447416"
+      y2="2693.7489330045287"
+      style="stroke-linecap: round; stroke-width: 3.55; stroke: #2B78E4; stroke-dasharray: 0;"></line>
+  </g>
+  <g data-node-id="WyueeGiceOzKqHrM2Mn_v" data-type="vertical">
+    <line x1="318.53169343447416" y1="2711.3618259293457" x2="318.53169343447416"
+      y2="2788.3618259293457"
+      style="stroke-linecap: round; stroke-width: 3.55; stroke: #2B78E4; stroke-dasharray: 0.8 8;"></line>
+  </g>
+  <g data-node-id="GVLwJZlzs2me5ogEcf_f9" data-type="vertical">
+    <line x1="317.03169343447416" y1="2317.2489330045287" x2="317.03169343447416"
+      y2="2542.2489330045287"
+      style="stroke-linecap: round; stroke-width: 3.55; stroke: #2B78E4; stroke-dasharray: 0;"></line>
+  </g>
+  <g data-node-id="MtX03b7FVvVq6kDKfmidT" data-type="horizontal">
+    <line x1="364.53169343447416" y1="2489.2489330045287" x2="597.5316934344742"
+      y2="2489.2489330045287"
+      style="stroke-linecap: round; stroke-width: 3.55; stroke: #2B78E4; stroke-dasharray: 0;"></line>
+  </g>
+  <g data-node-id="gZ7dytie1YH3DDtKKcyiQ" data-type="vertical">
+    <line x1="365.53169343447416" y1="2317.2489330045287" x2="365.53169343447416"
+      y2="2491.2489330045287"
+      style="stroke-linecap: round; stroke-width: 3.55; stroke: #2B78E4; stroke-dasharray: 0;"></line>
+  </g>
+  <g data-node-id="e5O8lUSSEOEFR-dlZV5wN" data-type="section" data-parent-id="pqBV7BMAs0z6qpfZeW2XP">
+    <rect x="523.3816934344742" y="2095.5989330045286" width="214.3" height="319.3" rx="5"
+      fill="#ffffff" stroke="#000000" stroke-width="2.7"></rect>
+    <text x="522.0316934344742" y="2086.2489330045287" text-anchor="left" dominant-baseline="auto"
+      font-size="17" fill="black">
+      <tspan></tspan>
+    </text>
+  </g>
+  <g data-node-id="-KKWgOEFEaVxuaHPDjJmA" data-type="vertical">
+    <line x1="553.8760409943199" y1="1902.348933004529" x2="553.8760409943199"
+      y2="2000.348933004529"
+      style="stroke-linecap: round; stroke-width: 3.5; stroke: #2B78E4; stroke-dasharray: 0.8 8;"></line>
+  </g>
+  <g data-node-id="bVGSRi7pMd3rHQ1X6UrA1" data-type="vertical">
+    <line x1="1171.0316934344742" y1="1643.848933004529" x2="1171.0316934344742"
+      y2="1744.848933004529"
+      style="stroke-linecap: round; stroke-width: 3.5; stroke: #2B78E4; stroke-dasharray: 0.8 8;"></line>
+  </g>
+  <g data-node-id="9tkYqqVy0v42G4tijnDAP" data-type="horizontal">
+    <line x1="428.53169343447416" y1="1381.0489330045289" x2="510.53169343447416"
+      y2="1381.0489330045289"
+      style="stroke-linecap: round; stroke-width: 3.5; stroke: #2B78E4; stroke-dasharray: 0.8 8;"></line>
+  </g>
+  <g data-node-id="uDsTnM22jHuGBvJfRgv9v" data-type="section">
+    <rect x="209.38169343447416" y="1308.698933004529" width="218.3" height="214.3" rx="5"
+      fill="#ffffff" stroke="#000000" stroke-width="2.7"></rect>
+    <text x="208.03169343447416" y="1299.348933004529" text-anchor="left" dominant-baseline="auto"
+      font-size="14" fill="black">
+      <tspan></tspan>
+    </text>
+  </g>
+  <g data-node-id="I-sIkdwJlt8JK0gdvdloQ" data-type="vertical">
+    <line x1="698.3760409943199" y1="736.548933004529" x2="698.3760409943199" y2="813.548933004529"
+      style="stroke-linecap: round; stroke-width: 3.65; stroke: #2B78E4; stroke-dasharray: 0.8 8;"></line>
+  </g>
+  <g data-node-id="zyFrOb5yF198jH5vjZTg1" data-type="vertical">
+    <line x1="698.3760409943199" y1="830.548933004529" x2="698.3760409943199"
+      y2="1383.5489330045289"
+      style="stroke-linecap: round; stroke-width: 3.65; stroke: #2B78E4; stroke-dasharray: 0;"></line>
+  </g>
+  <g data-node-id="CK9zYMrsw7Rl1ux4PU5wl" data-type="section">
+    <rect x="206.88169343447416" y="291.19893300452907" width="238.3" height="419.3" rx="5"
+      fill="#ffffff" stroke="#000000" stroke-width="2.7"></rect>
+    <text x="205.53169343447416" y="281.84893300452904" text-anchor="left" dominant-baseline="auto"
+      font-size="14" fill="black">
+      <tspan></tspan>
+    </text>
+  </g>
+  <g data-node-id="Qq13cf04JGzV_H3glm_D5" data-type="horizontal">
+    <line x1="446.53169343447416" y1="496.34893300452904" x2="618.5316934344742"
+      y2="496.34893300452904"
+      style="stroke-linecap: round; stroke-width: 3.5; stroke: #2B78E4; stroke-dasharray: 0.8 8;"></line>
+  </g>
+  <g data-node-id="5Z9o-b3vBA-ITFg86zzYM" data-type="title" data-title="Git and GitHub">
+    <text x="708.3760409943199" y="200.2553633125035" text-anchor="middle"
+      dominant-baseline="middle" font-size="28" fill="black">
+      <tspan>Git and GitHub</tspan>
+    </text>
+  </g>
+  <g data-node-id="XgM_I974PlXAu4AbeqHX1" data-type="vertical">
+    <line x1="708.3760409943199" y1="93.2553633125035" x2="708.3760409943199" y2="166.2553633125035"
+      style="stroke-linecap: round; stroke-width: 3.5; stroke: #2B78E4; stroke-dasharray: 0.8 8;"></line>
+  </g>
+  <g data-node-id="yHmHXymPNWwu8p1vvqD3o" data-type="paragraph">
+    <rect x="910.8471847919508" y="85.19893300452893" width="353" height="139.3" rx="5"
+      fill="#FFFFFf" stroke="#000000" stroke-width="2.7"></rect>
+    <text fill="black">
+      <tspan x="928.1971847919508" y="113.94893300452894" dy="0" text-anchor="start"
+        dominant-baseline="middle" font-size="17">Find the detailed version of this roadmap</tspan>
+      <tspan x="928.1971847919508" y="113.94893300452894" dy="25.5" text-anchor="start"
+        dominant-baseline="middle" font-size="17">along with other similar roadmaps</tspan>
+    </text>
+  </g>
+  <g data-link="https://roadmap.sh" data-node-id="2zqZkyVgigifcRS1H7F_b" data-type="button">
+    <rect x="923.0505592047509" y="167.1844964222742" width="326.3" height="46.3" rx="5"
+      fill="#4136D6" stroke="#4136D6" stroke-width="2.7"></rect>
+    <text x="1086.2005592047508" y="192.48449642227422" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#ffffff">
+      <tspan>roadmap.sh</tspan>
+    </text>
+  </g>
+  <g data-node-id="HlUUGj3dOZ68t4gIjerXh" data-type="topic" data-title="Learn the Basics"
+    data-parent-id="5Z9o-b3vBA-ITFg86zzYM" data-parent-title="Git and GitHub">
+    <rect x="571.7260409943199" y="375.8394019948877" width="273.3" height="46.3" rx="5"
+      fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+    <text x="708.3760409943199" y="401.13940199488763" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Learn the Basics</tspan>
+    </text>
+  </g>
+  <g data-node-id="bY6b1GV2XQQ52NOx8gWFj" data-type="subtopic" data-title="What is Version Control?"
+    data-parent-id="HlUUGj3dOZ68t4gIjerXh" data-parent-title="Learn the Basics">
+    <rect x="985.3816934344742" y="301.19893300452907" width="272.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="1121.5316934344742" y="326.498933004529" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>What is Version Control?</tspan>
+    </text>
+  </g>
+  <g data-node-id="dhIx1GnynvbSUriqYLUt0" data-type="subtopic" data-title="Why use Version Control?"
+    data-parent-id="HlUUGj3dOZ68t4gIjerXh" data-parent-title="Learn the Basics">
+    <rect x="985.3816934344742" y="354.19893300452907" width="272.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="1121.5316934344742" y="379.498933004529" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Why use Version Control?</tspan>
+    </text>
+  </g>
+  <g data-node-id="_jSTrYN9G8EsGHkbusKPU" data-type="subtopic" data-title="Git vs Other VCS"
+    data-parent-id="HlUUGj3dOZ68t4gIjerXh" data-parent-title="Learn the Basics">
+    <rect x="985.3816934344742" y="407.19893300452907" width="272.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="1121.5316934344742" y="432.498933004529" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Git vs Other VCS</tspan>
+    </text>
+  </g>
+  <g data-node-id="v7hCNbgPByi3YiLSs46BK" data-type="subtopic" data-title="Installing Git Locally"
+    data-parent-id="HlUUGj3dOZ68t4gIjerXh" data-parent-title="Learn the Basics">
+    <rect x="985.3816934344742" y="460.19893300452907" width="272.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="1121.5316934344742" y="485.498933004529" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Installing Git Locally</tspan>
+    </text>
+  </g>
+  <g data-node-id="PtU5Qwfzn3N1i3oRlCGoR" data-type="topic" data-title="What is a Repository"
+    data-parent-id="HlUUGj3dOZ68t4gIjerXh" data-parent-title="Learn the Basics">
+    <rect x="571.7260409943199" y="473.19893300452907" width="273.3" height="46.3" rx="5"
+      fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+    <text x="708.3760409943199" y="498.498933004529" text-anchor="middle" dominant-baseline="middle"
+      font-size="17" fill="#000000">
+      <tspan>What is a Repository</tspan>
+    </text>
+  </g>
+  <g data-node-id="1iOkbO5juk2LO-WZHx_W6" data-type="subtopic" data-title="git init">
+    <rect x="215.88169343447416" y="305.19893300452907" width="220.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="326.03169343447416" y="330.498933004529" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>git init</tspan>
+    </text>
+  </g>
+  <g data-node-id="NMCWgzhhfUvFOMO5GbF_u" data-type="subtopic" data-title="git config">
+    <rect x="215.88169343447416" y="360.20305078284304" width="220.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="326.03169343447416" y="385.503050782843" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>git config</tspan>
+    </text>
+  </g>
+  <g data-node-id="tVvxC5JQgUb_B8kOqYpD8" data-type="subtopic" data-title="Local vs Global Config">
+    <rect x="215.88169343447416" y="414.19893300452907" width="220.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="326.03169343447416" y="439.498933004529" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Local vs Global Config</tspan>
+    </text>
+  </g>
+  <g data-node-id="hzL8j8473CoyFf5ab2f_B" data-type="label">
+    <text x="239.03169343447416" y="489" text-anchor="left" dominant-baseline="auto" font-size="17"
+      fill="black">
+      <tspan>Repository Initialization</tspan>
+    </text>
+  </g>
+  <g data-node-id="XB_mRInocRU6nPjt_iOo5" data-type="label">
+    <text x="234.53169343447416" y="691.848933004529" text-anchor="left" dominant-baseline="auto"
+      font-size="17" fill="black">
+      <tspan>Intro and Git Commands</tspan>
+    </text>
+  </g>
+  <g data-node-id="Sv36oxTZwlUv-i1K28NeP" data-type="subtopic" data-title="Working Directory">
+    <rect x="215.88169343447416" y="508.19893300452907" width="220.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="326.03169343447416" y="533.498933004529" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Working Directory</tspan>
+    </text>
+  </g>
+  <g data-node-id="h71Tx3nkfUrnhaqcHlDkQ" data-type="subtopic" data-title="Staging Area">
+    <rect x="215.88169343447416" y="561.1989330045291" width="220.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="326.03169343447416" y="586.498933004529" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Staging Area</tspan>
+    </text>
+  </g>
+  <g data-node-id="2_z3R7seCvQVj-Na4H1SV" data-type="subtopic" data-title="Committing Changes">
+    <rect x="215.88169343447416" y="614.1989330045291" width="220.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="326.03169343447416" y="639.498933004529" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Committing Changes</tspan>
+    </text>
+  </g>
+  <g data-node-id="oz2oRAhaEQb0Fm3aRJQG8" data-type="subtopic" data-title=".gitignore">
+    <rect x="208.88169343447416" y="717.1989330045291" width="236.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="327.03169343447416" y="742.498933004529" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>.gitignore</tspan>
+    </text>
+  </g>
+  <g data-node-id="IfUm5D_zNaUKMd4HX4Fi4" data-type="subtopic" data-title="Viewing Commit History">
+    <rect x="208.88169343447416" y="770.1989330045291" width="236.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="327.03169343447416" y="795.498933004529" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Viewing Commit History</tspan>
+    </text>
+  </g>
+  <g data-node-id="bXfCUG3h1TIFPgD4WUDph" data-type="topic" data-title="Branching Basics"
+    data-parent-id="PtU5Qwfzn3N1i3oRlCGoR" data-parent-title="What is a Repository">
+    <rect x="1050.381693434474" y="575.1989330045291" width="212.3" height="46.3" rx="5"
+      fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+    <text x="1156.5316934344742" y="600.498933004529" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Branching Basics</tspan>
+    </text>
+  </g>
+  <g data-node-id="OegitQ5Ngjvd3ZfMpfrkM" data-type="subtopic" data-title="Creating Branch"
+    data-parent-id="bXfCUG3h1TIFPgD4WUDph" data-parent-title="Branching Basics">
+    <rect x="1050.381693434474" y="654.3989330045289" width="212.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="1156.5316934344742" y="679.6989330045288" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Creating Branch</tspan>
+    </text>
+  </g>
+  <g data-node-id="_dPOVUbxApx0pfKPH8fgr" data-type="subtopic" data-title="Renaming Branch">
+    <rect x="1050.381693434474" y="707.3989330045289" width="212.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="1156.5316934344742" y="732.6989330045288" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Renaming Branch</tspan>
+    </text>
+  </g>
+  <g data-node-id="1uDenoQ6zu7CT69FR2iQB" data-type="subtopic" data-title="Deleting Branch">
+    <rect x="1050.381693434474" y="760.3989330045289" width="212.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="1156.5316934344742" y="785.6989330045288" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Deleting Branch</tspan>
+    </text>
+  </g>
+  <g data-node-id="PtRo-wGiNAagZ6CykfvMr" data-type="subtopic" data-title="Checkout Branch">
+    <rect x="1050.381693434474" y="813.3989330045289" width="212.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="1156.5316934344742" y="838.6989330045288" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Checkout Branch</tspan>
+    </text>
+  </g>
+  <g data-node-id="sNuy6NMjLOEkJlqdEjFPq" data-type="subtopic" data-title="Merging Basics">
+    <rect x="1050.381693434474" y="866.3989330045289" width="212.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="1156.5316934344742" y="891.6989330045288" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Merging Basics</tspan>
+    </text>
+  </g>
+  <g data-node-id="fIfmS6BkkOFWzCB1RqrhK" data-type="paragraph">
+    <rect x="797.2260409943199" y="705.1989330045291" width="216" height="43.3" rx="5"
+      fill="transparent" stroke="transparent" stroke-width="2.7"></rect>
+    <text fill="#000000">
+      <tspan x="903.8760409943199" y="726.848933004529" dy="0" text-anchor="middle"
+        dominant-baseline="middle" font-size="20">Basic Collaboration</tspan>
+    </text>
+  </g>
+  <g data-node-id="NeSvgS2yA5x8qbcJHrV__" data-type="topic" data-title="GitHub Essentials"
+    data-parent-id="fIfmS6BkkOFWzCB1RqrhK" data-parent-title="Basic Collaboration">
+    <rect x="798.2260409943199" y="800.3989330045289" width="211.3" height="46.3" rx="5"
+      fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+    <text x="903.8760409943199" y="825.6989330045288" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>GitHub Essentials</tspan>
+    </text>
+  </g>
+  <g data-node-id="i7fIIHcBEk473te8bniJ5" data-type="subtopic" data-title="Creating Account"
+    data-parent-id="NeSvgS2yA5x8qbcJHrV__" data-parent-title="GitHub Essentials">
+    <rect x="798.2260409943199" y="880.1989330045291" width="211.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="903.8760409943199" y="905.498933004529" text-anchor="middle" dominant-baseline="middle"
+      font-size="17" fill="#000000">
+      <tspan>Creating Account</tspan>
+    </text>
+  </g>
+  <g data-node-id="qZFtRABvlBbVvsy6T00J2" data-type="subtopic" data-title="GitHub Interface">
+    <rect x="798.2260409943199" y="933.1989330045291" width="211.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="903.8760409943199" y="958.498933004529" text-anchor="middle" dominant-baseline="middle"
+      font-size="17" fill="#000000">
+      <tspan>GitHub Interface</tspan>
+    </text>
+  </g>
+  <g data-node-id="GS3f1FKFVKT0-GJQrgCm8" data-type="subtopic" data-title="Setting up Profile">
+    <rect x="798.2260409943199" y="986.1989330045291" width="211.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="903.8760409943199" y="1011.498933004529" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Setting up Profile</tspan>
+    </text>
+  </g>
+  <g data-node-id="c_FO6xMixrrMo6iisfsvl" data-type="subtopic" data-title="Creating Repositories">
+    <rect x="798.2260409943199" y="1039.198933004529" width="211.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="903.8760409943199" y="1064.4989330045291" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Creating Repositories</tspan>
+    </text>
+  </g>
+  <g data-node-id="KbVvFVQ4k77R2_ddsc7WT" data-type="subtopic" data-title="Profile Readme"
+    data-parent-id="GS3f1FKFVKT0-GJQrgCm8" data-parent-title="Setting up Profile">
+    <rect x="1077.881693434474" y="986.1989330045291" width="174.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="1165.0316934344742" y="1011.498933004529" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Profile Readme</tspan>
+    </text>
+  </g>
+  <g data-node-id="HEqBbw_A4ZbJI5zEy8ViN" data-type="subtopic" data-title="Private vs Public"
+    data-parent-id="c_FO6xMixrrMo6iisfsvl" data-parent-title="Creating Repositories">
+    <rect x="1077.881693434474" y="1039.198933004529" width="174.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="1165.0316934344742" y="1064.4989330045291" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Private vs Public</tspan>
+    </text>
+  </g>
+  <g data-node-id="aWx9WHUrgofcTr8B-fQYe" data-type="topic" data-title="Git Remotes"
+    data-parent-id="NeSvgS2yA5x8qbcJHrV__" data-parent-title="GitHub Essentials">
+    <rect x="545.7260409943199" y="800.3989330045289" width="176.3" height="46.3" rx="5"
+      fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+    <text x="633.8760409943199" y="825.6989330045288" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Git Remotes</tspan>
+    </text>
+  </g>
+  <g data-node-id="sBQOInoFBU9XfkPZ-JlyT" data-type="subtopic" data-title="Managing Remotes">
+    <rect x="489.7260409943199" y="610.1989330045291" width="246.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="612.8760409943199" y="635.498933004529" text-anchor="middle" dominant-baseline="middle"
+      font-size="17" fill="#000000">
+      <tspan>Managing Remotes</tspan>
+    </text>
+  </g>
+  <g data-node-id="ZVMCh9om37ee1qsecFa-N" data-type="subtopic"
+    data-title="Pushing / Pulling Changes">
+    <rect x="489.7260409943199" y="663.1989330045291" width="246.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="612.8760409943199" y="688.498933004529" text-anchor="middle" dominant-baseline="middle"
+      font-size="17" fill="#000000">
+      <tspan>Pushing / Pulling Changes</tspan>
+    </text>
+  </g>
+  <g data-node-id="Gybnekbd1rJKTOf4hJ4Sh" data-type="subtopic" data-title="Fetch without Merge">
+    <rect x="489.7260409943199" y="716.1989330045291" width="246.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="612.8760409943199" y="741.498933004529" text-anchor="middle" dominant-baseline="middle"
+      font-size="17" fill="#000000">
+      <tspan>Fetch without Merge</tspan>
+    </text>
+  </g>
+  <g data-node-id="d_GNnB6PBINz1jxGNWAE-" data-type="topic" data-title="Collaboration on GitHub">
+    <rect x="474.7260409943199" y="1357.8989330045288" width="246.3" height="46.3" rx="5"
+      fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+    <text x="597.8760409943199" y="1383.198933004529" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Collaboration on GitHub</tspan>
+    </text>
+  </g>
+  <g data-node-id="l1Wf7Pe_ah8ycCgslfSK4" data-type="subtopic" data-title="Forking vs Cloning">
+    <rect x="209.38169343447416" y="1096.8989330045288" width="218.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="318.53169343447416" y="1122.198933004529" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Forking vs Cloning</tspan>
+    </text>
+  </g>
+  <g data-node-id="crdllx5cH_seIpgVPvHg_" data-type="subtopic" data-title="Issues">
+    <rect x="209.38169343447416" y="1149.8989330045288" width="218.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="318.53169343447416" y="1175.198933004529" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Issues</tspan>
+    </text>
+  </g>
+  <g data-node-id="1Koej79yTv-OAswVZwgGq" data-type="subtopic" data-title="Cloning Repositories">
+    <rect x="489.7260409943199" y="557.1989330045291" width="246.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="612.8760409943199" y="582.498933004529" text-anchor="middle" dominant-baseline="middle"
+      font-size="17" fill="#000000">
+      <tspan>Cloning Repositories</tspan>
+    </text>
+  </g>
+  <g data-node-id="x6eILrLCQrVpz4j8uOuy6" data-type="subtopic" data-title="Pull Requests">
+    <rect x="209.38169343447416" y="1202.8989330045288" width="218.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="318.53169343447416" y="1228.198933004529" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Pull Requests</tspan>
+    </text>
+  </g>
+  <g data-node-id="8lXXVFkgK6n5IHaYkYe3l" data-type="subtopic" data-title="PR from a Fork"
+    data-parent-id="x6eILrLCQrVpz4j8uOuy6" data-parent-title="Pull Requests">
+    <rect x="503.2260409943199" y="1170.8989330045288" width="158.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="582.3760409943199" y="1196.198933004529" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>PR from a Fork</tspan>
+    </text>
+  </g>
+  <g data-node-id="r-u1vTpUyuvsB0revOU0C" data-type="subtopic" data-title="Collaborators"
+    data-parent-id="x6eILrLCQrVpz4j8uOuy6" data-parent-title="Pull Requests">
+    <rect x="504.2260409943199" y="1223.8989330045288" width="157.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="582.8760409943199" y="1249.198933004529" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Collaborators</tspan>
+    </text>
+  </g>
+  <g data-node-id="aFuWO8Z74Lbiwh9F27Yrh" data-type="label">
+    <text x="537.3760409943199" y="1300.5489330045289" text-anchor="left" dominant-baseline="auto"
+      font-size="17" fill="black">
+      <tspan>Creating PR</tspan>
+    </text>
+  </g>
+  <g data-node-id="y4DkB5NvTh41IeT0G2gr-" data-type="subtopic" data-title="Labelling Issues / PRs">
+    <rect x="209.38169343447416" y="1255.8989330045288" width="218.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="318.53169343447416" y="1281.198933004529" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Labelling Issues / PRs</tspan>
+    </text>
+  </g>
+  <g data-node-id="dQS1V0zZxeKhHhUo3STBK" data-type="subtopic" data-title="Saved Replies">
+    <rect x="216.88169343447416" y="1316.698933004529" width="203.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="318.53169343447416" y="1341.9989330045291" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Saved Replies</tspan>
+    </text>
+  </g>
+  <g data-node-id="oWMaOWU06juoIuzXNe-wt" data-type="subtopic" data-title="Mentions">
+    <rect x="216.88169343447416" y="1369.698933004529" width="203.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="318.53169343447416" y="1394.9989330045291" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Mentions</tspan>
+    </text>
+  </g>
+  <g data-node-id="XstmIysIi_lWo6RzszLBt" data-type="subtopic" data-title="Reactions">
+    <rect x="216.88169343447416" y="1422.698933004529" width="203.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="318.53169343447416" y="1447.9989330045291" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Reactions</tspan>
+    </text>
+  </g>
+  <g data-node-id="Lw3oG5flufLskTN1AGIGc" data-type="label">
+    <text x="251.53169343447416" y="1505.348933004529" text-anchor="left" dominant-baseline="auto"
+      font-size="17" fill="black">
+      <tspan>Commenting</tspan>
+    </text>
+  </g>
+  <g data-node-id="0rHDUbAdXqH9zQW2VfJ8v" data-type="topic" data-title="Merge Strategies">
+    <rect x="545.7260409943199" y="933.1989330045291" width="176.3" height="46.3" rx="5"
+      fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+    <text x="633.8760409943199" y="958.498933004529" text-anchor="middle" dominant-baseline="middle"
+      font-size="17" fill="#000000">
+      <tspan>Merge Strategies</tspan>
+    </text>
+  </g>
+  <g data-node-id="agtPWS8j6i6wQPk10cy8E" data-type="subtopic" data-title="Fast-Forward vs Non-FF"
+    data-parent-id="0rHDUbAdXqH9zQW2VfJ8v" data-parent-title="Merge Strategies">
+    <rect x="209.88169343447416" y="853.3989330045289" width="232.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="326.03169343447416" y="878.6989330045288" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Fast-Forward vs Non-FF</tspan>
+    </text>
+  </g>
+  <g data-node-id="9Dt4Gyiiq5jteWSKxsRMK" data-type="subtopic" data-title="Handling Conflicts"
+    data-parent-id="0rHDUbAdXqH9zQW2VfJ8v" data-parent-title="Merge Strategies">
+    <rect x="209.88169343447416" y="959.3989330045289" width="232.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="326.03169343447416" y="984.6989330045288" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Handling Conflicts</tspan>
+    </text>
+  </g>
+  <g data-node-id="99FVJ3Zs8n6lr8L95mG6g" data-type="subtopic" data-title="Rebase">
+    <rect x="209.88169343447416" y="906.3989330045289" width="112.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="266.03169343447416" y="931.6989330045288" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Rebase</tspan>
+    </text>
+  </g>
+  <g data-node-id="Z-srOhYFGVEKDexlJ6cjt" data-type="subtopic" data-title="Squash"
+    data-parent-id="0rHDUbAdXqH9zQW2VfJ8v" data-parent-title="Merge Strategies">
+    <rect x="330.8816934344742" y="906.3989330045289" width="111.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="386.53169343447416" y="931.6989330045288" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Squash</tspan>
+    </text>
+  </g>
+  <g data-node-id="eFf2fesrs-1aVM5tH3ORQ" data-type="subtopic" data-title="Cherry Picking Commits"
+    data-parent-id="0rHDUbAdXqH9zQW2VfJ8v" data-parent-title="Merge Strategies">
+    <rect x="209.88169343447416" y="1012.3989330045289" width="232.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="326.03169343447416" y="1037.698933004529" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Cherry Picking Commits</tspan>
+    </text>
+  </g>
+  <g data-node-id="C1ai9r31b7HPySw0o9tyT" data-type="paragraph">
+    <rect x="817.7260409943199" y="1361.3989330045288" width="172" height="39.3" rx="5"
+      fill="transparent" stroke="transparent" stroke-width="2.7"></rect>
+    <text fill="#000000">
+      <tspan x="902.3760409943199" y="1381.0489330045289" dy="0" text-anchor="middle"
+        dominant-baseline="middle" font-size="17">Best Practices</tspan>
+    </text>
+  </g>
+  <g data-node-id="7lRUYWNSpHvJ-QyIE8RMa" data-type="subtopic" data-title="Commit Messages">
+    <rect x="788.2260409943199" y="1108.198933004529" width="228.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="902.3760409943199" y="1133.4989330045291" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Commit Messages</tspan>
+    </text>
+  </g>
+  <g data-node-id="ks1Pip-RM-UWD6zuF2j4n" data-type="subtopic" data-title="Branch Naming">
+    <rect x="788.2260409943199" y="1161.198933004529" width="228.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="902.3760409943199" y="1186.4989330045291" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Branch Naming</tspan>
+    </text>
+  </g>
+  <g data-node-id="GwDNk2HBjASr_NWIL4G3-" data-type="subtopic" data-title="PR Guidelines">
+    <rect x="788.2260409943199" y="1214.198933004529" width="228.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="902.3760409943199" y="1239.4989330045291" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>PR Guidelines</tspan>
+    </text>
+  </g>
+  <g data-node-id="xLB2fhsOm0Vu3xg_PusJB" data-type="subtopic" data-title="Code Reviews"
+    data-parent-id="C1ai9r31b7HPySw0o9tyT" data-parent-title="Best Practices">
+    <rect x="788.2260409943199" y="1267.198933004529" width="228.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="902.3760409943199" y="1292.4989330045291" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Code Reviews</tspan>
+    </text>
+  </g>
+  <g data-node-id="pJ-najh7dXhhYA_0bDiR5" data-type="subtopic" data-title="Contribution Guidelines"
+    data-parent-id="C1ai9r31b7HPySw0o9tyT" data-parent-title="Best Practices">
+    <rect x="788.2260409943199" y="1448.698933004529" width="228.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="902.3760409943199" y="1473.9989330045291" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Contribution Guidelines</tspan>
+    </text>
+  </g>
+  <g data-node-id="D2WIExwfSnkAPIa5O-Hp5" data-type="topic" data-title="Documentation"
+    data-parent-id="C1ai9r31b7HPySw0o9tyT" data-parent-title="Best Practices">
+    <rect x="1069.381693434474" y="1357.8989330045288" width="192.3" height="46.3" rx="5"
+      fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+    <text x="1165.5316934344742" y="1383.198933004529" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Documentation</tspan>
+    </text>
+  </g>
+  <g data-node-id="1Ulxl4VUvRSfyCPpi-iv8" data-type="subtopic" data-title="Markdown">
+    <rect x="1069.381693434474" y="1110.198933004529" width="192.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="1165.5316934344742" y="1135.4989330045291" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Markdown</tspan>
+    </text>
+  </g>
+  <g data-node-id="WIVr7JxO1AJTNObW8mtY3" data-type="subtopic" data-title="Project Readme">
+    <rect x="1069.381693434474" y="1162.198933004529" width="192.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="1165.5316934344742" y="1187.4989330045291" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Project Readme</tspan>
+    </text>
+  </g>
+  <g data-node-id="lONqOqD-4slxa9B5i9ADX" data-type="subtopic" data-title="GitHub Wikis">
+    <rect x="1069.381693434474" y="1214.198933004529" width="192.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="1165.5316934344742" y="1239.4989330045291" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>GitHub Wikis</tspan>
+    </text>
+  </g>
+  <g data-node-id="i3AbARgzQtxtlB-1AS8zv" data-type="subtopic" data-title="Clean Git History">
+    <rect x="788.2260409943199" y="1501.698933004529" width="228.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="902.3760409943199" y="1526.9989330045291" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Clean Git History</tspan>
+    </text>
+  </g>
+  <g data-node-id="yMx3LdadPz4g25CL3N8da" data-type="topic" data-title="Working in a Team"
+    data-parent-id="D2WIExwfSnkAPIa5O-Hp5" data-parent-title="Documentation">
+    <rect x="1069.381693434474" y="1633.198933004529" width="192.3" height="46.3" rx="5"
+      fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+    <text x="1165.5316934344742" y="1658.4989330045291" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Working in a Team</tspan>
+    </text>
+  </g>
+  <g data-node-id="RMrxQLhrINO5g4Mhxh5qS" data-type="subtopic" data-title="GitHub Organizations">
+    <rect x="1021.3816934344742" y="1775.198933004529" width="245.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="1144.0316934344742" y="1800.4989330045291" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>GitHub Organizations</tspan>
+    </text>
+  </g>
+  <g data-node-id="_ft-uvXt6s_xrcMT3fbSF" data-type="subtopic" data-title="Collaborators / Members">
+    <rect x="1021.3816934344742" y="1722.198933004529" width="245.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="1144.0316934344742" y="1747.4989330045291" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Collaborators / Members</tspan>
+    </text>
+  </g>
+  <g data-node-id="wydgCxR5VnieBpRolXt8i" data-type="subtopic"
+    data-title="Teams within Organization">
+    <rect x="1021.3816934344742" y="1828.198933004529" width="245.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="1144.0316934344742" y="1853.4989330045291" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Teams within Organization</tspan>
+    </text>
+  </g>
+  <g data-node-id="DzFJDdqnSy5GeGHWOpcVo" data-type="topic" data-title="GitHub Projects"
+    data-parent-id="yMx3LdadPz4g25CL3N8da" data-parent-title="Working in a Team">
+    <rect x="788.2260409943199" y="1632.698933004529" width="178.3" height="46.3" rx="5"
+      fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+    <text x="877.3760409943199" y="1657.9989330045291" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>GitHub Projects</tspan>
+    </text>
+  </g>
+  <g data-node-id="q0zy_hXav5iXw8LpGVJVd" data-type="subtopic" data-title="Project Planning"
+    data-parent-id="DzFJDdqnSy5GeGHWOpcVo" data-parent-title="GitHub Projects">
+    <rect x="788.2260409943199" y="1724.698933004529" width="178.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="877.3760409943199" y="1749.9989330045291" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Project Planning</tspan>
+    </text>
+  </g>
+  <g data-node-id="RFJgfuxoVxt22QlwLI5mW" data-type="subtopic" data-title="Kanban Boards">
+    <rect x="788.2260409943199" y="1777.698933004529" width="178.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="877.3760409943199" y="1802.9989330045291" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Kanban Boards</tspan>
+    </text>
+  </g>
+  <g data-node-id="sxvT2hGko2PDRBoBrCGWD" data-type="subtopic" data-title="Roadmaps">
+    <rect x="788.2260409943199" y="1830.698933004529" width="178.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="877.3760409943199" y="1855.9989330045291" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Roadmaps</tspan>
+    </text>
+  </g>
+  <g data-node-id="TNBz5755PhI6iKxTQTqcS" data-type="subtopic" data-title="Automations">
+    <rect x="788.2260409943199" y="1883.698933004529" width="178.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="877.3760409943199" y="1908.9989330045291" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Automations</tspan>
+    </text>
+  </g>
+  <g data-node-id="snWQHCQECZyUXHdn6ppIk" data-type="subtopic" data-title="GitHub Discussions">
+    <rect x="208.88169343447416" y="1529.35" width="218.3" height="46.3" rx="5" fill="#ffe599"
+      stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="318.03169343447416" y="1554.65" text-anchor="middle" dominant-baseline="middle"
+      font-size="17" fill="#000000">
+      <tspan>GitHub Discussions</tspan>
+    </text>
+  </g>
+  <g data-node-id="hes8XQqAvpxWITcbU9tiH" data-type="paragraph">
+    <rect x="502.7260409943199" y="1632.198933004529" width="221" height="47.3" rx="5"
+      fill="transparent" stroke="transparent" stroke-width="2.7"></rect>
+    <text fill="#000000">
+      <tspan x="611.8760409943199" y="1655.848933004529" dy="0" text-anchor="middle"
+        dominant-baseline="middle" font-size="17">Intermediate Git Topics</tspan>
+    </text>
+  </g>
+  <g data-node-id="X9K3PBpGsMoXkJsKdJPI7" data-type="topic" data-title="Git Stash Basics"
+    data-parent-id="hes8XQqAvpxWITcbU9tiH" data-parent-title="Intermediate Git Topics">
+    <rect x="520.7260409943199" y="1520.35" width="182.3" height="46.3" rx="5" fill="#fdff00"
+      stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+    <text x="611.8760409943199" y="1545.65" text-anchor="middle" dominant-baseline="middle"
+      font-size="17" fill="#000000">
+      <tspan>Git Stash Basics</tspan>
+    </text>
+  </g>
+  <g data-node-id="zen3RRdK9_nPAYgicRoHk" data-type="topic" data-title="History"
+    data-parent-id="hes8XQqAvpxWITcbU9tiH" data-parent-title="Intermediate Git Topics">
+    <rect x="545.2260409943199" y="1722.198933004529" width="133.3" height="46.3" rx="5"
+      fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+    <text x="611.8760409943199" y="1747.4989330045291" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>History</tspan>
+    </text>
+  </g>
+  <g data-node-id="lXC07j6dOa3rQixY1P-Ob" data-type="subtopic" data-title="Linear vs Non-Linear"
+    data-parent-id="zen3RRdK9_nPAYgicRoHk" data-parent-title="History">
+    <rect x="208.88169343447416" y="1630.198933004529" width="218.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="318.03169343447416" y="1655.4989330045291" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Linear vs Non-Linear</tspan>
+    </text>
+  </g>
+  <g data-node-id="V8nLIvddyOKTzEjOJX5GW" data-type="subtopic" data-title="HEAD"
+    data-parent-id="zen3RRdK9_nPAYgicRoHk" data-parent-title="History">
+    <rect x="208.88169343447416" y="1683.198933004529" width="218.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="318.03169343447416" y="1708.4989330045291" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>HEAD</tspan>
+    </text>
+  </g>
+  <g data-node-id="0cLf7FiI9CX--UX45sm2f" data-type="subtopic" data-title="Detached HEAD"
+    data-parent-id="zen3RRdK9_nPAYgicRoHk" data-parent-title="History">
+    <rect x="208.88169343447416" y="1736.198933004529" width="218.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="318.03169343447416" y="1761.4989330045291" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Detached HEAD</tspan>
+    </text>
+  </g>
+  <g data-node-id="qFEonbCMLri8iA0yONwuf" data-type="subtopic" data-title="git log options"
+    data-parent-id="zen3RRdK9_nPAYgicRoHk" data-parent-title="History">
+    <rect x="208.88169343447416" y="1789.198933004529" width="218.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="318.03169343447416" y="1814.4989330045291" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>git log options</tspan>
+    </text>
+  </g>
+  <g data-node-id="0Yi4cryT2v2SGBjouOas3" data-type="topic" data-title="Undoing Changes"
+    data-parent-id="zen3RRdK9_nPAYgicRoHk" data-parent-title="History">
+    <rect x="519.7260409943199" y="1981.698933004529" width="183.3" height="46.3" rx="5"
+      fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+    <text x="611.3760409943199" y="2006.9989330045291" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Undoing Changes</tspan>
+    </text>
+  </g>
+  <g data-node-id="dLr55Om7IOvI53c1DgTKc" data-type="subtopic" data-title="git revert">
+    <rect x="474.7260409943199" y="1879.698933004529" width="113.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="531.3760409943199" y="1904.9989330045291" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>git revert</tspan>
+    </text>
+  </g>
+  <g data-node-id="igrR7LguU1jemg_mf_AD6" data-type="subtopic" data-title="git reset"
+    data-parent-id="0Yi4cryT2v2SGBjouOas3" data-parent-title="Undoing Changes">
+    <rect x="375.7260409943199" y="1981.698933004529" width="106.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="428.87604099431985" y="2006.9989330045291" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>git reset</tspan>
+    </text>
+  </g>
+  <g data-node-id="Uc7FyfAKpDFRGRNHwztFo" data-type="subtopic" data-title="--soft"
+    data-parent-id="igrR7LguU1jemg_mf_AD6" data-parent-title="git reset">
+    <rect x="211.38169343447416" y="1928.698933004529" width="100.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="261.53169343447416" y="1953.9989330045291" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>--soft</tspan>
+    </text>
+  </g>
+  <g data-node-id="V_joZNpQsS9G9PI-o-GmC" data-type="subtopic" data-title="--hard"
+    data-parent-id="igrR7LguU1jemg_mf_AD6" data-parent-title="git reset">
+    <rect x="211.38169343447416" y="1981.698933004529" width="100.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="261.53169343447416" y="2006.9989330045291" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>--hard</tspan>
+    </text>
+  </g>
+  <g data-node-id="qis7Z5VRxMcOmbesQlegZ" data-type="subtopic" data-title="--mixed"
+    data-parent-id="igrR7LguU1jemg_mf_AD6" data-parent-title="git reset">
+    <rect x="211.38169343447416" y="2034.698933004529" width="100.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="261.53169343447416" y="2059.998933004529" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>--mixed</tspan>
+    </text>
+  </g>
+  <g data-node-id="-0zQvCHG8jS_ghSjmTeIx" data-type="topic" data-title="Viewing Diffs"
+    data-parent-id="0Yi4cryT2v2SGBjouOas3" data-parent-title="Undoing Changes">
+    <rect x="794.2260409943199" y="1981.698933004529" width="173.3" height="46.3" rx="5"
+      fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+    <text x="880.8760409943199" y="2006.9989330045291" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Viewing Diffs</tspan>
+    </text>
+  </g>
+  <g data-node-id="Rwpeltygwzcf6hnuZNURE" data-type="subtopic" data-title="Between Commits"
+    data-parent-id="-0zQvCHG8jS_ghSjmTeIx" data-parent-title="Viewing Diffs">
+    <rect x="1065.881693434474" y="1899.0989330045286" width="198.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="1165.0316934344742" y="1924.3989330045288" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Between Commits</tspan>
+    </text>
+  </g>
+  <g data-node-id="O-zoAWkDvyn7B8_TmY257" data-type="subtopic" data-title="Between Branches"
+    data-parent-id="-0zQvCHG8jS_ghSjmTeIx" data-parent-title="Viewing Diffs">
+    <rect x="1065.881693434474" y="1952.0989330045286" width="198.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="1165.0316934344742" y="1977.3989330045288" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Between Branches</tspan>
+    </text>
+  </g>
+  <g data-node-id="mzjtCdpke1ayHcEuS-YUS" data-type="subtopic" data-title="Staged Changes"
+    data-parent-id="-0zQvCHG8jS_ghSjmTeIx" data-parent-title="Viewing Diffs">
+    <rect x="1065.881693434474" y="2005.0989330045286" width="198.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="1165.0316934344742" y="2030.3989330045288" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Staged Changes</tspan>
+    </text>
+  </g>
+  <g data-node-id="uxqJzQFRcALqatNRIWR0w" data-type="subtopic" data-title="Unstaged Changes"
+    data-parent-id="-0zQvCHG8jS_ghSjmTeIx" data-parent-title="Viewing Diffs">
+    <rect x="1065.881693434474" y="2058.0989330045286" width="198.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="1165.0316934344742" y="2083.3989330045288" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Unstaged Changes</tspan>
+    </text>
+  </g>
+  <g data-node-id="sOoC-XxEoIvwKct00oKlX" data-type="topic" data-title="Rewriting History"
+    data-parent-id="-0zQvCHG8jS_ghSjmTeIx" data-parent-title="Viewing Diffs">
+    <rect x="794.2260409943199" y="2219.0989330045286" width="173.3" height="46.3" rx="5"
+      fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+    <text x="880.8760409943199" y="2244.3989330045288" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Rewriting History</tspan>
+    </text>
+  </g>
+  <g data-node-id="NjPnEXLf1Lt9qzgxccogv" data-type="subtopic" data-title="git commit --amend"
+    data-parent-id="sOoC-XxEoIvwKct00oKlX" data-parent-title="Rewriting History">
+    <rect x="1071.381693434474" y="2140.0989330045286" width="192.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="1167.5316934344742" y="2165.3989330045288" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>git commit --amend</tspan>
+    </text>
+  </g>
+  <g data-node-id="HMEfUFNu_Wp_Pac7VWHr-" data-type="subtopic" data-title="git rebase"
+    data-parent-id="sOoC-XxEoIvwKct00oKlX" data-parent-title="Rewriting History">
+    <rect x="1071.381693434474" y="2193.0989330045286" width="192.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="1167.5316934344742" y="2218.3989330045288" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>git rebase</tspan>
+    </text>
+  </g>
+  <g data-node-id="BKVA6Q7DXemAYjyQOA0nh" data-type="subtopic" data-title="git filter-branch"
+    data-parent-id="sOoC-XxEoIvwKct00oKlX" data-parent-title="Rewriting History">
+    <rect x="1071.381693434474" y="2246.0989330045286" width="192.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="1167.5316934344742" y="2271.3989330045288" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>git filter-branch</tspan>
+    </text>
+  </g>
+  <g data-node-id="OQOmxg9mCfcjt80hpvXkA" data-type="subtopic" data-title="git push --force"
+    data-parent-id="sOoC-XxEoIvwKct00oKlX" data-parent-title="Rewriting History">
+    <rect x="1071.381693434474" y="2299.0989330045286" width="192.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="1167.5316934344742" y="2324.3989330045288" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>git push --force</tspan>
+    </text>
+  </g>
+  <g data-node-id="iFJBF-EEnLjQVsFSXjo_i" data-type="topic" data-title="Tagging"
+    data-parent-id="sOoC-XxEoIvwKct00oKlX" data-parent-title="Rewriting History">
+    <rect x="793.2260409943199" y="2466.5989330045286" width="173.3" height="46.3" rx="5"
+      fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+    <text x="879.8760409943199" y="2491.8989330045288" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Tagging</tspan>
+    </text>
+  </g>
+  <g data-node-id="NeU38WPbEphJuJ_AMkH82" data-type="subtopic" data-title="Managing Tags"
+    data-parent-id="iFJBF-EEnLjQVsFSXjo_i" data-parent-title="Tagging">
+    <rect x="1071.381693434474" y="2385.0989330045286" width="192.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="1167.5316934344742" y="2410.3989330045288" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Managing Tags</tspan>
+    </text>
+  </g>
+  <g data-node-id="E3HAGNM-kXLL4Oci5JzpQ" data-type="subtopic" data-title="Pushing Tags"
+    data-parent-id="iFJBF-EEnLjQVsFSXjo_i" data-parent-title="Tagging">
+    <rect x="1071.381693434474" y="2438.0989330045286" width="192.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="1167.5316934344742" y="2463.3989330045288" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Pushing Tags</tspan>
+    </text>
+  </g>
+  <g data-node-id="62E1tDMXB6K74OEN0WsS0" data-type="subtopic" data-title="Checkout Tags"
+    data-parent-id="iFJBF-EEnLjQVsFSXjo_i" data-parent-title="Tagging">
+    <rect x="1071.381693434474" y="2491.0989330045286" width="192.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="1167.5316934344742" y="2516.3989330045288" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Checkout Tags</tspan>
+    </text>
+  </g>
+  <g data-node-id="YmnTrjJtqHPXbEVrP8vd7" data-type="subtopic" data-title="GitHub Releases"
+    data-parent-id="iFJBF-EEnLjQVsFSXjo_i" data-parent-title="Tagging">
+    <rect x="1071.381693434474" y="2544.0989330045286" width="192.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="1167.5316934344742" y="2569.3989330045288" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>GitHub Releases</tspan>
+    </text>
+  </g>
+  <g data-node-id="pqBV7BMAs0z6qpfZeW2XP" data-type="topic" data-title="Git hooks"
+    data-parent-id="iFJBF-EEnLjQVsFSXjo_i" data-parent-title="Tagging">
+    <rect x="568.8816934344742" y="2466.5989330045286" width="123.3" height="46.3" rx="5"
+      fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+    <text x="630.5316934344742" y="2491.8989330045288" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Git hooks</tspan>
+    </text>
+  </g>
+  <g data-node-id="v7uabKuMQPOD_hBIaHOVT" data-type="subtopic" data-title="What and Why?"
+    data-parent-id="pqBV7BMAs0z6qpfZeW2XP" data-parent-title="Git hooks">
+    <rect x="522.3816934344742" y="2542.0989330045286" width="216.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="630.5316934344742" y="2567.3989330045288" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>What and Why?</tspan>
+    </text>
+  </g>
+  <g data-node-id="zsU6R2zvJKnYNU2ac4o4p" data-type="subtopic" data-title="Client vs Server Hooks">
+    <rect x="522.3816934344742" y="2595.0989330045286" width="216.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="630.5316934344742" y="2620.3989330045288" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Client vs Server Hooks</tspan>
+    </text>
+  </g>
+  <g data-node-id="jzYjHx-gIKSP8dQUTqWVw" data-type="subtopic" data-title="commit-msg">
+    <rect x="533.3816934344742" y="2106.5989330045286" width="194.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="630.5316934344742" y="2131.8989330045288" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>commit-msg</tspan>
+    </text>
+  </g>
+  <g data-node-id="SANEQI2rgOtsMQyn4qUCq" data-type="subtopic" data-title="post-checkout">
+    <rect x="533.3816934344742" y="2159.5989330045286" width="194.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="630.5316934344742" y="2184.8989330045288" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>post-checkout</tspan>
+    </text>
+  </g>
+  <g data-node-id="buxb5TpzQ-xxn0vqtGdS3" data-type="subtopic" data-title="post-update">
+    <rect x="533.3816934344742" y="2212.5989330045286" width="194.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="630.5316934344742" y="2237.8989330045288" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>post-update</tspan>
+    </text>
+  </g>
+  <g data-node-id="HhpAIzYMlMiQ9msrYZyDB" data-type="subtopic" data-title="pre-commit">
+    <rect x="533.3816934344742" y="2265.5989330045286" width="194.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="630.5316934344742" y="2290.8989330045288" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>pre-commit</tspan>
+    </text>
+  </g>
+  <g data-node-id="j5kWEUKwBFg5EMm8-61K9" data-type="subtopic" data-title="pre-push">
+    <rect x="533.3816934344742" y="2318.5989330045286" width="194.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="630.5316934344742" y="2343.8989330045288" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>pre-push</tspan>
+    </text>
+  </g>
+  <g data-node-id="fEdLEowaTG4nyqxV5BPbk" data-type="label">
+    <text x="571.5316934344742" y="2395.2489330045287" text-anchor="left" dominant-baseline="auto"
+      font-size="17" fill="black">
+      <tspan>Common Hooks</tspan>
+    </text>
+  </g>
+  <g data-node-id="fjAFNjNNbPOzme9Uk_fDV" data-type="topic" data-title="Submodules">
+    <rect x="250.38169343447416" y="2295.0989330045286" width="167.3" height="46.3" rx="5"
+      fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+    <text x="334.03169343447416" y="2320.3989330045288" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Submodules</tspan>
+    </text>
+  </g>
+  <g data-node-id="x4bnsPVTiX2xOCSyrgWpF" data-type="subtopic" data-title="Adding / Updating"
+    data-parent-id="fjAFNjNNbPOzme9Uk_fDV" data-parent-title="Submodules">
+    <rect x="223.38169343447416" y="2189.5989330045286" width="221.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="334.03169343447416" y="2214.8989330045288" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Adding / Updating</tspan>
+    </text>
+  </g>
+  <g data-node-id="d0-u_-_vtPK8tnUpnj_NB" data-type="subtopic" data-title="What and Why use?">
+    <rect x="223.38169343447416" y="2136.5989330045286" width="221.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="334.03169343447416" y="2161.8989330045288" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>What and Why use?</tspan>
+    </text>
+  </g>
+  <g data-node-id="Nr3MMuTWvDY6p1N7gSRDz" data-type="paragraph">
+    <rect x="208.88169343447416" y="2550.0989330045286" width="219" height="42.3" rx="5"
+      fill="transparent" stroke="transparent" stroke-width="2.7"></rect>
+    <text fill="#000000">
+      <tspan x="317.03169343447416" y="2571.2489330045287" dy="0" text-anchor="middle"
+        dominant-baseline="middle" font-size="20">GitHub Workflow</tspan>
+    </text>
+  </g>
+  <g data-node-id="h9cf_dh_pwjialOXOlNW-" data-type="topic" data-title="GitHub CLI">
+    <rect x="254.88169343447416" y="2680.712719846154" width="131.3" height="46.3" rx="5"
+      fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+    <text x="320.53169343447416" y="2706.012719846154" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>GitHub CLI</tspan>
+    </text>
+  </g>
+  <g data-node-id="vHfpoVbOW0DHNtiy0VN4X" data-type="subtopic" data-title="Installation and Setup">
+    <rect x="206.88169343447416" y="2766.6279308290864" width="240.3" height="47.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="327.03169343447416" y="2792.4279308290866" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Installation and Setup</tspan>
+    </text>
+  </g>
+  <g data-node-id="lw4zHuhtxIO4kDvbyiVfq" data-type="subtopic" data-title="Repository management">
+    <rect x="206.88169343447416" y="2820.6279308290864" width="240.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="327.03169343447416" y="2845.9279308290866" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Repository management</tspan>
+    </text>
+  </g>
+  <g data-node-id="kGnZifvXbHBf5zXIsfAQw" data-type="subtopic" data-title="Issue Management">
+    <rect x="206.88169343447416" y="2873.6279308290864" width="240.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="327.03169343447416" y="2898.9279308290866" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Issue Management</tspan>
+    </text>
+  </g>
+  <g data-node-id="s3MzDYFPMASqiS8UnvWzW" data-type="subtopic" data-title="Pull Requests">
+    <rect x="206.88169343447416" y="2926.6279308290864" width="240.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="327.03169343447416" y="2951.9279308290866" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Pull Requests</tspan>
+    </text>
+  </g>
+  <g data-node-id="AmetdCURXXob5TUsikAab" data-type="topic" data-title="GitHub Actions"
+    data-parent-id="h9cf_dh_pwjialOXOlNW-" data-parent-title="GitHub CLI">
+    <rect x="787.2260409943199" y="2678.76990782706" width="160.3" height="46.3" rx="5"
+      fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+    <text x="867.3760409943199" y="2704.06990782706" text-anchor="middle" dominant-baseline="middle"
+      font-size="17" fill="#000000">
+      <tspan>GitHub Actions</tspan>
+    </text>
+  </g>
+  <g data-node-id="p6rq3lQ9YRrTqwcc31O23" data-type="subtopic" data-title="YAML Syntax">
+    <rect x="1044.2207774220792" y="2631.76990782706" width="223.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="1155.8707774220793" y="2657.06990782706" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>YAML Syntax</tspan>
+    </text>
+  </g>
+  <g data-node-id="55uHPFNwYPVZx8Cy3c985" data-type="subtopic" data-title="Workflow Triggers">
+    <rect x="1042.2755430960754" y="2684.76990782706" width="223.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="1153.9255430960754" y="2710.06990782706" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Workflow Triggers</tspan>
+    </text>
+  </g>
+  <g data-node-id="uS1H9KoKGNONvETCuFBbz" data-type="subtopic" data-title="Scheduled Worfklows">
+    <rect x="1042.0923034439895" y="2737.76990782706" width="223.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="1153.7423034439896" y="2763.06990782706" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Scheduled Worfklows</tspan>
+    </text>
+  </g>
+  <g data-node-id="6QwlY3dEvjfAOPALcWKXQ" data-type="subtopic" data-title="Workflow Runners">
+    <rect x="1042.2755430960754" y="2790.76990782706" width="223.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="1153.9255430960754" y="2816.06990782706" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Workflow Runners</tspan>
+    </text>
+  </g>
+  <g data-node-id="BnPiTu1Jw2kIW560a2A5T" data-type="subtopic" data-title="Workflow Context">
+    <rect x="1042.2755430960754" y="2843.76990782706" width="223.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="1153.9255430960754" y="2869.06990782706" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Workflow Context</tspan>
+    </text>
+  </g>
+  <g data-node-id="aflP7oWsQzAr4YPo2LLiQ" data-type="subtopic" data-title="Secrets and Env Vars">
+    <rect x="1042.2755430960754" y="2896.76990782706" width="223.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="1153.9255430960754" y="2922.06990782706" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Secrets and Env Vars</tspan>
+    </text>
+  </g>
+  <g data-node-id="HMNhzzV6ApTKj4I_FOmUB" data-type="subtopic" data-title="Caching Dependencies">
+    <rect x="1042.2755430960754" y="2949.76990782706" width="223.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="1153.9255430960754" y="2975.06990782706" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Caching Dependencies</tspan>
+    </text>
+  </g>
+  <g data-node-id="alysXC4b1hGi9ZdQ5-40y" data-type="subtopic" data-title="Storing Artifacts">
+    <rect x="1042.2755430960754" y="3002.76990782706" width="223.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="1153.9255430960754" y="3028.06990782706" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Storing Artifacts</tspan>
+    </text>
+  </g>
+  <g data-node-id="jc4R1zhd1YeCEbVuxwJWy" data-type="subtopic" data-title="Workflow Status">
+    <rect x="1042.2755430960754" y="3055.76990782706" width="223.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="1153.9255430960754" y="3081.06990782706" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Workflow Status</tspan>
+    </text>
+  </g>
+  <g data-node-id="SsogoCgJIbeTD6tk8UhTe" data-type="subtopic" data-title="Marketplace Actions">
+    <rect x="1042.2755430960754" y="3108.76990782706" width="223.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="1153.9255430960754" y="3134.06990782706" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Marketplace Actions</tspan>
+    </text>
+  </g>
+  <g data-node-id="PUnYNBrAZWoZiopjtNgnA" data-type="subtopic" data-title="Usecases"
+    data-parent-id="AmetdCURXXob5TUsikAab" data-parent-title="GitHub Actions">
+    <rect x="783.2260409943199" y="2597.0989330045286" width="168.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="867.3760409943199" y="2622.3989330045288" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Usecases</tspan>
+    </text>
+  </g>
+  <g data-node-id="Ni3HKVLanFvSrJ3u8i5I1" data-type="subtopic" data-title="What are these?">
+    <rect x="783.2260409943199" y="2544.0989330045286" width="168.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="867.3760409943199" y="2569.3989330045288" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>What are these?</tspan>
+    </text>
+  </g>
+  <g data-node-id="ninjmIn5APEPuIbDhRuUh" data-type="vertical">
+    <line x1="1020.8760409943199" y1="2632.91990782706" x2="1020.8760409943199"
+      y2="3153.91990782706"
+      style="stroke-linecap: round; stroke-width: 3.55; stroke: #2B78E4; stroke-dasharray: 0;"></line>
+  </g>
+  <g data-node-id="Y0EWgPsS4kZxH3y53jNxY" data-type="subtopic" data-title="Use in Automation">
+    <rect x="206.88169343447416" y="2979.6279308290864" width="240.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="327.03169343447416" y="3004.9279308290866" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Use in Automation</tspan>
+    </text>
+  </g>
+  <g data-node-id="sFf1PdFfmEdQxsEntfeFq" data-type="topic" data-title="Git Patch">
+    <rect x="396.8816934344742" y="2466.0989330045286" width="121.3" height="46.3" rx="5"
+      fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+    <text x="457.53169343447416" y="2491.3989330045288" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Git Patch</tspan>
+    </text>
+  </g>
+  <g data-node-id="Q7BSE-ueezjXkYluzMecJ" data-type="paragraph">
+    <rect x="747.3816934344742" y="2870.452227419993" width="238" height="40.3" rx="5"
+      fill="transparent" stroke="transparent" stroke-width="2.7"></rect>
+    <text fill="#000000">
+      <tspan x="865.0316934344742" y="2890.602227419993" dy="0" text-anchor="middle"
+        dominant-baseline="middle" font-size="20">Advanced Git Topics</tspan>
+    </text>
+  </g>
+  <g data-node-id="hru0sL1-D4bJSQI1efEyU" data-type="subtopic" data-title="Git Reflog"
+    data-parent-id="Q7BSE-ueezjXkYluzMecJ" data-parent-title="Advanced Git Topics">
+    <rect x="480.757889216747" y="2764.452227419993" width="151.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="556.407889216747" y="2789.7522274199932" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Git Reflog</tspan>
+    </text>
+  </g>
+  <g data-node-id="ExXuwTQSI_lg4SRGW3Iu1" data-type="subtopic" data-title="Git Bisect"
+    data-parent-id="Q7BSE-ueezjXkYluzMecJ" data-parent-title="Advanced Git Topics">
+    <rect x="480.757889216747" y="2817.452227419993" width="151.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="556.407889216747" y="2842.7522274199932" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Git Bisect</tspan>
+    </text>
+  </g>
+  <g data-node-id="4dxVN81rXWn6VZqK99yq0" data-type="subtopic" data-title="Git Worktree"
+    data-parent-id="Q7BSE-ueezjXkYluzMecJ" data-parent-title="Advanced Git Topics">
+    <rect x="480.757889216747" y="2870.452227419993" width="151.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="556.407889216747" y="2895.7522274199932" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Git Worktree</tspan>
+    </text>
+  </g>
+  <g data-node-id="CGj_UX5JMOOCKinedsNRc" data-type="subtopic" data-title="Git Attributes"
+    data-parent-id="Q7BSE-ueezjXkYluzMecJ" data-parent-title="Advanced Git Topics">
+    <rect x="480.757889216747" y="2923.452227419993" width="151.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="556.407889216747" y="2948.7522274199932" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Git Attributes</tspan>
+    </text>
+  </g>
+  <g data-node-id="zdunaucVe8J1tKf_z-NQo" data-type="subtopic" data-title="Git LFS"
+    data-parent-id="Q7BSE-ueezjXkYluzMecJ" data-parent-title="Advanced Git Topics">
+    <rect x="480.757889216747" y="2976.452227419993" width="152.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="556.907889216747" y="3001.7522274199932" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Git LFS</tspan>
+    </text>
+  </g>
+  <g data-node-id="xK8mSkkxTABUZV9zZjDPH" data-type="paragraph">
+    <rect x="733.8816934344742" y="3201.64226453252" width="265" height="39.3" rx="5"
+      fill="transparent" stroke="transparent" stroke-width="2.7"></rect>
+    <text fill="#000000">
+      <tspan x="865.0316934344742" y="3221.29226453252" dy="0" text-anchor="middle"
+        dominant-baseline="middle" font-size="20">GitHub Developer Tools</tspan>
+    </text>
+  </g>
+  <g data-node-id="CDde9XlrZz6YZa9oo5WHl" data-type="vertical">
+    <line x1="867.3760409943199" y1="2924.602227419993" x2="867.3760409943199"
+      y2="3189.602227419993"
+      style="stroke-linecap: round; stroke-width: 3.55; stroke: #2B78E4; stroke-dasharray: 0;"></line>
+  </g>
+  <g data-node-id="NV2HAXLEN7tskfgyFrbaf" data-type="topic" data-title="GitHub API"
+    data-parent-id="xK8mSkkxTABUZV9zZjDPH" data-parent-title="GitHub Developer Tools">
+    <rect x="480.757889216747" y="3198.14226453252" width="152.3" height="46.3" rx="5"
+      fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+    <text x="556.907889216747" y="3223.4422645325203" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>GitHub API</tspan>
+    </text>
+  </g>
+  <g data-node-id="lSCnKhmRr6xrKVYxO8idD" data-type="subtopic" data-title="REST API">
+    <rect x="480.757889216747" y="3059.7566404943323" width="152.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="556.907889216747" y="3085.0566404943324" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>REST API</tspan>
+    </text>
+  </g>
+  <g data-node-id="KlXPt-K6br8PtpLgELaCj" data-type="subtopic" data-title="GraphQL API"
+    data-parent-id="NV2HAXLEN7tskfgyFrbaf" data-parent-title="GitHub API">
+    <rect x="480.757889216747" y="3112.7566404943323" width="152.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="556.907889216747" y="3138.0566404943324" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>GraphQL API</tspan>
+    </text>
+  </g>
+  <g data-node-id="5Oax1p7zIZ9HD2hmENPof" data-type="topic" data-title="Creating Apps"
+    data-parent-id="NV2HAXLEN7tskfgyFrbaf" data-parent-title="GitHub API">
+    <rect x="216.38169343447416" y="3198.14226453252" width="152.3" height="46.3" rx="5"
+      fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+    <text x="292.53169343447416" y="3223.4422645325203" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Creating Apps</tspan>
+    </text>
+  </g>
+  <g data-node-id="560GJXFTt7DPdJjKtSDOo" data-type="subtopic" data-title="GitHub Apps">
+    <rect x="216.88169343447416" y="3060.750921696242" width="151.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="292.53169343447416" y="3086.0509216962423" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>GitHub Apps</tspan>
+    </text>
+  </g>
+  <g data-node-id="qrdOARfqGPF9xhF6snbAn" data-type="subtopic" data-title="OAuth Apps"
+    data-parent-id="5Oax1p7zIZ9HD2hmENPof" data-parent-title="Creating Apps">
+    <rect x="216.88169343447416" y="3113.750921696242" width="151.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="292.53169343447416" y="3139.0509216962423" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>OAuth Apps</tspan>
+    </text>
+  </g>
+  <g data-node-id="MoG7D9kqPuA6o52-z_WDN" data-type="topic" data-title="Webhooks"
+    data-parent-id="xK8mSkkxTABUZV9zZjDPH" data-parent-title="GitHub Developer Tools">
+    <rect x="1080.381693434474" y="3198.14226453252" width="152.3" height="46.3" rx="5"
+      fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+    <text x="1156.5316934344742" y="3223.4422645325203" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Webhooks</tspan>
+    </text>
+  </g>
+  <g data-node-id="RvqrjCowu0YK5QWK2ZVyg" data-type="paragraph">
+    <rect x="736.2260409943199" y="3381.731300735853" width="265" height="39.3" rx="5"
+      fill="transparent" stroke="transparent" stroke-width="2.7"></rect>
+    <text fill="#000000">
+      <tspan x="867.3760409943199" y="3401.381300735853" dy="0" text-anchor="middle"
+        dominant-baseline="middle" font-size="20">More GitHub Features</tspan>
+    </text>
+  </g>
+  <g data-node-id="GyhfjObOGq-CwF_VIwO8b" data-type="vertical">
+    <line x1="867.3760409943199" y1="3262.6578360691838" x2="867.3760409943199"
+      y2="3372.6578360691838"
+      style="stroke-linecap: round; stroke-width: 3.55; stroke: #2B78E4; stroke-dasharray: 0;"></line>
+  </g>
+  <g data-node-id="vhdGUhMAyre_Xya6IxZ-t" data-type="topic" data-title="GitHub Sponsors">
+    <rect x="451.19455242919935" y="3512.231300735853" width="197.3" height="46.3" rx="5"
+      fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+    <text x="549.8445524291993" y="3537.531300735853" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>GitHub Sponsors</tspan>
+    </text>
+  </g>
+  <g data-node-id="bnai6R6pOq_L5CPdbVwMW" data-type="topic" data-title="GitHub Pages"
+    data-parent-id="RvqrjCowu0YK5QWK2ZVyg" data-parent-title="More GitHub Features">
+    <rect x="1090.3874122325647" y="3378.231300735853" width="172.3" height="46.3" rx="5"
+      fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+    <text x="1176.5374122325647" y="3403.531300735853" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>GitHub Pages</tspan>
+    </text>
+  </g>
+  <g data-node-id="M2_hBvXou7cCNqsMnexCt" data-type="topic" data-title="GitHub Gists"
+    data-parent-id="RvqrjCowu0YK5QWK2ZVyg" data-parent-title="More GitHub Features">
+    <rect x="451.19455242919935" y="3300.231300735853" width="197.3" height="46.3" rx="5"
+      fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+    <text x="549.8445524291993" y="3325.531300735853" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>GitHub Gists</tspan>
+    </text>
+  </g>
+  <g data-node-id="rqPCHh25xX_ROMr-ULpaw" data-type="topic" data-title="GitHub Packages"
+    data-parent-id="RvqrjCowu0YK5QWK2ZVyg" data-parent-title="More GitHub Features">
+    <rect x="451.19455242919935" y="3353.231300735853" width="197.3" height="46.3" rx="5"
+      fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+    <text x="549.8445524291993" y="3378.531300735853" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>GitHub Packages</tspan>
+    </text>
+  </g>
+  <g data-node-id="ZHplGidvhxEIC3HN8KqRa" data-type="subtopic"
+    data-title="Deploying Static Websites">
+    <rect x="1022.3816934344742" y="3275.8126439764524" width="241.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="1143.0316934344742" y="3301.1126439764525" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Deploying Static Websites</tspan>
+    </text>
+  </g>
+  <g data-node-id="VdoxEWaU56-QCbHFRw649" data-type="subtopic" data-title="Custom Domains">
+    <rect x="1023.3816934344742" y="3487.5945399831517" width="240.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="1143.5316934344742" y="3512.894539983152" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Custom Domains</tspan>
+    </text>
+  </g>
+  <g data-node-id="iwfNYDlAgbA_rpWYcoHCC" data-type="subtopic" data-title="Static Site Generators">
+    <rect x="1023.3816934344742" y="3540.5945399831517" width="240.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="1143.5316934344742" y="3565.894539983152" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Static Site Generators</tspan>
+    </text>
+  </g>
+  <g data-node-id="NdfwgwMOewiyEAFyC2l7U" data-type="topic" data-title="GitHub Codespaces"
+    data-parent-id="RvqrjCowu0YK5QWK2ZVyg" data-parent-title="More GitHub Features">
+    <rect x="451.19455242919935" y="3406.231300735853" width="197.3" height="46.3" rx="5"
+      fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+    <text x="549.8445524291993" y="3431.531300735853" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>GitHub Codespaces</tspan>
+    </text>
+  </g>
+  <g data-node-id="pFyMiyNQ16-kP7jKaKKEU" data-type="topic" data-title="GitHub Education">
+    <rect x="207.7314171159704" y="3457.9339232351417" width="235.3" height="46.3" rx="5"
+      fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+    <text x="325.3814171159704" y="3483.233923235142" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>GitHub Education</tspan>
+    </text>
+  </g>
+  <g data-node-id="XRSVRl6iHncMmgSXoB7Lq" data-type="subtopic" data-title="Student Developer Pack"
+    data-parent-id="pFyMiyNQ16-kP7jKaKKEU" data-parent-title="GitHub Education">
+    <rect x="207.7314171159704" y="3575.748947531598" width="235.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="325.3814171159704" y="3601.048947531598" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Student Developer Pack</tspan>
+    </text>
+  </g>
+  <g data-node-id="Pg6G4fzYb_RUhANeRKlRX" data-type="subtopic" data-title="GitHub Classroom">
+    <rect x="207.7314171159704" y="3628.248947531598" width="235.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="325.3814171159704" y="3653.548947531598" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>GitHub Classroom</tspan>
+    </text>
+  </g>
+  <g data-node-id="B1KiSOt2b8t8FYD7Jxw2A" data-type="subtopic" data-title="Campus Program">
+    <rect x="207.7314171159704" y="3680.748947531598" width="235.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="325.3814171159704" y="3706.048947531598" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Campus Program</tspan>
+    </text>
+  </g>
+  <g data-node-id="R20LXLLEzNn-SpyFDMRXj" data-type="topic" data-title="GitHub Marketplace">
+    <rect x="207.7314171159704" y="3403.8546497277307" width="235.3" height="46.3" rx="5"
+      fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+    <text x="325.3814171159704" y="3429.154649727731" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>GitHub Marketplace</tspan>
+    </text>
+  </g>
+  <g data-node-id="f2PG4t6iVtfIH8BVe5H7f" data-type="topic" data-title="GitHub Security"
+    data-parent-id="RvqrjCowu0YK5QWK2ZVyg" data-parent-title="More GitHub Features">
+    <rect x="451.19455242919935" y="3459.231300735853" width="197.3" height="46.3" rx="5"
+      fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+    <text x="549.8445524291993" y="3484.531300735853" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>GitHub Security</tspan>
+    </text>
+  </g>
+  <g data-node-id="4slyjdk2Eeg5VYY6gCDG6" data-type="topic" data-title="GitHub Models">
+    <rect x="207.7314171159704" y="3351.8546497277307" width="235.3" height="46.3" rx="5"
+      fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+    <text x="325.3814171159704" y="3377.154649727731" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>GitHub Models</tspan>
+    </text>
+  </g>
+  <g data-node-id="iWn3zDMOfLLjSp6f1jQoE" data-type="topic" data-title="GitHub Copilot">
+    <rect x="207.7314171159704" y="3299.237019533944" width="235.3" height="46.3" rx="5"
+      fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+    <text x="325.3814171159704" y="3324.537019533944" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>GitHub Copilot</tspan>
+    </text>
+  </g>
+  <g data-node-id="0vLaVNJaJSHZ_bHli6Qzs" data-type="paragraph">
+    <rect x="535.1751366454728" y="3635.0459434496456" width="522" height="119.3" rx="5"
+      fill="WHITe" stroke="#000000" stroke-width="2.7"></rect>
+    <text fill="black">
+      <tspan x="794.8251366454728" y="3663.7959434496456" dy="0" text-anchor="middle"
+        dominant-baseline="middle" font-size="17">Continue learning with following roadmaps</tspan>
+    </text>
+  </g>
+  <g data-link="https://roadmap.sh/frontend" data-node-id="P8nE-yRpa7NmoTENNv-Qz" data-type="button">
+    <rect x="548.2720790169977" y="3693.9765191129754" width="118.3" height="46.3" rx="5"
+      fill="#4136D6" stroke="#4136D6" stroke-width="2.7"></rect>
+    <text x="607.4220790169977" y="3719.2765191129756" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#FFf">
+      <tspan>Frontend</tspan>
+    </text>
+  </g>
+  <g data-node-id="RLtk1C3gofHnLJ17x3o5b" data-type="vertical">
+    <line x1="867.3760409943199" y1="3755.6959434496457" x2="867.3760409943199"
+      y2="3829.6959434496457"
+      style="stroke-linecap: round; stroke-width: 3.5; stroke: #2B78E4; stroke-dasharray: 0.8 8;"></line>
+  </g>
+  <g data-link="https://roadmap.sh/backend" data-node-id="N0zxK2dVGTxmMLEsvkRGl" data-type="button">
+    <rect x="674.6751366454728" y="3693.9765191129754" width="118.3" height="46.3" rx="5"
+      fill="#4136D6" stroke="#4136D6" stroke-width="2.7"></rect>
+    <text x="733.8251366454728" y="3719.2765191129756" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#FFf">
+      <tspan>Backend</tspan>
+    </text>
+  </g>
+  <g data-link="https://roadmap.sh/devops" data-node-id="xU5kwxmH2Ir9e2xKTH82n" data-type="button">
+    <rect x="798.8307890856271" y="3693.9765191129754" width="118.3" height="46.3" rx="5"
+      fill="#4136D6" stroke="#4136D6" stroke-width="2.7"></rect>
+    <text x="857.9807890856271" y="3719.2765191129756" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#FFf">
+      <tspan>DevOps</tspan>
+    </text>
+  </g>
+  <g data-link="https://roadmap.sh/full-stack" data-node-id="OIcmPSbdsuWapb6HZ4BEi"
+    data-type="button">
+    <rect x="925.3307890856271" y="3693.9765191129754" width="118.3" height="46.3" rx="5"
+      fill="#4136D6" stroke="#4136D6" stroke-width="2.7"></rect>
+    <text x="984.4807890856271" y="3719.2765191129756" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#FFf">
+      <tspan>Full-stack</tspan>
+    </text>
+  </g>
+  <g data-node-id="GFOiV1rK5PlVHk15QZmTd" data-type="vertical">
+    <line x1="867.3760409943199" y1="3449.881300735853" x2="867.3760409943199"
+      y2="3634.881300735853"
+      style="stroke-linecap: round; stroke-width: 3.55; stroke: #2B78E4; stroke-dasharray: 0;"></line>
+  </g>
+  <g data-node-id="JN1S4v1vCH6o_1FGxLu6i" data-type="paragraph">
+    <rect x="210.72471641744667" y="89.73682211276446" width="354" height="140.3" rx="5"
+      fill="#FFFFFf" stroke="#000000" stroke-width="2.7"></rect>
+    <text fill="black">
+      <tspan x="228.07471641744667" y="118.48682211276447" dy="0" text-anchor="start"
+        dominant-baseline="middle" font-size="17">If you are a beginner, we'd recommend</tspan>
+      <tspan x="228.07471641744667" y="118.48682211276447" dy="25.5" text-anchor="start"
+        dominant-baseline="middle" font-size="17">you to visit the beginner friendly version.</tspan>
+    </text>
+  </g>
+  <g data-link="/git-github?r=git-github-beginner" data-node-id="MfErpYwkJ0wiWJZEUVfrb"
+    data-type="button">
+    <rect x="225.0766137420417" y="169.2886373305844" width="325.3" height="46.3" rx="5"
+      fill="#232323" stroke="#232323" stroke-width="2.7"></rect>
+    <text x="387.7266137420417" y="194.58863733058442" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#ffffff">
+      <tspan>Visit the Beginner Version</tspan>
+    </text>
+  </g>
+  <g data-node-id="Ddkss13_qDJTquDHbVTVs" data-type="subtopic" data-title="CITATION files"
+    data-parent-id="D2WIExwfSnkAPIa5O-Hp5" data-parent-title="Documentation">
+    <rect x="1069.381693434474" y="1266.198933004529" width="192.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="1165.5316934344742" y="1291.4989330045291" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>CITATION files</tspan>
+    </text>
+  </g>
+</svg>

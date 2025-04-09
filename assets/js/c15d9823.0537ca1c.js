@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkvipzhicheng_com=self.webpackChunkvipzhicheng_com||[]).push([["9359"],{27764:function(e){e.exports=JSON.parse('{"metadata":{"permalink":"/blog","page":1,"postsPerPage":10,"totalPages":7,"totalCount":70,"nextPage":"/blog/page/2","blogDescription":"\u8BB0\u5F55\u5DE5\u4F5C\u4E2D\u7684\u70B9\u6EF4","blogTitle":"\u535A\u5BA2"}}')}}]);

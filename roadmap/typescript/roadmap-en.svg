@@ -1,0 +1,1239 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  viewBox="-639 -255 1100 2315" style="font-family: balsamiq" version="1.1">
+  <path
+    d="M-39.95968546864998,-92.28400721142515 C-39.95968546864998,-60.03400721142515 -39.95968546864998,-60.03400721142515 -39.95968546864998,-27.78400721142515"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-iogwMmOvub2ZF4zgg6WyFx2-DAwKHBng7Tytlcd2_8GORw1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"></path>
+  <path
+    d="M-39.95968546864998,21.21599278857485 C-39.95968546864998,46.973211079702224 -39.95968546864998,46.973211079702224 -39.95968546864998,72.7304293708296"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-DAwKHBng7Tytlcd2_8GORx2-KDd40JOAvZ8O1mfhTYB3Kw2"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"></path>
+  <path
+    d="M-164.95968546864998,97.2304293708296 C-219.09647997423772,97.2304293708296 -219.09647997423772,98.2304293708296 -273.23327447982547,98.2304293708296"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-KDd40JOAvZ8O1mfhTYB3Ky2-dcLaEU_lb0z_QypL1ZhpXz1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M-164.95968546864998,97.2304293708296 C-219.09647997423772,97.2304293708296 -219.09647997423772,45.2304293708296 -273.23327447982547,45.2304293708296"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-KDd40JOAvZ8O1mfhTYB3Ky2-MQWzN_kXxVJMOYbRXSGJcz2"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M-164.95968546864998,97.2304293708296 C-219.09647997423772,97.2304293708296 -219.09647997423772,151.2304293708296 -273.23327447982547,151.2304293708296"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-KDd40JOAvZ8O1mfhTYB3Ky2-dA8CNQOgJRDa0T7rmyS7fz1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M85.04031453135002,97.2304293708296 C126.90352002576228,97.2304293708296 126.90352002576228,97.2304293708296 168.76672552017453,97.2304293708296"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-KDd40JOAvZ8O1mfhTYB3Kz2-qdy4ZIY2EKgmPNdu_ndcgy1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M-39.95968546864998,121.7304293708296 C-39.95968546864998,202.7304293708296 -39.95968546864998,202.7304293708296 -39.95968546864998,283.7304293708296"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-KDd40JOAvZ8O1mfhTYB3Kx2-qcrGApxNzkGYxgcd7o45dw1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"></path>
+  <path
+    d="M-39.95968546864998,332.7304293708296 C-39.95968546864998,349.7389836593872 -39.45968546864998,349.7389836593872 -39.45968546864998,366.7475379479448"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-qcrGApxNzkGYxgcd7o45dx2-_4my3Mfk5lxztykcJQ66sw1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M-164.95968546864998,308.2304293708296 C-264.72541277420794,308.2304293708296 -264.72541277420794,308.2304293708296 -364.49114007976596,308.2304293708296"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-qcrGApxNzkGYxgcd7o45dy2-KUur-gfOBQodTS-irFet7z2"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"></path>
+  <path
+    d="M-489.49114007976596,385.7304293708296 C-489.49114007976596,538.8912671636688 -489.49114007976596,538.8912671636688 -489.49114007976596,692.0521049565081"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-alMJCEyUZ90xz-2_g3YRjx2-qefnsugcveizVq2TORRgnw2"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"></path>
+  <path
+    d="M-489.49114007976596,741.0521049565081 C-489.49114007976596,759.7449742112454 -489.49114007976596,759.7449742112454 -489.49114007976596,778.4378434659828"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-qefnsugcveizVq2TORRgnx2-ib0jfZzukYOZ42AdJqt_Ww1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"></path>
+  <path
+    d="M-364.49114007976596,802.9378434659828 C-323.92733126291034,802.9378434659828 -323.92733126291034,801.6906788074556 -283.36352244605473,801.6906788074556"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-ib0jfZzukYOZ42AdJqt_Wz2-Wy2yIK5vgLjEcc9VjuQK5y1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M-364.49114007976596,802.9378434659828 C-323.92733126291034,802.9378434659828 -323.92733126291034,695.6906788074556 -283.36352244605473,695.6906788074556"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-ib0jfZzukYOZ42AdJqt_Wz2-EDOU5a7UK17yp3PdFBJMcy1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M-364.49114007976596,802.9378434659828 C-323.92733126291034,802.9378434659828 -323.92733126291034,748.6906788074556 -283.36352244605473,748.6906788074556"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-ib0jfZzukYOZ42AdJqt_Wz2-ZiOcFZy85p7tLzUkyKDeiy2"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M-364.49114007976596,802.9378434659828 C-323.92733126291034,802.9378434659828 -323.92733126291034,854.6906788074556 -283.36352244605473,854.6906788074556"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-ib0jfZzukYOZ42AdJqt_Wz2-Xonbxc7MvMEonKBvbkCAHy2"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M-364.49114007976596,802.9378434659828 C-323.92733126291034,802.9378434659828 -323.92733126291034,907.6906788074556 -283.36352244605473,907.6906788074556"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-ib0jfZzukYOZ42AdJqt_Wz2-1DOSAieOmWUNNsQQrqf2my1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M-489.49114007976596,827.4378434659828 C-489.49114007976596,892.3142611367192 -489.49114007976596,892.3142611367192 -489.49114007976596,957.1906788074556"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-cFZsxpYHDxm7IWwergb3rx2-ib0jfZzukYOZ42AdJqt_Ww1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"></path>
+  <path
+    d="M-489.49114007976596,1006.1906788074556 C-489.49114007976596,1021.5361520335621 -488.71730268621104,1021.5361520335621 -488.71730268621104,1036.8816252596685"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-ib0jfZzukYOZ42AdJqt_Wx2-9FIhHwDNzyKpb42NmSv3Kw2"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M-364.49114007976596 981.6906788074556L-344.49114007976596 981.6906788074556L 29.72726894500994,981.6906788074556Q 34.72726894500994,981.6906788074556 34.72726894500994,976.6906788074556L34.72726894500994 825.081447065701L34.72726894500994 805.081447065701"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-qOynVkDi1gFz0mxyJHjfJz2-aH1DxiG5xrdNlKutJ_gTzx1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"></path>
+  <path
+    d="M139.22726894500994,780.581447065701 C185.93500640743693,780.581447065701 185.93500640743693,727.581447065701 232.64274386986392,727.581447065701"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-aH1DxiG5xrdNlKutJ_gTzz2-TxkEpoOiuUm-fXJuFVKcHy1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M139.22726894500994,780.581447065701 C185.93500640743693,780.581447065701 185.93500640743693,780.581447065701 232.64274386986392,780.581447065701"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-aH1DxiG5xrdNlKutJ_gTzz2-O-9WQqidujLIEOTcOfy4ny2"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M139.22726894500994,780.581447065701 C185.93500640743693,780.581447065701 185.93500640743693,833.581447065701 232.64274386986392,833.581447065701"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-aH1DxiG5xrdNlKutJ_gTzz2-fY40W8prpgiNqRL50w7uby1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M139.22726894500994,780.581447065701 C185.93500640743693,780.581447065701 185.93500640743693,886.581447065701 232.64274386986392,886.581447065701"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-aH1DxiG5xrdNlKutJ_gTzz2-lvtTSHH9yBTCiLng8btnIy1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M-3.1585282775133123,1114.3816252596685 C-42.08046237144808,1114.3816252596685 -42.08046237144808,1089.7460936406935 -81.00239646538284,1089.7460936406935"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-2F7vOL__v9dLBohA263ajy2-T2-VAVfntouJOoWHpHZ3nz1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M-3.1585282775133123,1114.3816252596685 C-42.08046237144808,1114.3816252596685 -42.08046237144808,1142.7460936406935 -81.00239646538284,1142.7460936406935"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-2F7vOL__v9dLBohA263ajy2-0NXHAOUYGIwuPwlN7r_B3z1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M-8.658528277513312,1291.2460936406935 C-50.33046237144808,1291.2460936406935 -50.33046237144808,1291.2460936406935 -92.00239646538284,1291.2460936406935"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-TRx3wvWnRdJJf5eL-GBG4y2-2F7vOL__v9dLBohA263ajz1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"></path>
+  <path
+    d="M-280.00239646538284,1291.2460936406935 C-347.00239646538284,1291.2460936406935 -347.00239646538284,1181.2460936406935 -414.00239646538284,1181.2460936406935"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-2F7vOL__v9dLBohA263ajy2-E88tHQvARkHURZwGaO02lz2"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M-280.00239646538284,1291.2460936406935 C-347.00239646538284,1291.2460936406935 -347.00239646538284,1234.2460936406935 -414.00239646538284,1234.2460936406935"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-2F7vOL__v9dLBohA263ajy2-IuO9-O_DQdDYuAbdGWdgbz2"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M-280.00239646538284,1291.2460936406935 C-347.0857809339929,1291.2460936406935 -347.0857809339929,1287.2460936406935 -414.16916540260297,1287.2460936406935"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-2F7vOL__v9dLBohA263ajy2-0fvOXi9gJbEc7etqTggNEz1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M-280.00239646538284,1291.2460936406935 C-347.00239646538284,1291.2460936406935 -347.00239646538284,1340.2460936406935 -414.00239646538284,1340.2460936406935"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-2F7vOL__v9dLBohA263ajy2-aEhI_9mFWXRIZh1ZxTuzuz1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M-280.00239646538284,1291.2460936406935 C-347.61783547260416,1291.2460936406935 -347.61783547260416,1393.2460936406935 -415.23327447982547,1393.2460936406935"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-2F7vOL__v9dLBohA263ajy2-a7hl0iMZ-jcUACxqIYVqvz1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M-280.00239646538284,1291.2460936406935 C-347.61783547260416,1291.2460936406935 -347.61783547260416,1446.2460936406935 -415.23327447982547,1446.2460936406935"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-2F7vOL__v9dLBohA263ajy2-_BAZlBEzE7ddr315OeHvlz1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M-280.00239646538284,1291.2460936406935 C-347.61783547260416,1291.2460936406935 -347.61783547260416,1499.2460936406935 -415.23327447982547,1499.2460936406935"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-2F7vOL__v9dLBohA263ajy2-On75JR_UkiIlha0_qaSeuz1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M-280.00239646538284,1291.2460936406935 C-347.61783547260416,1291.2460936406935 -347.61783547260416,1552.2460936406935 -415.23327447982547,1552.2460936406935"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-2F7vOL__v9dLBohA263ajy2-izGAjNtrh3BzQt3KiZX0Wz1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M-186.00239646538284,1315.7460936406935 C-186.00239646538284,1359.2460936406935 -186.00239646538284,1359.2460936406935 -186.00239646538284,1402.7460936406935"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-LSwUHfalnk5MgHt21PANbx2-2F7vOL__v9dLBohA263ajw1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"></path>
+  <path
+    d="M-186.00239646538284,1451.7460936406935 C-186.00239646538284,1475.7460936406935 -186.00239646538284,1475.7460936406935 -186.00239646538284,1499.7460936406935"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-2F7vOL__v9dLBohA263ajx2-VQ-V9qIdKgnpSJg2UnpuBw1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M-92.00239646538284,1427.2460936406935 C39.747603534617156,1427.2460936406935 39.747603534617156,1758.2460936406935 171.49760353461716,1758.2460936406935"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-2F7vOL__v9dLBohA263ajz2-sE9lqkkqwnsVJxTJv37YZy1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"></path>
+  <path
+    d="M299.99760353461716,1733.7460936406935 C299.99760353461716,1708.9960936406935 299.99760353461716,1708.9960936406935 299.99760353461716,1684.2460936406935"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-sE9lqkkqwnsVJxTJv37YZw2-JQwWeB1gkANSYfQmH69Bsx1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path d="" fill="none" stroke="#2b78e4" stroke-width="3.5" data-edge-id="M0aRyhxjzTWUOW95D1g1y"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"></path>
+  <path d="" fill="none" stroke="#2b78e4" stroke-width="3.5" data-edge-id="Xw4lLz2zWuTkNu8r4oheF"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"></path>
+  <path d="" fill="none" stroke="#2b78e4" stroke-width="3.5" data-edge-id="mbCXMk97_HKXG3d4TxBOC"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"></path>
+  <path
+    d="M171.49760353461716,1758.2460936406935 C103.76895903298359,1758.2460936406935 36.04031453135002,1819.6882942508391 36.04031453135002,1881.130494860985"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-sE9lqkkqwnsVJxTJv37YZy2-RqZaWGxxNRItBhVwWKyscw1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"></path>
+  <path
+    d="M102.04031453135002,1905.630494860985 C174.7689590329836,1905.630494860985 174.7689590329836,1826.7460936406935 247.49760353461716,1826.7460936406935"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-RqZaWGxxNRItBhVwWKyscz2-fU8Vnw1DobM4iXl1Tq6EKy1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M102.04031453135002,1905.630494860985 C174.7689590329836,1905.630494860985 174.7689590329836,1879.7460936406933 247.49760353461716,1879.7460936406933"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-RqZaWGxxNRItBhVwWKyscz2-8PcAPOrKisKRYPWamz4nVy2"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M102.04031453135002,1905.630494860985 C174.7689590329836,1905.630494860985 174.7689590329836,1932.7460936406933 247.49760353461716,1932.7460936406933"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-RqZaWGxxNRItBhVwWKyscz2-PCX3KcvMUW3mmQEepLTXpy1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M102.04031453135002,1905.630494860985 C174.7689590329836,1905.630494860985 174.7689590329836,1985.7460936406933 247.49760353461716,1985.7460936406933"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-RqZaWGxxNRItBhVwWKyscz2-I5uwfej5XMwR2N2gpBILhy2"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M-29.95968546864998,1905.630494860985 C-89.06442543562648,1905.630494860985 -89.06442543562648,1905.630494860985 -148.16916540260297,1905.630494860985"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-RqZaWGxxNRItBhVwWKyscy2-GV_zWF6rSWg5bqgiXhOEfz2"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"></path>
+  <g data-node-id="ZB1TdxJOvkLqmiyBiPb8B" data-type="vertical">
+    <line x1="236.76672552017453" y1="1002.2460936406935" x2="236.76672552017453"
+      y2="1099.2460936406935"
+      style="stroke-linecap: round; stroke-width: 3.55; stroke: #2B78E4; stroke-dasharray: 0.8 8;"></line>
+  </g>
+  <g data-node-id="qnLkLaY7Nt73nuaRxLJsg" data-type="vertical">
+    <line x1="83.72726894500988" y1="782.1906788074556" x2="83.72726894500988"
+      y2="1284.1906788074557"
+      style="stroke-linecap: round; stroke-width: 3.55; stroke: #2B78E4; stroke-dasharray: 0;"></line>
+  </g>
+  <g data-node-id="IkitRuGt2Pud6aootSJB-" data-type="horizontal">
+    <line x1="84.76672552017453" y1="1002.3816252596685" x2="260.76672552017453"
+      y2="1002.3816252596685"
+      style="stroke-linecap: round; stroke-width: 3.55; stroke: #2B78E4; stroke-dasharray: 0;"></line>
+  </g>
+  <g data-node-id="d86vtx3nM-5mhQWgMUfcT" data-type="vertical">
+    <line x1="-409.22982819582353" y1="595.7304293708296" x2="-409.22982819582353"
+      y2="711.7304293708296"
+      style="stroke-linecap: round; stroke-width: 3.5; stroke: #2B78E4; stroke-dasharray: 0.8 8;"></line>
+  </g>
+  <g data-node-id="_4my3Mfk5lxztykcJQ66s" data-type="section" data-parent-id="qcrGApxNzkGYxgcd7o45d">
+    <rect x="-162.60968546864999" y="368.09753794794483" width="246.3" height="158.3" rx="5"
+      fill="#ffffff" stroke="#000000" stroke-width="2.7"></rect>
+    <text x="-163.95968546864998" y="358.7475379479448" text-anchor="left" dominant-baseline="auto"
+      font-size="17" fill="black">
+      <tspan></tspan>
+    </text>
+  </g>
+  <g data-node-id="v-557S7JKWhkSPaDYi0BN" data-type="horizontal">
+    <line x1="65.04031453135002" y1="308.2304293708296" x2="167.04031453135002"
+      y2="308.2304293708296"
+      style="stroke-linecap: round; stroke-width: 3.5; stroke: #2B78E4; stroke-dasharray: 0.8 8;"></line>
+  </g>
+  <g data-node-id="h-SAVlYMgS3y0WmKNd9r9" data-type="section">
+    <rect x="170.11672552017453" y="144.5804293708296" width="269.3" height="523.3" rx="5"
+      fill="#ffffff" stroke="#000000" stroke-width="2.7"></rect>
+    <text x="168.76672552017453" y="135.2304293708296" text-anchor="left" dominant-baseline="auto"
+      font-size="17" fill="black">
+      <tspan></tspan>
+    </text>
+  </g>
+  <g data-node-id="OnZEUqOyO3OtLtfJRLcas" data-type="vertical">
+    <line x1="216.76672552017453" y1="20.730429370829597" x2="216.76672552017453"
+      y2="85.7304293708296"
+      style="stroke-linecap: round; stroke-width: 3.5; stroke: #2B78E4; stroke-dasharray: 0.8 8;"></line>
+  </g>
+  <g data-node-id="pQNklz7gALnQrIaPu97LH" data-type="vertical">
+    <line x1="343.26672552017453" y1="21.21599278857485" x2="343.26672552017453"
+      y2="86.21599278857485"
+      style="stroke-linecap: round; stroke-width: 3.5; stroke: #2B78E4; stroke-dasharray: 0.8 8;"></line>
+  </g>
+  <g data-node-id="lcJ5Qry7uPRXDMfqgTKXk" data-type="vertical">
+    <line x1="-382.49114007976596" y1="149.2304293708296" x2="-382.49114007976596"
+      y2="243.2304293708296"
+      style="stroke-linecap: round; stroke-width: 3.5; stroke: #2B78E4; stroke-dasharray: 0.8 8;"></line>
+  </g>
+  <g data-node-id="8d6HSzaJNgPSWvhU5Fydf" data-type="vertical">
+    <line x1="-542.2332744798255" y1="148.7304293708296" x2="-542.2332744798255"
+      y2="242.7304293708296"
+      style="stroke-linecap: round; stroke-width: 3.5; stroke: #2B78E4; stroke-dasharray: 0.8 8;"></line>
+  </g>
+  <g data-node-id="iogwMmOvub2ZF4zgg6WyF" data-type="title" data-title="TypeScript">
+    <text x="-39.95968546864998" y="-126.28400721142515" text-anchor="middle"
+      dominant-baseline="middle" font-size="28" fill="black">
+      <tspan>TypeScript</tspan>
+    </text>
+  </g>
+  <g data-node-id="LEijbLyxg4RyutKEM2Y5g" data-type="vertical">
+    <line x1="-39.95968546864998" y1="-230.76957062917046" x2="-39.95968546864998"
+      y2="-154.76957062917046"
+      style="stroke-linecap: round; stroke-width: 3.5; stroke: #0A33FF; stroke-dasharray: 0.8 8;"></line>
+  </g>
+  <g data-node-id="yHmHXymPNWwu8p1vvqD3o" data-type="paragraph">
+    <rect x="113.19147172248668" y="-233.41957062917047" width="328" height="135.3" rx="5"
+      fill="#FFFFFf" stroke="#000000" stroke-width="2.7"></rect>
+    <text fill="black">
+      <tspan x="130.54147172248668" y="-204.66957062917047" dy="0" text-anchor="start"
+        dominant-baseline="middle" font-size="17">Find the detailed version of this</tspan>
+      <tspan x="130.54147172248668" y="-204.66957062917047" dy="25.5" text-anchor="start"
+        dominant-baseline="middle" font-size="17">roadmap and other similar roadmaps</tspan>
+    </text>
+  </g>
+  <g data-link="https://roadmap.sh" data-node-id="R_Fs6rdl2XtQ9aLOubMqL" data-type="button">
+    <rect x="123.69147172248668" y="-156.43400721142515" width="304.3" height="46.3" rx="5"
+      fill="#4136D6" stroke="#4136D6" stroke-width="2.7"></rect>
+    <text x="275.8414717224867" y="-131.13400721142514" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#ffffff">
+      <tspan>roadmap.sh</tspan>
+    </text>
+  </g>
+  <g data-link="https://roadmap.sh/javascript" data-node-id="DAwKHBng7Tytlcd2_8GOR"
+    data-type="button">
+    <rect x="-163.60968546864999" y="-26.434007211425147" width="247.3" height="46.3" rx="5"
+      fill="#4136D6" stroke="#4136D6" stroke-width="2.7"></rect>
+    <text x="-39.95968546864998" y="-1.1340072114251485" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#ffffff">
+      <tspan>JavaScript Roadmap</tspan>
+    </text>
+  </g>
+  <g data-node-id="KDd40JOAvZ8O1mfhTYB3K" data-type="topic" data-title="Introduction to TypeScript"
+    data-parent-id="DAwKHBng7Tytlcd2_8GOR" data-parent-title="JavaScript Roadmap">
+    <rect x="-163.60968546864999" y="74.08042937082959" width="247.3" height="46.3" rx="5"
+      fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+    <text x="-39.95968546864998" y="99.3804293708296" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Introduction to TypeScript</tspan>
+    </text>
+  </g>
+  <g data-node-id="Y3FQ2wGWFb1VciLEVEGUf" data-type="linksgroup">
+    <rect x="-614.8832744798254" y="-231.41957062917047" width="341.3" height="192.3" rx="5"
+      fill="white" stroke="black" stroke-width="2.7"></rect>
+    <text x="-592.2332744798255" y="-203.76957062917046" text-anchor="left"
+      dominant-baseline="middle" font-size="16" fill="black">
+      <tspan>Related Roadmaps</tspan>
+    </text>
+    <g data-node-id="BwQkwMOvhk6NU73hQvW6t" data-type="link-item"
+      data-parent-id="Y3FQ2wGWFb1VciLEVEGUf" data-link="https://roadmap.sh/javascript">
+      <circle cx="-583.7332744798255" cy="-165.26957062917046" r="9.5" fill="#6b7280" zIndex="1"
+        id="icon-link"></circle>
+      <path
+        d="M-587.7332744798255 -165.26957062917046L-585.2332744798255 -162.26957062917046 -580.2332744798255 -167.26957062917046"
+        fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+      <text x="-566.2332744798255" y="-163.76957062917046" text-anchor="left"
+        dominant-baseline="middle" font-size="16" fill="black">
+        <tspan>JavaScript Roadmap</tspan>
+      </text>
+    </g>
+    <g data-node-id="DoKPzehMbgCzdDTWvcIQ9" data-type="link-item"
+      data-parent-id="Y3FQ2wGWFb1VciLEVEGUf" data-link="https://roadmap.sh/nodejs">
+      <circle cx="-583.7332744798255" cy="-135.26957062917046" r="9.5" fill="#6b7280" zIndex="1"
+        id="icon-link"></circle>
+      <path
+        d="M-587.7332744798255 -135.26957062917046L-585.2332744798255 -132.26957062917046 -580.2332744798255 -137.26957062917046"
+        fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+      <text x="-566.2332744798255" y="-133.76957062917046" text-anchor="left"
+        dominant-baseline="middle" font-size="16" fill="black">
+        <tspan>Node.js Roadmap</tspan>
+      </text>
+    </g>
+    <g data-node-id="TRPGwvkLuLL9ZZ4kDMiyI" data-type="link-item"
+      data-parent-id="Y3FQ2wGWFb1VciLEVEGUf" data-link="https://roadmap.sh/backend">
+      <circle cx="-583.7332744798255" cy="-105.26957062917046" r="9.5" fill="#6b7280" zIndex="1"
+        id="icon-link"></circle>
+      <path
+        d="M-587.7332744798255 -105.26957062917046L-585.2332744798255 -102.26957062917046 -580.2332744798255 -107.26957062917046"
+        fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+      <text x="-566.2332744798255" y="-103.76957062917046" text-anchor="left"
+        dominant-baseline="middle" font-size="16" fill="black">
+        <tspan>Backend Roadmap</tspan>
+      </text>
+    </g>
+    <g data-node-id="D2U09O9v90i02pfmTeG52" data-type="link-item"
+      data-parent-id="Y3FQ2wGWFb1VciLEVEGUf" data-link="https://roadmap.sh/frontend">
+      <circle cx="-583.7332744798255" cy="-75.26957062917046" r="9.5" fill="#6b7280" zIndex="1"
+        id="icon-link"></circle>
+      <path
+        d="M-587.7332744798255 -75.26957062917046L-585.2332744798255 -72.26957062917046 -580.2332744798255 -77.26957062917046"
+        fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+      <text x="-566.2332744798255" y="-73.76957062917046" text-anchor="left"
+        dominant-baseline="middle" font-size="16" fill="black">
+        <tspan>Frontend Roadmap</tspan>
+      </text>
+    </g>
+  </g>
+  <g data-node-id="MQWzN_kXxVJMOYbRXSGJc" data-type="subtopic" data-title="TypeScript vs JavaScript"
+    data-parent-id="KDd40JOAvZ8O1mfhTYB3K" data-parent-title="Introduction to TypeScript">
+    <rect x="-610.8832744798254" y="22.0804293708296" width="336.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-442.73327447982547" y="47.380429370829596" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>TypeScript vs JavaScript</tspan>
+    </text>
+  </g>
+  <g data-node-id="dcLaEU_lb0z_QypL1ZhpX" data-type="subtopic"
+    data-title="TS and JS Interoperability" data-parent-id="KDd40JOAvZ8O1mfhTYB3K"
+    data-parent-title="Introduction to TypeScript">
+    <rect x="-610.8832744798254" y="75.08042937082959" width="336.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-442.73327447982547" y="100.3804293708296" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>TS and JS Interoperability</tspan>
+    </text>
+  </g>
+  <g data-node-id="dA8CNQOgJRDa0T7rmyS7f" data-type="subtopic"
+    data-title="Installation and Configuration" data-parent-id="KDd40JOAvZ8O1mfhTYB3K"
+    data-parent-title="Introduction to TypeScript">
+    <rect x="-610.8832744798254" y="128.0804293708296" width="336.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-442.73327447982547" y="153.3804293708296" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Installation and Configuration</tspan>
+    </text>
+  </g>
+  <g data-node-id="DmqrX56d9KnBcOSwlJR2q" data-type="subtopic" data-title="tsconfig.json">
+    <rect x="-610.8832744798254" y="201.0804293708296" width="137.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-542.2332744798255" y="226.3804293708296" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>tsconfig.json</tspan>
+    </text>
+  </g>
+  <g data-node-id="RrExVb7l2gd0s_TlNdLeD" data-type="subtopic" data-title="Compiler Options">
+    <rect x="-459.88327447982545" y="201.0804293708296" width="184.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-367.73327447982547" y="226.3804293708296" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Compiler Options</tspan>
+    </text>
+  </g>
+  <g data-node-id="qdy4ZIY2EKgmPNdu_ndcg" data-type="subtopic" data-title="Running TypeScript"
+    data-parent-id="KDd40JOAvZ8O1mfhTYB3K" data-parent-title="Introduction to TypeScript">
+    <rect x="170.11672552017453" y="74.08042937082959" width="269.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="304.76672552017453" y="99.3804293708296" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Running TypeScript</tspan>
+    </text>
+  </g>
+  <g data-node-id="Iv_t13PSVzet5VPKFtAp1" data-type="subtopic" data-title="tsc">
+    <rect x="170.11672552017453" y="-1.1989684222239787" width="89.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="214.76672552017453" y="24.10103157777602" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>tsc</tspan>
+    </text>
+  </g>
+  <g data-node-id="ZCM2_X4BiKh5FTCizrr-E" data-type="subtopic" data-title="ts-node">
+    <rect x="268.11672552017455" y="-1.1989684222239787" width="171.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="353.76672552017453" y="24.10103157777602" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>ts-node</tspan>
+    </text>
+  </g>
+  <g data-node-id="_bZ71i36haWgHQTY0yMOx" data-type="subtopic" data-title="TS Playground">
+    <rect x="170.11672552017453" y="-54.19896842222398" width="269.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="304.76672552017453" y="-28.89896842222398" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>TS Playground</tspan>
+    </text>
+  </g>
+  <g data-node-id="qcrGApxNzkGYxgcd7o45d" data-type="topic" data-title="TypeScript Types"
+    data-parent-id="KDd40JOAvZ8O1mfhTYB3K" data-parent-title="Introduction to TypeScript">
+    <rect x="-163.60968546864999" y="285.0804293708296" width="247.3" height="46.3" rx="5"
+      fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+    <text x="-39.95968546864998" y="310.3804293708296" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>TypeScript Types</tspan>
+    </text>
+  </g>
+  <g data-node-id="OtdcYVLAgWsaKcaEjKOW1" data-type="label">
+    <text x="184.76672552017453" y="176.2304293708296" text-anchor="left" dominant-baseline="auto"
+      font-size="17" fill="black">
+      <tspan>Primitive Types</tspan>
+    </text>
+  </g>
+  <g data-node-id="hfIHxa5i_5rEpjtzqEsic" data-type="subtopic" data-title="boolean">
+    <rect x="181.11672552017453" y="193.5804293708296" width="117.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="239.76672552017453" y="218.8804293708296" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>boolean</tspan>
+    </text>
+  </g>
+  <g data-node-id="UH9d3cvGy_e67WFNFwCyf" data-type="subtopic" data-title="number">
+    <rect x="181.11672552017453" y="246.5804293708296" width="117.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="239.76672552017453" y="271.8804293708296" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>number</tspan>
+    </text>
+  </g>
+  <g data-node-id="d8iV-IBZ6cSnH8Z5_HRmc" data-type="subtopic" data-title="string">
+    <rect x="181.11672552017453" y="299.5804293708296" width="117.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="239.76672552017453" y="324.8804293708296" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>string</tspan>
+    </text>
+  </g>
+  <g data-node-id="yLlQg7BF--ZwRHbXBWfOi" data-type="subtopic" data-title="void">
+    <rect x="181.11672552017453" y="352.5804293708296" width="117.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="239.76672552017453" y="377.8804293708296" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>void</tspan>
+    </text>
+  </g>
+  <g data-node-id="Sa6IZtM4XJstultz-pbh0" data-type="subtopic" data-title="undefined">
+    <rect x="181.11672552017453" y="405.5804293708296" width="117.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="239.76672552017453" y="430.8804293708296" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>undefined</tspan>
+    </text>
+  </g>
+  <g data-node-id="cjAwawhZLo1qVQ93XIdm2" data-type="subtopic" data-title="null">
+    <rect x="181.11672552017453" y="457.0804293708296" width="117.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="239.76672552017453" y="482.3804293708296" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>null</tspan>
+    </text>
+  </g>
+  <g data-node-id="SKqGm8fqxSRoE5HqDNqHB" data-type="label">
+    <text x="321.26672552017453" y="175.2304293708296" text-anchor="left" dominant-baseline="auto"
+      font-size="17" fill="black">
+      <tspan>Object Types</tspan>
+    </text>
+  </g>
+  <g data-node-id="mVKsM7R4Ivpdhnbwt1aRb" data-type="subtopic" data-title="Interface">
+    <rect x="310.61672552017455" y="192.5804293708296" width="117.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="369.26672552017453" y="217.8804293708296" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Interface</tspan>
+    </text>
+  </g>
+  <g data-node-id="tTSITP1W1ymS-njbFb8Ts" data-type="subtopic" data-title="Class">
+    <rect x="310.61672552017455" y="245.5804293708296" width="117.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="369.26672552017453" y="270.8804293708296" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Class</tspan>
+    </text>
+  </g>
+  <g data-node-id="bfZIXHceDKDGQl-24kQpT" data-type="subtopic" data-title="Enum">
+    <rect x="310.61672552017455" y="298.5804293708296" width="117.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="369.26672552017453" y="323.8804293708296" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Enum</tspan>
+    </text>
+  </g>
+  <g data-node-id="YbDuIo1BbZKEAZwmXlCdZ" data-type="subtopic" data-title="Array">
+    <rect x="310.61672552017455" y="351.5804293708296" width="117.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="369.26672552017453" y="376.8804293708296" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Array</tspan>
+    </text>
+  </g>
+  <g data-node-id="jq-GD0DLyzrEXQKUmt5kv" data-type="subtopic" data-title="Tuple">
+    <rect x="310.61672552017455" y="404.5804293708296" width="117.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="369.26672552017453" y="429.8804293708296" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Tuple</tspan>
+    </text>
+  </g>
+  <g data-node-id="bx8s7zcSqfKHhHLF45YWd" data-type="label">
+    <text x="203.26672552017453" y="536.7304293708296" text-anchor="left" dominant-baseline="auto"
+      font-size="17" fill="black">
+      <tspan>Top Types</tspan>
+    </text>
+  </g>
+  <g data-node-id="vnqvm_WiaKqpdxrW4wRGa" data-type="subtopic" data-title="Object">
+    <rect x="310.61672552017455" y="457.5804293708296" width="117.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="369.26672552017453" y="482.8804293708296" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Object</tspan>
+    </text>
+  </g>
+  <g data-node-id="O2TYbd9i_OQwQk2dKh-ly" data-type="subtopic" data-title="unknown">
+    <rect x="181.11672552017453" y="555.0804293708296" width="117.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="239.76672552017453" y="580.3804293708296" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>unknown</tspan>
+    </text>
+  </g>
+  <g data-node-id="yXiLegSlL7SveU8rBGj8U" data-type="subtopic" data-title="any">
+    <rect x="181.11672552017453" y="608.0804293708296" width="117.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="239.76672552017453" y="633.3804293708296" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>any</tspan>
+    </text>
+  </g>
+  <g data-node-id="I_ZPF1QaS4gvwNNBDzW8w" data-type="label">
+    <text x="319.26672552017453" y="535.7304293708296" text-anchor="left" dominant-baseline="auto"
+      font-size="17" fill="black">
+      <tspan>Bottom Types</tspan>
+    </text>
+  </g>
+  <g data-node-id="0pi9VTbngcAIswuu5LIYg" data-type="subtopic" data-title="never">
+    <rect x="310.61672552017455" y="554.0804293708296" width="117.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="369.26672552017453" y="579.3804293708296" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>never</tspan>
+    </text>
+  </g>
+  <g data-node-id="AYoKlh6xTM5FgiK4h2HFp" data-type="label">
+    <text x="-77.95968546864998" y="397.49287752857555" text-anchor="left" dominant-baseline="auto"
+      font-size="17" fill="black">
+      <tspan>Assertions</tspan>
+    </text>
+  </g>
+  <g data-node-id="pGFnTqi0-RSj0YRmNA5iy" data-type="subtopic" data-title="as const">
+    <rect x="-41.922731054990116" y="465.8428775285755" width="114.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="15.227268945009882" y="491.14287752857547" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>as const</tspan>
+    </text>
+  </g>
+  <g data-node-id="Ba0baUbomrW9td_K8U-5L" data-type="subtopic" data-title="as [type]">
+    <rect x="-150.10968546864999" y="412.8428775285755" width="221.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-39.45968546864998" y="438.14287752857547" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>as [type]</tspan>
+    </text>
+  </g>
+  <g data-node-id="afTNr36VqeXoJpHxm2IoS" data-type="subtopic" data-title="as any">
+    <rect x="-152.10968546864999" y="465.8428775285755" width="102.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-100.95968546864998" y="491.14287752857547" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>as any</tspan>
+    </text>
+  </g>
+  <g data-node-id="mjaL5ocLnM8VQlhUxW6KU" data-type="subtopic" data-title="Non-null Assertion">
+    <rect x="-163.60968546864999" y="534.6955260484365" width="247.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-39.95968546864998" y="559.9955260484364" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Non-null Assertion</tspan>
+    </text>
+  </g>
+  <g data-node-id="HD1UGOidp7JGKdW6CEdQ_" data-type="subtopic" data-title="satisfies keyword">
+    <rect x="-163.60968546864999" y="587.6955260484365" width="247.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-39.95968546864998" y="612.9955260484364" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>satisfies keyword</tspan>
+    </text>
+  </g>
+  <g data-node-id="KUur-gfOBQodTS-irFet7" data-type="topic" data-title="Type Inference"
+    data-parent-id="qcrGApxNzkGYxgcd7o45d" data-parent-title="TypeScript Types">
+    <rect x="-613.1411400797659" y="285.0804293708296" width="247.3" height="46.3" rx="5"
+      fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+    <text x="-489.49114007976596" y="310.3804293708296" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Type Inference</tspan>
+    </text>
+  </g>
+  <g data-node-id="alMJCEyUZ90xz-2_g3YRj" data-type="topic" data-title="Type Compatibility">
+    <rect x="-613.1411400797659" y="338.0804293708296" width="247.3" height="46.3" rx="5"
+      fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+    <text x="-489.49114007976596" y="363.3804293708296" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Type Compatibility</tspan>
+    </text>
+  </g>
+  <g data-node-id="qefnsugcveizVq2TORRgn" data-type="topic" data-title="Combining Types"
+    data-parent-id="alMJCEyUZ90xz-2_g3YRj" data-parent-title="Type Compatibility">
+    <rect x="-613.1411400797659" y="693.4021049565081" width="247.3" height="46.3" rx="5"
+      fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+    <text x="-489.49114007976596" y="718.702104956508" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Combining Types</tspan>
+    </text>
+  </g>
+  <g data-node-id="5z5w3yv1HbOpMlzEd4Iot" data-type="subtopic" data-title="Union Types">
+    <rect x="-453.68257012649036" y="436.63062793755864" width="205.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-351.0325701264904" y="461.9306279375586" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Union Types</tspan>
+    </text>
+  </g>
+  <g data-node-id="RWYXEZMODUrqwRWf_Lqi9" data-type="subtopic" data-title="Intersection Types">
+    <rect x="-453.68257012649036" y="489.63062793755864" width="205.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-351.0325701264904" y="514.9306279375586" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Intersection Types</tspan>
+    </text>
+  </g>
+  <g data-node-id="M_3O21zjppgWptIT5dtu8" data-type="subtopic" data-title="Type Aliases">
+    <rect x="-453.68257012649036" y="542.6306279375586" width="205.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-351.0325701264904" y="567.9306279375586" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Type Aliases</tspan>
+    </text>
+  </g>
+  <g data-node-id="t1Tcesfq7bV2TkHcfD6lU" data-type="subtopic" data-title="keyof Operator">
+    <rect x="-453.68257012649036" y="595.6306279375586" width="205.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-351.0325701264904" y="620.9306279375586" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>keyof Operator</tspan>
+    </text>
+  </g>
+  <g data-node-id="cFZsxpYHDxm7IWwergb3r" data-type="topic" data-title="Type Guards / Narrowing"
+    data-parent-id="qefnsugcveizVq2TORRgn" data-parent-title="Combining Types">
+    <rect x="-613.1411400797659" y="779.7878434659829" width="247.3" height="46.3" rx="5"
+      fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+    <text x="-489.49114007976596" y="805.0878434659828" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Type Guards / Narrowing</tspan>
+    </text>
+  </g>
+  <g data-node-id="EDOU5a7UK17yp3PdFBJMc" data-type="subtopic" data-title="instanceof"
+    data-parent-id="cFZsxpYHDxm7IWwergb3r" data-parent-title="Type Guards / Narrowing">
+    <rect x="-282.0135224460547" y="672.5406788074556" width="166.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-198.86352244605473" y="697.8406788074556" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>instanceof</tspan>
+    </text>
+  </g>
+  <g data-node-id="ZiOcFZy85p7tLzUkyKDei" data-type="subtopic" data-title="typeof"
+    data-parent-id="cFZsxpYHDxm7IWwergb3r" data-parent-title="Type Guards / Narrowing">
+    <rect x="-282.0135224460547" y="725.5406788074556" width="166.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-198.86352244605473" y="750.8406788074556" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>typeof</tspan>
+    </text>
+  </g>
+  <g data-node-id="Wy2yIK5vgLjEcc9VjuQK5" data-type="subtopic" data-title="Equality"
+    data-parent-id="cFZsxpYHDxm7IWwergb3r" data-parent-title="Type Guards / Narrowing">
+    <rect x="-282.0135224460547" y="778.5406788074556" width="166.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-198.86352244605473" y="803.8406788074556" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Equality</tspan>
+    </text>
+  </g>
+  <g data-node-id="Xonbxc7MvMEonKBvbkCAH" data-type="subtopic" data-title="Truthiness"
+    data-parent-id="cFZsxpYHDxm7IWwergb3r" data-parent-title="Type Guards / Narrowing">
+    <rect x="-282.0135224460547" y="831.5406788074556" width="166.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-198.86352244605473" y="856.8406788074556" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Truthiness</tspan>
+    </text>
+  </g>
+  <g data-node-id="1DOSAieOmWUNNsQQrqf2m" data-type="subtopic" data-title="Type Predicates"
+    data-parent-id="cFZsxpYHDxm7IWwergb3r" data-parent-title="Type Guards / Narrowing">
+    <rect x="-282.0135224460547" y="884.5406788074556" width="166.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-198.86352244605473" y="909.8406788074556" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Type Predicates</tspan>
+    </text>
+  </g>
+  <g data-node-id="qOynVkDi1gFz0mxyJHjfJ" data-type="topic" data-title="TypeScript Functions"
+    data-parent-id="cFZsxpYHDxm7IWwergb3r" data-parent-title="Type Guards / Narrowing">
+    <rect x="-613.1411400797659" y="958.5406788074556" width="247.3" height="46.3" rx="5"
+      fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+    <text x="-489.49114007976596" y="983.8406788074556" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>TypeScript Functions</tspan>
+    </text>
+  </g>
+  <g data-node-id="9FIhHwDNzyKpb42NmSv3K" data-type="subtopic" data-title="Typing Functions"
+    data-parent-id="qOynVkDi1gFz0mxyJHjfJ" data-parent-title="TypeScript Functions">
+    <rect x="-612.367302686211" y="1038.2316252596684" width="247.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-488.71730268621104" y="1063.5316252596685" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Typing Functions</tspan>
+    </text>
+  </g>
+  <g data-node-id="-0Zp6b8NjDyz9MAQE3HfS" data-type="subtopic" data-title="Function Overloading">
+    <rect x="-612.367302686211" y="1091.2316252596684" width="248.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-488.21730268621104" y="1116.5316252596685" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Function Overloading</tspan>
+    </text>
+  </g>
+  <g data-node-id="aH1DxiG5xrdNlKutJ_gTz" data-type="topic" data-title="TypeScript Interfaces"
+    data-parent-id="qOynVkDi1gFz0mxyJHjfJ" data-parent-title="TypeScript Functions">
+    <rect x="-68.42273105499007" y="757.431447065701" width="206.3" height="46.3" rx="5"
+      fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+    <text x="34.72726894500994" y="782.731447065701" text-anchor="middle" dominant-baseline="middle"
+      font-size="17" fill="#000000">
+      <tspan>TypeScript Interfaces</tspan>
+    </text>
+  </g>
+  <g data-node-id="TxkEpoOiuUm-fXJuFVKcH" data-type="subtopic" data-title="Types vs Interfaces"
+    data-parent-id="aH1DxiG5xrdNlKutJ_gTz" data-parent-title="TypeScript Interfaces">
+    <rect x="233.99274386986392" y="704.431447065701" width="206.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="337.1427438698639" y="729.731447065701" text-anchor="middle" dominant-baseline="middle"
+      font-size="17" fill="#000000">
+      <tspan>Types vs Interfaces</tspan>
+    </text>
+  </g>
+  <g data-node-id="O-9WQqidujLIEOTcOfy4n" data-type="subtopic" data-title="Extending Interfaces"
+    data-parent-id="aH1DxiG5xrdNlKutJ_gTz" data-parent-title="TypeScript Interfaces">
+    <rect x="233.99274386986392" y="757.431447065701" width="206.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="337.1427438698639" y="782.731447065701" text-anchor="middle" dominant-baseline="middle"
+      font-size="17" fill="#000000">
+      <tspan>Extending Interfaces</tspan>
+    </text>
+  </g>
+  <g data-node-id="fY40W8prpgiNqRL50w7ub" data-type="subtopic" data-title="Interface Declaration"
+    data-parent-id="aH1DxiG5xrdNlKutJ_gTz" data-parent-title="TypeScript Interfaces">
+    <rect x="233.99274386986392" y="810.431447065701" width="206.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="337.1427438698639" y="835.731447065701" text-anchor="middle" dominant-baseline="middle"
+      font-size="17" fill="#000000">
+      <tspan>Interface Declaration</tspan>
+    </text>
+  </g>
+  <g data-node-id="lvtTSHH9yBTCiLng8btnI" data-type="subtopic" data-title="Hybrid Types"
+    data-parent-id="aH1DxiG5xrdNlKutJ_gTz" data-parent-title="TypeScript Interfaces">
+    <rect x="233.99274386986392" y="863.431447065701" width="206.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="337.1427438698639" y="888.731447065701" text-anchor="middle" dominant-baseline="middle"
+      font-size="17" fill="#000000">
+      <tspan>Hybrid Types</tspan>
+    </text>
+  </g>
+  <g data-node-id="ib0jfZzukYOZ42AdJqt_W" data-type="topic" data-title="Classes">
+    <rect x="173.61672552017453" y="979.2316252596685" width="128.3" height="46.3" rx="5"
+      fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+    <text x="237.76672552017453" y="1004.5316252596684" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Classes</tspan>
+    </text>
+  </g>
+  <g data-node-id="3XrKbK5Od2eoM0BLaS4kU" data-type="subtopic" data-title="Constructor Params">
+    <rect x="174.69147172248668" y="1070.5960936406934" width="264.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="306.8414717224867" y="1095.8960936406936" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Constructor Params</tspan>
+    </text>
+  </g>
+  <g data-node-id="oxzcYXxy2I7GI7nbvFYVa" data-type="subtopic" data-title="Constructor Overloading">
+    <rect x="174.69147172248668" y="1335.5960936406934" width="264.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="306.8414717224867" y="1360.8960936406936" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Constructor Overloading</tspan>
+    </text>
+  </g>
+  <g data-node-id="RJ7on8WoxrKcXrR3qY5Rs" data-type="subtopic" data-title="Access Modifiers">
+    <rect x="174.69147172248668" y="1123.5960936406934" width="264.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="306.8414717224867" y="1148.8960936406936" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Access Modifiers</tspan>
+    </text>
+  </g>
+  <g data-node-id="tZFWeWHdOUJcCEtHfXH9p" data-type="subtopic" data-title="Abstract Classes">
+    <rect x="174.69147172248668" y="1176.5960936406934" width="264.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="306.8414717224867" y="1201.8960936406936" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Abstract Classes</tspan>
+    </text>
+  </g>
+  <g data-node-id="8P0-vb9nlnmz7iC4UvyJZ" data-type="subtopic"
+    data-title="Inheritance vs Polymorphism">
+    <rect x="174.69147172248668" y="1229.5960936406934" width="264.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="306.8414717224867" y="1254.8960936406936" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Inheritance vs Polymorphism</tspan>
+    </text>
+  </g>
+  <g data-node-id="aknqutxN2WDQ4RFcT-szM" data-type="subtopic" data-title="Method Overriding">
+    <rect x="174.69147172248668" y="1282.5960936406934" width="264.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="306.8414717224867" y="1307.8960936406936" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Method Overriding</tspan>
+    </text>
+  </g>
+  <g data-node-id="4gaKqNtGLFqpk9WVKZl0v" data-type="topic" data-title="Generics">
+    <rect x="-1.8085282775133122" y="1091.2316252596684" width="128.3" height="46.3" rx="5"
+      fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+    <text x="62.34147172248669" y="1116.5316252596685" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Generics</tspan>
+    </text>
+  </g>
+  <g data-node-id="T2-VAVfntouJOoWHpHZ3n" data-type="subtopic" data-title="Generic Types"
+    data-parent-id="4gaKqNtGLFqpk9WVKZl0v" data-parent-title="Generics">
+    <rect x="-278.6523964653828" y="1066.5960936406934" width="196.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-180.50239646538284" y="1091.8960936406936" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Generic Types</tspan>
+    </text>
+  </g>
+  <g data-node-id="0NXHAOUYGIwuPwlN7r_B3" data-type="subtopic" data-title="Generic Constraints"
+    data-parent-id="4gaKqNtGLFqpk9WVKZl0v" data-parent-title="Generics">
+    <rect x="-278.6523964653828" y="1119.5960936406934" width="196.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-180.50239646538284" y="1144.8960936406936" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Generic Constraints</tspan>
+    </text>
+  </g>
+  <g data-node-id="TRx3wvWnRdJJf5eL-GBG4" data-type="topic" data-title="Decorators">
+    <rect x="-7.308528277513313" y="1268.0960936406934" width="128.3" height="46.3" rx="5"
+      fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+    <text x="56.84147172248669" y="1293.3960936406936" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Decorators</tspan>
+    </text>
+  </g>
+  <g data-node-id="LSwUHfalnk5MgHt21PANb" data-type="topic" data-title="Utility Types"
+    data-parent-id="TRx3wvWnRdJJf5eL-GBG4" data-parent-title="Decorators">
+    <rect x="-278.6523964653828" y="1268.0960936406934" width="185.3" height="46.3" rx="5"
+      fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+    <text x="-186.00239646538284" y="1293.3960936406936" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Utility Types</tspan>
+    </text>
+  </g>
+  <g data-node-id="gBTem9Dp3IQLAkqGX4fOF" data-type="subtopic" data-title="Partial">
+    <rect x="-616.6523964653828" y="1158.0960936406934" width="97.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-568.0023964653828" y="1183.3960936406936" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Partial</tspan>
+    </text>
+  </g>
+  <g data-node-id="E88tHQvARkHURZwGaO02l" data-type="subtopic" data-title="Pick"
+    data-parent-id="LSwUHfalnk5MgHt21PANb" data-parent-title="Utility Types">
+    <rect x="-512.6523964653828" y="1158.0960936406934" width="97.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-464.00239646538284" y="1183.3960936406936" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Pick</tspan>
+    </text>
+  </g>
+  <g data-node-id="yjlxygHl8QONNUrdx-Q0A" data-type="subtopic" data-title="Omit">
+    <rect x="-616.6523964653828" y="1211.0960936406934" width="97.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-568.0023964653828" y="1236.3960936406936" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Omit</tspan>
+    </text>
+  </g>
+  <g data-node-id="IuO9-O_DQdDYuAbdGWdgb" data-type="subtopic" data-title="Readonly"
+    data-parent-id="LSwUHfalnk5MgHt21PANb" data-parent-title="Utility Types">
+    <rect x="-512.6523964653828" y="1211.0960936406934" width="97.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-464.00239646538284" y="1236.3960936406936" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Readonly</tspan>
+    </text>
+  </g>
+  <g data-node-id="DRdBmF5Dt_r09LoPOxOuq" data-type="subtopic" data-title="Record">
+    <rect x="-616.819165402603" y="1264.0960936406934" width="97.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-568.169165402603" y="1289.3960936406936" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Record</tspan>
+    </text>
+  </g>
+  <g data-node-id="0fvOXi9gJbEc7etqTggNE" data-type="subtopic" data-title="Exclude"
+    data-parent-id="LSwUHfalnk5MgHt21PANb" data-parent-title="Utility Types">
+    <rect x="-512.819165402603" y="1264.0960936406934" width="97.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-464.16916540260297" y="1289.3960936406936" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Exclude</tspan>
+    </text>
+  </g>
+  <g data-node-id="IIAbAzXiVQm1JEi2MTMZN" data-type="subtopic" data-title="Extract">
+    <rect x="-616.6523964653828" y="1317.0960936406934" width="97.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-568.0023964653828" y="1342.3960936406936" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Extract</tspan>
+    </text>
+  </g>
+  <g data-node-id="_BAZlBEzE7ddr315OeHvl" data-type="subtopic" data-title="NonNullable"
+    data-parent-id="LSwUHfalnk5MgHt21PANb" data-parent-title="Utility Types">
+    <rect x="-615.8832744798254" y="1423.0960936406934" width="199.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-516.2332744798255" y="1448.3960936406936" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>NonNullable</tspan>
+    </text>
+  </g>
+  <g data-node-id="a7hl0iMZ-jcUACxqIYVqv" data-type="subtopic" data-title="Parameters"
+    data-parent-id="LSwUHfalnk5MgHt21PANb" data-parent-title="Utility Types">
+    <rect x="-615.8832744798254" y="1370.0960936406934" width="199.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-516.2332744798255" y="1395.3960936406936" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Parameters</tspan>
+    </text>
+  </g>
+  <g data-node-id="On75JR_UkiIlha0_qaSeu" data-type="subtopic" data-title="ReturnType"
+    data-parent-id="LSwUHfalnk5MgHt21PANb" data-parent-title="Utility Types">
+    <rect x="-615.8832744798254" y="1476.0960936406934" width="199.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-516.2332744798255" y="1501.3960936406936" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>ReturnType</tspan>
+    </text>
+  </g>
+  <g data-node-id="izGAjNtrh3BzQt3KiZX0W" data-type="subtopic" data-title="InstanceType"
+    data-parent-id="LSwUHfalnk5MgHt21PANb" data-parent-title="Utility Types">
+    <rect x="-615.8832744798254" y="1529.0960936406934" width="199.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-516.2332744798255" y="1554.3960936406936" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>InstanceType</tspan>
+    </text>
+  </g>
+  <g data-node-id="aEhI_9mFWXRIZh1ZxTuzu" data-type="subtopic" data-title="Awaited"
+    data-parent-id="LSwUHfalnk5MgHt21PANb" data-parent-title="Utility Types">
+    <rect x="-512.6523964653828" y="1317.0960936406934" width="97.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-464.00239646538284" y="1342.3960936406936" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Awaited</tspan>
+    </text>
+  </g>
+  <g data-node-id="2F7vOL__v9dLBohA263aj" data-type="topic" data-title="Advanced Types"
+    data-parent-id="LSwUHfalnk5MgHt21PANb" data-parent-title="Utility Types">
+    <rect x="-278.6523964653828" y="1404.0960936406934" width="185.3" height="46.3" rx="5"
+      fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+    <text x="-186.00239646538284" y="1429.3960936406936" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Advanced Types</tspan>
+    </text>
+  </g>
+  <g data-node-id="VQ-V9qIdKgnpSJg2UnpuB" data-type="subtopic" data-title="Mapped Types"
+    data-parent-id="2F7vOL__v9dLBohA263aj" data-parent-title="Advanced Types">
+    <rect x="-294.1523964653828" y="1501.0960936406934" width="216.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-186.00239646538284" y="1526.3960936406936" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Mapped Types</tspan>
+    </text>
+  </g>
+  <g data-node-id="ubGIhi-WLE0EopTYXzmPL" data-type="subtopic" data-title="Conditional Types">
+    <rect x="-294.1523964653828" y="1554.0960936406934" width="216.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-186.00239646538284" y="1579.3960936406936" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Conditional Types</tspan>
+    </text>
+  </g>
+  <g data-node-id="CWzGwvl6NwYCaLYSLIjqQ" data-type="subtopic" data-title="Literal Types">
+    <rect x="-294.1523964653828" y="1607.0960936406934" width="216.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-186.00239646538284" y="1632.3960936406936" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Literal Types</tspan>
+    </text>
+  </g>
+  <g data-node-id="xP25nGw42VqdfZ_9pDMXd" data-type="subtopic" data-title="Template Literal Types">
+    <rect x="-294.1523964653828" y="1660.0960936406934" width="216.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-186.00239646538284" y="1685.3960936406936" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Template Literal Types</tspan>
+    </text>
+  </g>
+  <g data-node-id="N8xBTJ74xv1E5hSLYZtze" data-type="subtopic" data-title="Recursive Types">
+    <rect x="-294.1523964653828" y="1713.0960936406934" width="216.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-186.00239646538284" y="1738.3960936406936" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Recursive Types</tspan>
+    </text>
+  </g>
+  <g data-node-id="sE9lqkkqwnsVJxTJv37YZ" data-type="topic" data-title="TypeScript Modules"
+    data-parent-id="2F7vOL__v9dLBohA263aj" data-parent-title="Advanced Types">
+    <rect x="172.84760353461715" y="1735.0960936406934" width="254.3" height="46.3" rx="5"
+      fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+    <text x="299.99760353461716" y="1760.3960936406936" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>TypeScript Modules</tspan>
+    </text>
+  </g>
+  <g data-node-id="EtVwQ4lnWi3IIFHGb2Qib" data-type="subtopic" data-title="Namespaces">
+    <rect x="172.84760353461715" y="1424.5960936406934" width="254.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="299.99760353461716" y="1449.8960936406936" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Namespaces</tspan>
+    </text>
+  </g>
+  <g data-node-id="k_5y77k8ZZ9_O2WpWXWTY" data-type="subtopic" data-title="Ambient Modules">
+    <rect x="172.84760353461715" y="1477.5960936406934" width="254.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="299.99760353461716" y="1502.8960936406936" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Ambient Modules</tspan>
+    </text>
+  </g>
+  <g data-node-id="egQWk1n3p8Pep83yIwCtI" data-type="subtopic" data-title="External Modules">
+    <rect x="172.84760353461715" y="1530.5960936406934" width="254.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="299.99760353461716" y="1555.8960936406936" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>External Modules</tspan>
+    </text>
+  </g>
+  <g data-node-id="16TT8R4N-9tCfWmPetqMP" data-type="subtopic" data-title="Namespace Augmentation">
+    <rect x="172.84760353461715" y="1583.5960936406934" width="254.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="299.99760353461716" y="1608.8960936406936" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Namespace Augmentation</tspan>
+    </text>
+  </g>
+  <g data-node-id="JQwWeB1gkANSYfQmH69Bs" data-type="subtopic" data-title="Global Augmentation"
+    data-parent-id="sE9lqkkqwnsVJxTJv37YZ" data-parent-title="TypeScript Modules">
+    <rect x="172.84760353461715" y="1636.5960936406934" width="254.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="299.99760353461716" y="1661.8960936406936" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Global Augmentation</tspan>
+    </text>
+  </g>
+  <g data-node-id="RqZaWGxxNRItBhVwWKysc" data-type="topic" data-title="Ecosystem"
+    data-parent-id="sE9lqkkqwnsVJxTJv37YZ" data-parent-title="TypeScript Modules">
+    <rect x="-28.609685468649978" y="1882.480494860985" width="129.3" height="46.3" rx="5"
+      fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+    <text x="36.04031453135002" y="1907.780494860985" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Ecosystem</tspan>
+    </text>
+  </g>
+  <g data-node-id="fU8Vnw1DobM4iXl1Tq6EK" data-type="subtopic" data-title="Formatting"
+    data-parent-id="RqZaWGxxNRItBhVwWKysc" data-parent-title="Ecosystem">
+    <rect x="248.84760353461715" y="1803.5960936406934" width="187.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="342.49760353461716" y="1828.8960936406936" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Formatting</tspan>
+    </text>
+  </g>
+  <g data-node-id="8PcAPOrKisKRYPWamz4nV" data-type="subtopic" data-title="Linting"
+    data-parent-id="RqZaWGxxNRItBhVwWKysc" data-parent-title="Ecosystem">
+    <rect x="248.84760353461715" y="1856.5960936406932" width="187.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="342.49760353461716" y="1881.8960936406934" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Linting</tspan>
+    </text>
+  </g>
+  <g data-node-id="PCX3KcvMUW3mmQEepLTXp" data-type="subtopic" data-title="Useful Packages"
+    data-parent-id="RqZaWGxxNRItBhVwWKysc" data-parent-title="Ecosystem">
+    <rect x="248.84760353461715" y="1909.5960936406932" width="187.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="342.49760353461716" y="1934.8960936406934" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Useful Packages</tspan>
+    </text>
+  </g>
+  <g data-node-id="I5uwfej5XMwR2N2gpBILh" data-type="subtopic" data-title="Build Tools"
+    data-parent-id="RqZaWGxxNRItBhVwWKysc" data-parent-title="Ecosystem">
+    <rect x="248.84760353461715" y="1962.5960936406932" width="187.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="342.49760353461716" y="1987.8960936406934" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Build Tools</tspan>
+    </text>
+  </g>
+  <g data-node-id="xwpc_KxehAruFM0pCQnie" data-type="vertical">
+    <line x1="-389.16916540260297" y1="1936.6464601414127" x2="-389.16916540260297"
+      y2="2040.6464601414127"
+      style="stroke-linecap: round; stroke-width: 3.5; stroke: #4136D4; stroke-dasharray: 0.8 8;"></line>
+  </g>
+  <g data-node-id="GV_zWF6rSWg5bqgiXhOEf" data-type="paragraph">
+    <rect x="-611.819165402603" y="1847.480494860985" width="465" height="116.3" rx="5"
+      fill="#ffffff" stroke="#000000" stroke-width="2.7"></rect>
+    <text fill="black">
+      <tspan x="-380.66916540260297" y="1876.2304948609851" dy="0" text-anchor="middle"
+        dominant-baseline="middle" font-size="17">Have a look at the following related roadmaps</tspan>
+    </text>
+  </g>
+  <g data-link="https://roadmap.sh/frontend" data-node-id="P5IZjP0g1_fnvHy3YTR4q" data-type="button">
+    <rect x="-597.1411400797659" y="1902.1697767726364" width="139.3" height="46.3" rx="5"
+      fill="#4136D4" stroke="#4136D4" stroke-width="2.7"></rect>
+    <text x="-527.491140079766" y="1927.4697767726366" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#FFFFFf">
+      <tspan>Frontend</tspan>
+    </text>
+  </g>
+  <g data-link="https://roadmap.sh/backend" data-node-id="U0fJo2a3vnaodNJhfZ78I" data-type="button">
+    <rect x="-451.14114007976593" y="1902.1697767726364" width="139.3" height="46.3" rx="5"
+      fill="#4136D4" stroke="#4136D4" stroke-width="2.7"></rect>
+    <text x="-381.49114007976596" y="1927.4697767726366" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#FFFFFf">
+      <tspan>Backend</tspan>
+    </text>
+  </g>
+  <g data-link="https://roadmap.sh/nodejs" data-node-id="iuSv7V59YxUZawN38Qlli" data-type="button">
+    <rect x="-305.14114007976593" y="1902.1697767726364" width="139.3" height="46.3" rx="5"
+      fill="#4136D4" stroke="#4136D4" stroke-width="2.7"></rect>
+    <text x="-235.49114007976596" y="1927.4697767726366" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#FFFFFf">
+      <tspan>Node.js</tspan>
+    </text>
+  </g>
+</svg>

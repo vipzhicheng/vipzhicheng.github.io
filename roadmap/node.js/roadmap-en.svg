@@ -1,0 +1,1823 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  viewBox="-543 -253 1105 2679" style="font-family: balsamiq" version="1.1">
+  <path
+    d="M7.04031453135002,-92.28400721142515 C7.04031453135002,-60.03400721142515 7.04031453135002,-60.03400721142515 7.04031453135002,-27.78400721142515"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-iogwMmOvub2ZF4zgg6WyFx2-DAwKHBng7Tytlcd2_8GORw1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"></path>
+  <path
+    d="M7.04031453135002,21.21599278857485 C7.04031453135002,46.973211079702224 7.04031453135002,46.973211079702224 7.04031453135002,72.7304293708296"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-DAwKHBng7Tytlcd2_8GORx2-KDd40JOAvZ8O1mfhTYB3Kw2"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"></path>
+  <path
+    d="M-112.95968546864998,97.2304293708296 C-175.06442543562648,97.2304293708296 -175.06442543562648,-8.784007211425205 -237.16916540260297,-8.784007211425205"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-KDd40JOAvZ8O1mfhTYB3Ky2-Mp056kNnwsRWeEXuhGPy-z1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M-112.95968546864998,97.2304293708296 C-175.06442543562648,97.2304293708296 -175.06442543562648,44.215992788574795 -237.16916540260297,44.215992788574795"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-KDd40JOAvZ8O1mfhTYB3Ky2-ex8FOKrUlbu4MuEq2czyWz1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M-112.95968546864998,97.2304293708296 C-175.06442543562648,97.2304293708296 -175.06442543562648,97.2159927885748 -237.16916540260297,97.2159927885748"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-KDd40JOAvZ8O1mfhTYB3Ky2-Vrcv5px-3fqmyJnQv3WBKz2"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M-112.95968546864998,97.2304293708296 C-175.06442543562648,97.2304293708296 -175.06442543562648,150.2159927885748 -237.16916540260297,150.2159927885748"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-KDd40JOAvZ8O1mfhTYB3Ky2-ebVb0anYmbD1Y9ZTFXKFpz1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M-112.95968546864998,97.2304293708296 C-175.06442543562648,97.2304293708296 -175.06442543562648,203.2159927885748 -237.16916540260297,203.2159927885748"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-KDd40JOAvZ8O1mfhTYB3Ky2-uPJqdMQQJRkTMMhNORDeHz1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M127.04031453135002,97.2304293708296 C207.40352002576228,97.2304293708296 207.40352002576228,97.2304293708296 287.76672552017453,97.2304293708296"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-KDd40JOAvZ8O1mfhTYB3Kz2-mbGFT6S7mL3bHHEZv0_s2y1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"></path>
+  <path
+    d="M287.76672552017453,97.2304293708296 C151.15352002576228,97.2304293708296 151.15352002576228,305.2159927885748 14.54031453135002,305.2159927885748"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-mbGFT6S7mL3bHHEZv0_s2y2-jQJ9aOKtg-O-GhWk5OgCKz1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"></path>
+  <path
+    d="M14.54031453135002,305.2159927885748 C149.29258033331843,305.2159927885748 149.29258033331843,305.2159927885748 284.04484613528683,305.2159927885748"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-jQJ9aOKtg-O-GhWk5OgCKz2-t_kfKdNSKVBPYQ9zF9VqQy1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"></path>
+  <path
+    d="M249.36672552017444,970.2756025940266 C303.9516950508727,970.2756025940266 303.9516950508727,918.2756025940266 358.53666458157085,918.2756025940266"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-wEK77A6MPQBCBUSJKMiaYz2-QT2QE2FLkyUDpwMKYkFQLy1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M249.36672552017444,970.2756025940266 C303.9516950508727,970.2756025940266 303.9516950508727,970.2756025940266 358.53666458157085,970.2756025940266"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-wEK77A6MPQBCBUSJKMiaYz2-Blzb-fdQZMu6Xq5JDJW0_y1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M249.36672552017444,970.2756025940266 C303.9516950508727,970.2756025940266 303.9516950508727,1022.2756025940266 358.53666458157085,1022.2756025940266"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-wEK77A6MPQBCBUSJKMiaYz2-b1r1X3XCoPSayQjDBcy54y1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M19.36672552017444,970.2756025940266 C-10.54647997423777,970.2756025940266 -10.54647997423777,970.2756025940266 -40.45968546864998,970.2756025940266"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-wEK77A6MPQBCBUSJKMiaYy2-Ce-dP-OXu0mEm30rzp2hWz1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"></path>
+  <path
+    d="M11.54031453135002,1376.52072262127 C47.292580333318426,1376.52072262127 47.292580333318426,1351.1567476363114 83.04484613528683,1351.1567476363114"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-swp4wBgA7z-sd64VDkMrwz2-812bVEzxwTsYzLG_PmLqNy1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M11.54031453135002,1376.52072262127 C47.292580333318426,1376.52072262127 47.292580333318426,1404.1567476363114 83.04484613528683,1404.1567476363114"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-swp4wBgA7z-sd64VDkMrwz2-2Ym2jMvov0lZ79aJFaw29y1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M-142.95968546864998,945.7756025940266 C-142.95968546864998,935.1234186276545 -142.95968546864998,935.1234186276545 -142.95968546864998,924.4712346612822"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-Ce-dP-OXu0mEm30rzp2hWw2-XteNExIZN3_g95_dPCopYx2"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M11.54031453135002,1527.6526950801597 C47.61393147442658,1527.6526950801597 47.61393147442658,1527.6526950801597 83.68754841750314,1527.6526950801597"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-J0ErCAZT5B97ZMogU2JHdz2-O67e2qyhxP5joR5LGyZ2Ny1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M11.54031453135002,1527.6526950801597 C47.61393147442658,1527.6526950801597 47.61393147442658,1474.6526950801597 83.68754841750314,1474.6526950801597"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-J0ErCAZT5B97ZMogU2JHdz2-L-_N7OxxuHCXsdWYBgZGuy1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M11.54031453135002,1527.6526950801597 C47.61393147442658,1527.6526950801597 47.61393147442658,1580.6526950801597 83.68754841750314,1580.6526950801597"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-J0ErCAZT5B97ZMogU2JHdz2-f2DyjBIglAZ6NoHaRnlzty1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M11.54031453135002,1654.6526950801597 C72.65831282372491,1654.6526950801597 72.65831282372491,1654.6526950801597 133.7763111160998,1654.6526950801597"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-5l-lZ8gwVLqqAF_n99vIOz2-90NIFfbWjTbyKZKwyJlfIy1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"></path>
+  <path
+    d="M259.7763111160998,1654.6526950801597 C313.52151831813717,1654.6526950801597 313.52151831813717,1570.7304293708296 367.26672552017453,1570.7304293708296"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-90NIFfbWjTbyKZKwyJlfIz2-qjToBaMenW3SDtEfoCbQ6y2"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M259.7763111160998,1654.6526950801597 C313.52151831813717,1654.6526950801597 313.52151831813717,1623.7304293708296 367.26672552017453,1623.7304293708296"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-90NIFfbWjTbyKZKwyJlfIz2-oSLpy31XEcA2nRq9ks_LJy1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M259.7763111160998,1654.6526950801597 C313.52151831813717,1654.6526950801597 313.52151831813717,1676.7304293708296 367.26672552017453,1676.7304293708296"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-90NIFfbWjTbyKZKwyJlfIz2-3Fh3-V1kCZtlUTvEoloIOy1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M259.7763111160998,1654.6526950801597 C313.52151831813717,1654.6526950801597 313.52151831813717,1729.7304293708296 367.26672552017453,1729.7304293708296"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-90NIFfbWjTbyKZKwyJlfIz2-Ix-g9pgJjEI04bSfROvlqy2"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M196.7763111160998,1679.1526950801597 C196.7763111160998,1739.1915622254946 196.7763111160998,1739.1915622254946 196.7763111160998,1799.2304293708296"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-90NIFfbWjTbyKZKwyJlfIx2-KzUmXkwrmU_ssVBjSHAiYw1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"></path>
+  <path
+    d="M259.7763111160998,1823.7304293708296 C314.02151831813717,1823.7304293708296 314.02151831813717,1800.2304293708296 368.26672552017453,1800.2304293708296"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-KzUmXkwrmU_ssVBjSHAiYz2-Oe9cQCz2lwSaot7miZOtay1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M259.7763111160998,1823.7304293708296 C314.02151831813717,1823.7304293708296 314.02151831813717,1853.2304293708296 368.26672552017453,1853.2304293708296"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-KzUmXkwrmU_ssVBjSHAiYz2-CTHFGgtXFpke4aPhh5vRYy2"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M133.7763111160998,1823.7304293708296 C49.80357285674842,1823.7304293708296 49.80357285674842,1824.7304293708296 -34.16916540260297,1824.7304293708296"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-b7ZAEqo0ZU6TNf18Bo0mIy2-KzUmXkwrmU_ssVBjSHAiYz2"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"></path>
+  <path
+    d="M-131.16916540260297,1800.2304293708296 C-131.16916540260297,1783.6405209794289 -131.16916540260297,1783.6405209794289 -131.16916540260297,1767.0506125880281"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-KzUmXkwrmU_ssVBjSHAiYw2-7WAuMMyelUbgwEHtnMmJvx1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M-131.16916540260297,1849.2304293708296 C-131.16916540260297,1889.2304293708294 -131.16916540260297,1889.2304293708294 -131.16916540260297,1929.2304293708294"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-af7n-J7VvbdpZh9lwA773x2-KzUmXkwrmU_ssVBjSHAiYw1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"></path>
+  <path
+    d="M-131.16916540260297,1978.2304293708294 C-131.16916540260297,2001.2304293708294 -131.16916540260297,2001.2304293708294 -131.16916540260297,2024.2304293708294"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-KzUmXkwrmU_ssVBjSHAiYx2-lzPrWD3pxQmpbqgYPL-zWw1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M-34.16916540260297,1953.7304293708294 C49.80357285674842,1953.7304293708294 49.80357285674842,1953.7304293708294 133.7763111160998,1953.7304293708294"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-KzUmXkwrmU_ssVBjSHAiYz2-WrnjjUDXQwwMXQjmgK72Uy1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"></path>
+  <path
+    d="M259.7763111160998,2100.8398245709736 C299.27003290599,2100.8398245709736 299.27003290599,2046.7304293708294 338.7637546958802,2046.7304293708294"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-ZLNUuDKhJ03Kw7xMVc7IRz2-oU9I7KBZoTSXXFmYscEIqy1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M435.7637546958802,2021.7304293708294 C435.7637546958802,1995.0351269709015 435.7637546958802,1995.0351269709015 435.7637546958802,1968.3398245709736"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-oU9I7KBZoTSXXFmYscEIqw2-SJ01N7vMZkNiIuMYQhdpjx1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M259.7763111160998,2100.8398245709736 C299.27003290599,2100.8398245709736 299.27003290599,2100.8398245709736 338.7637546958802,2100.8398245709736"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-ZLNUuDKhJ03Kw7xMVc7IRz2-DcmGcVlEHL4IV7yPMDpVay1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M259.7763111160998,2100.8398245709736 C299.27003290599,2100.8398245709736 299.27003290599,2153.8398245709736 338.7637546958802,2153.8398245709736"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-ZLNUuDKhJ03Kw7xMVc7IRz2-CvkjlOpT34lOHgzQHL40sy1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.8 8"></path>
+  <path
+    d="M196.7763111160998,1978.2304293708294 C196.7763111160998,2027.2851269709015 196.7763111160998,2027.2851269709015 196.7763111160998,2076.3398245709736"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-WrnjjUDXQwwMXQjmgK72Ux2-ZLNUuDKhJ03Kw7xMVc7IRw1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"></path>
+  <path d="" fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-KMA7NkxFbPoUDtFnGBFnjx2-0vLaVNJaJSHZ_bHli6Qzsw1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"></path>
+  <path d="" fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-wBKp8Q5D6WhjVVsD89UHlx2-0vLaVNJaJSHZ_bHli6Qzsw1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"></path>
+  <path
+    d="M196.7763111160998,2125.3398245709736 C196.7763111160998,2187.2851269709017 196.04031453135002,2187.2851269709017 196.04031453135002,2249.2304293708294"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-ZLNUuDKhJ03Kw7xMVc7IRx2-M62lAWBOrTe99TfpFOQ-Yw1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"></path>
+  <path
+    d="M74.54031453135002,2273.7304293708294 C-33.61620826182005,2273.7304293708294 -33.61620826182005,2272.968226966216 -141.77273105499012,2272.968226966216"
+    fill="none" stroke="#2b78e4" stroke-width="3.5"
+    data-edge-id="reactflow__edge-M62lAWBOrTe99TfpFOQ-Yy2-0vLaVNJaJSHZ_bHli6Qzsz1"
+    stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"></path>
+  <g data-node-id="lY0EOkj4UwEQtbHbEnlwS" data-type="section">
+    <rect x="-519.7796292301078" y="683.5380786390363" width="220.3" height="159.3" rx="5"
+      fill="#ffffff" stroke="#000000" stroke-width="2.7"></rect>
+    <text x="-521.1296292301079" y="674.1880786390362" text-anchor="left" dominant-baseline="auto"
+      font-size="14" fill="black">
+      <tspan></tspan>
+    </text>
+  </g>
+  <g data-node-id="XWHqY5mvMV3eYkysx0Zfp" data-type="section">
+    <rect x="-519.7796292301078" y="833.7067490522917" width="220.3" height="221.3" rx="5"
+      fill="#ffffff" stroke="#000000" stroke-width="2.7"></rect>
+    <text x="-521.1296292301079" y="824.3567490522917" text-anchor="left" dominant-baseline="auto"
+      font-size="14" fill="black">
+      <tspan></tspan>
+    </text>
+  </g>
+  <g data-node-id="bMMlYdl4jaQnT-rRHGfBc" data-type="section">
+    <rect x="-519.7796292301078" y="1048.6377525020791" width="220.3" height="273.3" rx="5"
+      fill="#ffffff" stroke="#000000" stroke-width="2.7"></rect>
+    <text x="-521.1296292301079" y="1039.2877525020792" text-anchor="left" dominant-baseline="auto"
+      font-size="14" fill="black">
+      <tspan></tspan>
+    </text>
+  </g>
+  <g data-node-id="GKLqJSMrljLEoBM_smemV" data-type="section">
+    <rect x="-518.2755644994952" y="1509.400612588028" width="221.3" height="217.3" rx="5"
+      fill="#ffffff" stroke="#000000" stroke-width="2.7"></rect>
+    <text x="-519.6255644994952" y="1500.0506125880281" text-anchor="left" dominant-baseline="auto"
+      font-size="14" fill="black">
+      <tspan></tspan>
+    </text>
+  </g>
+  <g data-node-id="AoZfjDaReVr2O4qsoc4vM" data-type="section">
+    <rect x="-518.819165402603" y="1719.5804293708295" width="221.3" height="378.3" rx="5"
+      fill="#ffffff" stroke="#000000" stroke-width="2.7"></rect>
+    <text x="-520.169165402603" y="1710.2304293708296" text-anchor="left" dominant-baseline="auto"
+      font-size="14" fill="black">
+      <tspan></tspan>
+    </text>
+  </g>
+  <g data-node-id="dEbEgIsHqZpHFAvr5X0x3" data-type="horizontal">
+    <line x1="-292.49114007976596" y1="1654.6526950801597" x2="-187.49114007976596"
+      y2="1654.6526950801597"
+      style="stroke-linecap: round; stroke-width: 3.75; stroke: #2B78E4; stroke-dasharray: 0.8 8;"></line>
+  </g>
+  <g data-node-id="CWqY6-O_dPj_Y37kf_S8o" data-type="horizontal">
+    <line x1="-6.9937473170568865" y1="1282.7877525020792" x2="211.0062526829431"
+      y2="1282.7877525020792"
+      style="stroke-linecap: round; stroke-width: 3.75; stroke: #2B78E4; stroke-dasharray: 0.8 8;"></line>
+  </g>
+  <g data-node-id="k7wjZ_qFjqBLJlxsNkoK-" data-type="section">
+    <rect x="344.08640589584417" y="1079.413720703125" width="186.3" height="167.3" rx="5"
+      fill="#ffffff" stroke="#000000" stroke-width="2.7"></rect>
+    <text x="342.73640589584414" y="1070.063720703125" text-anchor="left" dominant-baseline="auto"
+      font-size="14" fill="black">
+      <tspan></tspan>
+    </text>
+  </g>
+  <g data-node-id="_FZLVUJZlMUkDB2imFhH_" data-type="section">
+    <rect x="343.08640589584417" y="1243.3707226212698" width="187.3" height="272.3" rx="5"
+      fill="#ffffff" stroke="#000000" stroke-width="2.7"></rect>
+    <text x="341.73640589584414" y="1234.02072262127" text-anchor="left" dominant-baseline="auto"
+      font-size="14" fill="black">
+      <tspan></tspan>
+    </text>
+  </g>
+  <g data-node-id="iYn8WyQohBdoi35AxL4-z" data-type="section">
+    <rect x="212.74975778990492" y="1244.0067476363113" width="133.3" height="272.3" rx="5"
+      fill="#ffffff" stroke="#000000" stroke-width="2.7"></rect>
+    <text x="211.39975778990492" y="1234.6567476363114" text-anchor="left" dominant-baseline="auto"
+      font-size="14" fill="black">
+      <tspan></tspan>
+    </text>
+  </g>
+  <g data-node-id="ittRdaPElU2wEdDyRRrRz" data-type="vertical">
+    <line x1="-142.95968546864998" y1="988.3567490522917" x2="-142.95968546864998"
+      y2="1651.3567490522917"
+      style="stroke-linecap: round; stroke-width: 3.75; stroke: #2B78E4; stroke-dasharray: 0;"></line>
+  </g>
+  <g data-node-id="0PrEMLItU5sYKGVCUNt-x" data-type="section">
+    <rect x="-520.2796292301078" y="1322.2916664638774" width="221.3" height="161.3" rx="5"
+      fill="#ffffff" stroke="#000000" stroke-width="2.7"></rect>
+    <text x="-521.6296292301079" y="1312.9416664638775" text-anchor="left" dominant-baseline="auto"
+      font-size="14" fill="black">
+      <tspan></tspan>
+    </text>
+  </g>
+  <g data-node-id="pk5vi2vyY4h8obhkaim2c" data-type="horizontal">
+    <line x1="-296.49114007976596" y1="972.820597967326" x2="-166.49114007976596"
+      y2="972.820597967326"
+      style="stroke-linecap: round; stroke-width: 3.75; stroke: #2B78E4; stroke-dasharray: 0.8 8;"></line>
+  </g>
+  <g data-node-id="4DIE9zavh1rma7H5ohMTg" data-type="vertical">
+    <line x1="78.04031453135002" y1="862.3055580184816" x2="78.04031453135002"
+      y2="1038.3055580184816"
+      style="stroke-linecap: round; stroke-width: 3.75; stroke: #2B78E4; stroke-dasharray: 0.8 8;"></line>
+  </g>
+  <g data-node-id="Gwet2IxFjSbwkn_hSERlZ" data-type="section">
+    <rect x="15.21672552017444" y="1037.440167109613" width="239.3" height="157.3" rx="5"
+      fill="#ffffff" stroke="#000000" stroke-width="2.7"></rect>
+    <text x="13.866725520174441" y="1028.090167109613" text-anchor="left" dominant-baseline="auto"
+      font-size="17" fill="black">
+      <tspan></tspan>
+    </text>
+  </g>
+  <g data-node-id="hgAgTyNSF4hFhwf4hdbX_" data-type="horizontal">
+    <line x1="-10.633274479825559" y1="600.2304293708296" x2="90.36672552017444"
+      y2="600.2304293708296"
+      style="stroke-linecap: round; stroke-width: 3.75; stroke: #2B78E4; stroke-dasharray: 0.8 8;"></line>
+  </g>
+  <g data-node-id="I9jtrQ9MjljnCWjXDD690" data-type="vertical">
+    <line x1="78.04031453135002" y1="473.7304293708296" x2="78.04031453135002"
+      y2="597.7304293708296"
+      style="stroke-linecap: round; stroke-width: 3.75; stroke: #2B78E4; stroke-dasharray: 0.8 8;"></line>
+  </g>
+  <g data-node-id="bCEICHJzklKBOOuUTTZxI" data-type="vertical">
+    <line x1="223.36672552017444" y1="304.2304293708296" x2="223.36672552017444"
+      y2="1035.2304293708296"
+      style="stroke-linecap: round; stroke-width: 3.75; stroke: #2B78E4; stroke-dasharray: 0;"></line>
+  </g>
+  <g data-node-id="ztNOp7Rs6jcpjUR2vszxU" data-type="section">
+    <rect x="-208.28327447982556" y="432.0804293708296" width="196.3" height="424.3" rx="5"
+      fill="#ffffff" stroke="#000000" stroke-width="2.7"></rect>
+    <text x="-209.63327447982556" y="422.7304293708296" text-anchor="left" dominant-baseline="auto"
+      font-size="14" fill="black">
+      <tspan></tspan>
+    </text>
+  </g>
+  <g data-node-id="8Iyjko6ZLr93CESSSIkyD" data-type="vertical">
+    <line x1="342.36672552017444" y1="301.73042937082954" x2="342.36672552017444"
+      y2="376.73042937082954"
+      style="stroke-linecap: round; stroke-width: 3.5; stroke: #2B78E4; stroke-dasharray: 0.8 8;"></line>
+  </g>
+  <g data-node-id="gLEIlNbhJ2CzjjPCflwog" data-type="section">
+    <rect x="286.71672552017446" y="378.08042937082956" width="223.3" height="267.3" rx="5"
+      fill="#ffffff" stroke="#000000" stroke-width="2.7"></rect>
+    <text x="285.36672552017444" y="368.73042937082954" text-anchor="left" dominant-baseline="auto"
+      font-size="14" fill="black">
+      <tspan></tspan>
+    </text>
+  </g>
+  <g data-node-id="-JeyS2JglnU1HYh_IGZ4k" data-type="vertical">
+    <line x1="-50.45968546864998" y1="213.7159927885748" x2="-50.45968546864998"
+      y2="390.7159927885748"
+      style="stroke-linecap: round; stroke-width: 3.5; stroke: #2B78E4; stroke-dasharray: 0.8 8;"></line>
+  </g>
+  <g data-node-id="iyVufU8xJqKnMThnRTJTu" data-type="horizontal">
+    <line x1="-237.16916540260297" y1="305.2159927885748" x2="-106.16916540260297"
+      y2="305.2159927885748"
+      style="stroke-linecap: round; stroke-width: 3.5; stroke: #2B78E4; stroke-dasharray: 0.8 8;"></line>
+  </g>
+  <g data-node-id="PCnnW6w1BsBIIKsM-H9P1" data-type="section">
+    <rect x="-449.28327447982554" y="266.08042937082956" width="209.3" height="160.3" rx="5"
+      fill="#ffffff" stroke="#000000" stroke-width="2.7"></rect>
+    <text x="-450.63327447982556" y="256.73042937082954" text-anchor="left" dominant-baseline="auto"
+      font-size="14" fill="black">
+      <tspan></tspan>
+    </text>
+  </g>
+  <g data-node-id="-qEO8FEWDKyIYsX_BVhSp" data-type="vertical">
+    <line x1="368.76672552017453" y1="28.715992788574795" x2="368.76672552017453"
+      y2="178.7159927885748"
+      style="stroke-linecap: round; stroke-width: 3.5; stroke: #2B78E4; stroke-dasharray: 0.8 8;"></line>
+  </g>
+  <g data-node-id="iogwMmOvub2ZF4zgg6WyF" data-type="title" data-title="Node.js">
+    <text x="7.04031453135002" y="-126.28400721142515" text-anchor="middle"
+      dominant-baseline="middle" font-size="28" fill="black">
+      <tspan>Node.js</tspan>
+    </text>
+  </g>
+  <g data-node-id="LEijbLyxg4RyutKEM2Y5g" data-type="vertical">
+    <line x1="7.04031453135002" y1="-230.76957062917046" x2="7.04031453135002"
+      y2="-154.76957062917046"
+      style="stroke-linecap: round; stroke-width: 3.5; stroke: #0A33FF; stroke-dasharray: 0.8 8;"></line>
+  </g>
+  <g data-node-id="yHmHXymPNWwu8p1vvqD3o" data-type="paragraph">
+    <rect x="181.19147172248668" y="-231.41957062917047" width="363" height="140.3" rx="5"
+      fill="#FFFFFf" stroke="#000000" stroke-width="2.7"></rect>
+    <text fill="black">
+      <tspan x="198.54147172248668" y="-202.66957062917047" dy="0" text-anchor="start"
+        dominant-baseline="middle" font-size="17">Find the detailed version of this roadmap</tspan>
+      <tspan x="198.54147172248668" y="-202.66957062917047" dy="25.5" text-anchor="start"
+        dominant-baseline="middle" font-size="17">along with other similar roadmaps</tspan>
+    </text>
+  </g>
+  <g data-link="https://roadmap.sh" data-node-id="R_Fs6rdl2XtQ9aLOubMqL" data-type="button">
+    <rect x="194.39484613528683" y="-149.43400721142515" width="336.3" height="46.3" rx="5"
+      fill="#4136D6" stroke="#4136D6" stroke-width="2.7"></rect>
+    <text x="362.54484613528683" y="-124.13400721142514" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#ffffff">
+      <tspan>roadmap.sh</tspan>
+    </text>
+  </g>
+  <g data-node-id="YD5y17K5nqmWaBwYcufZO" data-type="legend">
+    <rect x="-520.9580206821377" y="-231.41957062917047" width="345.3" height="121.3" rx="5"
+      fill="white" stroke="black" stroke-width="2.7"></rect>
+    <g data-node-id="NEZQB0yHPCcKwsESDYbk5" data-type="legend-item"
+      data-parent-id="YD5y17K5nqmWaBwYcufZO">
+      <circle cx="-486.8080206821377" cy="-204.26957062917046" r="9.5" fill="#38761d" zIndex="1"
+        id="icon-link"></circle>
+      <path
+        d="M-490.8080206821377 -204.26957062917046L-488.3080206821377 -201.26957062917046 -483.3080206821377 -206.26957062917046"
+        fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+      <text x="-469.3080206821377" y="-201.76957062917046" text-anchor="left"
+        dominant-baseline="middle" font-size="16" fill="black">
+        <tspan>Beginner Topics / start with these</tspan>
+      </text>
+    </g>
+    <g data-node-id="bcE9YSY2vLzRyJQSceY9M" data-type="legend-item"
+      data-parent-id="YD5y17K5nqmWaBwYcufZO">
+      <circle cx="-486.8080206821377" cy="-172.26957062917046" r="9.5" fill="#9900ff" zIndex="1"
+        id="icon-link"></circle>
+      <path
+        d="M-490.8080206821377 -172.26957062917046L-488.3080206821377 -169.26957062917046 -483.3080206821377 -174.26957062917046"
+        fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+      <text x="-469.3080206821377" y="-169.76957062917046" text-anchor="left"
+        dominant-baseline="middle" font-size="16" fill="black">
+        <tspan>Intermediate Topics / pick these next</tspan>
+      </text>
+    </g>
+    <g data-node-id="iRlgVcCk54BVDA-Rx0kt8" data-type="legend-item"
+      data-parent-id="YD5y17K5nqmWaBwYcufZO">
+      <circle cx="-486.8080206821377" cy="-140.26957062917046" r="9.5" fill="#000" zIndex="1"
+        id="icon-link"></circle>
+      <path
+        d="M-490.8080206821377 -140.26957062917046L-488.3080206821377 -137.26957062917046 -483.3080206821377 -142.26957062917046"
+        fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+      <text x="-469.3080206821377" y="-137.76957062917046" text-anchor="left"
+        dominant-baseline="middle" font-size="16" fill="black">
+        <tspan>Advanced Topics / pick these at last</tspan>
+      </text>
+    </g>
+  </g>
+  <g data-link="https://roadmap.sh/javascript" data-node-id="DAwKHBng7Tytlcd2_8GOR"
+    data-type="button">
+    <rect x="-111.60968546864999" y="-26.434007211425147" width="237.3" height="46.3" rx="5"
+      fill="#4136D6" stroke="#4136D6" stroke-width="2.7"></rect>
+    <text x="7.04031453135002" y="-1.1340072114251485" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#ffffff">
+      <tspan>JavaScript Roadmap</tspan>
+    </text>
+  </g>
+  <g data-node-id="KDd40JOAvZ8O1mfhTYB3K" data-type="topic" data-title="Introduction to Node.js"
+    data-parent-id="DAwKHBng7Tytlcd2_8GOR" data-parent-title="JavaScript Roadmap">
+    <rect x="-111.60968546864999" y="74.08042937082959" width="237.3" height="46.3" rx="5"
+      fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+    <text x="7.04031453135002" y="99.3804293708296" text-anchor="middle" dominant-baseline="middle"
+      font-size="17" fill="#000000">
+      <tspan>Introduction to Node.js</tspan>
+    </text>
+  </g>
+  <g data-node-id="Mp056kNnwsRWeEXuhGPy-" data-type="subtopic" data-title="What is Node.js?"
+    data-parent-id="KDd40JOAvZ8O1mfhTYB3K" data-parent-title="Introduction to Node.js">
+    <rect x="-516.819165402603" y="-31.934007211425204" width="278.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-377.66916540260297" y="-6.634007211425205" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>What is Node.js?</tspan>
+    </text>
+  </g>
+  <g data-node-id="ex8FOKrUlbu4MuEq2czyW" data-type="subtopic" data-title="Why use Node.js?"
+    data-parent-id="KDd40JOAvZ8O1mfhTYB3K" data-parent-title="Introduction to Node.js">
+    <rect x="-516.819165402603" y="21.065992788574796" width="278.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-377.66916540260297" y="46.36599278857479" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Why use Node.js?</tspan>
+    </text>
+  </g>
+  <g data-node-id="Vrcv5px-3fqmyJnQv3WBK" data-type="subtopic" data-title="History of Node.js"
+    data-parent-id="KDd40JOAvZ8O1mfhTYB3K" data-parent-title="Introduction to Node.js">
+    <rect x="-516.819165402603" y="74.06599278857479" width="278.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-377.66916540260297" y="99.3659927885748" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>History of Node.js</tspan>
+    </text>
+  </g>
+  <g data-node-id="ebVb0anYmbD1Y9ZTFXKFp" data-type="subtopic" data-title="Node.js vs Browser"
+    data-parent-id="KDd40JOAvZ8O1mfhTYB3K" data-parent-title="Introduction to Node.js">
+    <rect x="-516.819165402603" y="127.06599278857479" width="278.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-377.66916540260297" y="152.3659927885748" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Node.js vs Browser</tspan>
+    </text>
+  </g>
+  <g data-node-id="uPJqdMQQJRkTMMhNORDeH" data-type="subtopic" data-title="Running Node.js Code"
+    data-parent-id="KDd40JOAvZ8O1mfhTYB3K" data-parent-title="Introduction to Node.js">
+    <rect x="-516.819165402603" y="180.0659927885748" width="278.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-377.66916540260297" y="205.3659927885748" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Running Node.js Code</tspan>
+    </text>
+  </g>
+  <g data-node-id="mbGFT6S7mL3bHHEZv0_s2" data-type="topic" data-title="Modules"
+    data-parent-id="KDd40JOAvZ8O1mfhTYB3K" data-parent-title="Introduction to Node.js">
+    <rect x="289.11672552017455" y="74.08042937082959" width="159.3" height="46.3" rx="5"
+      fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+    <text x="368.76672552017453" y="99.3804293708296" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Modules</tspan>
+    </text>
+  </g>
+  <g data-node-id="mhjswf17nhq075NTYV5gE" data-type="subtopic" data-title="CommonJS">
+    <rect x="303.11672552017455" y="-51.91957062917046" width="131.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="368.76672552017453" y="-26.61957062917046" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>CommonJS</tspan>
+    </text>
+  </g>
+  <g data-node-id="mKccfWOhC1Aj4VnaOqryA" data-type="subtopic" data-title="ESM">
+    <rect x="303.11672552017455" y="1.0804293708295405" width="131.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="368.76672552017453" y="26.38042937082954" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>ESM</tspan>
+    </text>
+  </g>
+  <g data-node-id="EEnmOcDKPZzY_O1NwP_5j" data-type="subtopic" data-title="Creating &amp; Importing">
+    <rect x="288.3948461352869" y="146.0659927885748" width="242.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="409.5448461352869" y="171.3659927885748" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Creating &amp; Importing</tspan>
+    </text>
+  </g>
+  <g data-node-id="PEGHvFT2Eg-1OyfhxYu22" data-type="subtopic" data-title="[global] keyword">
+    <rect x="288.3948461352869" y="199.0659927885748" width="242.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="409.5448461352869" y="224.3659927885748" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>[global] keyword</tspan>
+    </text>
+  </g>
+  <g data-node-id="jQJ9aOKtg-O-GhWk5OgCK" data-type="topic" data-title="npm"
+    data-parent-id="mbGFT6S7mL3bHHEZv0_s2" data-parent-title="Modules">
+    <rect x="-115.10968546864999" y="282.0659927885748" width="128.3" height="46.3" rx="5"
+      fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+    <text x="-50.95968546864998" y="307.3659927885748" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>npm</tspan>
+    </text>
+  </g>
+  <g data-node-id="l24OMkPAEDnEDAVAMrMuG" data-type="subtopic" data-title="Global Installation">
+    <rect x="-432.78327447982554" y="274.08042937082956" width="183.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-341.13327447982556" y="299.3804293708295" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Global Installation</tspan>
+    </text>
+  </g>
+  <g data-node-id="oYeux7PbveYaVwXRzAg5x" data-type="subtopic" data-title="Local Installation">
+    <rect x="-432.78327447982554" y="327.08042937082956" width="183.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-341.13327447982556" y="352.3804293708295" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Local Installation</tspan>
+    </text>
+  </g>
+  <g data-node-id="W3YkN2Hc_-3WvvlmR6Kmv" data-type="label">
+    <text x="-422.13327447982556" y="409.7304293708296" text-anchor="left" dominant-baseline="auto"
+      font-size="17" fill="black">
+      <tspan>Installing Packages</tspan>
+    </text>
+  </g>
+  <g data-node-id="bYBz12FUiJ1qLgdQSGyGK" data-type="subtopic" data-title="Updating Packages">
+    <rect x="-449.28327447982554" y="435.08042937082956" width="209.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-344.63327447982556" y="460.3804293708295" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Updating Packages</tspan>
+    </text>
+  </g>
+  <g data-node-id="64pgc7rcgboFcNYuOlX8e" data-type="subtopic" data-title="Running Scripts">
+    <rect x="-449.28327447982554" y="487.08042937082956" width="209.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-344.63327447982556" y="512.3804293708296" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Running Scripts</tspan>
+    </text>
+  </g>
+  <g data-node-id="WvxCGVKLvTUVEHeOcUQPg" data-type="subtopic" data-title="npm workspaces">
+    <rect x="-449.28327447982554" y="539.0804293708296" width="209.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-344.63327447982556" y="564.3804293708296" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>npm workspaces</tspan>
+    </text>
+  </g>
+  <g data-node-id="Uh9hmEy7o1EJLg4E--ku2" data-type="subtopic" data-title="Creating Packages">
+    <rect x="-449.28327447982554" y="591.0804293708296" width="209.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-344.63327447982556" y="616.3804293708296" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Creating Packages</tspan>
+    </text>
+  </g>
+  <g data-node-id="dOlzIXBfAPmbY542lNOe6" data-type="subtopic" data-title="Semantic Versioning">
+    <rect x="-111.60968546864999" y="354.0804293708296" width="198.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-12.45968546864998" y="379.3804293708296" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Semantic Versioning</tspan>
+    </text>
+  </g>
+  <g data-node-id="t_kfKdNSKVBPYQ9zF9VqQ" data-type="topic" data-title="Error Handling"
+    data-parent-id="jQJ9aOKtg-O-GhWk5OgCK" data-parent-title="npm">
+    <rect x="285.39484613528685" y="282.0659927885748" width="154.3" height="46.3" rx="5"
+      fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+    <text x="362.54484613528683" y="307.3659927885748" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Error Handling</tspan>
+    </text>
+  </g>
+  <g data-node-id="Wg7KSpAPxjeFMxC6PBnHO" data-type="subtopic" data-title="JavaScript Errors">
+    <rect x="294.71672552017446" y="545.0804293708296" width="207.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="398.36672552017444" y="570.3804293708296" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>JavaScript Errors</tspan>
+    </text>
+  </g>
+  <g data-node-id="05YY-AhLKzn4Ypr4eow5E" data-type="subtopic" data-title="System Errors">
+    <rect x="294.71672552017446" y="386.08042937082956" width="207.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="398.36672552017444" y="411.3804293708295" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>System Errors</tspan>
+    </text>
+  </g>
+  <g data-node-id="wQ4i6_a1EFk9HHc6Sll-3" data-type="subtopic" data-title="User Specified Errors">
+    <rect x="294.71672552017446" y="439.08042937082956" width="207.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="398.36672552017444" y="464.3804293708295" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>User Specified Errors</tspan>
+    </text>
+  </g>
+  <g data-node-id="do-tdCUfDtiZHBg4ZO3dC" data-type="subtopic" data-title="Assertion Errors">
+    <rect x="294.71672552017446" y="492.08042937082956" width="207.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="398.36672552017444" y="517.3804293708296" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Assertion Errors</tspan>
+    </text>
+  </g>
+  <g data-node-id="M0puvsEXH3aniCw0gPjVd" data-type="label">
+    <text x="342.36672552017444" y="627.7304293708296" text-anchor="left" dominant-baseline="auto"
+      font-size="17" fill="black">
+      <tspan>Types of Errors</tspan>
+    </text>
+  </g>
+  <g data-node-id="uzOmaTZrHhBxx5plb345Z" data-type="subtopic" data-title="Uncaught Exceptions">
+    <rect x="287.21672552017446" y="653.5804293708296" width="223.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="398.86672552017444" y="678.8804293708296" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Uncaught Exceptions</tspan>
+    </text>
+  </g>
+  <g data-node-id="3MpxV23lNpuKg0--e_9m7" data-type="subtopic" data-title="Handling Async Errors">
+    <rect x="287.21672552017446" y="706.5804293708296" width="223.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="398.86672552017444" y="731.8804293708296" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Handling Async Errors</tspan>
+    </text>
+  </g>
+  <g data-node-id="wIieXdFtoZWJ-ht8qqWbp" data-type="subtopic" data-title="Callstack / Stack Trace">
+    <rect x="287.21672552017446" y="759.5804293708296" width="223.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="398.86672552017444" y="784.8804293708296" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Callstack / Stack Trace</tspan>
+    </text>
+  </g>
+  <g data-node-id="XEGTeGWw05xWYOfUo3POE" data-type="subtopic" data-title="Using Debugger">
+    <rect x="287.21672552017446" y="812.5804293708296" width="223.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="398.86672552017444" y="837.8804293708296" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Using Debugger</tspan>
+    </text>
+  </g>
+  <g data-node-id="YdpJ-DUo8Q5ATRmF4s4YS" data-type="subtopic" data-title="npx">
+    <rect x="-85.10968546864999" y="195.0659927885748" width="69.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-50.45968546864998" y="220.3659927885748" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>npx</tspan>
+    </text>
+  </g>
+  <g data-node-id="uE7fvHSTSdebMf5RsNyaY" data-type="topic" data-title="Async Programming">
+    <rect x="20.716725520174442" y="576.5804293708296" width="227.3" height="46.3" rx="5"
+      fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+    <text x="134.36672552017444" y="601.8804293708296" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Async Programming</tspan>
+    </text>
+  </g>
+  <g data-node-id="QcOqhuKWOUUUBSiu5Oelv" data-type="subtopic" data-title="Promises">
+    <rect x="-190.28327447982556" y="440.0804293708296" width="170.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-105.13327447982556" y="465.3804293708296" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Promises</tspan>
+    </text>
+  </g>
+  <g data-node-id="a26qNCyMcT5GsVzxeNCLk" data-type="subtopic" data-title="async/await">
+    <rect x="-190.28327447982556" y="493.0804293708296" width="170.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-105.13327447982556" y="518.3804293708296" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>async/await</tspan>
+    </text>
+  </g>
+  <g data-node-id="GwInWcbQn18PnzKGXzmln" data-type="subtopic" data-title="Callbacks">
+    <rect x="-190.28327447982556" y="546.0804293708296" width="170.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-105.13327447982556" y="571.3804293708296" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Callbacks</tspan>
+    </text>
+  </g>
+  <g data-node-id="W2Dbj4Y78Bgdx7og5xkrg" data-type="subtopic" data-title="setTimeout">
+    <rect x="-190.28327447982556" y="599.0804293708296" width="170.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-105.13327447982556" y="624.3804293708296" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>setTimeout</tspan>
+    </text>
+  </g>
+  <g data-node-id="T5I-mFKK6bKzXrzkECI0P" data-type="subtopic" data-title="setInterval">
+    <rect x="-190.28327447982556" y="652.0804293708296" width="170.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-105.13327447982556" y="677.3804293708296" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>setInterval</tspan>
+    </text>
+  </g>
+  <g data-node-id="YvTPpoIiSqjDYi0Q10kWh" data-type="subtopic" data-title="setImmediate">
+    <rect x="-190.28327447982556" y="705.0804293708296" width="170.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-105.13327447982556" y="730.3804293708296" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>setImmediate</tspan>
+    </text>
+  </g>
+  <g data-node-id="ATu9-29yJWcDOik5FTOgf" data-type="subtopic" data-title="process.nextTick">
+    <rect x="-190.28327447982556" y="758.0804293708296" width="170.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-105.13327447982556" y="783.3804293708296" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>process.nextTick</tspan>
+    </text>
+  </g>
+  <g data-node-id="2y0pHOHxtkv-X-a6ltLJu" data-type="label">
+    <text x="-181.63327447982556" y="840.7304293708296" text-anchor="left" dominant-baseline="auto"
+      font-size="17" fill="black">
+      <tspan>Writing Async Code</tspan>
+    </text>
+  </g>
+  <g data-node-id="bgEHTBYzRDJqZ6gLqLbsz" data-type="subtopic" data-title="Event Emitter">
+    <rect x="20.716725520174442" y="438.5804293708296" width="151.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="96.36672552017444" y="463.8804293708296" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Event Emitter</tspan>
+    </text>
+  </g>
+  <g data-node-id="b679H8gEBuvrHQ8ik7e96" data-type="subtopic" data-title="Event Loop">
+    <rect x="20.716725520174442" y="491.5804293708296" width="151.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="96.36672552017444" y="516.8804293708296" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Event Loop</tspan>
+    </text>
+  </g>
+  <g data-node-id="wEK77A6MPQBCBUSJKMiaY" data-type="topic" data-title="Working with Files">
+    <rect x="20.716725520174442" y="947.1256025940266" width="227.3" height="46.3" rx="5"
+      fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+    <text x="134.36672552017444" y="972.4256025940266" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Working with Files</tspan>
+    </text>
+  </g>
+  <g data-node-id="QT2QE2FLkyUDpwMKYkFQL" data-type="subtopic" data-title="process.cwd()"
+    data-parent-id="wEK77A6MPQBCBUSJKMiaY" data-parent-title="Working with Files">
+    <rect x="359.88666458157087" y="895.1256025940266" width="149.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="434.53666458157085" y="920.4256025940266" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>process.cwd()</tspan>
+    </text>
+  </g>
+  <g data-node-id="Blzb-fdQZMu6Xq5JDJW0_" data-type="subtopic" data-title="path module"
+    data-parent-id="wEK77A6MPQBCBUSJKMiaY" data-parent-title="Working with Files">
+    <rect x="359.88666458157087" y="947.1256025940266" width="149.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="434.53666458157085" y="972.4256025940266" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>path module</tspan>
+    </text>
+  </g>
+  <g data-node-id="b1r1X3XCoPSayQjDBcy54" data-type="subtopic" data-title="fs module"
+    data-parent-id="wEK77A6MPQBCBUSJKMiaY" data-parent-title="Working with Files">
+    <rect x="359.88666458157087" y="999.1256025940266" width="149.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="434.53666458157085" y="1024.4256025940267" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>fs module</tspan>
+    </text>
+  </g>
+  <g data-node-id="1AaGG660rvZlNYMOA35qO" data-type="subtopic" data-title="__dirname">
+    <rect x="21.216725520174442" y="778.8212346612822" width="126.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="84.36672552017444" y="804.1212346612822" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>__dirname</tspan>
+    </text>
+  </g>
+  <g data-node-id="P2gdwx1qCxvg1Ppfw0aqQ" data-type="subtopic" data-title="__filename">
+    <rect x="20.216725520174442" y="831.8212346612822" width="128.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="84.36672552017444" y="857.1212346612822" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>__filename</tspan>
+    </text>
+  </g>
+  <g data-node-id="CWH0ZsxJ8beLvwMYJyH52" data-type="subtopic" data-title="glob">
+    <rect x="31.356252682943115" y="1046.9145748781311" width="100.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="81.50625268294311" y="1072.2145748781313" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>glob</tspan>
+    </text>
+  </g>
+  <g data-node-id="HYTw74rrd7kkOemCxfT9I" data-type="subtopic" data-title="globby">
+    <rect x="138.3562526829431" y="1048.6555580184815" width="102.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="189.5062526829431" y="1073.9555580184817" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>globby</tspan>
+    </text>
+  </g>
+  <g data-node-id="zDmWGRrgwq3Gjfkyk6crK" data-type="subtopic" data-title="fs-extra">
+    <rect x="31.356252682943115" y="1099.9145748781311" width="100.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="81.50625268294311" y="1125.2145748781313" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>fs-extra</tspan>
+    </text>
+  </g>
+  <g data-node-id="een1zhvgN_33Cu6OiWtyX" data-type="subtopic" data-title="chokidar">
+    <rect x="138.3562526829431" y="1101.6555580184815" width="102.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="189.5062526829431" y="1126.9555580184817" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>chokidar</tspan>
+    </text>
+  </g>
+  <g data-node-id="ugV0EkY69hs8sa4fE-GYP" data-type="label">
+    <text x="51.397694667351914" y="1177.4969039682844" text-anchor="left" dominant-baseline="auto"
+      font-size="17" fill="black">
+      <tspan>Opensource Packages</tspan>
+    </text>
+  </g>
+  <g data-node-id="Ce-dP-OXu0mEm30rzp2hW" data-type="topic" data-title="Command Line Apps"
+    data-parent-id="wEK77A6MPQBCBUSJKMiaY" data-parent-title="Working with Files">
+    <rect x="-244.10968546864999" y="947.1256025940266" width="202.3" height="46.3" rx="5"
+      fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+    <text x="-142.95968546864998" y="972.4256025940266" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Command Line Apps</tspan>
+    </text>
+  </g>
+  <g data-node-id="fE9C7Resn4EcL-hYHbsaZ" data-type="subtopic" data-title="dotenv package">
+    <rect x="-505.2404720711156" y="744.5380786390363" width="193.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-408.59047207111564" y="769.8380786390362" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>dotenv package</tspan>
+    </text>
+  </g>
+  <g data-node-id="wthXp2YGg3eTMbxsek77C" data-type="subtopic" data-title="process.env">
+    <rect x="-505.2404720711156" y="691.5380786390363" width="193.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-408.59047207111564" y="716.8380786390362" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>process.env</tspan>
+    </text>
+  </g>
+  <g data-node-id="XteNExIZN3_g95_dPCopY" data-type="subtopic" data-title="Exitting / Exit Codes"
+    data-parent-id="Ce-dP-OXu0mEm30rzp2hW" data-parent-title="Command Line Apps">
+    <rect x="-244.10968546864999" y="876.8212346612822" width="202.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-142.95968546864998" y="902.1212346612822" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Exitting / Exit Codes</tspan>
+    </text>
+  </g>
+  <g data-node-id="Te9D5ImyMSot506CnstPW" data-type="label">
+    <text x="-491.59047207111564" y="820.5361510849657" text-anchor="left" dominant-baseline="auto"
+      font-size="17" fill="black">
+      <tspan>Environment Variables</tspan>
+    </text>
+  </g>
+  <g data-node-id="betuntelnEMSHdatO6VPl" data-type="subtopic" data-title="process.stdin">
+    <rect x="-506.2404720711156" y="848.6585583597832" width="200.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-406.09047207111564" y="873.9585583597832" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>process.stdin</tspan>
+    </text>
+  </g>
+  <g data-node-id="xgsKrUdfB0g0DMQCLK3aY" data-type="subtopic" data-title="prompts package">
+    <rect x="-505.2404720711156" y="954.6585583597832" width="199.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-405.59047207111564" y="979.9585583597832" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>prompts package</tspan>
+    </text>
+  </g>
+  <g data-node-id="WFJJtIqVoBIhK10XY-d7l" data-type="subtopic" data-title="Inquirer Package">
+    <rect x="-506.2404720711156" y="901.6585583597832" width="200.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-406.09047207111564" y="926.9585583597832" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Inquirer Package</tspan>
+    </text>
+  </g>
+  <g data-node-id="iI8FZWu3zJ43zYBvwp2XZ" data-type="label">
+    <text x="-453.09047207111564" y="1032.356749052292" text-anchor="left" dominant-baseline="auto"
+      font-size="17" fill="black">
+      <tspan>Taking Input</tspan>
+    </text>
+  </g>
+  <g data-node-id="lQm-5WxQQTk7ym-_X8Ql6" data-type="label">
+    <text x="-464.09047207111564" y="1304.2877525020792" text-anchor="left" dominant-baseline="auto"
+      font-size="17" fill="black">
+      <tspan>Printing Output</tspan>
+    </text>
+  </g>
+  <g data-node-id="N2vR1_NyDn4rYLXJzxWBZ" data-type="subtopic" data-title="stdout / stderr">
+    <rect x="-503.2404720711156" y="1062.6377525020791" width="197.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-404.59047207111564" y="1087.9377525020793" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>stdout / stderr</tspan>
+    </text>
+  </g>
+  <g data-node-id="V4OWIC1cnw8EFyu26Y_dA" data-type="subtopic" data-title="chalk package">
+    <rect x="-503.2404720711156" y="1115.6377525020791" width="197.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-404.59047207111564" y="1140.9377525020793" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>chalk package</tspan>
+    </text>
+  </g>
+  <g data-node-id="PHLdJylzNZDJBGi8FFsfO" data-type="subtopic" data-title="figlet package">
+    <rect x="-503.2404720711156" y="1168.6377525020791" width="197.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-404.59047207111564" y="1193.9377525020793" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>figlet package</tspan>
+    </text>
+  </g>
+  <g data-node-id="iW9je5Pq7bjxWZDERv_p5" data-type="subtopic" data-title="cli-progress">
+    <rect x="-503.2404720711156" y="1221.6377525020791" width="197.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-404.59047207111564" y="1246.9377525020793" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>cli-progress</tspan>
+    </text>
+  </g>
+  <g data-node-id="lT2DDRtbFfEjb_cmsQx8i" data-type="subtopic" data-title="process.argv">
+    <rect x="-504.77962923010784" y="1330.2916664638774" width="198.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-405.62962923010787" y="1355.5916664638776" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>process.argv</tspan>
+    </text>
+  </g>
+  <g data-node-id="BxxLQUI7JcQgF6TK3L5uU" data-type="subtopic" data-title="commander">
+    <rect x="-502.77962923010784" y="1383.2916664638774" width="196.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-404.62962923010787" y="1408.5916664638776" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>commander</tspan>
+    </text>
+  </g>
+  <g data-node-id="NUoma-b5IJUuOssS3yut8" data-type="label">
+    <text x="-481.6296292301079" y="1465.9416664638775" text-anchor="left" dominant-baseline="auto"
+      font-size="17" fill="black">
+      <tspan>Command line args</tspan>
+    </text>
+  </g>
+  <g data-node-id="fFVCb6aZWRHdNDFt5C09R" data-type="topic"
+    data-title="Building &amp; Consuming APIs">
+    <rect x="-244.10968546864999" y="1259.6377525020791" width="254.3" height="46.3" rx="5"
+      fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+    <text x="-116.95968546864998" y="1284.9377525020793" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Building &amp; Consuming APIs</tspan>
+    </text>
+  </g>
+  <g data-node-id="1vq_KcYR_pkfp1MtXaL75" data-type="subtopic" data-title="Express.js">
+    <rect x="220.74975778990492" y="1252.0067476363113" width="117.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="279.3997577899049" y="1277.3067476363115" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Express.js</tspan>
+    </text>
+  </g>
+  <g data-node-id="WkU_rI4i-UmNSxb5F9TI-" data-type="subtopic" data-title="fastify">
+    <rect x="220.74975778990492" y="1305.0067476363113" width="117.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="279.3997577899049" y="1330.3067476363115" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>fastify</tspan>
+    </text>
+  </g>
+  <g data-node-id="tGD8XLHnfspfv8CbguGwV" data-type="subtopic" data-title="NestJS">
+    <rect x="220.74975778990492" y="1358.0067476363113" width="117.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="279.3997577899049" y="1383.3067476363115" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>NestJS</tspan>
+    </text>
+  </g>
+  <g data-node-id="Xa-lA1wbZ9JZ_XpXfhhw5" data-type="subtopic" data-title="Hono">
+    <rect x="220.74975778990492" y="1411.0067476363113" width="117.3" height="50.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="279.3997577899049" y="1438.3067476363115" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Hono</tspan>
+    </text>
+  </g>
+  <g data-node-id="wyBsJ-NSYBS0QfPHPl0j7" data-type="label">
+    <text x="229.39975778990492" y="1497.6567476363114" text-anchor="left" dominant-baseline="auto"
+      font-size="17" fill="black">
+      <tspan>Frameworks</tspan>
+    </text>
+  </g>
+  <g data-node-id="Sjc1YDtbzXyLQH711_3nj" data-type="subtopic" data-title="http module">
+    <rect x="356.08640589584417" y="1251.3707226212698" width="166.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="439.23640589584414" y="1276.67072262127" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>http module</tspan>
+    </text>
+  </g>
+  <g data-node-id="BOLiZg8YDKADMwP01U5ph" data-type="subtopic" data-title="axios">
+    <rect x="356.08640589584417" y="1304.3707226212698" width="67.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="389.73640589584414" y="1329.67072262127" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>axios</tspan>
+    </text>
+  </g>
+  <g data-node-id="-_2letLUta5Ymc5eEOKhn" data-type="subtopic" data-title="ky">
+    <rect x="430.08640589584417" y="1304.3707226212698" width="91.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="475.73640589584414" y="1329.67072262127" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>ky</tspan>
+    </text>
+  </g>
+  <g data-node-id="B_3rTGQxJneMREXoi2gQn" data-type="subtopic" data-title="fetch">
+    <rect x="356.71672552017446" y="1358.3707226212698" width="165.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="439.36672552017444" y="1383.67072262127" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>fetch</tspan>
+    </text>
+  </g>
+  <g data-node-id="6stiDKubT6XVAOGiJ6wsx" data-type="subtopic" data-title="got package">
+    <rect x="356.08640589584417" y="1411.3707226212698" width="166.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="439.23640589584414" y="1436.67072262127" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>got package</tspan>
+    </text>
+  </g>
+  <g data-node-id="oZIte_LbYlggtiOQWhroc" data-type="label">
+    <text x="374.23640589584414" y="1497.6567476363114" text-anchor="left" dominant-baseline="auto"
+      font-size="17" fill="black">
+      <tspan>Making API Calls</tspan>
+    </text>
+  </g>
+  <g data-node-id="7u2WMxjLx3mMtn0cha4M7" data-type="subtopic" data-title="jsonwebtoken">
+    <rect x="356.08640589584417" y="1087.413720703125" width="166.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="439.23640589584414" y="1112.713720703125" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>jsonwebtoken</tspan>
+    </text>
+  </g>
+  <g data-node-id="mIyv6S9a5dCHkk-JhhjKV" data-type="subtopic" data-title="passport.js">
+    <rect x="356.08640589584417" y="1140.413720703125" width="166.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="439.23640589584414" y="1165.713720703125" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>passport.js</tspan>
+    </text>
+  </g>
+  <g data-node-id="aHmeIcvZGVF0SwZe4vuvz" data-type="label">
+    <text x="384.23640589584414" y="1221.02072262127" text-anchor="left" dominant-baseline="auto"
+      font-size="17" fill="black">
+      <tspan>Authentication</tspan>
+    </text>
+  </g>
+  <g data-node-id="swp4wBgA7z-sd64VDkMrw" data-type="topic" data-title="Monitor Changes (Dev)">
+    <rect x="-244.10968546864999" y="1353.3707226212698" width="254.3" height="46.3" rx="5"
+      fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+    <text x="-116.95968546864998" y="1378.67072262127" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Monitor Changes (Dev)</tspan>
+    </text>
+  </g>
+  <g data-node-id="812bVEzxwTsYzLG_PmLqN" data-type="subtopic" data-title="--watch"
+    data-parent-id="swp4wBgA7z-sd64VDkMrw" data-parent-title="Monitor Changes (Dev)">
+    <rect x="84.39484613528683" y="1328.0067476363113" width="99.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="134.04484613528683" y="1353.3067476363115" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>--watch</tspan>
+    </text>
+  </g>
+  <g data-node-id="2Ym2jMvov0lZ79aJFaw29" data-type="subtopic" data-title="nodemon"
+    data-parent-id="swp4wBgA7z-sd64VDkMrw" data-parent-title="Monitor Changes (Dev)">
+    <rect x="84.39484613528683" y="1381.0067476363113" width="99.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="134.04484613528683" y="1406.3067476363115" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>nodemon</tspan>
+    </text>
+  </g>
+  <g data-node-id="J0ErCAZT5B97ZMogU2JHd" data-type="topic" data-title="Template Engines">
+    <rect x="-244.10968546864999" y="1504.5026950801596" width="254.3" height="46.3" rx="5"
+      fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+    <text x="-116.95968546864998" y="1529.8026950801598" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Template Engines</tspan>
+    </text>
+  </g>
+  <g data-node-id="L-_N7OxxuHCXsdWYBgZGu" data-type="subtopic" data-title="ejs"
+    data-parent-id="J0ErCAZT5B97ZMogU2JHd" data-parent-title="Template Engines">
+    <rect x="85.03754841750313" y="1451.5026950801596" width="90.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="130.18754841750314" y="1476.8026950801598" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>ejs</tspan>
+    </text>
+  </g>
+  <g data-node-id="O67e2qyhxP5joR5LGyZ2N" data-type="subtopic" data-title="pug"
+    data-parent-id="J0ErCAZT5B97ZMogU2JHd" data-parent-title="Template Engines">
+    <rect x="85.03754841750313" y="1504.5026950801596" width="90.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="130.18754841750314" y="1529.8026950801598" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>pug</tspan>
+    </text>
+  </g>
+  <g data-node-id="f2DyjBIglAZ6NoHaRnlzt" data-type="subtopic" data-title="marko"
+    data-parent-id="J0ErCAZT5B97ZMogU2JHd" data-parent-title="Template Engines">
+    <rect x="85.03754841750313" y="1557.5026950801596" width="90.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="130.18754841750314" y="1582.8026950801598" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>marko</tspan>
+    </text>
+  </g>
+  <g data-node-id="5l-lZ8gwVLqqAF_n99vIO" data-type="topic" data-title="Working with Databases">
+    <rect x="-244.10968546864999" y="1631.5026950801596" width="254.3" height="46.3" rx="5"
+      fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+    <text x="-116.95968546864998" y="1656.8026950801598" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Working with Databases</tspan>
+    </text>
+  </g>
+  <g data-node-id="NDf-o-WECK02mVnZ8IFxy" data-type="subtopic" data-title="Mongoose">
+    <rect x="-510.2755644994952" y="1517.400612588028" width="205.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-407.6255644994952" y="1542.7006125880282" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Mongoose</tspan>
+    </text>
+  </g>
+  <g data-node-id="3Qxtf8n6gJYdnRsuqa52Q" data-type="subtopic" data-title="Prisma">
+    <rect x="-510.2755644994952" y="1570.400612588028" width="205.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-407.6255644994952" y="1595.7006125880282" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Prisma</tspan>
+    </text>
+  </g>
+  <g data-node-id="5WqLm53CHDT5uBoMH-iPl" data-type="subtopic" data-title="Native Drivers">
+    <rect x="-510.2755644994952" y="1623.400612588028" width="205.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-407.6255644994952" y="1648.7006125880282" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Native Drivers</tspan>
+    </text>
+  </g>
+  <g data-node-id="mkQ4QoFyoneFCVmAanByl" data-type="label">
+    <text x="-452.1255644994952" y="1706.0506125880281" text-anchor="left" dominant-baseline="auto"
+      font-size="17" fill="black">
+      <tspan>NoSQL DBs</tspan>
+    </text>
+  </g>
+  <g data-node-id="HDDnt79_PCB5JU-KnHKUh" data-type="subtopic" data-title="Knex">
+    <rect x="-510.81916540260295" y="1838.5804293708295" width="205.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-408.16916540260297" y="1863.8804293708297" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Knex</tspan>
+    </text>
+  </g>
+  <g data-node-id="JXQF9H4_N0rM7ZDKcCZNn" data-type="subtopic" data-title="Drizzle">
+    <rect x="-510.81916540260295" y="1732.5804293708295" width="205.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-408.16916540260297" y="1757.8804293708297" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Drizzle</tspan>
+    </text>
+  </g>
+  <g data-node-id="rk5FtAPDi1TpvWd0yBbtl" data-type="subtopic" data-title="TypeORM">
+    <rect x="-510.81916540260295" y="1785.5804293708295" width="205.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-408.16916540260297" y="1810.8804293708297" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>TypeORM</tspan>
+    </text>
+  </g>
+  <g data-node-id="fOm-ktIaLqrmA0zln0Bga" data-type="subtopic" data-title="Sequelize">
+    <rect x="-510.81916540260295" y="1891.5804293708295" width="205.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-408.16916540260297" y="1916.8804293708297" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Sequelize</tspan>
+    </text>
+  </g>
+  <g data-node-id="O7Cy2g_GPxKU6vPfEmNyi" data-type="subtopic" data-title="Prisma">
+    <rect x="-510.81916540260295" y="1944.5804293708295" width="205.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-408.16916540260297" y="1969.8804293708297" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Prisma</tspan>
+    </text>
+  </g>
+  <g data-node-id="KpC-QYKalUp7VUvnMKBoW" data-type="subtopic" data-title="Native Drivers">
+    <rect x="-510.81916540260295" y="1997.5804293708295" width="205.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-408.16916540260297" y="2022.8804293708297" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Native Drivers</tspan>
+    </text>
+  </g>
+  <g data-node-id="oz3NrL3JEsLiShfBRVJQG" data-type="label">
+    <text x="-444.66916540260297" y="2080.2304293708294" text-anchor="left" dominant-baseline="auto"
+      font-size="17" fill="black">
+      <tspan>Relational</tspan>
+    </text>
+  </g>
+  <g data-node-id="90NIFfbWjTbyKZKwyJlfI" data-type="topic" data-title="Testing"
+    data-parent-id="5l-lZ8gwVLqqAF_n99vIO" data-parent-title="Working with Databases">
+    <rect x="135.1263111160998" y="1631.5026950801596" width="123.3" height="46.3" rx="5"
+      fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+    <text x="196.7763111160998" y="1656.8026950801598" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Testing</tspan>
+    </text>
+  </g>
+  <g data-node-id="qjToBaMenW3SDtEfoCbQ6" data-type="subtopic" data-title="Vitest"
+    data-parent-id="90NIFfbWjTbyKZKwyJlfI" data-parent-title="Testing">
+    <rect x="368.61672552017455" y="1547.5804293708295" width="85.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="411.26672552017453" y="1572.8804293708297" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Vitest</tspan>
+    </text>
+  </g>
+  <g data-node-id="oSLpy31XEcA2nRq9ks_LJ" data-type="subtopic" data-title="node:test"
+    data-parent-id="90NIFfbWjTbyKZKwyJlfI" data-parent-title="Testing">
+    <rect x="368.61672552017455" y="1600.5804293708295" width="165.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="451.26672552017453" y="1625.8804293708297" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>node:test</tspan>
+    </text>
+  </g>
+  <g data-node-id="5xrbKv2stKPJRv7Vzf9nM" data-type="subtopic" data-title="Jest">
+    <rect x="459.71672552017446" y="1547.5804293708295" width="74.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="496.86672552017444" y="1572.8804293708297" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Jest</tspan>
+    </text>
+  </g>
+  <g data-node-id="Ix-g9pgJjEI04bSfROvlq" data-type="subtopic" data-title="Playwright"
+    data-parent-id="90NIFfbWjTbyKZKwyJlfI" data-parent-title="Testing">
+    <rect x="368.61672552017455" y="1706.5804293708295" width="165.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="451.26672552017453" y="1731.8804293708297" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Playwright</tspan>
+    </text>
+  </g>
+  <g data-node-id="3Fh3-V1kCZtlUTvEoloIO" data-type="subtopic" data-title="Cypress"
+    data-parent-id="90NIFfbWjTbyKZKwyJlfI" data-parent-title="Testing">
+    <rect x="368.61672552017455" y="1653.5804293708295" width="165.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="451.26672552017453" y="1678.8804293708297" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Cypress</tspan>
+    </text>
+  </g>
+  <g data-node-id="b7ZAEqo0ZU6TNf18Bo0mI" data-type="topic" data-title="Logging"
+    data-parent-id="90NIFfbWjTbyKZKwyJlfI" data-parent-title="Testing">
+    <rect x="135.1263111160998" y="1800.5804293708295" width="123.3" height="46.3" rx="5"
+      fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+    <text x="196.7763111160998" y="1825.8804293708297" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Logging</tspan>
+    </text>
+  </g>
+  <g data-node-id="Oe9cQCz2lwSaot7miZOta" data-type="subtopic" data-title="Winston"
+    data-parent-id="b7ZAEqo0ZU6TNf18Bo0mI" data-parent-title="Logging">
+    <rect x="369.61672552017455" y="1777.0804293708295" width="103.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="421.26672552017453" y="1802.3804293708297" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Winston</tspan>
+    </text>
+  </g>
+  <g data-node-id="CTHFGgtXFpke4aPhh5vRY" data-type="subtopic" data-title="Morgan"
+    data-parent-id="b7ZAEqo0ZU6TNf18Bo0mI" data-parent-title="Logging">
+    <rect x="369.61672552017455" y="1830.0804293708295" width="103.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="421.26672552017453" y="1855.3804293708297" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Morgan</tspan>
+    </text>
+  </g>
+  <g data-node-id="af7n-J7VvbdpZh9lwA773" data-type="topic" data-title="Keep app Running"
+    data-parent-id="b7ZAEqo0ZU6TNf18Bo0mI" data-parent-title="Logging">
+    <rect x="-226.81916540260298" y="1801.5804293708295" width="191.3" height="46.3" rx="5"
+      fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+    <text x="-131.16916540260297" y="1826.8804293708297" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Keep app Running</tspan>
+    </text>
+  </g>
+  <g data-node-id="7WAuMMyelUbgwEHtnMmJv" data-type="subtopic" data-title="pm2 "
+    data-parent-id="af7n-J7VvbdpZh9lwA773" data-parent-title="Keep app Running">
+    <rect x="-179.81916540260298" y="1719.400612588028" width="97.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-131.16916540260297" y="1744.7006125880282" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>pm2 </tspan>
+    </text>
+  </g>
+  <g data-node-id="KzUmXkwrmU_ssVBjSHAiY" data-type="topic" data-title="Threads"
+    data-parent-id="af7n-J7VvbdpZh9lwA773" data-parent-title="Keep app Running">
+    <rect x="-226.81916540260298" y="1930.5804293708293" width="191.3" height="46.3" rx="5"
+      fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+    <text x="-131.16916540260297" y="1955.8804293708295" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Threads</tspan>
+    </text>
+  </g>
+  <g data-node-id="lzPrWD3pxQmpbqgYPL-zW" data-type="subtopic" data-title="Child Process"
+    data-parent-id="KzUmXkwrmU_ssVBjSHAiY" data-parent-title="Threads">
+    <rect x="-226.81916540260298" y="2025.5804293708293" width="191.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-131.16916540260297" y="2050.8804293708295" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Child Process</tspan>
+    </text>
+  </g>
+  <g data-node-id="PkQ_sQ0YFPCZGx4BRgG0t" data-type="subtopic" data-title="Cluster">
+    <rect x="-226.81916540260298" y="2078.5804293708293" width="191.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-131.16916540260297" y="2103.8804293708295" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Cluster</tspan>
+    </text>
+  </g>
+  <g data-node-id="bH2Iv3BX0ZiWD3lOmC_m_" data-type="subtopic" data-title="Worker Threads">
+    <rect x="-226.81916540260298" y="2131.5804293708293" width="191.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="-131.16916540260297" y="2156.8804293708295" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Worker Threads</tspan>
+    </text>
+  </g>
+  <g data-node-id="WrnjjUDXQwwMXQjmgK72U" data-type="topic" data-title="Streams"
+    data-parent-id="KzUmXkwrmU_ssVBjSHAiY" data-parent-title="Threads">
+    <rect x="135.1263111160998" y="1930.5804293708293" width="123.3" height="46.3" rx="5"
+      fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+    <text x="196.7763111160998" y="1955.8804293708295" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Streams</tspan>
+    </text>
+  </g>
+  <g data-node-id="ZLNUuDKhJ03Kw7xMVc7IR" data-type="topic" data-title="Debugging"
+    data-parent-id="WrnjjUDXQwwMXQjmgK72U" data-parent-title="Streams">
+    <rect x="135.1263111160998" y="2077.6898245709735" width="123.3" height="46.3" rx="5"
+      fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+    <text x="196.7763111160998" y="2102.9898245709737" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Debugging</tspan>
+    </text>
+  </g>
+  <g data-node-id="oU9I7KBZoTSXXFmYscEIq" data-type="subtopic" data-title="Memory Leaks"
+    data-parent-id="ZLNUuDKhJ03Kw7xMVc7IR" data-parent-title="Debugging">
+    <rect x="340.11375469588023" y="2023.0804293708293" width="191.3" height="47.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="435.7637546958802" y="2048.8804293708295" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Memory Leaks</tspan>
+    </text>
+  </g>
+  <g data-node-id="DcmGcVlEHL4IV7yPMDpVa" data-type="subtopic" data-title="node --inspect"
+    data-parent-id="ZLNUuDKhJ03Kw7xMVc7IR" data-parent-title="Debugging">
+    <rect x="340.11375469588023" y="2077.6898245709735" width="191.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="435.7637546958802" y="2102.9898245709737" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>node --inspect</tspan>
+    </text>
+  </g>
+  <g data-node-id="CvkjlOpT34lOHgzQHL40s" data-type="subtopic" data-title="Using APM"
+    data-parent-id="ZLNUuDKhJ03Kw7xMVc7IR" data-parent-title="Debugging">
+    <rect x="340.11375469588023" y="2130.6898245709735" width="191.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="435.7637546958802" y="2155.9898245709737" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Using APM</tspan>
+    </text>
+  </g>
+  <g data-node-id="SJ01N7vMZkNiIuMYQhdpj" data-type="subtopic" data-title="Garbage Collection"
+    data-parent-id="oU9I7KBZoTSXXFmYscEIq" data-parent-title="Memory Leaks">
+    <rect x="340.11375469588023" y="1920.6898245709735" width="191.3" height="46.3" rx="5"
+      fill="#ffe599" stroke="black" stroke-width="2.7" style="--hover-color: #f3c950"></rect>
+    <text x="435.7637546958802" y="1945.9898245709737" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Garbage Collection</tspan>
+    </text>
+  </g>
+  <g data-node-id="M62lAWBOrTe99TfpFOQ-Y" data-type="topic" data-title="Common Built-in Modules"
+    data-parent-id="ZLNUuDKhJ03Kw7xMVc7IR" data-parent-title="Debugging">
+    <rect x="75.89031453135001" y="2250.5804293708293" width="240.3" height="46.3" rx="5"
+      fill="#fdff00" stroke="black" stroke-width="2.7" style="--hover-color: #d6d700"></rect>
+    <text x="196.04031453135002" y="2275.8804293708295" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#000000">
+      <tspan>Common Built-in Modules</tspan>
+    </text>
+  </g>
+  <g data-node-id="0vLaVNJaJSHZ_bHli6Qzs" data-type="paragraph">
+    <rect x="-517.4227310549901" y="2214.818226966216" width="377" height="116.3" rx="5"
+      fill="WHITe" stroke="#000000" stroke-width="2.7"></rect>
+    <text fill="black">
+      <tspan x="-330.2727310549901" y="2243.568226966216" dy="0" text-anchor="middle"
+        dominant-baseline="middle" font-size="17">Continue learning with following roadmap</tspan>
+    </text>
+  </g>
+  <g data-link="https://roadmap.sh/backend" data-node-id="OIcmPSbdsuWapb6HZ4BEi" data-type="button">
+    <rect x="-502.42273105499004" y="2268.9638843993257" width="343.3" height="46.3" rx="5"
+      fill="#4136D6" stroke="#4136D6" stroke-width="2.7"></rect>
+    <text x="-330.77273105499006" y="2294.263884399326" text-anchor="middle"
+      dominant-baseline="middle" font-size="17" fill="#FFf">
+      <tspan>Visit Backend Roadmap</tspan>
+    </text>
+  </g>
+  <g data-node-id="RLtk1C3gofHnLJ17x3o5b" data-type="vertical">
+    <line x1="-330.2727310549901" y1="2332.468226966216" x2="-330.2727310549901"
+      y2="2406.468226966216"
+      style="stroke-linecap: round; stroke-width: 3.5; stroke: #2B78E4; stroke-dasharray: 0.8 8;"></line>
+  </g>
+  <circle cx="-517.669165402603" cy="-9.284007211425205" r="9.5" fill="#38761d" zIndex="1"
+    id="icon-link"></circle>
+  <path
+    d="M-521.669165402603 -9.284007211425205L-519.169165402603 -6.284007211425205 -514.169165402603 -11.284007211425205"
+    fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+  <circle cx="-517.669165402603" cy="43.715992788574795" r="9.5" fill="#38761d" zIndex="1"
+    id="icon-link"></circle>
+  <path
+    d="M-521.669165402603 43.715992788574795L-519.169165402603 46.715992788574795 -514.169165402603 41.715992788574795"
+    fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+  <circle cx="-517.669165402603" cy="96.7159927885748" r="9.5" fill="#38761d" zIndex="1"
+    id="icon-link"></circle>
+  <path
+    d="M-521.669165402603 96.7159927885748L-519.169165402603 99.7159927885748 -514.169165402603 94.7159927885748"
+    fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+  <circle cx="-517.669165402603" cy="149.7159927885748" r="9.5" fill="#38761d" zIndex="1"
+    id="icon-link"></circle>
+  <path
+    d="M-521.669165402603 149.7159927885748L-519.169165402603 152.7159927885748 -514.169165402603 147.7159927885748"
+    fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+  <circle cx="-517.669165402603" cy="202.7159927885748" r="9.5" fill="#38761d" zIndex="1"
+    id="icon-link"></circle>
+  <path
+    d="M-521.669165402603 202.7159927885748L-519.169165402603 205.7159927885748 -514.169165402603 200.7159927885748"
+    fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+  <circle cx="434.76672552017453" cy="-29.26957062917046" r="9.5" fill="#38761d" zIndex="1"
+    id="icon-link"></circle>
+  <path
+    d="M430.76672552017453 -29.26957062917046L433.26672552017453 -26.26957062917046 438.26672552017453 -31.26957062917046"
+    fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+  <circle cx="434.76672552017453" cy="23.73042937082954" r="9.5" fill="#38761d" zIndex="1"
+    id="icon-link"></circle>
+  <path
+    d="M430.76672552017453 23.73042937082954L433.26672552017453 26.73042937082954 438.26672552017453 21.73042937082954"
+    fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+  <circle cx="531.0448461352869" cy="168.7159927885748" r="9.5" fill="#38761d" zIndex="1"
+    id="icon-link"></circle>
+  <path
+    d="M527.0448461352869 168.7159927885748L529.5448461352869 171.7159927885748 534.5448461352869 166.7159927885748"
+    fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+  <circle cx="531.0448461352869" cy="221.7159927885748" r="9.5" fill="#38761d" zIndex="1"
+    id="icon-link"></circle>
+  <path
+    d="M527.0448461352869 221.7159927885748L529.5448461352869 224.7159927885748 534.5448461352869 219.7159927885748"
+    fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+  <circle cx="-433.63327447982556" cy="296.73042937082954" r="9.5" fill="#38761d" zIndex="1"
+    id="icon-link"></circle>
+  <path
+    d="M-437.63327447982556 296.73042937082954L-435.13327447982556 299.73042937082954 -430.13327447982556 294.73042937082954"
+    fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+  <circle cx="-433.63327447982556" cy="349.73042937082954" r="9.5" fill="#38761d" zIndex="1"
+    id="icon-link"></circle>
+  <path
+    d="M-437.63327447982556 349.73042937082954L-435.13327447982556 352.73042937082954 -430.13327447982556 347.73042937082954"
+    fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+  <circle cx="-450.13327447982556" cy="457.73042937082954" r="9.5" fill="#38761d" zIndex="1"
+    id="icon-link"></circle>
+  <path
+    d="M-454.13327447982556 457.73042937082954L-451.63327447982556 460.73042937082954 -446.63327447982556 455.73042937082954"
+    fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+  <circle cx="-450.13327447982556" cy="509.73042937082954" r="9.5" fill="#38761d" zIndex="1"
+    id="icon-link"></circle>
+  <path
+    d="M-454.13327447982556 509.73042937082954L-451.63327447982556 512.7304293708296 -446.63327447982556 507.73042937082954"
+    fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+  <circle cx="-450.13327447982556" cy="561.7304293708296" r="9.5" fill="#38761d" zIndex="1"
+    id="icon-link"></circle>
+  <path
+    d="M-454.13327447982556 561.7304293708296L-451.63327447982556 564.7304293708296 -446.63327447982556 559.7304293708296"
+    fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+  <circle cx="-450.13327447982556" cy="613.7304293708296" r="9.5" fill="#000" zIndex="1"
+    id="icon-link"></circle>
+  <path
+    d="M-454.13327447982556 613.7304293708296L-451.63327447982556 616.7304293708296 -446.63327447982556 611.7304293708296"
+    fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+  <circle cx="-112.45968546864998" cy="376.7304293708296" r="9.5" fill="#38761d" zIndex="1"
+    id="icon-link"></circle>
+  <path
+    d="M-116.45968546864998 376.7304293708296L-113.95968546864998 379.7304293708296 -108.95968546864998 374.7304293708296"
+    fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+  <circle cx="502.36672552017444" cy="567.7304293708296" r="9.5" fill="#38761d" zIndex="1"
+    id="icon-link"></circle>
+  <path
+    d="M498.36672552017444 567.7304293708296L500.86672552017444 570.7304293708296 505.86672552017444 565.7304293708296"
+    fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+  <circle cx="502.36672552017444" cy="408.73042937082954" r="9.5" fill="#38761d" zIndex="1"
+    id="icon-link"></circle>
+  <path
+    d="M498.36672552017444 408.73042937082954L500.86672552017444 411.73042937082954 505.86672552017444 406.73042937082954"
+    fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+  <circle cx="502.36672552017444" cy="461.73042937082954" r="9.5" fill="#38761d" zIndex="1"
+    id="icon-link"></circle>
+  <path
+    d="M498.36672552017444 461.73042937082954L500.86672552017444 464.73042937082954 505.86672552017444 459.73042937082954"
+    fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+  <circle cx="502.36672552017444" cy="514.7304293708296" r="9.5" fill="#38761d" zIndex="1"
+    id="icon-link"></circle>
+  <path
+    d="M498.36672552017444 514.7304293708296L500.86672552017444 517.7304293708296 505.86672552017444 512.7304293708296"
+    fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+  <circle cx="510.86672552017444" cy="676.2304293708296" r="9.5" fill="#38761d" zIndex="1"
+    id="icon-link"></circle>
+  <path
+    d="M506.86672552017444 676.2304293708296L509.36672552017444 679.2304293708296 514.3667255201744 674.2304293708296"
+    fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+  <circle cx="510.86672552017444" cy="729.2304293708296" r="9.5" fill="#9900ff" zIndex="1"
+    id="icon-link"></circle>
+  <path
+    d="M506.86672552017444 729.2304293708296L509.36672552017444 732.2304293708296 514.3667255201744 727.2304293708296"
+    fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+  <circle cx="510.86672552017444" cy="782.2304293708296" r="9.5" fill="#9900ff" zIndex="1"
+    id="icon-link"></circle>
+  <path
+    d="M506.86672552017444 782.2304293708296L509.36672552017444 785.2304293708296 514.3667255201744 780.2304293708296"
+    fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+  <circle cx="510.86672552017444" cy="835.2304293708296" r="9.5" fill="#9900ff" zIndex="1"
+    id="icon-link"></circle>
+  <path
+    d="M506.86672552017444 835.2304293708296L509.36672552017444 838.2304293708296 514.3667255201744 833.2304293708296"
+    fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+  <circle cx="-85.95968546864998" cy="217.7159927885748" r="9.5" fill="#38761d" zIndex="1"
+    id="icon-link"></circle>
+  <path
+    d="M-89.95968546864998 217.7159927885748L-87.45968546864998 220.7159927885748 -82.45968546864998 215.7159927885748"
+    fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+  <circle cx="-191.13327447982556" cy="462.7304293708296" r="9.5" fill="#9900ff" zIndex="1"
+    id="icon-link"></circle>
+  <path
+    d="M-195.13327447982556 462.7304293708296L-192.63327447982556 465.7304293708296 -187.63327447982556 460.7304293708296"
+    fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+  <circle cx="-191.13327447982556" cy="515.7304293708296" r="9.5" fill="#9900ff" zIndex="1"
+    id="icon-link"></circle>
+  <path
+    d="M-195.13327447982556 515.7304293708296L-192.63327447982556 518.7304293708296 -187.63327447982556 513.7304293708296"
+    fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+  <circle cx="-191.13327447982556" cy="568.7304293708296" r="9.5" fill="#9900ff" zIndex="1"
+    id="icon-link"></circle>
+  <path
+    d="M-195.13327447982556 568.7304293708296L-192.63327447982556 571.7304293708296 -187.63327447982556 566.7304293708296"
+    fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+  <circle cx="-191.13327447982556" cy="621.7304293708296" r="9.5" fill="#38761d" zIndex="1"
+    id="icon-link"></circle>
+  <path
+    d="M-195.13327447982556 621.7304293708296L-192.63327447982556 624.7304293708296 -187.63327447982556 619.7304293708296"
+    fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+  <circle cx="-191.13327447982556" cy="674.7304293708296" r="9.5" fill="#38761d" zIndex="1"
+    id="icon-link"></circle>
+  <path
+    d="M-195.13327447982556 674.7304293708296L-192.63327447982556 677.7304293708296 -187.63327447982556 672.7304293708296"
+    fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+  <circle cx="-191.13327447982556" cy="727.7304293708296" r="9.5" fill="#9900ff" zIndex="1"
+    id="icon-link"></circle>
+  <path
+    d="M-195.13327447982556 727.7304293708296L-192.63327447982556 730.7304293708296 -187.63327447982556 725.7304293708296"
+    fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+  <circle cx="-191.13327447982556" cy="780.7304293708296" r="9.5" fill="#9900ff" zIndex="1"
+    id="icon-link"></circle>
+  <path
+    d="M-195.13327447982556 780.7304293708296L-192.63327447982556 783.7304293708296 -187.63327447982556 778.7304293708296"
+    fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+  <circle cx="172.36672552017444" cy="461.2304293708296" r="9.5" fill="#9900ff" zIndex="1"
+    id="icon-link"></circle>
+  <path
+    d="M168.36672552017444 461.2304293708296L170.86672552017444 464.2304293708296 175.86672552017444 459.2304293708296"
+    fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+  <circle cx="172.36672552017444" cy="514.2304293708296" r="9.5" fill="#000" zIndex="1"
+    id="icon-link"></circle>
+  <path
+    d="M168.36672552017444 514.2304293708296L170.86672552017444 517.2304293708296 175.86672552017444 512.2304293708296"
+    fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+  <circle cx="509.53666458157085" cy="917.7756025940266" r="9.5" fill="#38761d" zIndex="1"
+    id="icon-link"></circle>
+  <path
+    d="M505.53666458157085 917.7756025940266L508.03666458157085 920.7756025940266 513.0366645815709 915.7756025940266"
+    fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+  <circle cx="509.53666458157085" cy="969.7756025940266" r="9.5" fill="#38761d" zIndex="1"
+    id="icon-link"></circle>
+  <path
+    d="M505.53666458157085 969.7756025940266L508.03666458157085 972.7756025940266 513.0366645815709 967.7756025940266"
+    fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+  <circle cx="509.53666458157085" cy="1021.7756025940266" r="9.5" fill="#38761d" zIndex="1"
+    id="icon-link"></circle>
+  <path
+    d="M505.53666458157085 1021.7756025940266L508.03666458157085 1024.7756025940266 513.0366645815709 1019.7756025940266"
+    fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+  <circle cx="147.86672552017444" cy="801.4712346612822" r="9.5" fill="#38761d" zIndex="1"
+    id="icon-link"></circle>
+  <path
+    d="M143.86672552017444 801.4712346612822L146.36672552017444 804.4712346612822 151.36672552017444 799.4712346612822"
+    fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+  <circle cx="148.86672552017444" cy="854.4712346612822" r="9.5" fill="#38761d" zIndex="1"
+    id="icon-link"></circle>
+  <path
+    d="M144.86672552017444 854.4712346612822L147.36672552017444 857.4712346612822 152.36672552017444 852.4712346612822"
+    fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+  <circle cx="30.506252682943114" cy="1069.5645748781312" r="9.5" fill="#38761d" zIndex="1"
+    id="icon-link"></circle>
+  <path
+    d="M26.506252682943114 1069.5645748781312L29.006252682943114 1072.5645748781312 34.00625268294311 1067.5645748781312"
+    fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+  <circle cx="241.0062526829431" cy="1071.3055580184816" r="9.5" fill="#38761d" zIndex="1"
+    id="icon-link"></circle>
+  <path
+    d="M237.0062526829431 1071.3055580184816L239.5062526829431 1074.3055580184816 244.5062526829431 1069.3055580184816"
+    fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+  <circle cx="30.506252682943114" cy="1122.5645748781312" r="9.5" fill="#38761d" zIndex="1"
+    id="icon-link"></circle>
+  <path
+    d="M26.506252682943114 1122.5645748781312L29.006252682943114 1125.5645748781312 34.00625268294311 1120.5645748781312"
+    fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+  <circle cx="241.0062526829431" cy="1124.3055580184816" r="9.5" fill="#38761d" zIndex="1"
+    id="icon-link"></circle>
+  <path
+    d="M237.0062526829431 1124.3055580184816L239.5062526829431 1127.3055580184816 244.5062526829431 1122.3055580184816"
+    fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+  <circle cx="-506.09047207111564" cy="767.1880786390362" r="9.5" fill="#38761d" zIndex="1"
+    id="icon-link"></circle>
+  <path
+    d="M-510.09047207111564 767.1880786390362L-507.59047207111564 770.1880786390362 -502.59047207111564 765.1880786390362"
+    fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+  <circle cx="-506.09047207111564" cy="714.1880786390362" r="9.5" fill="#38761d" zIndex="1"
+    id="icon-link"></circle>
+  <path
+    d="M-510.09047207111564 714.1880786390362L-507.59047207111564 717.1880786390362 -502.59047207111564 712.1880786390362"
+    fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+  <circle cx="-41.45968546864998" cy="899.4712346612822" r="9.5" fill="#38761d" zIndex="1"
+    id="icon-link"></circle>
+  <path
+    d="M-45.45968546864998 899.4712346612822L-42.95968546864998 902.4712346612822 -37.95968546864998 897.4712346612822"
+    fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+  <circle cx="-507.09047207111564" cy="871.3085583597832" r="9.5" fill="#38761d" zIndex="1"
+    id="icon-link"></circle>
+  <path
+    d="M-511.09047207111564 871.3085583597832L-508.59047207111564 874.3085583597832 -503.59047207111564 869.3085583597832"
+    fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+  <circle cx="-506.09047207111564" cy="977.3085583597832" r="9.5" fill="#38761d" zIndex="1"
+    id="icon-link"></circle>
+  <path
+    d="M-510.09047207111564 977.3085583597832L-507.59047207111564 980.3085583597832 -502.59047207111564 975.3085583597832"
+    fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+  <circle cx="-507.09047207111564" cy="924.3085583597832" r="9.5" fill="#38761d" zIndex="1"
+    id="icon-link"></circle>
+  <path
+    d="M-511.09047207111564 924.3085583597832L-508.59047207111564 927.3085583597832 -503.59047207111564 922.3085583597832"
+    fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+  <circle cx="-504.09047207111564" cy="1085.2877525020792" r="9.5" fill="#38761d" zIndex="1"
+    id="icon-link"></circle>
+  <path
+    d="M-508.09047207111564 1085.2877525020792L-505.59047207111564 1088.2877525020792 -500.59047207111564 1083.2877525020792"
+    fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+  <circle cx="-504.09047207111564" cy="1138.2877525020792" r="9.5" fill="#38761d" zIndex="1"
+    id="icon-link"></circle>
+  <path
+    d="M-508.09047207111564 1138.2877525020792L-505.59047207111564 1141.2877525020792 -500.59047207111564 1136.2877525020792"
+    fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+  <circle cx="-504.09047207111564" cy="1191.2877525020792" r="9.5" fill="#38761d" zIndex="1"
+    id="icon-link"></circle>
+  <path
+    d="M-508.09047207111564 1191.2877525020792L-505.59047207111564 1194.2877525020792 -500.59047207111564 1189.2877525020792"
+    fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+  <circle cx="-504.09047207111564" cy="1244.2877525020792" r="9.5" fill="#38761d" zIndex="1"
+    id="icon-link"></circle>
+  <path
+    d="M-508.09047207111564 1244.2877525020792L-505.59047207111564 1247.2877525020792 -500.59047207111564 1242.2877525020792"
+    fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+  <circle cx="-505.62962923010787" cy="1352.9416664638775" r="9.5" fill="#38761d" zIndex="1"
+    id="icon-link"></circle>
+  <path
+    d="M-509.62962923010787 1352.9416664638775L-507.12962923010787 1355.9416664638775 -502.12962923010787 1350.9416664638775"
+    fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+  <circle cx="-503.62962923010787" cy="1405.9416664638775" r="9.5" fill="#38761d" zIndex="1"
+    id="icon-link"></circle>
+  <path
+    d="M-507.62962923010787 1405.9416664638775L-505.12962923010787 1408.9416664638775 -500.12962923010787 1403.9416664638775"
+    fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+  <circle cx="10.54031453135002" cy="1282.2877525020792" r="9.5" fill="#38761d" zIndex="1"
+    id="icon-link"></circle>
+  <path
+    d="M6.54031453135002 1282.2877525020792L9.04031453135002 1285.2877525020792 14.04031453135002 1280.2877525020792"
+    fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+  <circle cx="10.54031453135002" cy="1376.02072262127" r="9.5" fill="#38761d" zIndex="1"
+    id="icon-link"></circle>
+  <path
+    d="M6.54031453135002 1376.02072262127L9.04031453135002 1379.02072262127 14.04031453135002 1374.02072262127"
+    fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+  <circle cx="10.54031453135002" cy="1527.1526950801597" r="9.5" fill="#38761d" zIndex="1"
+    id="icon-link"></circle>
+  <path
+    d="M6.54031453135002 1527.1526950801597L9.04031453135002 1530.1526950801597 14.04031453135002 1525.1526950801597"
+    fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+  <circle cx="-244.95968546864998" cy="1654.1526950801597" r="9.5" fill="#38761d" zIndex="1"
+    id="icon-link"></circle>
+  <path
+    d="M-248.95968546864998 1654.1526950801597L-246.45968546864998 1657.1526950801597 -241.45968546864998 1652.1526950801597"
+    fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+  <circle cx="258.7763111160998" cy="1654.1526950801597" r="9.5" fill="#38761d" zIndex="1"
+    id="icon-link"></circle>
+  <path
+    d="M254.7763111160998 1654.1526950801597L257.2763111160998 1657.1526950801597 262.2763111160998 1652.1526950801597"
+    fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+  <circle cx="258.7763111160998" cy="1823.2304293708296" r="9.5" fill="#38761d" zIndex="1"
+    id="icon-link"></circle>
+  <path
+    d="M254.7763111160998 1823.2304293708296L257.2763111160998 1826.2304293708296 262.2763111160998 1821.2304293708296"
+    fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+  <circle cx="-35.16916540260297" cy="1824.2304293708296" r="9.5" fill="#9900ff" zIndex="1"
+    id="icon-link"></circle>
+  <path
+    d="M-39.16916540260297 1824.2304293708296L-36.66916540260297 1827.2304293708296 -31.66916540260297 1822.2304293708296"
+    fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+  <circle cx="-35.16916540260297" cy="1953.2304293708294" r="9.5" fill="#000" zIndex="1"
+    id="icon-link"></circle>
+  <path
+    d="M-39.16916540260297 1953.2304293708294L-36.66916540260297 1956.2304293708294 -31.66916540260297 1951.2304293708294"
+    fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+  <circle cx="258.7763111160998" cy="1953.2304293708294" r="9.5" fill="#000" zIndex="1"
+    id="icon-link"></circle>
+  <path
+    d="M254.7763111160998 1953.2304293708294L257.2763111160998 1956.2304293708294 262.2763111160998 1951.2304293708294"
+    fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+  <circle cx="258.7763111160998" cy="2100.3398245709736" r="9.5" fill="#9900ff" zIndex="1"
+    id="icon-link"></circle>
+  <path
+    d="M254.7763111160998 2100.3398245709736L257.2763111160998 2103.3398245709736 262.2763111160998 2098.3398245709736"
+    fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+  <circle cx="316.54031453135" cy="2273.2304293708294" r="9.5" fill="#38761d" zIndex="1"
+    id="icon-link"></circle>
+  <path
+    d="M312.54031453135 2273.2304293708294L315.04031453135 2276.2304293708294 320.04031453135 2271.2304293708294"
+    fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>

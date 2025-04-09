@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkvipzhicheng_com=self.webpackChunkvipzhicheng_com||[]).push([["7627"],{47548:function(e){e.exports=JSON.parse('{"blogBasePath":"/blog","blogTitle":"\u535A\u5BA2","authorsListPath":"/blog/authors"}')}}]);
