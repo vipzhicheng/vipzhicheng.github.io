@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkvipzhicheng_com=self.webpackChunkvipzhicheng_com||[]).push([["9762"],{36747:function(s){s.exports=JSON.parse('{"blogBasePath":"/transblog","blogTitle":"\u535A\u5BA2\u8BD1\u7AD9","authorsListPath":"/transblog/authors"}')}}]);

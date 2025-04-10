@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkvipzhicheng_com=self.webpackChunkvipzhicheng_com||[]).push([["8642"],{66326:function(a){a.exports=JSON.parse('{"tags":[{"label":"A","permalink":"/transblog/tags/a","count":1},{"label":"B","permalink":"/transblog/tags/b","count":1},{"label":"C","permalink":"/transblog/tags/c","count":1}]}')}}]);

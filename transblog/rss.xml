@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xsl" href="rss.xsl"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+        <title>理查的数字花园 Blog</title>
+        <link>https://www.vipzhicheng.com/transblog</link>
+        <description>理查的数字花园 Blog</description>
+        <lastBuildDate>Sat, 05 Apr 2025 05:28:47 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <language>zh-Hans</language>
+        <item>
+            <title><![CDATA[ABC]]></title>
+            <link>https://www.vipzhicheng.com/transblog/2025/04/05/abc</link>
+            <guid>https://www.vipzhicheng.com/transblog/2025/04/05/abc</guid>
+            <pubDate>Sat, 05 Apr 2025 05:28:47 GMT</pubDate>
+            <description><![CDATA[ABC]]></description>
+            <content:encoded><![CDATA[<p>ABC</p>]]></content:encoded>
+            <category>A</category>
+            <category>B</category>
+            <category>C</category>
+        </item>
+    </channel>
+</rss>

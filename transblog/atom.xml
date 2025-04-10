@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xsl" href="atom.xsl"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://www.vipzhicheng.com/transblog</id>
+    <title>理查的数字花园 Blog</title>
+    <updated>2025-04-05T05:28:47.000Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://www.vipzhicheng.com/transblog"/>
+    <subtitle>理查的数字花园 Blog</subtitle>
+    <icon>https://www.vipzhicheng.com/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[ABC]]></title>
+        <id>https://www.vipzhicheng.com/transblog/2025/04/05/abc</id>
+        <link href="https://www.vipzhicheng.com/transblog/2025/04/05/abc"/>
+        <updated>2025-04-05T05:28:47.000Z</updated>
+        <summary type="html"><![CDATA[ABC]]></summary>
+        <content type="html"><![CDATA[<p>ABC</p>]]></content>
+        <category label="A" term="A"/>
+        <category label="B" term="B"/>
+        <category label="C" term="C"/>
+    </entry>
+</feed>
